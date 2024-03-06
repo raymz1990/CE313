@@ -1,0 +1,100 @@
+# Apresentação {.unnumbered}
+
+**CE313 - Estatística não-paramétrica**
+<br>Departamento de Estatística - UFPR
+<br>Professor: [Fernando Lucambio Pérez](https://docs.ufpr.br/~lucambio/)
+<br>Primeiro Semestre 2024 (15/Fevereiro/2024 - 29/Junho/2024).
+
+---
+
+## Objetivos
+
+Os métodos de inferência estatística não paramétricos ou de distribuição livre, são procedimentos matemáticos para testes de hipóteses e modelos de regressão que, diferentemente da estatística paramétrica, não fazem suposições sobre a distribuição de probabilidade das variáveis a serem consideradas.
+Objetivo geral: Espera-se que, ao final da disciplina, o aluno deva saber identificar o uso de testes não-paramétricos e lidar de forma apropriada com problemas práticos.
+
+**Objetivos específicos**: Identificar situações nas quais procedimentos não-paramétricos podem ser aplicados, selecionar testes não-paramétrico adequados para um problema em estudo, construir as hipóteses correspondentes e aplicar os procedimentos escolhidos utilizando funções R para esta finalidade.
+
+## Ementa
+
+Estatística paramétrica e não paramétrica. Testes não paramétricos para uma, duas ou mais amostras. Estimação não paramétrica de densidades. Introdução aos modelos não paramétricos de regressão.
+
+**Local**: Laboratório B.
+<br>**Horário**: quarta-feira 19:00h, sexta-feira 20:45h.
+<br>**Nota**: a nota final será a soma das notas obtidas nos quatro trabalhos assíncronos programados.
+
+## Referências bibliográficas básicas
+
+1. Conover, W.J. (1999). Practical nonparametric statistics. 3rd. ed. New York: Chichester: John Wiley & Sons (Asia).
+2. Gibbons, J.D. (1993). Nonparametric Statistics: An Introduction, Newbury Park: Sage Publications.
+3. Siegel, S. and Castellan, N.H. (2006). Estatística não-paramétrica para ciências do comportamento. RS: Artmed.
+4. Lucambio, F. (2023). [Estatística não paramétrica](leg.ufpr.br/~lucambio/Nonparam/Nparam.html)
+
+## Referências bibliográficas complementares
+
+1. Hastie, T.; Tibshirani, R. and Friedman, J. (2013). The elements of statistical learning: Data mining, inference, and prediction. Springer New York.
+2. Hollander, M. and Wolfe, D.A. (1999). Nonparametric statistical methods. 2nd. ed. New York: John Wiley & Sons.
+3. Kloke, J. and McKean, J.W. (2015). Nonparametric statistical methods using R. Boca Raton: CRC Press.
+4. Silverman, B.W. (1994). Nonparametric Regression and Generalized Linear Models: A Roughness Penalty Approach, London: Editora Chapman & Hall.
+5. Wasserman, L. (2006). All of nonparametric statistics: New York: Springer.
+
+## Conteúdo Programático
+
+**MÓDULO I**: [Estimação não paramétrica](leg.ufpr.br/~lucambio/Nonparam/NparamI.html)
+
+* Aula 01 - [Estatística não paramétrica 1]()
+* Aula 02 - [Estatísticas de ordem]()
+* Aula 03 -
+* Aula 04 -
+* Aula 05 -
+* Aula 06 - 
+
+---
+
+**MÓDULO II**: [Problemas de amostra única](leg.ufpr.br/~lucambio/Nonparam/NparamII.html)
+
+* Aula 07 -
+* Aula 08 -
+* Aula 09 -
+* Aula 10 -
+* Aula 11 -
+* Aula 12 -
+* Aula 13 -
+* Aula 14 -
+
+---
+
+**MÓDULO III**: [Procedimentos em k amostras](leg.ufpr.br/~lucambio/Nonparam/NparamIII.html)
+
+* Aula 15 - 
+* Aula 16 - 
+* Aula 17 -
+* Aula 18 -
+* Aula 19 -
+* Aula 20 -
+* Aula 21 -
+* Aula 22 -
+
+---
+
+**MÓDULO IV**: [Regressão não paramétrica](leg.ufpr.br/~lucambio/Nonparam/NparamIV.html)
+
+* Aula 23 - 
+* Aula 24 - 
+* Aula 25 -
+* Aula 26 -
+* Aula 27 -
+* Aula 28 -
+* Aula 29 -
+* Aula 30 -
+
+---
+
+**MÓDULO V**: [Redes neurais](leg.ufpr.br/~lucambio/Nonparam/NparamV.html)
+
+* Aula 31 - 
+* Aula 32 - 
+* Aula 33 -
+* Aula 34 -
+* Aula 35 -
+* Aula 36 -
+

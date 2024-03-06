@@ -1,0 +1,65 @@
+project:
+  type: book
+
+book:
+  title: "CE313 - Estatística Não-Paramétrica"
+  # author: "Fernando Lucambio Perez"
+  # favicon: non-parametric.png
+  # description: Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).
+  keyword: statistics, non-parametrics, R, quarto, data science, estatistica, nao-parametrica, ciencia de dados
+  # url: https://raymz1990.github.io/CE313/
+
+  repo-url: https://raymz1990.github.io/CE313/
+  repo-subdir: book
+  repo-branch: main
+  repo-actions: [edit, issue]
+
+  search: true
+  downloads: [pdf, docx]
+  sharing: [twitter, facebook, linkedin]
+  page-navigation: true
+  image: non-parametric.png
+  # comments:
+  #  giscus:
+  #    repo: raymz1990/CE313
+  open-graph:
+    image: non-parametric.pngs
+    description: Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).
+  
+  sidebar: 
+    background: "#F5F5F5"
+    # logo: non-parametric.png
+    # search: true
+    # pinned: true
+    # align: center
+
+  chapters:
+    - index.qmd
+
+    - part: "Modulo I/modulo-01.qmd"
+      chapters:
+      - Modulo I/Aula 01/aula01.qmd
+      - Modulo I/Aula 02/aula02.qmd
+
+  page-footer: 
+    left: |
+      Estatística 2023-2026
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  
+
+format:
+  html:
+    theme:
+      light: cosmo
+    code-fold: false
+    css: custom.css
+    backgroundcolor: "#F5F5F5"
+  pdf:
+    documentclass: scrreprt
+
+execute:
+  freeze: auto
+
+# good themes: default, cosmo, flatly, lumen, minty, pulse, sandstone, solar, united
+# favourites: minty, cosmo
