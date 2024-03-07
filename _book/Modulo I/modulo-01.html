@@ -252,7 +252,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#estimação-de-densidades" id="toc-estimação-de-densidades" class="nav-link active" data-scroll-target="#estimação-de-densidades">Estimação de densidades</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios">Exercícios</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/Modulo I/modulo-01.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -289,44 +296,251 @@ Warning
 <p>Última atualização: 03 de agosto de 2018.</p>
 </div>
 </div>
-<p>Sejam <span class="math inline">\(x_{1},  x_{2}, \cdots  x_{n}\)</span>, variáveis aleatórias independentes identicamente distribuídas com distribuição comum <span class="math inline">\(L(X)\)</span> e seja <span class="math inline">\(P\)</span> a classe de todas as possíveis distribuições de <span class="math inline">\(X\)</span> que consiste de todas as distribuições absolutamente contínuas ou discretas.</p>
+<p>Sejam <span class="math inline">\(x_{1},  x_{2}, \cdots  x_{n}\)</span>, variáveis aleatórias independentes identicamente distribuídas com distribuição comum <span class="math inline">\(\mathcal{L} (X)\)</span> e seja <span class="math inline">\(P\)</span> a classe de todas as possíveis distribuições de <span class="math inline">\(X\)</span> que consiste de todas as distribuições absolutamente contínuas ou discretas.</p>
 <blockquote class="blockquote">
-<p><strong>Definição</strong>. A estatística <span class="math inline">\(T(X)\)</span> é suficiente para a família de distribuições <span class="math inline">\(P\)</span> se a distribuição condicional de <span class="math inline">\(X|T=t\)</span> é a mesma, seja qual for a função de distribuição <span class="math inline">\(F∈P\)</span>.</p>
+<p><strong>Definição</strong>. A estatística <span class="math inline">\(T(X)\)</span> é suficiente para a família de distribuições <span class="math inline">\(\mathcal{p}\)</span> se a distribuição condicional de <span class="math inline">\(X|T=t\)</span> é a mesma, seja qual for a função de distribuição <span class="math inline">\(F \in \mathcal{p}\)</span>.</p>
 </blockquote>
 <p><strong>Exemplo</strong>. Sejam <span class="math inline">\(x_{1},  x_{2}, \cdots  x_{n}\)</span> variáveis aleatórias independentes igualmente distribuídas com distribuição absolutamente contínua e seja <span class="math inline">\(T = (X_{(1)}, \cdots, X_{(n)})\)</span> a estatística de ordem. Então: <span class="math display">\[f(x|T = t) = 1n!,\]</span> e vemos que <span class="math inline">\(T\)</span> é uma estatística suficiente para a família das distribuições absolutamente contínuas.</p>
-<p>Definição. A família de distribuições P é completa se somente a função zero for o estimador não viesado de 0, isto é, EF(h(X))=0, para todo F∈P implica que h(X)=0 . Isto para todo x exceto para um conjunto nulo em relação a cada F∈P .</p>
-<p>Exemplo. Seja X∼Uniforme(0,θ) , onde θ∈(0,∞) . Mostraremos que esta família de distribuições é completa. Precisamos mostrar que Eθ(g(X))=∫θ0g(x)1θdx=0,∀θ&gt;0, se, e somente se, g(x)=0 , para todo x . Em geral, esse resultado segue a teoria da integração. Se g for contíua, diferenciamos ambos os lados de ∫θ0g(x)dx=0, para obter g(θ)=0 , para todo θ&gt;0 . Agora, seja X1,X2,⋯,Xn uma amostra aleatória da distribuição Uniforme(0,θ) . Também, seja X(n)=max(X1,X2,⋯,Xn) . Então, a função de densidade de X(n) é dada por fX(n)(x|θ)=nθ−nxn−1,0&lt;x&lt;θ, zero caso contrário. Vemos por um argumento semelhante que X(n) é completa, o que é o mesmo do que dizer que {fX(n)(x|θ);θ&gt;0} é uma família de densidades completa. Claramente X(n) é suficiente.</p>
-<p>Definição. Uma estatística T(X) é dita ser completa em relação a uma classe de distribuições P se a classe de distribuições induzidas de T for completa.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. A família de distribuições <span class="math inline">\(\mathcal{P}\)</span> é completa se somente a função zero for o estimador não viesado de 0, isto é,</p>
+</blockquote>
+<p><span class="math display">\[E_F \Big( h(X) \Big) = 0,\]</span> para todo <span class="math inline">\(F\in\mathcal{P}\)</span> implica que <span class="math inline">\(h(X)=0\)</span>. Isto para todo <span class="math inline">\(x\)</span> exceto para um conjunto nulo em relação a cada <span class="math inline">\(F\in\mathcal{P}\)</span>.</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X\sim Uniforme(0,\theta)\)</span>, onde <span class="math inline">\(\theta\in (0,\infty)\)</span>. Mostraremos que esta família de distribuições é completa. Precisamos mostrar que</p>
+<p><span class="math display">\[E_\theta \Big( g(X) \Big) = \int_0^\theta g(x)\frac{1}{\theta}\mbox{d}x \, = \, 0, \qquad \forall \,\theta&gt;0,\]</span> se, e somente se, <span class="math inline">\(g(x)=0\)</span>, para todo <span class="math inline">\(x\)</span>. Em geral, esse resultado segue a teoria da integração. Se <span class="math inline">\(g\)</span> for contínua, diferenciamos ambos os lados de</p>
+<p><span class="math display">\[\int_0^\theta g(x)\mbox{d}x = 0,\]</span></p>
+<p>para obter <span class="math inline">\(g(\theta)=0\)</span>, para todo <span class="math inline">\(\theta&gt;0\)</span>. Agora, seja <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> uma amostra aleatória da distribuição <span class="math inline">\(Uniforme(0,\theta)\)</span>. Também, seja <span class="math inline">\(X_{(n)}=\max(X_1,X_2,\cdots,X_n)\)</span>. Então, a função de densidade de <span class="math inline">\(X_{(n)}\)</span> é dada por</p>
+<p><span class="math display">\[f_{X_{(n)}}(x|\theta)=n\theta^{-n}x^{n-1}, \qquad 0 &lt; x &lt; \theta,\]</span></p>
+<p>zero caso contrário. Vemos por um argumento semelhante que <span class="math inline">\(X_{(n)}\)</span> é completa, o que é o mesmo do que dizer que $ {f_{X_{(n)}}(x|); , &gt;0 }$ é uma família de densidades completa. Claramente <span class="math inline">\(X_{(n)}\)</span> é suficiente.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Uma estatística <span class="math inline">\(T(X)\)</span> é dita ser completa em relação a uma classe de distribuições <span class="math inline">\(\mathcal{P}\)</span> se a classe de distribuições induzidas de <span class="math inline">\(T\)</span> for completa.</p>
+</blockquote>
 <p>Claro que todos os exemplos já encontrados de estatísticas completas ou famílias completas de distribuições para o caso paramétrico podem ser aplicados nesta situação.</p>
-<p>Teorema. A estatística de ordem (X(1),⋯,X(n)) é uma estatística suficiente e completa desde que a amostra X1,X2,⋯,Xn seja composta de variáveis aleatórias independentes identicamente distribuídas do tipo discreta ou contínua. Demonstração Ver Fraser (1965).▉</p>
-<p>Definição. Diz-se que uma função real g(F) é estimável se tiver um estimador não viciado, isto é, se existe uma estatística T(X) tal que EF(T(X))=g(F), para todo F∈P .</p>
-<p>Exemplo. Se P é a classe de todas as distribuições para as quais o segundo momento existe, X é um estimador não viciado de μ(F) , a média da população. Similarmente μ2(F)=VarF(X), é também estimável e um estimador não viciado é S2=1n−1∑i=1n(Xi−X¯¯¯¯)2⋅ Da mesma forma, X¯¯¯¯−Y¯¯¯¯ é um estimador não viciado de E(X)−E(Y) , 1n{número de X&gt;c} é um estimador não viciado de PF(X&gt;c) e assim por diante.</p>
-<p>Definição. O grau m , m≥1 , de um parâmetro estimável g(F) é o menor tamanho de amostra para o qual o parâmetro é estimável, ou seja, é o menor n para o qual existe um estimador não viciado T(X1,⋯,Xn) com EF(T(X))=g(F), para todo F∈P .</p>
-<p>Exemplo. O parâmetro g(F)=PF(X&gt;c), onde c é uma constante conhecida, têm grau 1. Também μ(F) é estimável com grau 1, para isto assumimos que existe ao menos um F∈P tal que μ(F)≠0 . Acontece que μ2(F) é estimável com grau 2, desde que μ2(F) não seja estimável de forma não viciada por somente uma observação. Ao menos duas observações são necessárias. De maneira similar, μ2(F) têm grau 2.</p>
-<p>Definição. Um estimador não viciado de algum parâmetro baseado no tamanho mínimo de amostra, ou seja, com amostra iagual ao grau m é chamado de kernel.</p>
-<p>Exemplo. Seja X1,⋯,Xn uma amostra aleatória com distribuição F . Então Xi é o kernel de μ(F) ; XiXj , i≠j , é o kernel de μ2(F) e cada T(Xi,Xj)=X2i−XiXj,i=1,⋯,n,i≠j, é kernel de μ2(F) .</p>
-<p>Teorema. Existe um kernel simétrico para cada parâmetro estimável. Demonstração Seja T(X1,⋯,Xm) um kernel para g(F) . Também é Ts(X1,⋯,Xm)=1m!∑PT(Xi1,Xi2⋯,Xim) um kernel para g(F) , onde a soma P acontece sobre todas as m! permutacoes de {1,2,⋯,m} .▉</p>
-<p>Exemplo. Seja X1,⋯,Xn uma amostra aleatória com distribuição F . Um kernel simétrico para μ2(F) é Ts(Xi,Xj)=12(T(Xi,Xj)+T(Xj,Xi))=12(Xi−Xj)2,i=1,⋯,n,i≠j⋅</p>
-<p>Definição. Seja g(F) um parâmetro estimável de grau m e X1,X2,⋯,Xn uma amostra aleatória de F de tamanho n , n≥m . Correspondendo a qualquer kernel T(X1,⋯,Xn) de g(F) , definimos a U-estatística para a amostra como U(X1,X2,⋯,Xn)=1(nm)∑CTs(Xi1,Xi2,⋯,Xin), onde o índice da soma C percorre todas as (nm) permutações de m inteiros (i1,i2,⋯,im) escolhidos de {1,2,⋯,n} e Ts é um kernel simétrico, como definido na demonstração do Teorema anterior.</p>
-<p>Claramente, a U-estatística definida é simétrica nos X e EF(U(X))=g(F), para todo F .</p>
-<p>Exemplo. Seja X1,⋯,Xn uma amostra aleatória com distribuição F . Para estimarmos μ(F) a U-estatística é dada por U(X1,X2,⋯,Xn)=1n∑i=1nXi⋅ Para estimarmos μ2(F) , um kernel simétrico é Ts(Xi1,Xi2)=12(Xi1−Xi2)2, para i1=1,2,⋯,n , i1≠i2 . A correspondente U-estatística é U(X)=1(n2)∑i1&lt;i212(Xi1−Xi2)2=1n−1∑i=1n(Xi−X¯¯¯¯)2=S2⋅</p>
-<p>De maneira similar, para estimarmos μ2(F) , o kernel simétrico é Ts(Xi1,Xi2)=Xi1Xi2 e a correspondente U-estatística é U(X)=1(n2)∑i&lt;jXiXj=1n(n−1)∑i≠jXiXj⋅ Para estimarmos μ3(F) um kernel simétrico seria Ts(Xi1,Xi2,Xi3)=Xi1Xi2Xi3 , sendo que a U-estatística é U(X)=1(n3)∑i&lt;j&lt;kXiXjXk=1n(n−1)(n−2)∑i≠j≠kXiXjXk⋅ O seguinte resultado mostra a importância da U-estatística.</p>
-<p>Teorema. Seja P a classe de todas as distribuições absolutamente contínuas ou discretas. Qualquer função estimável g(F) , F∈P , tem um estimador único que é não viciado, simétrico nas observações e uniformemente de variância mínima entre todos os estimadores não viciados. Demonstração Seja X1,⋯,Xn uma amostra aleatória de F , F∈P e seja T(X1,⋯,Xn) um estimador não viciado de g(F) . Considere o conjunto de todas as n! permutações de {1,2,⋯,n} e indexá-los adequadamente. Seja {i1,i2,⋯,in} o i-ésimo deste conjunto e seja Ti=Ti(X1,X2,⋯,Xn)=T(Xi1,Xi2⋯,Xin),i=1,2,⋯,n!⋅ Seja T¯¯¯¯=1n!∑i=1n!Ti⋅ Claro que E(T)=g(F) e Var(T¯¯¯¯)=≤E(1n!∑n!i=1Ti)2−(g(F))2E(1(n!)2∑n!i=1T2i)−(g(F))2=E(T2)−(g(F))2=Var(T)⋅ A igualdade se mantém se, e somente se, Ti(X1,X2,⋯,Xn)=αn!,i=1,2,⋯,n!, para todos os pontos no espaço amostral, exceto talvez para um conjunto nulo, em que α é uma constante. Segue-se que T(X) é simétrico nos argumentos X1,X2,⋯,Xn com probabilidade 1 e T¯¯¯¯ é idêntico a T . A exclusividade é deixada como exercício.▉</p>
-<p>Teorema. Seja T(X1,⋯,Xn) um estimador não viciado para g(F) , F∈P . A correspondente U-estatística é essencialmente o único estimador não viciado uniformemente de mínima variância. Demonstração Consequência do teorema anterior.▉</p>
-<p>De acordo com os teoremas acima precisamos apenas considerar estimadores que sejam simétricos nas observações e tudo o que devemos fazer é torná-las não viciados. Este procedimento leva a um estimador não viciado com a menor variância na classe de todos os estimadores não viciados do parâmetro. Por exemplo, como consequência destes teoremas, X¯¯¯¯ e S2 são os únicos estimadores não viciados uniformemente de variância mínima de μ(F) e μ2(F) , respectivamente.</p>
-<p>Exemplo. Seja P a classe de todas as distribuições absolutamente contínuas e X1,X2,⋯,Xn uma amostra aleatória de tamanho n . Para estimarmos g(F)=PF(X1&gt;c), onde c é uma constante fixa, definimos Yi={1,0,Xi&gt;c,Xi≤ci=1,2,⋯,n⋅ Considere agora T(Y1,Y2,⋯,Yn)=∑i=1nαiYi, como um estimador de g(F) . Para encontrar o estimador não viciado de mínima variância de g simetrizamos T nos Y1,Y2,⋯,Yn . Isso acontece se αi=α , i=1,2,⋯,n e T(Y)=α∑ni=1Yi . Para T ser não viciado, temos que EF(T)=α∑i=1nEF(Yi)=αng(F), de maneira que α=1n . Portanto, 1n∑ni=1Yi é o estimador não viciado de mínima variância; também VarF(T)=g(F)(1−g(F))n≤14n⋅ Além disso, Yi têm distribuição Bernoulli , de modo a 1n(T−g(F))(g(F)(1−g(F)))12⟶DZ,n→∞, onde Z∼N(0,1) . Este resultado pode ser usado para encontrar limites de confiança em g(F) .</p>
-<p>Seja P a classe de todas as distribuições absolutamente contínuas na reta real. Sejam F,G∈P e definamos a função distância Δ(F,G) como segue: Δ(F,G)=∫∞−∞(F(x)−G(x))2F′(x)+G′(x)2dx⋅ Esta função satisfaz as seguintes propriedades:</p>
-<p>Δ(F,G)=0 se, e somente se, F=G . Δ(F,G)=Δ(G,F) . Δ(F,G)&gt;0 . Por outro lado, vamos supor que F(x)≠G(x) para algum x1 , onde F(x1)−G(x1)=d&gt;0 . Dado que F e G são distribuições absolutamente contínuas, existe um x0&lt;x1 , tal que F(x0)−G(x0)=d2eF(x)−G(x)≥d2, para x0≤x≤x1 . Dado que tanto F quanto G são ambas não decrescentes, pelo menos um dos F e G deve aumentar pelo menos d/2 quando x varia de x0 a x1 . Então Δ(F,G)≥∫x1x0(F(x)−G(x))2F′(x)+G′(x)2dx≥(d2)2d/22&gt;0⋅ Exemplo. Encontremos um estimador não viciado de mínima variância para Δ(F,G) . Sejam X1,X2,⋯,Xm uma amostra aleatória de F e Y1,Y2,⋯,Yn uma amostra aleatória de G , independentes. Consideramos que F,G∈P . Primeiro mostramos que g(F,G)=P({max(X1,X2)&lt;min(Y1,Y2)}⋃{max(Y1,Y2)&lt;min(X1,X2)})=13+2Δ(F,G)⋅ Temos que g(F,G)=P({max(X1,X2)&lt;min(Y1,Y2)})+P({max(Y1,Y2)&lt;min(X1,X2)}) e P(max(X1,X2)≤x)=F2(x),P(min(Y1,Y2)≥y)=[1−G(y)]2⋅ Então g(F,G)======∫∞−∞[1−G(y)]22F(y)F′(y)dy+∫∞−∞[1−F(x)]22G(x)G′(x)dx∫∞−∞[1+G2(y)−2G(y)]2F(y)F′(y)dy+∫∞−∞[1+F2(x)−2F(x)]2G(x)G′(x)dx2+∫∞−∞2[G2(x)F(x)F′(x)+F2(x)G(x)G′(x)−2F(x)G(x)(F′(x)+G′(x))]dx3−2∫∞−∞((F(x)+G(x))2−(F(x)−G(x))2)(F′(x)+G′(x)2)dx3−8∫∞−∞(F(x)+G(x)2)2(F′(x)+G′(x)2)dx+2Δ(F,G)3−83+2Δ(F,G)=g(F,G)⋅ Para utilizarmos os teoremas acima, vamos definir φ(X1,X2,Y1,Y2)={1,0,se max(X1,X2)&lt;min(Y1,Y2) ou se max(Y1,Y2)&lt;min(X1,X2)caso contrário Então φ(X1,X2,Y1,Y2) é um estimador não viciado de g(F,G) e de fato é um kernel de g(F,G) . A U-estatística correspondente, portanto, deve ser o estimador não viciado de mínima variância. Nós temos U(X,Y)=1(m2)(n2)∑i1&lt;i2∑k1&lt;k2φ(Xi1,Xi2,Yk1,Yk2), de maneira que U é o estimador não viciado de mínima variância de g(F,G) , assim como o estimador não viciado de mínima variância de Δ(F,G) é Δˆ(F,G)=12U(X,Y)−16⋅</p>
-<p>Exemplo. Seja P a classe de todas as funções de distribuição absolutamente contínuas na reta real e X1,X2,⋯,Xm e Y1,Y2,⋯,Yn duas amostras aleatórias independentes de F e G , respectivamente, com F,G∈P . Queremos estimar ρ(F,G)=P(X&lt;Y)⋅ Com esse objetivo, vamos definir Zij={1,0,Xi&lt;YjXi≥Yj para cada par Xi,Yj , i=1,2,⋯,m e j=1,2,⋯,n . Então ∑i=1mZij é o número de vezes que X&lt;Yj e ∑j=1nZij é o número de vezes que Xi&lt;Y . Mann and Whitney (1947) sugeriram utilizar o estimador U/mn , onde U=∑i=1m∑j=1nZij e E(U)=mnE(Zij)=mnP(X&lt;Y)⋅ Então ρˆ(F,G)=Umn, é não viciado para ρ . Além disso, ρˆ é simétrico em X e Y , de modo que tem uma variância mínima. Para calcular a variância mínima, temos E(U2)=∑i∑j∑h∑kE(ZijZhk), onde ZijZhk={1,0,se Xi&lt;Yj e Xh&lt;Ykcaso contrário, de modo a E(ZijZhk)=P(Xi&lt;Yj,Xh&lt;Yk)=⎧⎩⎨⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪⎪∫F(x)G′(x)dx,∫(1−G(x))2F′(x)dx,∫F2(x)G′(x)dx,(∫F(x)G′(x)dx)2, caso i=h,j=k caso i=h,j≠k caso i≠h,j=k caso i≠h,j≠k⋅ Há mn termos com i=h,j=k ; m(m−1)n termos com i≠h,j=k ; mn(n−1) termos com i=h,j≠k e m(m−1)n(n−1) termos com i≠h,j≠k . Segue que E(U2)=mn∫F(x)G′(x)dx+mn(n−1)∫(1−G(x))2F′(x)dx+m(m−1)n∫F2(x)G′(x)dx+m(m−1)n(n−1)(∫F(x)G′(x)dx)2, que leva à variância de U . Em particular, se F=G , então Var(U)=mn(m+n+1)12⋅</p>
-<p>I.1 Estimação de densidades</p>
-<p>De certa forma, problemas de estimação não-paramétrica são extensões de problemas de estimação paramétrica, mas a natureza do primeiro é bem diferente do último. Considere, por exemplo, a situação de observações independentes identicamente distribuídas, digamos X1,X2,⋯,Xn . Em um problema paramétrico, assumimos que a distribuição de Xi é F(⋅;θ) , a qual é totalmente especificada até o vetor de parâmetros θ ; então o problema é essencialmente a estimaçã de θ . Em um problema não-paramétrico, a distribuição é totalmente desconhecida com, talvez, algumas restriçõs em propriedades gerais e, portanto, é denotada por F .</p>
-<p>Aqui consideramos estimadores de F em termos de função de densidade f . A função de densidade tem a vantagem de fornecer uma representação visualmente mais informativa da distribuição subjacente. Por exemplo, o histograma geralmente dá uma ideia aproximada da forma da distribuição. Este último ficou como o único estimador de densidade não paramétrico até 1950. Por essa razão, nossa discussão começará com os histogramas.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A estatística de ordem <span class="math inline">\((X_{(1)},\cdots,X_{(n)})\)</span> é uma estatística suficiente e completa desde que a amostra <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> seja composta de variáveis aleatórias independentes identicamente distribuídas do tipo discreta ou contínua.</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Diz-se que uma função real <span class="math inline">\(g(F)\)</span> é estimável se tiver um estimador não viciado, isto é, se existe uma estatística <span class="math inline">\(T(X)\)</span> tal que <span class="math display">\[\mbox{E}_F\Big( T(X)\Big)=g(F),\]</span> para todo <span class="math inline">\(F\in\mathcal{P}\)</span>.</p>
+</blockquote>
+<p><strong>Exemplo</strong>. Se <span class="math inline">\(\mathcal{P}\)</span> é a classe de todas as distribuições para as quais o segundo momento existe, <span class="math inline">\(X\)</span> é um estimador não viciado de <span class="math inline">\(\mu(F)\)</span>, a média da população. Similarmente <span class="math display">\[\mu_2(F)=\mbox{Var}_F(X),\]</span> é também estimável e um estimador não viciado é</p>
+<p><span class="math display">\[S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2\cdot\]</span></p>
+<p>Da mesma forma, <span class="math inline">\(\overline{X}-\overline{Y}\)</span> é um estimador não viciado de <span class="math inline">\(\mbox{E}(X)-\mbox{E}(Y)\)</span>,</p>
+<p><span class="math display">\[\frac{1}{n}\{\mbox{número de } X&gt;c\}\]</span></p>
+<p>é um estimador não viciado de <span class="math inline">\(P_F(X&gt;c)\)</span> e assim por diante.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. O grau <span class="math inline">\(m\)</span>, <span class="math inline">\(m\geq 1\)</span>, de um parâmetro estimável <span class="math inline">\(g(F)\)</span> é o menor tamanho de amostra para o qual o parâmetro é estimável, ou seja, é o menor <span class="math inline">\(n\)</span> para o qual existe um estimador não viciado <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> com <span class="math display">\[\mbox{E}_F\Big( T(X)\Big)=g(F),\]</span> para todo <span class="math inline">\(F\in\mathcal{P}\)</span>.</p>
+</blockquote>
+<p><strong>Exemplo</strong>. O parâmetro <span class="math display">\[g(F)=P_F(X&gt;c),\]</span> onde <span class="math inline">\(c\)</span> é uma constante conhecida, têm grau 1. Também <span class="math inline">\(\mu(F)\)</span> é estimável com grau 1, para isto assumimos que existe ao menos um <span class="math inline">\(F\in\mathcal{P}\)</span> tal que <span class="math inline">\(\mu(F)\neq 0\)</span>. Acontece que <span class="math inline">\(\mu_2(F)\)</span> é estimável com grau 2, desde que <span class="math inline">\(\mu_2(F)\)</span> não seja estimável de forma não viciada por somente uma observação. Ao menos duas observações são necessárias. De maneira similar, <span class="math inline">\(\mu^2(F)\)</span> têm grau 2.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Um estimador não viciado de algum parâmetro baseado no tamanho mínimo de amostra, ou seja, com amostra iagual ao grau <span class="math inline">\(m\)</span> é chamado de kernel.</p>
+</blockquote>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X_1,\cdots,X_n\)</span> uma amostra aleatória com distribuição <span class="math inline">\(F\)</span>. Então <span class="math inline">\(X_i\)</span> é o kernel de <span class="math inline">\(\mu(F)\)</span>; <span class="math inline">\(X_iX_j\)</span>, <span class="math inline">\(i\neq j\)</span>, é o kernel de <span class="math inline">\(\mu^2(F)\)</span> e cada<br>
+<span class="math display">\[T(X_i,X_j)=X_i^2-X_iX_j, \qquad i=1,\cdots,n, \quad i\neq j,\]</span> é kernel de <span class="math inline">\(\mu_2(F)\)</span>.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Existe um kernel simétrico para cada parâmetro estimável.</p>
+</div>
+</div>
+<p><strong>Demonstração</strong>. Seja <span class="math inline">\(T(X_1,\cdots,X_m)\)</span> um kernel para <span class="math inline">\(g(F)\)</span>. Também é <span class="math display">\[T_s(X_1,\cdots,X_m)=\frac{1}{m!}\sum_P T(X_{i_1},X_{i_2}\cdots,X_{i_m})\]</span> um kernel para <span class="math inline">\(g(F)\)</span>, onde a soma <span class="math inline">\(P\)</span> acontece sobre todas as <span class="math inline">\(m!\)</span> permutacoes de <span class="math inline">\(\{1,2,\cdots,m\}\)</span>.</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X_1,\cdots,X_n\)</span> uma amostra aleatória com distribuição <span class="math inline">\(F\)</span>. Um kernel simétrico para <span class="math inline">\(\mu_2(F)\)</span> é <span class="math display">\[T_s(X_i,X_j)=\frac{1}{2}\Big( T(X_i,X_j)+T(X_j,X_i) \Big) \, = \, \frac{1}{2}\big( X_i-X_j\big)^2,  
+    \qquad i=1,\cdots,n, \quad i\neq j\cdot\]</span></p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Seja <span class="math inline">\(g(F)\)</span> um parâmetro estimável de grau <span class="math inline">\(m\)</span> e <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> uma amostra aleatória de <span class="math inline">\(F\)</span> de tamanho <span class="math inline">\(n\)</span>, <span class="math inline">\(n\geq m\)</span>. Correspondendo a qualquer kernel <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> de <span class="math inline">\(g(F)\)</span>, definimos a U-estatística para a amostra como <span class="math display">\[U(X_1,X_2,\cdots,X_n)=\frac{1}{{n \choose m}}\sum_C T_s(X_{i_1},X_{i_2},\cdots,X_{i_n}),\]</span> onde o índice da soma <span class="math inline">\(C\)</span> percorre todas as <span class="math inline">\({n \choose m}\)</span> permutações de <span class="math inline">\(m\)</span> inteiros <span class="math inline">\((i_1,i_2,\cdots,i_m)\)</span> escolhidos de <span class="math inline">\(\{1,2,\cdots,n\}\)</span> e <span class="math inline">\(T_s\)</span> é um kernel simétrico, como definido na demonstração do Teorema anterior.</p>
+</blockquote>
+<p>Claramente, a U-estatística definida é simétrica nos <span class="math inline">\(X\)</span> e <span class="math display">\[\mbox{E}_F\big(U(X)\big)=g(F),\]</span> para todo <span class="math inline">\(F\)</span>.</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X_1,\cdots,X_n\)</span> uma amostra aleatória com distribuição <span class="math inline">\(F\)</span>. Para estimarmos <span class="math inline">\(\mu(F)\)</span> a U-estatística é dada por<br>
+<span class="math display">\[U(X_1,X_2,\cdots,X_n)=\frac{1}{n}\sum_{i=1}^n X_i\cdot\]</span> Para estimarmos <span class="math inline">\(\mu_2(F)\)</span>, um kernel simétrico é <span class="math display">\[T_s(X_{i_1},X_{i_2}) = \frac{1}{2}\big( X_{i_1}-X_{i_2}\big)^2,\]</span> para <span class="math inline">\(i_1=1,2,\cdots,n\)</span>, <span class="math inline">\(i_1\neq i_2\)</span>. A correspondente U-estatística é <span class="math display">\[
+    U(X) \, = \, \frac{1}{{n \choose 2}}\sum_{i_1&lt; i_2}\frac{1}{2}\big(X_{i_1}-X_{i_2}\big)^2
+    \, = \, \frac{1}{n-1}\sum_{i=1}^n \big( X_i-\overline{X}\big)^2 \, = \, S^2\cdot
+\]</span></p>
+<p>De maneira similar, para estimarmos <span class="math inline">\(\mu_2(F)\)</span>, o kernel simétrico é <span class="math inline">\(T_s(X_{i_1},X_{i_2})=X_{i_1}X_{i_2}\)</span> e a correspondente U-estatística é <span class="math display">\[
+    U(X) \, = \, \frac{1}{{n \choose 2}}\sum_{i&lt; j}X_iX_j \, = \, \frac{1}{n(n-1)}\sum_{i\neq j} X_iX_j\cdot
+\]</span> Para estimarmos <span class="math inline">\(\mu^3(F)\)</span> um kernel simétrico seria <span class="math inline">\(T_s(X_{i_1},X_{i_2},X_{i_3})=X_{i_1}X_{i_2}X_{i_3}\)</span>, sendo que a U-estatística é <span class="math display">\[
+    U(X) \, = \, \frac{1}{{n \choose 3}}\sum_{i&lt; j&lt; k}X_iX_jX_k \, = \, \frac{1}{n(n-1)(n-2)}\sum_{i\neq j\neq k} X_iX_jX_k\cdot
+\]</span></p>
+<p>O seguinte resultado mostra a importância da U-estatística.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(\mathcal{P}\)</span> a classe de todas as distribuições absolutamente contínuas ou discretas. Qualquer função estimável <span class="math inline">\(g(F)\)</span>, <span class="math inline">\(F\in\mathcal{P}\)</span>, tem um estimador único que é não viciado, simétrico nas observações e uniformemente de variância mínima entre todos os estimadores não viciados.</p>
+</div>
+</div>
+<p><strong>Demonstração</strong>. Seja <span class="math inline">\(X_1,\cdots,X_n\)</span> uma amostra aleatória de <span class="math inline">\(F\)</span>, <span class="math inline">\(F\in\mathcal{P}\)</span> e seja <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> um estimador não viciado de <span class="math inline">\(g(F)\)</span>. Considere o conjunto de todas as <span class="math inline">\(n!\)</span> permutações de <span class="math inline">\(\{1,2,\cdots,n\}\)</span> e indexá-los adequadamente. Seja <span class="math inline">\(\{i_1,i_2,\cdots,i_n\}\)</span> o i-ésimo deste conjunto e seja <span class="math display">\[
+    T_i \, = \, T_i(X_1,X_2,\cdots,X_n) \, = \, T(X_{i_1},X_{i_2}\cdots,X_{i_n}), \qquad i=1,2,\cdots,n!\cdot
+\]</span> Seja <span class="math display">\[
+    \overline{T}=\frac{1}{n!}\sum_{i=1}^{n!} T_i\cdot
+\]</span> Claro que <span class="math inline">\(\mbox{E}(T)=g(F)\)</span> e <span class="math display">\[
+\begin{array}{rcl}
+    \mbox{Var}(\overline{T}) &amp; = &amp; \mbox{E}\Big(\frac{1}{n!}\sum_{i=1}^{n!} T_i \Big)^2 \, - \, \big(g(F)\big)^2 \\
+    &amp; \leq &amp; \mbox{E}\Big(\frac{1}{(n!)^2}\sum_{i=1}^{n!} T_i^2\Big) \, - \, \big(g(F)\big)^2 \, = \, \mbox{E}(T^2)
+    \, - \, \big(g(F)\big)^2 \, = \, \mbox{Var}(T)\cdot
+\end{array}
+\]</span> A igualdade se mantém se, e somente se, <span class="math display">\[
+    T_i(X_1,X_2,\cdots,X_n) \, = \, \frac{\alpha}{n!}, \qquad i=1,2,\cdots,n!,
+\]</span> para todos os pontos no espaço amostral, exceto talvez para um conjunto nulo, em que <span class="math inline">\(\alpha\)</span> é uma constante. Segue-se que <span class="math inline">\(T(X)\)</span> é simétrico nos argumentos <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> com probabilidade 1 e <span class="math inline">\(\overline{T}\)</span> é idêntico a <span class="math inline">\(T\)</span>. A exclusividade é deixada como exercício.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> um estimador não viciado para <span class="math inline">\(g(F)\)</span>, <span class="math inline">\(F\in\mathcal{P}\)</span>. A correspondente U-estatística é essencialmente o único estimador não viciado uniformemente de mínima variância.</p>
+</div>
+</div>
+<p><strong>Demonstração</strong> Consequência do teorema anterior.</p>
+<p>De acordo com os teoremas acima precisamos apenas considerar estimadores que sejam simétricos nas observações e tudo o que devemos fazer é torná-las não viciados. Este procedimento leva a um estimador não viciado com a menor variância na classe de todos os estimadores não viciados do parâmetro. Por exemplo, como consequência destes teoremas, <span class="math inline">\(\overline{X}\)</span> e <span class="math inline">\(S^2\)</span> são os únicos estimadores não viciados uniformemente de variância mínima de <span class="math inline">\(\mu(F)\)</span> e <span class="math inline">\(\mu_2(F)\)</span>, respectivamente.</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(\mathcal{P}\)</span> a classe de todas as distribuições absolutamente contínuas e <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> uma amostra aleatória de tamanho <span class="math inline">\(n\)</span>. Para estimarmos <span class="math display">\[
+    g(F) \, = \, P_F(X_1&gt;c),
+\]</span> onde <span class="math inline">\(c\)</span> é uma constante fixa, definimos <span class="math display">\[
+    Y_i \, = \, \left\{ \begin{array}{ll} 1, &amp; X_i&gt; c, \\ 0, &amp; X_i\leq c \end{array}\right. \quad i=1,2,\cdots,n\cdot
+\]</span> Considere agora <span class="math display">\[
+    T(Y_1,Y_2,\cdots,Y_n) = \sum_{i=1}^n \alpha_i Y_i,
+\]</span> como um estimador de <span class="math inline">\(g(F)\)</span>. Para encontrar o estimador não viciado de mínima variância de <span class="math inline">\(g\)</span> simetrizamos <span class="math inline">\(T\)</span> nos <span class="math inline">\(Y_1,Y_2,\cdots,Y_n\)</span>. Isso acontece se <span class="math inline">\(\alpha_i=\alpha\)</span>, <span class="math inline">\(i=1,2,\cdots,n\)</span> e <span class="math inline">\(T(Y)=\alpha\sum_{i=1}^n Y_i\)</span>. Para <span class="math inline">\(T\)</span> ser não viciado, temos que <span class="math display">\[
+    \mbox{E}_F(T) \, = \, \alpha\sum_{i=1}^n \mbox{E}_F(Y_i) \, = \, \alpha n g(F),
+\]</span> de maneira que <span class="math inline">\(\alpha=\frac{1}{n}\)</span>. Portanto, <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n Y_i\)</span> é o estimador não viciado de mínima variância; também <span class="math display">\[
+    \mbox{Var}_F(T) \, = \, \frac{g(F)\big(1-g(F)\big)}{n} \, \leq \, \frac{1}{4n}\cdot
+\]</span> Além disso, <span class="math inline">\(Y_i\)</span> têm distribuição <span class="math inline">\(Bernoulli\)</span>, de modo a <span class="math display">\[
+    \frac{\frac{1}{n}\big(T-g(F)\big)}{\big(g(F)(1-g(F))\big)^\frac{1}{2}} \overset{D}{\longrightarrow} Z, \qquad n\to\infty,
+\]</span> onde <span class="math inline">\(Z\sim N(0,1)\)</span>. Este resultado pode ser usado para encontrar limites de confiança em <span class="math inline">\(g(F)\)</span>.</p>
+Seja <span class="math inline">\(\mathcal{P}\)</span> a classe de todas as distribuições absolutamente contínuas na reta real. Sejam <span class="math inline">\(F,G\in\mathcal{P}\)</span> e definamos a função distância <span class="math inline">\(\Delta(F,G)\)</span> como segue: <span class="math display">\[
+    \Delta(F,G) \, = \, \int_{-\infty}^\infty \big( F(x)-G(x)\big)^2 \dfrac{F'(x)+G'(x)}{2}\mbox{d}x \cdot
+\]</span> Esta função satisfaz as seguintes propriedades:
+<ul>
+<li>
+<span class="math inline">\(\Delta(F,G) = 0\)</span> se, e somente se, <span class="math inline">\(F=G\)</span>.
+</li>
+<li>
+<span class="math inline">\(\Delta(F,G) = \Delta(G,F)\)</span>.
+</li>
+<li>
+<span class="math inline">\(\Delta(F,G) &gt; 0\)</span>. Por outro lado, vamos supor que <span class="math inline">\(F(x)\neq G(x)\)</span> para algum <span class="math inline">\(x_1\)</span>, onde <span class="math inline">\(F(x_1)-G(x_1)=d&gt;0\)</span>. Dado que <span class="math inline">\(F\)</span> e <span class="math inline">\(G\)</span> são distribuições absolutamente contínuas, existe um $ x_0 &lt; x_1 $, tal que <span class="math display">\[F(x_0)-G(x_0) \, = \, \frac{d}{2} \qquad \mbox{e} \qquad F(x)-G(x)\geq \frac{d}{2},\]</span> para <span class="math inline">\(x_0\leq x \leq x_1\)</span>. Dado que tanto <span class="math inline">\(F\)</span> quanto <span class="math inline">\(G\)</span> são ambas não decrescentes, pelo menos um dos <span class="math inline">\(F\)</span> e <span class="math inline">\(G\)</span> deve aumentar pelo menos <span class="math inline">\(d/2\)</span> quando <span class="math inline">\(x\)</span> varia de <span class="math inline">\(x_0\)</span> a <span class="math inline">\(x_1\)</span>. Então <span class="math display">\[\Delta(F,G) \, \geq \, \int_{x_0}^{x_1} \big( F(x)-G(x)\big)^2 \dfrac{F'(x)+G'(x)}{2}\mbox{d}x \, \geq \,
+        \Big( \frac{d}{2}\Big)^2 \frac{d/2}{2} \, &gt; \, 0\cdot\]</span>
+</li>
+</ul>
+<p><strong>Exemplo</strong>. Encontremos um estimador não viciado de mínima variância para <span class="math inline">\(\Delta(F,G)\)</span>. Sejam <span class="math inline">\(X_1,X_2,\cdots,X_m\)</span> uma amostra aleatória de <span class="math inline">\(F\)</span> e <span class="math inline">\(Y_1,Y_2,\cdots,Y_n\)</span> uma amostra aleatória de <span class="math inline">\(G\)</span>, independentes. Consideramos que <span class="math inline">\(F,G\in\mathcal{P}\)</span>. Primeiro mostramos que <span class="math display">\[
+    g(F,G) \, = \, P\Big( \big\{ \max(X_1,X_2) &lt; \min(Y_1,Y_2)\big\} \bigcup \big\{\max(Y_1,Y_2) &lt; \min(X_1,X_2)\big\}\Big) \, = \,
+    \frac{1}{3} \, + \, 2\Delta(F,G)\cdot
+\]</span> Temos que <span class="math display">\[
+    g(F,G) \, = \, P\Big( \big\{\max(X_1,X_2) &lt; \min(Y_1,Y_2)\big\}\Big) \, + \, P\Big( \big\{\max(Y_1,Y_2) &lt; \min(X_1,X_2)\big\}\Big)
+\]</span> e <span class="math display">\[
+    P\big( \max(X_1,X_2) \leq x \big) \, = \, F^2(x), \qquad P\big( \min(Y_1,Y_2) \geq y \big) \, = \, [1-G(y)]^2\cdot
+\]</span> Então <span class="math display">\[
+\begin{array}{rcl}
+    g(F,G) &amp; = &amp; \displaystyle \int_{-\infty}^\infty [1-G(y)]^2 2F(y)F'(y)\mbox{d}y \, + \,
+    \int_{-\infty}^\infty [1-F(x)]^2 2G(x)G'(x)\mbox{d}x \\
+    &amp; = &amp; \displaystyle \int_{-\infty}^\infty [1+G^2(y)-2G(y)] 2F(y)F'(y)\mbox{d}y \, + \,
+    \int_{-\infty}^\infty [1+F^2(x)-2F(x)] 2G(x)G'(x)\mbox{d}x \\
+    &amp; = &amp; 2+ \displaystyle \int_{-\infty}^\infty 2\Big[G^2(x)F(x)F'(x)+F^2(x)G(x)G'(x)-2F(x)G(x)\big(F'(x)+G'(x)\big)\Big]\mbox{d}x \\
+    &amp; = &amp; 3-2\displaystyle \int_{-\infty}^\infty \Big(\big(F(x)+G(x)\big)^2-\big(F(x)-G(x)\big)^2 \Big)
+    \Big(\frac{F'(x)+G'(x)}{2}\Big)\mbox{d}x \\
+    &amp; = &amp; 3-8\displaystyle\int_{-\infty}^\infty \Big(\frac{F(x)+G(x)}{2}\Big)^2\Big(\frac{F'(x)+G'(x)}{2}\Big)\mbox{d}x \, + \,
+    2\Delta(F,G) \\
+    &amp; = &amp; 3-\frac{8}{3} \, + \, 2\Delta(F,G) \, = \, g(F,G)\cdot
+\end{array}
+\]</span> Para utilizarmos os teoremas acima, vamos definir <span class="math display">\[
+    \varphi(X_1,X_2,Y_1,Y_2) \, = \, \left\{ \begin{array}{ll} 1, &amp; \mbox{se } \, \max(X_1,X_2) &lt; \min(Y_1,Y_2) \, \mbox{ ou se } \,
+    \max(Y_1,Y_2) &lt; \min(X_1,X_2) \\ 0, &amp; \mbox{caso contrário} \end{array}\right.
+\]</span> Então <span class="math inline">\(\varphi(X_1,X_2,Y_1,Y_2)\)</span> é um estimador não viciado de <span class="math inline">\(g(F,G)\)</span> e de fato é um kernel de <span class="math inline">\(g(F,G)\)</span>. A U-estatística correspondente, portanto, deve ser o estimador não viciado de mínima variância. Nós temos <span class="math display">\[
+    U(X,Y) \, = \, \frac{1}{{m \choose 2}{n \choose 2}} \sum_{i_1&lt; i_2}\sum_{k_1&lt; k_2} \varphi(X_{i_1},X_{i_2},Y_{k_1},Y_{k_2}),
+\]</span> de maneira que <span class="math inline">\(U\)</span> é o estimador não viciado de mínima variância de <span class="math inline">\(g(F,G)\)</span>, assim como o estimador não viciado de mínima variância de <span class="math inline">\(\Delta(F,G)\)</span> é <span class="math display">\[
+    \widehat{\Delta}(F,G) \, = \, \frac{1}{2}U(X,Y) \, - \, \frac{1}{6}\cdot
+\]</span></p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(\mathcal{P}\)</span> a classe de todas as funções de distribuição absolutamente contínuas na reta real e <span class="math inline">\(X_1,X_2,\cdots,X_m\)</span> e <span class="math inline">\(Y_1,Y_2,\cdots,Y_n\)</span> duas amostras aleatórias independentes de <span class="math inline">\(F\)</span> e <span class="math inline">\(G\)</span>, respectivamente, com <span class="math inline">\(F,G\in\mathcal{P}\)</span>. Queremos estimar <span class="math display">\[
+    \rho(F,G) \, = \, P(X &lt; Y)\cdot
+\]</span> Com esse objetivo, vamos definir <span class="math display">\[
+    Z_{ij}=\left\{\begin{array}{ll} 1, &amp; X_i&lt; Y_j \\ 0, &amp; X_i\geq Y_j \end{array}\right.
+\]</span> para cada par <span class="math inline">\(X_i, Y_j\)</span>, <span class="math inline">\(i=1,2,\cdots,m\)</span> e <span class="math inline">\(j=1,2,\cdots,n\)</span>. Então <span class="math inline">\(\displaystyle \sum_{i=1}^m Z_{ij}\)</span> é o número de vezes que <span class="math inline">\(X&lt; Y_j\)</span> e <span class="math inline">\(\displaystyle \sum_{j=1}^n Z_{ij}\)</span> é o número de vezes que <span class="math inline">\(X_i&lt; Y\)</span>. Mann and Whitney (1947) sugeriram utilizar o estimador <span class="math inline">\(U/mn\)</span>, onde <span class="math display">\[
+    U \, = \, \sum_{i=1}^m \sum_{j=1}^n Z_{ij}
+\]</span> e <span class="math display">\[
+    \mbox{E}(U) \, = \, mn \mbox{E}(Z_{ij}) \, = \, mn P(X &lt; Y)\cdot
+\]</span> Então <span class="math display">\[
+    \widehat{\rho}(F,G) \, = \, \frac{U}{mn},
+\]</span> é não viciado para <span class="math inline">\(\rho\)</span>. Além disso, <span class="math inline">\(\widehat{\rho}\)</span> é simétrico em <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, de modo que tem uma variância mínima. Para calcular a variância mínima, temos <span class="math display">\[
+    \mbox{E}\big(U^2\big) \, = \, \sum_i\sum_j\sum_h\sum_k \mbox{E}(Z_{ij}Z_{hk}),
+\]</span> onde <span class="math display">\[
+    Z_{ij}Z_{hk} \, = \, \left\{\begin{array}{ll} 1, &amp; \mbox{se } \, X_i &lt; Y_j \, \mbox{ e } \, X_h &lt; Y_k \\
+    0, &amp; \mbox{caso contrário} \end{array}\right.,
+\]</span> de modo a <span class="math display">\[
+    \mbox{E}(Z_{ij}Z_{hk}) \, = \, P( X_i &lt; Y_j, X_h &lt; Y_k ) \, = \,
+    \left\{ \begin{array}{ll} \displaystyle \int F(x)G'(x)\mbox{d}x, &amp; \mbox{ caso } \, i = h, \, j = k \\
+    \displaystyle \int \big( 1-G(x)\big)^2 F'(x)\mbox{d}x, &amp; \mbox{ caso } \, i = h, \, j \neq k \\
+    \displaystyle \int F^2(x)G'(x)\mbox{d}x, &amp; \mbox{ caso } \, i \neq h, \, j = k \\
+    \displaystyle \Big(\int F(x)G'(x)\mbox{d}x\Big)^2, &amp; \mbox{ caso } \, i \neq h, \, j \neq k \\
+    \end{array}\right.\cdot
+\]</span> Há <span class="math inline">\(mn\)</span> termos com <span class="math inline">\(i=h, j=k\)</span>; <span class="math inline">\(m(m-1)n\)</span> termos com <span class="math inline">\(i\neq h, j=k\)</span>; <span class="math inline">\(mn(n-1)\)</span> termos com <span class="math inline">\(i=h, j\neq k\)</span> e <span class="math inline">\(m(m-1)n(n-1)\)</span> termos com <span class="math inline">\(i\neq h, j\neq k\)</span>. Segue que <span class="math display">\[
+\begin{array}{rcl}
+    \mbox{E}\big(U^2\big) &amp; = &amp; \displaystyle mn \int F(x)G'(x)\mbox{d}x \, + \, mn(n-1)\int \big( 1-G(x)\big)^2 F'(x)\mbox{d}x \\
+    &amp; &amp; \, + \, \displaystyle m(m-1)n\int F^2(x)G'(x)\mbox{d}x \, + \, m(m-1)n(n-1)\Big(\int F(x)G'(x)\mbox{d}x\Big)^2,
+\end{array}
+\]</span> que leva à variância de <span class="math inline">\(U\)</span>. Em particular, se <span class="math inline">\(F = G\)</span>, então <span class="math display">\[
+    \mbox{Var}(U) \, = \, \frac{mn(m+n+1)}{12}\cdot
+\]</span></p>
+<section id="estimação-de-densidades" class="level2">
+<h2 class="anchored" data-anchor-id="estimação-de-densidades">Estimação de densidades</h2>
+<p>De certa forma, problemas de estimação não-paramétrica são extensões de problemas de estimação paramétrica, mas a natureza do primeiro é bem diferente do último. Considere, por exemplo, a situação de observações independentes identicamente distribuídas, digamos <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span>. Em um problema paramétrico, assumimos que a distribuição de <span class="math inline">\(X_i\)</span> é <span class="math inline">\(F(\cdot;\theta)\)</span>, a qual é totalmente especificada até o vetor de parâmetros <span class="math inline">\(\theta\)</span>; então o problema é essencialmente a estimaçã de <span class="math inline">\(\theta\)</span>. Em um problema não-paramétrico, a distribuição é totalmente desconhecida com, talvez, algumas restriçõs em propriedades gerais e, portanto, é denotada por <span class="math inline">\(F\)</span>.</p>
+<p>Aqui consideramos estimadores de <span class="math inline">\(F\)</span> em termos de função de densidade <span class="math inline">\(f\)</span>. A função de densidade tem a vantagem de fornecer uma representação visualmente mais informativa da distribuição subjacente. Por exemplo, o histograma geralmente dá uma ideia aproximada da forma da distribuição. Este último ficou como o único estimador de densidade não paramétrico até 1950. Por essa razão, nossa discussão começará com os histogramas.</p>
 <p>Embora o histograma seja usado extensivamente, não é tão frequente que seja necessária uma definição matemática. Uma maneira de defini-lo é através da função de densidade empírica.</p>
-<p>Definição. Seja f a derivada de F ; por isso pode-se expressar como f(x)=limh→0F(x+h)−F(x−h)2h⋅ Então, dizemos que fˆ , definido por fˆ(x)=Fˆ(x+h)−Fˆ(x−h)2h, é o histograma, sendo que Fˆ é a função de distribuição empírica.</p>
-<p>O parâmetro h é chamado de largura de banda. Podemos escrever fˆ , definido acima como, fˆ(x)=12nh∑i=1n11(x−h;x+h)(Xi)⋅ Podemos excrever a função de densidade como f(x)=limh→01h(F(x+h)−F(x−h)) , mas não se pode definir daqui o histograma porque, então, esse limite é zero ou infinito e assim em algum momento é preciso parar, em outras palavras, não se pode chegar muito perto de zero.</p>
-<p>Teorema. Seja f a função de densidade da função de distribuição F . Então, com probabilidade 1, fˆ(x)∼Binomial(n,p), com p=F(x+h)−F(x−h) . Assim, o comportamento assintótico do histograma pode ser derivado da distribuição binomial como E(fˆ(x))=F(x+h)−F(x−h)2h e Var(fˆ(x))=p(1−p)4nh2⋅ Demonstração. Exercício.▉</p>
-<p>Deste teorema segue que fˆ(x) é um estimador consistente pontual de f(x) quando h→0 e nh→∞ . A seguir, o processo de limite é entendido como h=hn , de maneira que hn→0 e nhn→∞ . Estas condições podem ser interpretadas como se fosse necessário hn ir a zero, mas não muito rápido. Isso é exatamente o que temos especulado, exceto que agora temos a taxa exata de convergência, que pode ser escrita como hn=o(n) .</p>
-<p>Exemplo. Utilaremos dados simulados da distribuíão N(0,1) , com isso mostramos o histograma destes 50 dados utilizando duas formas diferentes de encontrarmos uma expressão para hn , a chamada largura de banda.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Seja <span class="math inline">\(f\)</span> a derivada de <span class="math inline">\(F\)</span>; por isso pode-se expressar como <span class="math display">\[
+f(x)=\lim_{h\to 0}\frac{F(x+h)-F(x-h)}{2h}\cdot
+\]</span> Então, dizemos que <span class="math inline">\(\widehat{f}\)</span>, definido por <span class="math display">\[
+\widehat{f}(x)=\frac{\widehat{F}(x+h)-\widehat{F}(x-h)}{2h},
+\]</span> é o histograma, sendo que <span class="math inline">\(\widehat{F}\)</span> é a função de distribuição empírica.</p>
+</blockquote>
+<p>O parâmetro <span class="math inline">\(h\)</span> é chamado de largura de banda. Podemos escrever <span class="math inline">\(\widehat{f}\)</span>, definido acima como, <span class="math display">\[
+    \widehat{f}(x)=\frac{1}{2nh}\sum_{i=1}^n \pmb{1}_{(x-h;x+h)}(X_i)\cdot
+\]</span> Podemos excrever a função de densidade como $f(x)=_{h} ( F(x+h)-F(x-h) ) $, mas não se pode definir daqui o histograma porque, então, esse limite é zero ou infinito e assim em algum momento é preciso parar, em outras palavras, não se pode chegar muito perto de zero.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(f\)</span> a função de densidade da função de distribuição <span class="math inline">\(F\)</span>. Então, com probabilidade 1,<br>
+<span class="math display">\[
+    \widehat{f}(x)\sim Binomial(n,p),
+\]</span> com <span class="math inline">\(p=F(x+h)-F(x-h)\)</span>. Assim, o comportamento assintótico do histograma pode ser derivado da distribuição binomial como <span class="math display">\[
+    \mbox{E}\big(\widehat{f}(x)\big)=\frac{F(x+h)-F(x-h)}{2h}
+\]</span> e <span class="math display">\[
+    \mbox{Var}\big(\widehat{f}(x)\big)=\frac{p(1-p)}{4nh^2}\cdot
+\]</span></p>
+</div>
+</div>
+<p><strong>Demonstração.</strong> Exercício.</p>
+<p>Deste teorema segue que <span class="math inline">\(\widehat{f}(x)\)</span> é um estimador consistente pontual de <span class="math inline">\(f(x)\)</span> quando <span class="math inline">\(h\to 0\)</span> e <span class="math inline">\(nh\to \infty\)</span>. A seguir, o processo de limite é entendido como <span class="math inline">\(h=h_n\)</span>, de maneira que <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to \infty\)</span>. Estas condições podem ser interpretadas como se fosse necessário <span class="math inline">\(h_n\)</span> ir a zero, mas não muito rápido. Isso é exatamente o que temos especulado, exceto que agora temos a taxa exata de convergência, que pode ser escrita como <span class="math inline">\(h_n=o(n)\)</span>.</p>
+<p><strong>Exemplo</strong>. Utilaremos dados simulados da distribuíão <span class="math inline">\(N(0,1)\)</span>, com isso mostramos o histograma destes 50 dados utilizando duas formas diferentes de encontrarmos uma expressão para <span class="math inline">\(h_n\)</span>, a chamada largura de banda.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -357,15 +571,19 @@ Warning
 </div>
 </div>
 </div>
-<p>Neste exemplo utilizamos duas formas de escolher a largura de banda hn dentre três diferentes possibilidades programadas na função hist. Por padrão escolhe-se breaks = “Sturges”, porposto por Sturges (1929), o qual sugere que hn=max(X1,⋯,Xn)−min(X1,⋯,Xn)1+3.322ln(n)⋅ A segunda situação indica que o qual significa que se os dados provêm da distribuição Normal temos que hn=3.49sn−1/3 sendo s o desvio padrão estimado. Esta proposta deve-se à Scott (1979).</p>
-<p>Embora o histograma é um estimador consistente quando hn→0 e nhn→∞ , verifica-se que se pode fazer melhor. A melhoria também é motivada por uma preocupação prática: o histograma não é uma função suave, uma propriedade que se pode esperar que qualquer função de densidade real tenha.</p>
-<p>Definição. O estimador kernel da função de densidade é dado por fˆ(x)=1nhn∑i=1nK(x−Xihn), onde K(⋅) é uma função conhecida como kernel.</p>
-<p>É tipicamente assumido que K seja não-negativa, simétrica em torno de zero e satisfaz ∫K(u)du=1 . Claro que o histograma é um caso especial do estimador do kernel se K for escolhido como a função de densidade da distribuição Uniforme(−1,1) . O último não é uma função suave e é por isso que o histograma não é suave; mas escolhendo K como uma função suave, tem-se um estimador de f que seja suave.</p>
-<p>Por exemplo, escolhendo a função de densidade N(0,1) , temos por resultado o conhecido como kernel Gaussiano e assim também utilizando a densidade de densidade Beta simétrica, dada por K(u)=Γ(ν+3/2)Γ(1/2)Γ(ν+1)(1−u2)ν,−1&lt;u&lt;1, e K(u)=0 caso contrário. Os casos especiais ν=0,1,2,3 correspondem às funções kernel uniforme, Epanechnikov, biweight e triweight, respectivamente.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Diferentes kernel em R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Larguras de banda equivalentes</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Neste exemplo utilizamos duas formas de escolher a largura de banda <span class="math inline">\(h_n\)</span> dentre três diferentes possibilidades programadas na função <strong>hist</strong>. Por padrão escolhe-se <strong>breaks = “Sturges”</strong>, porposto por Sturges (1929), o qual sugere que <span class="math display">\[
+    h_n=\frac{\max(X_1,\cdots,X_n)-\min(X_1,\cdots,X_n)}{1+3.322\ln(n)}\cdot
+\]</span> A segunda situação indica que o qual significa que se os dados provêm da distribuição Normal temos que <span class="math inline">\(h_n=3.49 s n^{-1/3}\)</span> sendo <span class="math inline">\(s\)</span> o desvio padrão estimado. Esta proposta deve-se à Scott (1979).</p>
+<p>Embora o histograma é um estimador consistente quando <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to \infty\)</span>, verifica-se que se pode fazer melhor. A melhoria também é motivada por uma preocupação prática: o histograma não é uma função suave, uma propriedade que se pode esperar que qualquer função de densidade real tenha.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. O estimador kernel da função de densidade é dado por <span class="math display">\[
+\widehat{f}(x)=\frac{1}{nh_n}\sum_{i=1}^n K\Big( \frac{x-X_i}{h_n}\Big),
+\]</span> onde <span class="math inline">\(K(\cdot)\)</span> é uma função conhecida como kernel.</p>
+</blockquote>
+<p>É tipicamente assumido que <span class="math inline">\(K\)</span> seja não-negativa, simétrica em torno de zero e satisfaz <span class="math inline">\(\int K(u)\mbox{d}u = 1\)</span>. Claro que o histograma é um caso especial do estimador do kernel se <span class="math inline">\(K\)</span> for escolhido como a função de densidade da distribuição $ Uniforme(-1,1)$. O último não é uma função suave e é por isso que o histograma não é suave; mas escolhendo <span class="math inline">\(K\)</span> como uma função suave, tem-se um estimador de <span class="math inline">\(f\)</span> que seja suave.</p>
+<p>Por exemplo, escolhendo a função de densidade <span class="math inline">\(N(0,1)\)</span>, temos por resultado o conhecido como kernel Gaussiano e assim também utilizando a densidade de densidade <span class="math inline">\(Beta\)</span> simétrica, dada por <span class="math display">\[
+    K(u)=\frac{\Gamma(\nu+3/2)}{\Gamma(1/2)\Gamma(\nu+1)}(1-u^2)^\nu, \qquad -1&lt; u &lt; 1,
+\]</span> e <span class="math inline">\(K(u)=0\)</span> caso contrário. Os casos especiais <span class="math inline">\(\nu=0,1,2,3\)</span> correspondem às funções kernel uniforme, Epanechnikov, biweight e triweight, respectivamente.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -393,10 +611,6 @@ Warning
    optcosine 
    1.0099458 </code></pre>
 </div>
-</div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bw <span class="ot">=</span> <span class="fu">bw.SJ</span>(x) <span class="do">## escolha automática</span></span>
@@ -408,36 +622,159 @@ Warning
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="modulo-01_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="modulo-01_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Um problema prático importante na estimação de densidades via kernel é como escolher a largura de banda <span class="math inline">\(h_n\)</span>. Note que dadas condições como <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to\infty\)</span>, ainda existem muitas opções para <span class="math inline">\(h_n\)</span>. Então, de certo modo, a ordem de convergência ou divergência não resolve o problema. Uma solução para esse problema é conhecida como compensação de viés-variância. Antes de entrarmos nos detalhes, vamos primeiro apressentar um resultado em relação ao viés assintótico do estimador kernel. Aqui, o viés é definido como <span class="math display">\[
+    \mbox{viés}\big(\widehat{f}(x)\big)=\mbox{E}\big(\widehat{f}(x)\big)-f(x),
+\]</span> para um dado <span class="math inline">\(x\)</span>.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suponhamos que <span class="math inline">\(f\)</span> seja contínua e limitada. Então o viés do estimador kernel de densidade converge a zero quando <span class="math inline">\(h_n\to 0\)</span>, para todo <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<p><strong>Demonstração.</strong> Observemos que <span class="math display">\[
+\begin{array}
+    \mbox{E}\big(\widehat{f}(x)\big) &amp; = &amp; \frac{1}{n}\sum_{i=1}^n \frac{1}{h_n}\int K\Big( \frac{x-y}{h_n}\Big)f(y)\mbox{d}y \\
+    &amp; = &amp; \int K(u)f(x-h_n u)\mbox{d}u \, = \, f(x)+\int K(u)\big( f(x-h_n u)-f(x)\big)\mbox{d}u\cdot
+\end{array}
+\]</span> Utilizando então o teorema da convergência dominada completa-se a demonstração.&amp;#9609</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+Suponhamos que <span class="math inline">\(f\)</span> seja contínua três vezes diferenciável, com terceira derivada limitada na vizinhança de <span class="math inline">\(x\)</span> e <span class="math inline">\(K\)</span> satisfazendo <span class="math display">\[
+    \int K^2(u)\mbox{d}u&lt;\infty \qquad \mbox{e} \qquad \int |u|^3K(u)\mbox{d}u&lt;\infty\cdot
+\]</span>
+<ul>
+<li>
+Se <span class="math inline">\(h_n\to 0\)</span> quando <span class="math inline">\(n\to\infty\)</span>, temos que <span class="math display">\[
+        \mbox{viés}\big(\widehat{f}(x)\big) = \frac{h_n^2}{2}f''(x)\int u^2K(u)\mbox{d}u + o(h_n^2)\cdot
+    \]</span>
+</li>
+<li>
+Se, além disso <span class="math inline">\(nh_n\to\infty\)</span> quando <span class="math inline">\(n\to\infty\)</span>, então temos <span class="math display">\[
+        \mbox{Var}\big(\widehat{f}(x)\big) = \frac{f(x)}{nh_n}\int K^2(u)\mbox{d}u + o\big((nh_n)^{-1}\big)\cdot
+    \]</span>
+</li>
+</ul>
+</div>
+</div>
+<p><strong>Demonstração</strong>. A demonstração é baseada na expansão de Taylor, <span class="math display">\[
+    f(x-h_nu) = f(x)-h_nuf'(x)+\frac{h_n^2u^2}{2}f''(x)-\frac{h_n^3u^3}{6}f'''(\epsilon),
+\]</span> sendo <span class="math inline">\(\epsilon\)</span> fica entre <span class="math inline">\(x-h_nu\)</span> e <span class="math inline">\(x\)</span>. Os detalhes são deixados como um exercício.</p>
+<p>Uma medida de precisão do estimador é o erro quadrático médio (EQM), dado por <span class="math display">\[
+    EQM\big(\widehat{f}(x)\big) = \mbox{E}\big(\widehat{f}(x)-f(x)\big)^2\cdot
+\]</span> é fácil mostrar que o <span class="math inline">\(EQM\)</span> combina o viés e a variância de tal maneira que <span class="math display">\[
+    EQM\big(\widehat{f}(x)\big) = \mbox{viés}\big(\widehat{f}(x)\big)^2 + \mbox{Var}\big(\widehat{f}(x)\big)\cdot
+\]</span> Vemos que, sob as condições <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to \infty\)</span> e se ignorarmos os termos de baixa ordem, temos <span class="math display">\[
+    EQM\big(\widehat{f}(x)\big) \approx \frac{h_n^4}{4}\big(f''(x)\big)^2\tau^4 + \frac{f(x)}{nh_n}\gamma^2,
+\]</span> onde <span class="math inline">\(\tau^2=\int u^2K(u)\mbox{d}u\)</span> e <span class="math inline">\(\gamma^2=\int K^2(u)\mbox{d}u\)</span>. O termo à direita da expressão acima é minimizada quando <span class="math display">\[
+    h_n = \left( \frac{\gamma^2f(x)}{\tau^4\big(f''(x)\big)^2} \right)^{\frac{1}{5}}n^{-\frac{1}{5}}\cdot
+\]</span> Note ainda que a expressão acima não é a solução ideal, isso porque <span class="math inline">\(f\)</span> é desconhecida na prática. No entanto, dá-nos pelo menos alguma ideia sobre a taxa ideal de convergência a zero, sendo esta <span class="math inline">\(h_n=O(n^{-\frac{1}{5}})\)</span>.</p>
+<p>Quando <span class="math inline">\(f\)</span> é desconhecida, uma abordagem natural seria substituí-lo por um estimador e, assim, obter uma largura de banda ideal estimada. Uma complicação é que a largura de banda ideal depende de <span class="math inline">\(x\)</span> mas, idealmente, gostaríamos de usar uma largura de banda que funcionasse para diferentes <span class="math inline">\(x\)</span> dentro de um certo intervalo, se não todos os <span class="math inline">\(x\)</span>. Para obter uma largura de banda ideal que não depende de <span class="math inline">\(x\)</span>, integramos os dois lados da expressão de <span class="math inline">\(EQM\)</span> em relação a <span class="math inline">\(x\)</span>. Isto nos leva a <span class="math display">\[
+    \int EQM\big(\widehat{f}(x)\big)\mbox{d}x \approx \frac{\tau^4h_n^4}{4}\int \big(f''(x)\big)^2 \mbox{d}x +
+    \frac{\gamma^2}{nh_n}\int f(x)\mbox{d}x \, = \, \frac{\tau^4\theta^2h_n^4}{4} + \frac{\gamma^2}{nh_n},
+\]</span> com <span class="math inline">\(\theta^2=\int \big(f''(x)\big)^2 \mbox{d}x\)</span>. Pelo mesmo argumento, o lado direito acima é minimizado quando</p>
+<p><span class="math display">\[
+    h_n = \left( \frac{\gamma^2}{\tau^4\theta^2} \right)^{\frac{1}{5}}n^{-\frac{1}{5}}\cdot
+\]</span> Desta vez, o <span class="math inline">\(h_n\)</span> ideal não depende de <span class="math inline">\(x\)</span>. Além disso, a integral do <span class="math inline">\(EQM\)</span> ou o <span class="math inline">\(IEQM\)</span> mínimo é dado por <span class="math display">\[
+    IEQM \, = \, \int EQM\big(\widehat{f}(x)\big)\mbox{d}x \, = \, \frac{5}{4}\big( \tau\gamma^2 \big)^\frac{4}{5}\theta^{\frac{2}{5}}
+    n^{-\frac{4}{5}}\cdot
+\]</span></p>
+<p>Uma implicação é a seguinte. Note que o <span class="math inline">\(IEQM\)</span> depende do kernel <span class="math inline">\(K\)</span> através de <span class="math inline">\(c_K=\big( \tau\gamma^2 \big)^\frac{4}{5}\)</span>. Mostrou-se que para os kernels comumente usados, tais como aqueles listados, o desempenho dos estimadores de kernel correspondentes é quase o mesmo em termos dos valores de <span class="math inline">\(c_K\)</span>. Voltando ao problema sobre a estimação da largura de banda ideal, vemos que tudo o que precisamos é encontrar um estimador consistente de <span class="math inline">\(\theta^2\)</span>. Se <span class="math inline">\(f\)</span> é a função de densidade da distribuição normal com desvio padrão <span class="math inline">\(\sigma\)</span>, então pode ser mostrado que <span class="math inline">\(\theta^2=3/8\sqrt{\pi}\sigma^5\)</span>. Naturalmente, se alguém souber que <span class="math inline">\(f\)</span> é normal, então a estimação da densidade não-paramétrica não seria necessária, porque um método paramétrico provavelmente seria melhor. Em geral, pode-se expandir <span class="math inline">\(f\)</span> em torno da densidade gaussiana usando a expansão de Edgeworth.</p>
+<p>Utilizando a abordagem acima, Hjort and Jones (1996) obteveram o seguinte estimador ótimo para a largura de banda <span class="math display">\[
+    \widehat{h}_n = \widehat{h}_0\left(1+\frac{35}{48}\widehat{\gamma}_4+\frac{35}{32}\widehat{\gamma}_3^2+
+        \frac{385}{1024}\widehat{\gamma}_4^2\right)^{-\frac{1}{5}},
+\]</span> onde <span class="math inline">\(\widehat{h}_0\)</span> é a estimativa ideal da largura de banda assumindo que <span class="math inline">\(f\)</span> é normal, isto é, com <span class="math inline">\(\theta^2\)</span> substituído por <span class="math inline">\(3/8\sqrt{\pi}\sigma^5\)</span> ou mais explicitamente <span class="math display">\[
+    \widehat{h}_0=1.06\left(\frac{\widehat{\sigma}}{n^{\frac{1}{5}}}\right),
+\]</span> chamamos <span class="math inline">\(\widehat{h}_0\)</span> a largura de banda da linha de base e <span class="math inline">\(\widehat{\sigma}^2\)</span> é a variância amostral dada por <span class="math display">\[
+    \widehat{\sigma}^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2\cdot
+\]</span> Além disso, <span class="math inline">\(\widehat{\gamma}_3\)</span> e <span class="math inline">\(\widehat{\gamma}_4\)</span> são os estimadores dos coefcientes de assimetria de amostra e curtose, dado por <span class="math display">\[
+    \widehat{\gamma}_3=\frac{1}{(n-1)\widehat{\sigma}^3}\sum_{i=1}^n (X_i-\overline{X})^3
+\]</span> e <span class="math display">\[
+    \widehat{\gamma}_4=\frac{1}{(n-1)\widehat{\sigma}^4}\sum_{i=1}^n (X_i-\overline{X})^4-3,
+\]</span> respectivamente. Houve outras abordagens para a seleção da largura de banda ótima, incluindo o método de validação cruzada. Ambos procedimentos foram programados na função <strong>density</strong>.</p>
+<p><strong>Exemplo</strong>. Utilaremos os dados simulados da distribuíão <span class="math inline">\(N(0,1)\)</span> no exemplo anterior para com isso mostrarmos o histograma e o estimador Kernel da função de densidade.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1340</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">main =</span> <span class="cn">NULL</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="st">"Sturges"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(x, <span class="at">bw =</span> <span class="st">"nrd0"</span>), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="modulo-01_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">main =</span> <span class="cn">NULL</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="st">"Scott"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(x, <span class="at">bw =</span> <span class="st">"bcv"</span>), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in bw.bcv(x): mínimo ocorreu em uma das extremidades do intervalo</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="modulo-01_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
 </div>
-<p>Um problema prático importante na estimação de densidades via kernel é como escolher a largura de banda hn . Note que dadas condições como hn→0 e nhn→∞ , ainda existem muitas opções para hn . Então, de certo modo, a ordem de convergência ou divergência não resolve o problema. Uma solução para esse problema é conhecida como compensação de viés-variância. Antes de entrarmos nos detalhes, vamos primeiro apressentar um resultado em relação ao viés assintótico do estimador kernel. Aqui, o viés é definido como viés(fˆ(x))=E(fˆ(x))−f(x), para um dado x .</p>
-<p>Teorema. Suponhamos que f seja contínua e limitada. Então o viés do estimador kernel de densidade converge a zero quando hn→0 , para todo x . Demonstração. Observemos que E(fˆ(x))==1n∑ni=11hn∫K(x−yhn)f(y)dy∫K(u)f(x−hnu)du=f(x)+∫K(u)(f(x−hnu)−f(x))du⋅ Utilizando então o teorema da convergência dominada completa-se a demonstração.▉</p>
-<p>Teorema. Suponhamos que f seja contínua três vezes diferenciável, com terceira derivada limitada na vizinhança de x e K satisfazendo ∫K2(u)du&lt;∞e∫|u|3K(u)du&lt;∞⋅ Se hn→0 quando n→∞ , temos que viés(fˆ(x))=h2n2f′′(x)∫u2K(u)du+o(h2n)⋅ Se, além disso nhn→∞ quando n→∞ , então temos Var(fˆ(x))=f(x)nhn∫K2(u)du+o((nhn)−1)⋅ Demonstração. A demonstração é baseada na expansão de Taylor, f(x−hnu)=f(x)−hnuf′(x)+h2nu22f′′(x)−h3nu36f′′′(ϵ), sendo ϵ fica entre x−hnu e x . Os detalhes são deixados como um exercício.▉</p>
-<p>Uma medida de precisão do estimador é o erro quadrático médio (EQM), dado por EQM(fˆ(x))=E(fˆ(x)−f(x))2⋅ É fácil mostrar que o EQM combina o viés e a variância de tal maneira que EQM(fˆ(x))=viés(fˆ(x))2+Var(fˆ(x))⋅ Vemos que, sob as condiçotilde;es hn→0 e nhn→∞ e se ignorarmos os termos de baixa ordem, temos EQM(fˆ(x))≈h4n4(f′′(x))2τ4+f(x)nhnγ2, onde τ2=∫u2K(u)du e γ2=∫K2(u)du . O termo à direita da expressão acima é minimizada quando hn=(γ2f(x)τ4(f′′(x))2)15n−15⋅ Note ainda que a expressão acima não é a solução ideal, isso porque f é desconhecida na prática. No entanto, dá-nos pelo menos alguma ideia sobre a taxa ideal de convergência a zero, sendo esta hn=O(n−15) .</p>
-<p>Quando f é desconhecida, uma abordagem natural seria substituí-lo por um estimador e, assim, obter uma largura de banda ideal estimada. Uma complicação é que a largura de banda ideal depende de x mas, idealmente, gostaríamos de usar uma largura de banda que funcionasse para diferentes x dentro de um certo intervalo, se não todos os x . Para obter uma largura de banda ideal que não depende de x , integramos os dois lados da expressão de EQM em relação a x . Isto nos leva a ∫EQM(fˆ(x))dx≈τ4h4n4∫(f′′(x))2dx+γ2nhn∫f(x)dx=τ4θ2h4n4+γ2nhn, com θ2=∫(f′′(x))2dx . Pelo mesmo argumento, o lado direito acima é minimizado quando hn=(γ2τ4θ2)15n−15⋅ Desta vez, o hn ideal não depende de x . Além disso, a integral do EQM ou o IEQM mínimo é dado por IEQM=∫EQM(fˆ(x))dx=54(τγ2)45θ25n−45⋅ Uma implicação é a seguinte. Note que o IEQM depende do kernel K através de cK=(τγ2)45 . Mostrou-se que para os kernels comumente usados, tais como aqueles listados, o desempenho dos estimadores de kernel correspondentes é quase o mesmo em termos dos valores de cK . Voltando ao problema sobre a estimação da largura de banda ideal, vemos que tudo o que precisamos é encontrar um estimador consistente de θ2 . Se f é a função de densidade da distribuição normal com desvio padrão σ , então pode ser mostrado que θ2=3/8π−−√σ5 . Naturalmente, se alguém souber que f é normal, então a estimação da densidade não-paramétrica não seria necessária, porque um método paramétrico provavelmente seria melhor. Em geral, pode-se expandir f em torno da densidade gaussiana usando a expansão de Edgeworth.</p>
-<p>Utilizando a abordagem acima, Hjort and Jones (1996) obteveram o seguinte estimador ótimo para a largura de banda hˆn=hˆ0(1+3548γˆ4+3532γˆ23+3851024γˆ24)−15, onde hˆ0 é a estimativa ideal da largura de banda assumindo que f é normal, isto é, com θ2 substituído por 3/8π−−√σ5 ou mais explicitamente hˆ0=1.06(σˆn15), chamamos hˆ0 a largura de banda da linha de base e σˆ2 é a variância amostral dada por σˆ2=1n−1∑i=1n(Xi−X¯¯¯¯)2⋅ Além disso, γˆ3 e γˆ4 são os estimadores dos coefcientes de assimetria de amostra e curtose, dado por γˆ3=1(n−1)σˆ3∑i=1n(Xi−X¯¯¯¯)3 e γˆ4=1(n−1)σˆ4∑i=1n(Xi−X¯¯¯¯)4−3, respectivamente. Houve outras abordagens para a seleção da largura de banda ótima, incluindo o método de validação cruzada. Ambos procedimentos foram programados na função density.</p>
-<p>Exemplo. Utilaremos os dados simulados da distribuíão N(0,1) no exemplo anterior para com isso mostrarmos o histograma e o estimador Kernel da função de densidade.</p>
-<blockquote class="blockquote">
-<p>set.seed(1340) x = rnorm(50) par(mar=c(4,2,1,1)) hist(x, main = NULL, freq = FALSE, breaks = “Sturges”) box() lines(density(x, bw = “nrd0”), col = “red”) par(mar=c(4,2,1,1)) hist(x, main = NULL, freq = FALSE, breaks = “Scott”) box() lines(density(x, bw = “bcv”), col = “red”)</p>
-</blockquote>
-<p>I.2 Exercícios Seja T(X1,⋯,Xn) uma estatística simétrica nas observaçóes. Mostre que T pode ser escrita como função das estatísticas de ordem. Por outro lado, se T(X1,⋯,Xn) pode ser escrita como função das estatísticas de ordem, T é simétrica nas observações.</p>
-<p>Sejam X1,X2,⋯,Xm e Y1,Y2,⋯,Yn amostras independentes de duas distribuições absolutamente contínuas. Encontre o estimador não viciado de mínima variância de: (a) E(XY)</p>
-<ol start="2" type="a">
-<li>Var(X+Y)</li>
+</section>
+<section id="exercícios" class="level2">
+<h2 class="anchored" data-anchor-id="exercícios">Exercícios</h2>
+<ol type="1">
+<li><p>Seja <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> uma estatística simétrica nas observaçóes. Mostre que <span class="math inline">\(T\)</span> pode ser escrita como função das estatísticas de ordem. Por outro lado, se <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> pode ser escrita como função das estatísticas de ordem, <span class="math inline">\(T\)</span> é simétrica nas observações.</p></li>
+<li><p>Sejam <span class="math inline">\(X_1,X_2,\cdots,X_m\)</span> e <span class="math inline">\(Y_1,Y_2,\cdots,Y_n\)</span> amostras independentes de duas distribuições absolutamente contínuas. Encontre o estimador não viciado de mínima variância de:</p></li>
 </ol>
-<p>Seja (X1,Y1),(X2,Y2),⋯,(Xn,Yn) uma amostra aleatória com distribuição absolutamente contínua bivariada. Encontre o estimador não viciado de mínima variância de: (a) E(XY)</p>
-<ol start="2" type="a">
-<li>Var(X+Y)</li>
+<ol type="a">
+<li><span class="math inline">\(\mbox{E}(XY)\)</span></li>
+<li><span class="math inline">\(\mbox{Var}(X+Y)\)</span></li>
 </ol>
-<p>Cosidere (R,B,Pθ) um espaço de probabilidade e P={Pθ:θ∈Θ} . Seja A um elemento da σ -álgebra de Borel e considere d(θ)=Pθ(A) . (a) A função d é estimável? Se sim, qual é o grau? (b) Encontre o estimador não viciado de mínima variância de d , baseado em uma amostra de tamanho n e assumindo que P seja a classe de todas as distribuições contínuas.</p>
+<ol start="3" type="1">
+<li>Seja <span class="math inline">\((X_1,Y_1), (X_2,Y_2), \cdots, (X_n,Y_n)\)</span> uma amostra aleatória com distribuição absolutamente contínua bivariada. Encontre o estimador não viciado de mínima variância de:</li>
+</ol>
+<ol type="a">
+<li><span class="math inline">\(\mbox{E}(XY)\)</span></li>
+<li><span class="math inline">\(\mbox{Var}(X+Y)\)</span></li>
+</ol>
+<ol start="4" type="1">
+<li>Considere <span class="math inline">\((\mathcal{R},\mathcal{B},P_\theta)\)</span> um espaço de probabilidade e <span class="math inline">\(\mathcal{P}=\{P_\theta \, : \theta\in\Theta\}\)</span>. Seja <span class="math inline">\(A\)</span> um elemento da <span class="math inline">\(\sigma\)</span>-álgebra de Borel e considere <span class="math inline">\(d(\theta)=P_\theta(A)\)</span>.</li>
+</ol>
+<ol type="a">
+<li>A função <span class="math inline">\(d\)</span> é estimável? Se sim, qual é o grau?</li>
+<li>Encontre o estimador não viciado de mínima variância de <span class="math inline">\(d\)</span>, baseado em uma amostra de tamanho <span class="math inline">\(n\)</span> e assumindo que <span class="math inline">\(\mathcal{P}\)</span> seja a classe de todas as distribuições contínuas.</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -847,7 +1184,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/Modulo I/modulo-01.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/Modulo I/modulo-01.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

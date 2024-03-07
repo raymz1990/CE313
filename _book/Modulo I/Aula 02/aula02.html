@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -309,75 +275,57 @@ window.Quarto = {
 <p>Considere-se um experimento estatístico que culmina em desfechos <span class="math inline">\(x\)</span>, que são os valores assumidos por uma variável aleatória <span class="math inline">\(X\)</span>. Seja <span class="math inline">\(F\)</span> a função de distribuição de <span class="math inline">\(X\)</span>. Na prática, <span class="math inline">\(F\)</span> não será completamente conhecida, isto é, um ou mais parâmetros associados com <span class="math inline">\(F\)</span> serão desconhecidos. O trabalho de um estatístico é estimar esses parâmetros desconhecidos ou testar a validade de certas afirmações sobre eles. Ele pode, por exemplo, obter <span class="math inline">\(n\)</span> observações independentes de <span class="math inline">\(X\)</span>. Isso significa que ele observa <span class="math inline">\(n\)</span> valores <span class="math inline">\(x1, x2, \cdots , x_n\)</span> assumidos da variável aleatória <span class="math inline">\(X\)</span>. Cada <span class="math inline">\(x_i\)</span> pode ser considerado como o valor assumido pela variável aleatória <span class="math inline">\(X_i, i = 1, 2, \cdots , n\)</span> onde <span class="math inline">\(X_1, X_2, \cdots, X_n\)</span> são variáveis aleatórias independentes com distribuição comum <span class="math inline">\(F\)</span> . Os valores observados <span class="math inline">\((x_1, x_2, \cdots, x_n)\)</span> são então valores assumidos por <span class="math inline">\((X_1, X_2, \cdots, X_n)\)</span>. O conjunto <span class="math inline">\((X_1, X_2, \cdots , X_n)\)</span> é, então, uma amostra de tamanho <span class="math inline">\(n\)</span> da distribuição da população <span class="math inline">\(F\)</span> . O conjunto de <span class="math inline">\(n\)</span> valores <span class="math inline">\(x_1, x_2, \cdots , x_n\)</span> é chamado de uma realização ou estimativa da amostra. Note-se que os possíveis valores do vector aleatório <span class="math inline">\((X_1, X_2, \cdots , X_n)\)</span> podem ser olhados como pontos em <span class="math inline">\(\mathbb{R}^n\)</span>, os quais podem ser chamados de elementos do espaço amostral. Na prática podemos não observar <span class="math inline">\(x_1, x_2, \cdots, x_n\)</span> mas alguma função <span class="math inline">\(g(x_1, x_2, \cdots , x_n)\)</span>. Então <span class="math inline">\(g(x_1, x_2, \cdots , x_n)\)</span> serão considerados os valores assumidos pela variável aleatória <span class="math inline">\(g(X)\)</span>.</p>
 <p>Vamos agora formalizar esses conceitos.</p>
 <blockquote class="blockquote">
-<p>Seja <span class="math inline">\(X\)</span> uma variável aleatória com função de distribuição <span class="math inline">\(F\)</span> e <span class="math inline">\(X_1, \cdots, X_n\)</span> variáveis aleatórias independentes com distribuição comum <span class="math inline">\(F\)</span>. Chamaremos a coleção <span class="math inline">\(X_1, \cdots, X_n\)</span> de uma amostra aletória de tamanho <span class="math inline">\(n\)</span> de <span class="math inline">\(F\)</span> ou simplesmente como <span class="math inline">\(n\)</span> observações independentes de <span class="math inline">\(X\)</span>.</p>
+<p><strong>Definição</strong>. Seja <span class="math inline">\(X\)</span> uma variável aleatória com função de distribuição <span class="math inline">\(F\)</span> e <span class="math inline">\(X_1, \cdots, X_n\)</span> variáveis aleatórias independentes com distribuição comum <span class="math inline">\(F\)</span>. Chamaremos a coleção <span class="math inline">\(X_1, \cdots, X_n\)</span> de uma amostra aletória de tamanho <span class="math inline">\(n\)</span> de <span class="math inline">\(F\)</span> ou simplesmente como <span class="math inline">\(n\)</span> observações independentes de <span class="math inline">\(X\)</span>.</p>
 </blockquote>
 <p>Se <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> é uma amostra aleatória de <span class="math inline">\(F (\cdot; \theta)\)</span>, a função de distribuição conjunta é dada por:</p>
 <p><span class="math display">\[F(x_1, \cdots, x_n; \theta) = \prod_{i=1}^{n} F(x_i; \theta)\]</span></p>
 <blockquote class="blockquote">
-<p>Sejam <span class="math inline">\(X_1, X_2, \cdots, X_n\)</span> <span class="math inline">\(n\)</span> observações independentes da variável aleatória <span class="math inline">\(X\)</span> e seja <span class="math inline">\(g: \mathbb{R}^n \to \mathbb{R}\)</span> uma função real derivável. Então a variável aleatória <span class="math inline">\(g(X_1, X_2, \cdots, X_n)\)</span> é chamada de estatística, desde que não dependa de parâmetros desconhecidos.</p>
+<p><strong>Definição</strong>. Sejam <span class="math inline">\(X_1, X_2, \cdots, X_n\)</span> <span class="math inline">\(n\)</span> observações independentes da variável aleatória <span class="math inline">\(X\)</span> e seja <span class="math inline">\(g: \mathbb{R}^n \to \mathbb{R}\)</span> uma função real derivável. Então a variável aleatória <span class="math inline">\(g(X_1, X_2, \cdots, X_n)\)</span> é chamada de estatística, desde que não dependa de parâmetros desconhecidos.</p>
 </blockquote>
 <p>Segundo esta definição cada uma das variáveis na amostra isoladamente é uma estatística assim como funções destas que, eventualmente, podem não fornecer informações úteis. Duas das estatísticas mais comumente utilizadas são mostradas no exemplo a seguir.</p>
 <blockquote class="blockquote">
-<p>Seja <span class="math inline">\(X_1, X_2, \cdots, X_n\)</span> uma amostra aleatória da função de distribuição <span class="math inline">\(F\)</span>. A estatística <span class="math display">\[\overline{X}_n = \sum_{i=1}^{n} \displaystyle \frac{Xi}{n},\]</span> é chamada de média amostral e a estatística <span class="math display">\[S_{n}^{2} = \sum_{i=1}^{n} \displaystyle \frac{(X_i - \overline{X}_n)^2}{n-1}\]</span> é chama de variância amostral.</p>
+<p><strong>Definição</strong>. Seja <span class="math inline">\(X_1, X_2, \cdots, X_n\)</span> uma amostra aleatória da função de distribuição <span class="math inline">\(F\)</span>. A estatística <span class="math display">\[\overline{X}_n = \sum_{i=1}^{n} \displaystyle \frac{Xi}{n},\]</span> é chamada de média amostral e a estatística <span class="math display">\[S_{n}^{2} = \sum_{i=1}^{n} \displaystyle \frac{(X_i - \overline{X}_n)^2}{n-1}\]</span> é chama de variância amostral.</p>
 </blockquote>
 <p>Deve-se lembrar que as estatísticas amostrais apresentadas neste exemplo <span class="math inline">\(\overline{X}_n, S_{n}^{2}\)</span> e outras que irão definir-se posteriormente são variáveis aleatórias, com todas as consequências que isso implica, enquanto os parâmetros populacionais <span class="math inline">\(\mu, \sigma^2\)</span> e assim por diante são constantes fixas, que podem ser desconhecidas.</p>
-<p><strong>Exemplo 2.1</strong></p>
-<p>Seja <span class="math inline">\(X \sim Bernoulli(p)\)</span>, onde <span class="math inline">\(p\)</span> é desconhecido. A função de distribuição de <span class="math inline">\(X\)</span>, mostrada na Figura 2.1, é dada por</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X \sim Bernoulli(p)\)</span>, onde <span class="math inline">\(p\)</span> é desconhecido. A função de distribuição de <span class="math inline">\(X\)</span>, mostrada na Figura 2.1, é dada por</p>
 <p><span class="math display">\[F(x) = p\delta (x − 1) + (1 − p)\delta(x),    x \in \mathbb{R},\]</span> onde a função <span class="math inline">\(\delta(\cdot)\)</span> foi definida em (1.2) como <span class="math inline">\(\delta(x) = \begin{cases} 1, \ x \ \geq \ 0, \\ 0, \ x \ &lt; 0 \end{cases}\)</span>, chamada de função delta.</p>
 <p>Suponha que cinco observações independentes de <span class="math inline">\(X\)</span> sejam 0, 1, 1, 1, 0. Então 0, 1, 1, 1, 0 é uma realização da amostra <span class="math inline">\(X_1, X_2, \cdots , X_5\)</span>. A estimativa da média amostral é</p>
 <p><span class="math display">\[\overline{x}_5 = \displaystyle \frac{0 + 1 + 1 + 1 + 0}{5} = 0, 6\]</span> o qual é o valor assumido pela variável aleatória <span class="math inline">\(\overline{X}_n\)</span>. A estimativa da variância amostral é <span class="math display">\[S_{5}^{2} = \sum_{i=1}{5} \displaystyle \frac{(x_i - \overline{x}_5)}{5 - 1}= \displaystyle \frac{2 \ \times (0,6)^2 \ + \ 3 \ \times (0,4)^2}{4}= 0,3\]</span></p>
 <p>sendo este o valor assumido pela variável aleatória <span class="math inline">\(S_{5}^{2}\)</span>.</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores do parâmetro p</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>p_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Função de distribuição Bernoulli</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>bernoulli_distribution <span class="ot">&lt;-</span> <span class="cf">function</span>(x, p) {</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>         <span class="fu">ifelse</span>(x <span class="sc">&lt;</span> <span class="dv">1</span>, <span class="dv">1</span> <span class="sc">-</span> p,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ifelse</span>(x <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">1</span>, </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">1</span>, <span class="dv">1</span>, <span class="cn">NA</span>))))</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Criar um gráfico vazio</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">type =</span> <span class="st">"n"</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">2</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">ylab =</span> <span class="st">"F(x)"</span>, <span class="at">main =</span> <span class="st">""</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Adicionar a função de distribuição para cada valor de p</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (p <span class="cf">in</span> p_values) {</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">curve</span>(<span class="fu">bernoulli_distribution</span>(x, p), <span class="at">from =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">to =</span> <span class="dv">2</span>, <span class="at">n =</span> <span class="dv">1000</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="st">"black"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">segments</span>(<span class="dv">0</span>, <span class="dv">1</span> <span class="sc">-</span> p, <span class="dv">1</span>, <span class="dv">1</span> <span class="sc">-</span> p, <span class="at">col =</span> <span class="st">"white"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Adicionar os valores nos pontos centrais das linhas</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">text</span>(<span class="fl">0.5</span>, <span class="dv">1</span> <span class="sc">-</span> p, <span class="fu">paste</span>(<span class="st">"p ="</span>, p), <span class="at">pos =</span> <span class="dv">3</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="aula02_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Figura 2.1.png" class="img-fluid figure-img"></p>
+<figcaption>Figura 2.1: Representação da função de distribuição Bernoulli para três valores do parâmetro <span class="math inline">\(p\)</span> = 0.3, 0.5 e 0.8. Observe que nesta curva a reta no intervalo (0, 1) depende de 1 - <span class="math inline">\(p\)</span>, isso porque a função <span class="math inline">\(\delta\)</span> é sempre zero para <span class="math inline">\(x\)</span> - 1 nesse intervalo.</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p>Figura 2.1: Representação da função de distribuição Bernoulli para três valores do parâmetro <span class="math inline">\(p\)</span> = 0.3, 0.5 e 0.8. Observe que nesta curva a reta no intervalo (0, 1) depende de 1 - <span class="math inline">\(p\)</span>, isso porque a função <span class="math inline">\(\delta\)</span> é sempre zero para <span class="math inline">\(x\)</span> - 1 nesse intervalo.</p>
-<p><strong>Exemplo 2.2</strong></p>
-<p>Seja <span class="math inline">\(X \sim N (\mu, \sigma^2)\)</span>, <span class="math inline">\(\mu\)</span> conhecida, <span class="math inline">\(\sigma^2\)</span> desconhecido e <span class="math inline">\(X_1, \cdots , X_n\)</span> uma amostra aleatória dessa distribuição. De acordo com nossa definição, a função <span class="math inline">\(\sum_{i=1}^{n} X_{i} / \sigma^2\)</span> não é uma estatística. Suponha que cinco observações de <span class="math inline">\(X\)</span> -0,864; 0,561; 2.355; 0,582 e -0,774. Então, a estimativa da média amostral é 0,372 e a estimativa da variância amostral é 1,648.</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X \sim N (\mu, \sigma^2)\)</span>, <span class="math inline">\(\mu\)</span> conhecida, <span class="math inline">\(\sigma^2\)</span> desconhecido e <span class="math inline">\(X_1, \cdots , X_n\)</span> uma amostra aleatória dessa distribuição. De acordo com nossa definição, a função <span class="math inline">\(\sum_{i=1}^{n} X_{i} / \sigma^2\)</span> não é uma estatística. Suponha que cinco observações de <span class="math inline">\(X\)</span> -0,864; 0,561; 2.355; 0,582 e -0,774. Então, a estimativa da média amostral é 0.372 e a estimativa da variância amostral é 1.648.</p>
 </section>
 <section id="estatísticas-de-ordem" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="estatísticas-de-ordem"><span class="header-section-number">2.2</span> Estatísticas de ordem</h2>
-<p>Seja (X1, X2, , Xn) um vetor aleatório n-dimensional e (x1, x2, , xn) uma n-tupla assumida por (X1, X2, , Xn). Vamos organizar x1, x2, , xn em ordem crescente de magnitude, para que x(1) ≤ x(2) ≤ ≤ x(n), onde x(1) = min(x1, x2, , xn), x(2) é o segundo menor valor em x1, , xn e assim por diante, x(n) = max(x1, , xn). Se quaisquer dois xi, xj forem iguais, a ordem não importa.</p>
-<p><strong>Exemplo 2.3</strong> Consideremos X1, X2, X3 três variáveis aleatórias discretas de maneira que, X1 e X3 sejam tais que assumam somente valores 0, 1 e que X2 assuma valores 1, 2, 3. O vetor aleatório (X1, X2, X3) assume os valores: (0, 1, 0), (0, 2, 0), (0, 3, 0), (0, 1, 1), (0, 2, 1), (0, 3, 1), (1, 1, 0), (1, 2, 0), (1, 3, 0), (1, 1, 1), (1, 2, 1) e (1, 3, 1). Então X(1) assume somente valores 0 ou 1; X(2) assume somente valores 0 ou 1 e X(3) assume somente valores 1, 2 ou 3.</p>
-<p>Demonstração : Exercício.</p>
-<p>Na apresentação dos resultados a seguir assumiremos que X1, X2, , Xn são variáveis aleatórias independentes e igualmente distribuídas contínuas com função de densidade <span class="math inline">\(F\)</span> . Seja {X(1), X(2), , X(n)} o conjunto das estatística de ordem para X1, X2, , Xn. Dado que todas as Xi são contínuas segue que, com probabilidade 1 X(1) ≤ X(2) ≤ ≤ X(n)·</p>
+<p>Seja (<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>) um vetor aleatório n-dimensional e (<span class="math inline">\(x_1, x_2, \cdots , x_n\)</span>) uma <span class="math inline">\(n\)</span>-tupla assumida por (<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>). Vamos organizar <span class="math inline">\(x_1, x_2, \cdots , x_n\)</span> em ordem crescente de magnitude, para que <span class="math display">\[x_{(1)}\le x_{(2)} \le \cdots ≤ x_{(n)},\]</span> onde <span class="math inline">\(x_{(1)}\)</span> = min(<span class="math inline">\(x_1, x_2, \cdots , x_n\)</span>), <span class="math inline">\(x_{(2)}\)</span> é o segundo menor valor em <span class="math inline">\(x_1, \cdots , x_n\)</span> e assim por diante, <span class="math inline">\(x_{(n)}\)</span> = max(<span class="math inline">\(x_1, \cdots , x_n\)</span>). Se quaisquer dois <span class="math inline">\(x_i\)</span>, <span class="math inline">\(x_j\)</span> forem iguais, a ordem não importa.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. A função <span class="math inline">\(X_{(k)}\)</span> de (<span class="math inline">\(X_1, \cdots ,X_n\)</span>) que assume o valor <span class="math inline">\(x_{(k)}\)</span> em cada possível sequência (<span class="math inline">\(x_1, x_2, \cdots , x_n\)</span>) de valores assumidos por (<span class="math inline">\(X_1,X_2, \cdots , X_n\)</span>) é conhecida como a <span class="math inline">\(k\)</span>-ésima estatística de ordem ou a estatística de ordem <span class="math inline">\(k\)</span>. O conjunto (<span class="math inline">\(X_{(1)},X_{(2)}, \cdots , X_{(n)}\)</span>) é chamado de estatísticas de ordem para (<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>).</p>
+</blockquote>
+<p><strong>Exemplo</strong>. Consideremos <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span> três variáveis aleatórias discretas de maneira que, <span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_3\)</span> sejam tais que assumam somente valores 0, 1 e que <span class="math inline">\(X_2\)</span> assuma valores 1, 2, 3. O vetor aleatório (<span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span>) assume os valores: (0, 1, 0), (0, 2, 0), (0, 3, 0), (0, 1, 1), (0, 2, 1), (0, 3, 1), (1, 1, 0), (1, 2, 0), (1, 3, 0), (1, 1, 1), (1, 2, 1) e (1, 3, 1). Então <span class="math inline">\(X_{(1)}\)</span> assume somente valores 0 ou 1; <span class="math inline">\(X_{(2)}\)</span> assume somente valores 0 ou 1 e <span class="math inline">\(X_{(3)}\)</span> assume somente valores 1, 2 ou 3.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja (<span class="math inline">\(X_{(1)}, X_{(2)}, \cdots , X_{(n)}\)</span>) um vetor aleatório de dimensão <span class="math inline">\(n\)</span> e seja <span class="math inline">\(X_{(k)}, 1 \le k \le n\)</span>, a <span class="math inline">\(k\)</span>-ésima estatística de ordem. Então <span class="math inline">\(X_{(k)}\)</span> é também uma variável aleatória.</p>
+</div>
+</div>
+<p><strong>Exercício</strong>. Na apresentação dos resultados a seguir assumiremos que <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> são variáveis aleatórias independentes e igualmente distribuídas contínuas com função de densidade <span class="math inline">\(f\)</span> . Seja <span class="math inline">\(\{ X_{(1)}, X_{(2)}, \cdots , X_{(n)} \}\)</span> o conjunto das estatística de ordem para <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>. Dado que todas as <span class="math inline">\(X_i\)</span> são contínuas segue que, com probabilidade 1 <span class="math display">\[X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}·\]</span></p>
 <section id="propriedades-das-estatísticas-de-ordem" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="propriedades-das-estatísticas-de-ordem"><span class="header-section-number">2.2.1</span> 2.2.1 Propriedades das estatísticas de ordem</h3>
 <p>Começaremos o estudo das propriedades encontrando a função de densidade conjunta de (X(1), X(2), , X(n)).</p>
 <p>Demonstração : A transformação de (X1, , Xn) a (X(1), , X(n)) não é biunívoca. De fato, existem um total de n! possíveis arranjos de x1, , xn em ordem crescente de magnitude. Assim, existem n! inversas para a transformação. Por exemplo, uma das n! permutações pode ser x4 &lt; x1 &lt; xn−1 &lt; x3 &lt; &lt; xn &lt; x2·</p>
-<p>A inversa correspondente é x4 = x(1), x1 = x(2), xn−1 = x(3), x3 = x(4) xn = x(n−1), x2 = x(n)· O determinante Jacobiano desta transformação é a matriz n×n identidade com as colunas reorganizadas, isto devido a que cada x(i) é igual a uma, e somente uma, das x1, x2, , xn. Portanto J = ±1 e</p>
+<p>A inversa correspondente é x4 = x(1), x1 = x(2), xn−1 = x(3), x3 = x(4) xn = x(n−1), x2 = x(n)· O determinante Jacobiano desta transformação é a matriz n×n identidade com as colunas reorganizadas, isto devido a que cada x(i) é igual a uma, e somente uma, das <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>. Portanto J = ±1 e</p>
 <p>n f (x(2), x(n), x(4), x(1), , x(3), x(n−1))|J| = f (x(i)), i=1 quando x(1) &lt; x(2) &lt; &lt; x(n). A mesma expressão é válida para cada um dos n! arranjos. Segue então que</p>
 <p>f (x(1), , x(n)) = Todas as n! permutações</p>
 <p>n f (x(i)) i=1</p>
@@ -426,7 +374,7 @@ window.Quarto = {
 <p>P (X(1) &lt; X(2) &lt; X(3)) = (1 − p)(1 + p + p2)· As propriedades das estatísticas de ordem que serão demonstradas valerão somente caso as variáveis sejam contínuas. Isto deve-se a que, caso as variáveis sejam discretas, a probabilidade</p>
 <p>P (X(1) = X(2) = = X(n)) ̸= 0,</p>
 <p>como vai ser mostrado no seguinte exemplo. Acontece que o fato da probabilidade das estatística de ordem poderem coincidir, com probabilidade diferente de zero, altera a estrutura da demonstração e não nos permite obtermos estes resultados para o caso discreto.</p>
-<p><strong>Exemplo 2.6</strong> Sejam X1, X2, , Xn variáveis aleatórias independentes assumindo somente 0 e 1 com probabilidade 1/2. Observemos que</p>
+<p><strong>Exemplo 2.6</strong> Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias independentes assumindo somente 0 e 1 com probabilidade 1/2. Observemos que</p>
 <p>n n P (X(1) = X(2) = = X(n)) = ∏ P (X(k) = 0) + ∏ P (X(k) = 1)</p>
 <p>k=1 n = P (Xk k=1</p>
 <p>k=1 n = 0) + P (Xk k=1</p>
@@ -452,7 +400,7 @@ window.Quarto = {
 <p>(n − r)!</p>
 <p>· (r − 1)!</p>
 <p>Como utilidade deste teorema podemos mencionar o fato de agora podermos encontrar os momentos das es- tatística de ordem. Faremos isso como consequência do seguinte exemplo.</p>
-<p><strong>Exemplo 2.7</strong> Sejam X1, X2, , Xn variáveis aleatórias independentes U (0, 1). Então</p>
+<p><strong>Exemplo 2.7</strong> Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias independentes U (0, 1). Então</p>
 <p>fr(x(r)) =  </p>
 <p>n!</p>
 <p>(r − 1)!(n − r)!</p>
@@ -528,7 +476,7 @@ window.Quarto = {
 <p>— k1</p>
 <p>n! × — 1)! × (n − km)!</p>
 <p>×Fk1−1(x(k ))f (x(k ))[F (x(k )) − <span class="math inline">\(F\)</span> (x(k ))]k2−k1−1f (x(k )) × × ×[F (x(k )) − <span class="math inline">\(F\)</span> (x(k ))]km−1−km−2−1f (x(k ))[1 − <span class="math inline">\(F\)</span> (x(k ))]n−km <span class="math inline">\(F\)</span> (x(k )), caso x(k1) &lt; x(k2) &lt; &lt; x(km) e zero noutras situações.</p>
-<p><strong>Exemplo 2.9</strong> (Continuação do Exemplo 2.7) Sabemos que as variáveis aleatórias X1, X2, , Xn são independentes e tem como função de densidade comum f (x) = 1, se 0 &lt; x &lt; 1 · 0, caso contrário Então, a função de densidade conjunta de X(r) e X(s) é dada por</p>
+<p><strong>Exemplo 2.9</strong> (Continuação do Exemplo 2.7) Sabemos que as variáveis aleatórias <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> são independentes e tem como função de densidade comum f (x) = 1, se 0 &lt; x &lt; 1 · 0, caso contrário Então, a função de densidade conjunta de X(r) e X(s) é dada por</p>
 <p>frs</p>
 <p>(x(r)</p>
 <p>, x(s)) =</p>
@@ -551,7 +499,7 @@ window.Quarto = {
 <p>analítica, expressões para a função de distribuição. Vejamos no teorema a seguir as expressões da função de distribuição das estatísticas de ordem X(1) e X(n).</p>
 <p>Demonstração : Exercício.</p>
 <p>Acerca da função de distribuição de qualquer estatística de ordem temos o resultado a seguir.</p>
-<p>Demonstração : O evento {X(k) ≤ x} ocorre se, e somente se, pelo menos k dos X1, X2, , Xn são menores ou iguais a x, por isso o somatório começa em k.</p>
+<p>Demonstração : O evento {X(k) ≤ x} ocorre se, e somente se, pelo menos k dos <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> são menores ou iguais a x, por isso o somatório começa em k.</p>
 <p>Nos dois teoremas seguintes relacionamos a distribuição condicional de estatísticas de ordem, condicionadas em outra estatística de ordem, com a distribuição de estatísticas de ordem de uma população cuja distribuição é uma forma truncada da função de distribuição da população original <span class="math inline">\(F\)</span> .</p>
 <p>Demonstração : A densidade condicional de X(j) dado que X(i) = xi calcula-se dividindo a densidade conjunta de X(i) e X(j), dada em (2.7), pela densidade marginal de X(i), esta obtida no Teorema 2.4. Temos então que, quando</p>
 <p>i &lt; j ≤ n e xi ≤ xj &lt; ∞,</p>
@@ -645,7 +593,7 @@ window.Quarto = {
 <section id="momentos-amostrais" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="momentos-amostrais"><span class="header-section-number">2.3</span> Momentos amostrais</h2>
 <p>Nesta seção vamos estudar algumas estatísticas amostrais comumente utilizadas e suas distribuições.</p>
-<p>Observemos que nFn(x) é o número de Xk (1 ≤ k ≤ n) menores ou iguais a x. Se X(1), X(2), , X(n) são as estatísticas de ordem de X1, X2, , Xn então claramente</p>
+<p>Observemos que nFn(x) é o número de Xk (1 ≤ k ≤ n) menores ou iguais a x. Se X(1), X(2), , X(n) são as estatísticas de ordem de <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> então claramente</p>
 <p>Fn(x) =  </p>
 <p>k , se X n</p>
 <ol start="11" type="a">
@@ -737,7 +685,7 @@ window.Quarto = {
 <p>R = 20</p>
 <p>b02</p>
 <p>= · S1S2</p>
-<p>Pode ser demonstrado que |R| ≤ 1 e que os valores extremos ±1 ocorrem somente quando todos os pontos amostrais (X1, Y2), (X2, Y2), , (Xn, Yn) estão alinhados. Correspondendo a uma amostra X1, X2, , Xn de observações em <span class="math inline">\(F\)</span> , p-ésimo quantil amostral é definido como o p-ésimo quantil da função de distribuição amostral, ou seja, como <span class="math inline">\(F\)</span> −1. Os quatis amostrais são definidos de maneira similar. Então, se 0 &lt; p &lt; 1, o quantil amostral de ordem p,</p>
+<p>Pode ser demonstrado que |R| ≤ 1 e que os valores extremos ±1 ocorrem somente quando todos os pontos amostrais (X1, Y2), (X2, Y2), , (Xn, Yn) estão alinhados. Correspondendo a uma amostra <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> de observações em <span class="math inline">\(F\)</span> , p-ésimo quantil amostral é definido como o p-ésimo quantil da função de distribuição amostral, ou seja, como <span class="math inline">\(F\)</span> −1. Os quatis amostrais são definidos de maneira similar. Então, se 0 &lt; p &lt; 1, o quantil amostral de ordem p,</p>
 <p>r = [np] se n é um número par [np] + 1 se n é um número ímpar</p>
 <p>· (2.19)</p>
 <p>Como usual, [x] denota o maior inteiro x. Observe que, se [n] for par, podemos escolher qualquer valor entre X([np]) e X([np]+1) como o p-ésimo quantil amostral. Então, se p = 1 e n par podemos escolher qualquer valor entre X(n/2) e X(n/2+1), os dois valores do meio, como a mediana amostral. Habitualmente é escolhido o ponto médio. Assim, a mediana amostral é definida como</p>
@@ -881,15 +829,15 @@ window.Quarto = {
 <p>(n − 1) E(S11) = n ( ) [ E(XY ) − E(X) E(Y )], n − 1</p>
 <p>isto é</p>
 <p>E(S11) = E(XY ) − E(X) E(Y ) = Cov(X, Y ) = ρσ1σ2·</p>
-<p>A seguir, voltamos nossa atenção para as distribuições das características da amostra. Existem várias possi- bilidades. Se for necessária a distribuição exata o método de transformação de variáveis pode ser utilizado. As vezes, a técnica da função geradora de momentos pode ser aplicada. Assim, se X1, X2, , Xn é uma amostra aleatória de uma população com distribuição para a qual existe a função geradora de momentos, a função geradora de momentos da média amostral X é dada por n M (t) = E(etXi/n) = [MX(t/n)]n , (2.32) i=1 onde MX é a função geradora de momentos da distribuição populacional. Se MX (t) tiver alguma forma conhecida seria possível escrever a função de probabilidade ou de densidade de X. Embora este método tem a desvantagem óbvia que se aplica apenas à distribuições para as quais existem todos os momentos, veremos sua efetividade na situação importante de amostras da distribuição normal.</p>
+<p>A seguir, voltamos nossa atenção para as distribuições das características da amostra. Existem várias possi- bilidades. Se for necessária a distribuição exata o método de transformação de variáveis pode ser utilizado. As vezes, a técnica da função geradora de momentos pode ser aplicada. Assim, se <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> é uma amostra aleatória de uma população com distribuição para a qual existe a função geradora de momentos, a função geradora de momentos da média amostral X é dada por n M (t) = E(etXi/n) = [MX(t/n)]n , (2.32) i=1 onde MX é a função geradora de momentos da distribuição populacional. Se MX (t) tiver alguma forma conhecida seria possível escrever a função de probabilidade ou de densidade de X. Embora este método tem a desvantagem óbvia que se aplica apenas à distribuições para as quais existem todos os momentos, veremos sua efetividade na situação importante de amostras da distribuição normal.</p>
 <p><strong>Exemplo 2.18</strong></p>
-<p>Seja X1, X2, , Xn uma amostra aleatória de tamanho n da distribuição Gama(α, 1). Nesta situação podemos encontrar a função de densidade de X. Temos que</p>
+<p>Seja <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> uma amostra aleatória de tamanho n da distribuição Gama(α, 1). Nesta situação podemos encontrar a função de densidade de X. Temos que</p>
 <p>MX (t) = [MX</p>
 <p>(t/n)]n = 1 , t (1 − t/n)αn n</p>
 <p>&lt; 1,</p>
 <p>da qual obtemos que X ∼ Gama(nα, 1/n).</p>
 <p><strong>Exemplo 2.19</strong></p>
-<p>Seja X1, X2, , Xn uma amostra aleatória da distribuição Uniforme no intervalo (0, 1). Considere a média geométrica</p>
+<p>Seja <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> uma amostra aleatória da distribuição Uniforme no intervalo (0, 1). Considere a média geométrica</p>
 <p>Yn =</p>
 <p>n</p>
 <p>i=1</p>
@@ -1192,29 +1140,29 @@ Na segunda derivada, escolhendo u = µ + e−h(1 − µ ) 0 &lt; u &lt; 1. Porta
 <p>max |Xi Xn| &lt; 1≤i≤n</p>
 <p>onde Sn é a raiz quadrada positiva da variância amostral S2.</p>
 <p>√n ,</p>
-<p>Exercícios da Seção 2.2 1. Seja (X(1), X(2), , X(n)) o conjunto das estatísticas de ordem de n variáveis aleatórias independentes X1, X2, , Xn com função de densidade comum</p>
+<p>Exercícios da Seção 2.2 1. Seja (X(1), X(2), , X(n)) o conjunto das estatísticas de ordem de n variáveis aleatórias independentes <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> com função de densidade comum</p>
 <p>f (x) =</p>
 <p>βe−xβ, se x 0 · 0, caso contrário</p>
 <ol type="a">
 <li>Mostre que X(s) e X(r) − X(s) são independentes para quaisquer r &gt; s.</li>
 <li>Encontre a função de densidade de X(r+1) − X(r).</li>
-<li>Seja Z1 = nX(1), Z2 = (n − 1)(X(2) − X(1)), Z3 = (n − 2)(X(3) − X(2)), …, Zn = ((X(n) − X(n−1))). Prove que (Z1, Z2, , Zn) e (X1, X2, , Xn) são identicamente distribuídas.</li>
+<li>Seja Z1 = nX(1), Z2 = (n − 1)(X(2) − X(1)), Z3 = (n − 2)(X(3) − X(2)), …, Zn = ((X(n) − X(n−1))). Prove que (Z1, Z2, , Zn) e (<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>) são identicamente distribuídas.</li>
 </ol>
 <ol start="2" type="1">
 <li>Provar o Teorema 2.1</li>
-<li>Sejam X1, X2, , Xn variáveis aleatórias com distribuição geométrica de parâmetros p1, p2, , pn, respectivamente. Prove que Nn = min(X1, X2, , Xn) têm também distribuição geométrica de parâmetro n p = 1 − (1 − pi)· i=1</li>
+<li>Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias com distribuição geométrica de parâmetros p1, p2, , pn, respectivamente. Prove que Nn = min(<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>) têm também distribuição geométrica de parâmetro n p = 1 − (1 − pi)· i=1</li>
 <li>As X1, , Xn variáveis aleatórias independentes e identicamente distribuídas tem por função de probabilidade BN (1; p) se, e somente se, Nn = min(X1, , Xn) tem distribuição geométrica de parâmetro 1 − (1 − p)n.</li>
-<li>Sejam X1, X2, , Xn variáveis aleatórias independentes e igualmente distribuídas com função de densidade comum</li>
+<li>Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias independentes e igualmente distribuídas com função de densidade comum</li>
 </ol>
 <p>f (x) =</p>
 <p>σ 0, se x ≤ </p>
-<p>Mostre que X(1), X(2) − X(1), X(3) − X(2), , X(n) − X(n−1) são independentes. 6. Sejam X1, X2, , Xn variáveis aleatórias independentes e igualmente distribuídas com função de distribuição acumulada comum</p>
+<p>Mostre que X(1), X(2) − X(1), X(3) − X(2), , X(n) − X(n−1) são independentes. 6. Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias independentes e igualmente distribuídas com função de distribuição acumulada comum</p>
 <p>F (t) =</p>
 <p>tα, se 0 &lt; t &lt; 1  1, se t ≥ 1</p>
 <p>para α &gt; 0. Mostre que X(i)/X(n), i = 1, 2, , n − 1 e X(n) são independentes. 7. Sejam X1 e X2 duas variáveis aleatórias discretas independentes com função de probabilidade comum P (X = x) = (1 − )x−1, x = 1, 2, ; 0 &lt; &lt; 1· Mostre que X(1) e X(2) − X(1) são independentes. 8. Sejam X1, , Xn duas variáveis aleatórias independentes com função de densidade comum <span class="math inline">\(F\)</span> . Encontre a função de densidade de X(1) e de X(n).</p>
 <ol start="9" type="1">
-<li>Sejam X(1), X(2), , X(n) as estatísticas de ordem de n variáveis aleatórias independentes e igualmente distribuídas X1, X2, , Xn com função de densidade comum f (x) = 1 se 0 &lt; x &lt; 1 · 0, caso contrário Prove que Y1 = X(1)/X(2), Y2 = X(2)/X(3), , Yn−1 = X(n−1)/X(n) e Yn = X(n) são independentes. Encontre a função de densidade conjunta de Y1, Y2, , Yn.</li>
-<li>Sejam X1.X2, , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| &lt; ∞, então E|X(r)| &lt; ∞. Definamos Mn = X(n) = max(X1, X2, , Xn). Mostre que ∫ ∞</li>
+<li>Sejam X(1), X(2), , X(n) as estatísticas de ordem de n variáveis aleatórias independentes e igualmente distribuídas <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> com função de densidade comum f (x) = 1 se 0 &lt; x &lt; 1 · 0, caso contrário Prove que Y1 = X(1)/X(2), Y2 = X(2)/X(3), , Yn−1 = X(n−1)/X(n) e Yn = X(n) são independentes. Encontre a função de densidade conjunta de Y1, Y2, , Yn.</li>
+<li>Sejam X1.X2, , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| &lt; ∞, então E|X(r)| &lt; ∞. Definamos Mn = X(n) = max(<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>). Mostre que ∫ ∞</li>
 </ol>
 <p>Encontre E(Mn) em cada uma das seguintes situações: a) Xk tem como função de distribuição comum <span class="math inline">\(F\)</span> (x) = 1 − e−xβ, se x ≥ 0. b) Xk tem como função de distribuição comum <span class="math inline">\(F\)</span> (x) = x, se 0 &lt; x &lt; 1.</p>
 <ol start="11" type="1">
@@ -1225,9 +1173,9 @@ Na segunda derivada, escolhendo u = µ + e−h(1 − µ ) 0 &lt; u &lt; 1. Porta
 <p>Exercícios da Seção 2.3 1. Demonstre o Corolário 2.17. 2. Demonstre o Corolário 2.18.</p>
 <ol start="3" type="1">
 <li><p>Seja X1, , Xn uma amostra aleatória Poisson(). Encontre Var(S2) e compare-a com Var(X). Observe que E(X) = = E(S2).</p></li>
-<li><p>Seja X1, X2, , Xn uma amostra aleatória da função de distribuição <span class="math inline">\(F\)</span> e seja <span class="math inline">\(F\)</span> ∗(x) a função de distribuição amostral. Encontre Cov[F ∗(x), <span class="math inline">\(F\)</span> ∗(y)] para números reais fixos x, y. n n</p></li>
+<li><p>Seja <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> uma amostra aleatória da função de distribuição <span class="math inline">\(F\)</span> e seja <span class="math inline">\(F\)</span> ∗(x) a função de distribuição amostral. Encontre Cov[F ∗(x), <span class="math inline">\(F\)</span> ∗(y)] para números reais fixos x, y. n n</p></li>
 <li><p>Seja <span class="math inline">\(F\)</span> ∗ a função de distribuição empírica de uma amostra aleatória com função de distribuição teórica <span class="math inline">\(F\)</span> . Prove que { ∗ ϵ } 1</p></li>
-<li><p>Sejam X1, X2, , Xn n observacões independentes da variável aleatória X. Encontre a distribuição amostral de X, a média amostral, se:</p></li>
+<li><p>Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> n observacões independentes da variável aleatória X. Encontre a distribuição amostral de X, a média amostral, se:</p></li>
 </ol>
 <ol type="a">
 <li>X ∼ P ();</li>

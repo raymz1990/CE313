@@ -4,6 +4,12 @@ date: 2024-03-01
 code-fold: true
 ---
 
+```{r setup, include=FALSE}
+# Configurações do knitr
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+```
+
+
 Quando estudadas as idéias e técnicas da teoria das probabilidades fundamentais, criamos um modelo matemático de um ensaio aleatório, associando-o com um espaço de amostragem no qual os acontecimentos aleatórios correspondem a um conjunto de uma certa $\sigma$-álgebra. A noção de probabilidade definida nesta $\sigma$-álgebra corresponde à noção de incerteza no resultado em qualquer realização do experimento aleatório.
 
 Vamos começar o estudo de alguns problemas de estatística matemática. Suponha que buscamos informações sobre algumas características numéricas de um conjunto de elementos, chamado de uma população. Por razões de custo, de tempo ou simplesmente para não destruir todos os elementos amostrados podemos não querer ou não poder estudar cada elemento da população. Nosso objetivo é tirar conclusões sobre as características desconhecidas da população com base em informações sobre algumas características de uma amostra adequadamente selecionada.
@@ -17,6 +23,7 @@ Considere-se um experimento estatístico que culmina em desfechos $x$, que são 
 Vamos agora formalizar esses conceitos.
 
 >
+**Definição**.
 Seja $X$ uma variável aleatória com função de distribuição $F$ e $X_1, \cdots, X_n$ variáveis aleatórias independentes com distribuição comum $F$. Chamaremos a coleção $X_1, \cdots, X_n$ de uma amostra aletória de tamanho $n$ de $F$ ou simplesmente como $n$ observações independentes de $X$.
 
 Se $X_1, X_2, \cdots , X_n$ é uma amostra aleatória de $F (\cdot; \theta)$, a função de distribuição conjunta é dada por:
@@ -24,11 +31,13 @@ Se $X_1, X_2, \cdots , X_n$ é uma amostra aleatória de $F (\cdot; \theta)$, a 
 $$F(x_1, \cdots, x_n; \theta) = \prod_{i=1}^{n} F(x_i; \theta)$$
 
 >
+**Definição**.
 Sejam $X_1, X_2, \cdots, X_n$ $n$ observações independentes da variável aleatória $X$ e seja  $g: \mathbb{R}^n \to \mathbb{R}$ uma função real derivável. Então a variável aleatória $g(X_1, X_2, \cdots, X_n)$ é chamada de estatística, desde que não dependa de parâmetros desconhecidos.
 
 Segundo esta definição cada uma das variáveis na amostra isoladamente é uma estatística assim como funções destas que, eventualmente, podem não fornecer informações úteis. Duas das estatísticas mais comumente utilizadas são mostradas no exemplo a seguir.
 
 >
+**Definição**.
 Seja $X_1, X_2, \cdots, X_n$ uma amostra aleatória da função de distribuição $F$. A estatística
 $$\overline{X}_n = \sum_{i=1}^{n} \displaystyle \frac{Xi}{n},$$
 é chamada de média amostral e a estatística 
@@ -37,9 +46,7 @@ $$S_{n}^{2} = \sum_{i=1}^{n} \displaystyle \frac{(X_i - \overline{X}_n)^2}{n-1}$
 
 Deve-se lembrar que as estatísticas amostrais apresentadas neste exemplo $\overline{X}_n, S_{n}^{2}$ e outras que irão definir-se posteriormente são variáveis aleatórias, com todas as consequências que isso implica, enquanto os parâmetros populacionais $\mu, \sigma^2$ e assim por diante são constantes fixas, que podem ser desconhecidas.
 
-**Exemplo 2.1**
-
-Seja $X \sim Bernoulli(p)$, onde $p$ é desconhecido. A função de distribuição de $X$, mostrada na Figura 2.1, é dada por
+**Exemplo**. Seja $X \sim Bernoulli(p)$, onde $p$ é desconhecido. A função de distribuição de $X$, mostrada na   Figura 2.1, é dada por
 
 $$F(x) = p\delta (x − 1) + (1 − p)\delta(x),	x \in \mathbb{R},$$
 onde a função $\delta(\cdot)$ foi definida em (1.2) como $\delta(x) = \begin{cases} 1, \ x \ \geq \ 0, \\ 0, \ x \ < 0 \end{cases}$, chamada de função delta.
@@ -53,64 +60,32 @@ $$S_{5}^{2} = \sum_{i=1}{5} \displaystyle \frac{(x_i - \overline{x}_5)}{5 - 1}= 
 sendo este o valor assumido pela variável aleatória $S_{5}^{2}$.
 
 
-```{r}
-# Valores do parâmetro p
-p_values <- c(0.3, 0.5, 0.8)
+![Figura 2.1: Representação da função de distribuição Bernoulli para três valores do parâmetro $p$ = 0.3, 0.5 e 0.8. Observe que nesta curva a reta no intervalo (0, 1) depende de 1 - $p$, isso porque a função $\delta$ é sempre zero para $x$ - 1 nesse intervalo.](Figura 2.1.png)
 
-# Função de distribuição Bernoulli
-bernoulli_distribution <- function(x, p) {
-  ifelse(x < 0, 0,
-         ifelse(x < 1, 1 - p,
-                ifelse(x == 1, 1, 
-                       ifelse(x > 1, 1, NA))))
-}
-
-# Criar um gráfico vazio
-plot(-1:2, type = "n", xlim = c(-1, 2), ylim = c(0, 1), 
-     xlab = "x", ylab = "F(x)", main = "")
-
-# Adicionar a função de distribuição para cada valor de p
-for (p in p_values) {
-  curve(bernoulli_distribution(x, p), from = -1, to = 2, n = 1000,
-        add = TRUE, col = "black", lwd = 2)
-  segments(0, 1 - p, 1, 1 - p, col = "white", lwd = 2, lty = 2)
-  
-  # Adicionar os valores nos pontos centrais das linhas
-  text(0.5, 1 - p, paste("p =", p), pos = 3)
-}
-
-
-
-
-```
-
-Figura 2.1: Representação da função de distribuição Bernoulli para três valores do parâmetro $p$ = 0.3, 0.5 e 0.8. Observe que nesta curva a reta no intervalo (0, 1) depende de 1 - $p$, isso porque a função $\delta$ é sempre zero para $x$ - 1 nesse intervalo.
-
-**Exemplo 2.2**
-
-Seja $X \sim N (\mu, \sigma^2)$, $\mu$ conhecida, $\sigma^2$ desconhecido e $X_1, \cdots , X_n$ uma amostra aleatória dessa distribuição. De acordo com nossa definição, a função $\sum_{i=1}^{n} X_{i} / \sigma^2$ não é uma estatística. Suponha que cinco observações de $X$ -0,864; 0,561; 2.355; 0,582 e -0,774. Então, a estimativa da média amostral é 0,372 e a estimativa da variância amostral é 1,648.
-
-
+**Exemplo**. Seja $X \sim N (\mu, \sigma^2)$, $\mu$ conhecida, $\sigma^2$ desconhecido e $X_1, \cdots , X_n$ uma amostra aleatória dessa distribuição. De acordo com nossa definição, a função $\sum_{i=1}^{n} X_{i} / \sigma^2$ não é uma estatística. Suponha que cinco observações de $X$ -0,864; 0,561; 2.355; 0,582 e -0,774. Então, a estimativa da média amostral é `r mean(c(-0.864, 0.561, 2.355, 0.582, -0.774))` e a estimativa da variância amostral é 1.648.
 
 ##	Estatísticas de ordem
-Seja (X1, X2, \cdots , Xn) um vetor aleatório n-dimensional e (x1, x2, \cdots , xn) uma n-tupla assumida por (X1, X2, \cdots , Xn).
-Vamos organizar x1, x2, \cdots , xn em ordem crescente de magnitude, para que
-x(1) ≤ x(2) ≤ \cdots ≤ x(n),
-onde x(1) = min(x1, x2, \cdots , xn), x(2) é o segundo menor valor em x1, \cdots , xn e assim por diante, x(n) = max(x1, \cdots , xn). Se quaisquer dois xi, xj forem iguais, a ordem não importa.
+
+Seja ($X_1, X_2, \cdots , X_n$) um vetor aleatório n-dimensional e ($x_1, x_2, \cdots , x_n$) uma $n$-tupla assumida por ($X_1, X_2, \cdots , X_n$). Vamos organizar $x_1, x_2, \cdots , x_n$ em ordem crescente de magnitude, para que
+$$x_{(1)}\le x_{(2)} \le \cdots ≤ x_{(n)},$$
+onde $x_{(1)}$ = min($x_1, x_2, \cdots , x_n$), $x_{(2)}$ é o segundo menor valor em $x_1, \cdots , x_n$ e assim por diante, $x_{(n)}$ = max($x_1, \cdots , x_n$). Se quaisquer dois $x_i$, $x_j$ forem iguais, a ordem não importa.
  
-
- 
-**Exemplo 2.3**
-Consideremos X1, X2, X3 três variáveis aleatórias discretas de maneira que, X1 e X3 sejam tais que assumam somente valores 0, 1 e que X2 assuma valores 1, 2, 3. O vetor aleatório (X1, X2, X3) assume os valores: (0, 1, 0),
-(0, 2, 0), (0, 3, 0), (0, 1, 1), (0, 2, 1), (0, 3, 1), (1, 1, 0), (1, 2, 0), (1, 3, 0), (1, 1, 1), (1, 2, 1) e (1, 3, 1). Então X(1)
-assume somente valores 0 ou 1; X(2) assume somente valores 0 ou 1 e X(3) assume somente valores 1, 2 ou 3.
+>
+**Definição**.
+A função $X_{(k)}$ de ($X_1, \cdots ,X_n$) que assume o valor $x_{(k)}$ em cada possível sequência ($x_1, x_2, \cdots , x_n$) de valores assumidos por ($X_1,X_2, \cdots , X_n$) é conhecida como a $k$-ésima estatística de ordem ou a estatística de ordem $k$.
+O conjunto ($X_{(1)},X_{(2)}, \cdots , X_{(n)}$) é chamado de estatísticas de ordem para ($X_1, X_2, \cdots , X_n$).
 
 
+**Exemplo**. Consideremos $X_1$, $X_2$, $X_3$ três variáveis aleatórias discretas de maneira que, $X_1$ e $X_3$ sejam tais que assumam somente valores 0, 1 e que $X_2$ assuma valores 1, 2, 3. O vetor aleatório ($X_1$, $X_2$, $X_3$) assume os valores: (0, 1, 0), (0, 2, 0), (0, 3, 0), (0, 1, 1), (0, 2, 1), (0, 3, 1), (1, 1, 0), (1, 2, 0), (1, 3, 0), (1, 1, 1), (1, 2, 1) e (1, 3, 1). Então $X_{(1)}$ assume somente valores 0 ou 1; $X_{(2)}$ assume somente valores 0 ou 1 e $X_{(3)}$ assume somente valores 1, 2 ou 3.
 
-Demonstração : Exercício.
+::: {.callout-note appearance="simple"}
+## Teorema
 
-Na apresentação dos resultados a seguir assumiremos que X1, X2, \cdots , Xn são variáveis aleatórias independentes e igualmente distribuídas contínuas com função de densidade $F$ . Seja {X(1), X(2), \cdots , X(n)} o conjunto das estatística de ordem para X1, X2, \cdots , Xn. Dado que todas as Xi são contínuas segue que, com probabilidade 1
-X(1) ≤ X(2) ≤ \cdots ≤ X(n)·
+Seja ($X_{(1)}, X_{(2)}, \cdots , X_{(n)}$) um vetor aleatório de dimensão $n$ e seja $X_{(k)}, 1 \le k \le n$, a $k$-ésima estatística de ordem. Então $X_{(k)}$ é também uma variável aleatória.
+:::
+
+**Exercício**. Na apresentação dos resultados a seguir assumiremos que $X_1, X_2, \cdots , X_n$ são variáveis aleatórias independentes e igualmente distribuídas contínuas com função de densidade $f$ . Seja $\{ X_{(1)}, X_{(2)}, \cdots , X_{(n)} \}$ o conjunto das estatística de ordem para $X_1, X_2, \cdots , X_n$. Dado que todas as $X_i$ são contínuas segue que, com probabilidade 1
+$$X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}·$$
 
 ### 2.2.1	Propriedades das estatísticas de ordem
 Começaremos o estudo das propriedades encontrando a função de densidade conjunta de (X(1), X(2), \cdots , X(n)).
@@ -123,7 +98,7 @@ x4 < x1 < xn−1 < x3 < \cdots < xn < x2·
 
 A inversa correspondente é
 x4 = x(1), x1 = x(2), xn−1 = x(3), x3 = x(4) \cdots xn = x(n−1), x2 = x(n)·
-O determinante Jacobiano desta transformação é a matriz n×n identidade com as colunas reorganizadas, isto devido a que cada x(i) é igual a uma, e somente uma, das x1, x2, \cdots , xn. Portanto J = ±1 e
+O determinante Jacobiano desta transformação é a matriz n×n identidade com as colunas reorganizadas, isto devido a que cada x(i) é igual a uma, e somente uma, das $X_1, X_2, \cdots , X_n$. Portanto J = ±1 e
 
 n
 f (x(2), x(n), x(4), x(1), \cdots , x(3), x(n−1))|J| =	f (x(i)),
@@ -272,7 +247,7 @@ P (X(1) = X(2) = \cdots = X(n)) ̸= 0,
 como vai ser mostrado no seguinte exemplo. Acontece que o fato da probabilidade das estatística de ordem poderem coincidir, com probabilidade diferente de zero, altera a estrutura da demonstração e não nos permite obtermos estes resultados para o caso discreto.
 
 **Exemplo 2.6**
-Sejam X1, X2, \cdots , Xn variáveis aleatórias independentes assumindo somente 0 e 1 com probabilidade 1/2. Observemos que
+Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes assumindo somente 0 e 1 com probabilidade 1/2. Observemos que
 
 n	n
 P (X(1) = X(2) = \cdots = X(n))  =  ∏ P (X(k) = 0) + ∏ P (X(k) = 1)
@@ -348,7 +323,7 @@ f (ti) dti
 Como utilidade deste teorema podemos mencionar o fato de agora podermos encontrar os momentos das es- tatística de ordem. Faremos isso como consequência do seguinte exemplo.
 
 **Exemplo 2.7**
-Sejam X1, X2, \cdots , Xn variáveis aleatórias independentes U (0, 1). Então
+Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes U (0, 1). Então
  
 fr(x(r)) = 
 
@@ -582,7 +557,7 @@ n!
 caso x(k1) < x(k2) < \cdots < x(km) e zero noutras situações.
 
 **Exemplo 2.9** (Continuação do Exemplo 2.7)
-Sabemos que as variáveis aleatórias X1, X2, \cdots , Xn são independentes e tem como função de densidade comum
+Sabemos que as variáveis aleatórias $X_1, X_2, \cdots , X_n$ são independentes e tem como função de densidade comum
 f (x) =	1,	se	0 < x < 1  ·
 0,	caso contrário
 Então, a função de densidade conjunta de X(r) e X(s) é dada por
@@ -659,7 +634,7 @@ Demonstração : Exercício.
 Acerca da função de distribuição de qualquer estatística de ordem temos o resultado a seguir.
 
 
-Demonstração : O evento {X(k) ≤ x} ocorre se, e somente se, pelo menos k dos X1, X2, \cdots , Xn são menores ou iguais a x, por isso o somatório começa em k.
+Demonstração : O evento {X(k) ≤ x} ocorre se, e somente se, pelo menos k dos $X_1, X_2, \cdots , X_n$ são menores ou iguais a x, por isso o somatório começa em k.
 
 Nos dois teoremas seguintes relacionamos a distribuição condicional de estatísticas de ordem, condicionadas em outra estatística de ordem, com a distribuição de estatísticas de ordem de uma população cuja distribuição é uma forma truncada da função de distribuição da população original $F$ .
 
@@ -948,7 +923,7 @@ Caso p = 1/2, a mediana amostral será ξ1/2 = −\Theta ln(1/2) = 0.6931472\The
 ## Momentos amostrais
 Nesta seção vamos estudar algumas estatísticas amostrais comumente utilizadas e suas distribuições.
 
-Observemos que nFn(x) é o número de Xk (1 ≤ k ≤ n) menores ou iguais a x. Se X(1), X(2), \cdots , X(n) são as estatísticas de ordem de X1, X2, \cdots , Xn então claramente
+Observemos que nFn(x) é o número de Xk (1 ≤ k ≤ n) menores ou iguais a x. Se X(1), X(2), \cdots , X(n) são as estatísticas de ordem de $X_1, X_2, \cdots , X_n$ então claramente
 
  
 Fn(x) = 
@@ -1256,7 +1231,7 @@ b02
 S1S2
  
 Pode ser demonstrado que |R| ≤ 1 e que os valores extremos ±1 ocorrem somente quando todos os pontos amostrais (X1, Y2), (X2, Y2), \cdots , (Xn, Yn) estão alinhados.
-Correspondendo a uma amostra X1, X2, \cdots , Xn de observações em $F$ , p-ésimo quantil amostral é definido como o p-ésimo quantil da função de distribuição amostral, ou seja, como $F$ −1.
+Correspondendo a uma amostra $X_1, X_2, \cdots , X_n$ de observações em $F$ , p-ésimo quantil amostral é definido como o p-ésimo quantil da função de distribuição amostral, ou seja, como $F$ −1.
 Os quatis amostrais são definidos de maneira similar. Então, se 0 < p < 1, o quantil amostral de ordem p,
 
  
@@ -1677,7 +1652,7 @@ isto é
 E(S11) = E(XY ) − E(X) E(Y ) = Cov(X, Y ) = ρσ1σ2·
  
 
-A seguir, voltamos nossa atenção para as distribuições das características da amostra. Existem várias possi- bilidades. Se for necessária a distribuição exata o método de transformação de variáveis pode ser utilizado. As vezes, a técnica da função geradora de momentos pode ser aplicada. Assim, se X1, X2, \cdots , Xn é uma amostra aleatória de uma população com distribuição para a qual existe a função geradora de momentos, a função geradora de momentos da média amostral X é dada por
+A seguir, voltamos nossa atenção para as distribuições das características da amostra. Existem várias possi- bilidades. Se for necessária a distribuição exata o método de transformação de variáveis pode ser utilizado. As vezes, a técnica da função geradora de momentos pode ser aplicada. Assim, se $X_1, X_2, \cdots , X_n$ é uma amostra aleatória de uma população com distribuição para a qual existe a função geradora de momentos, a função geradora de momentos da média amostral X é dada por
 n
 M (t) =	E(etXi/n) = [MX(t/n)]n ,	(2.32)
 i=1
@@ -1686,7 +1661,7 @@ onde MX é a função geradora de momentos da distribuição populacional. Se MX
 
 **Exemplo 2.18**
 
-Seja X1, X2, \cdots , Xn uma amostra aleatória de tamanho n da distribuição Gama(α, 1). Nesta situação podemos encontrar a função de densidade de X. Temos que
+Seja $X_1, X_2, \cdots , X_n$ uma amostra aleatória de tamanho n da distribuição Gama(α, 1). Nesta situação podemos encontrar a função de densidade de X. Temos que
 
  
 MX (t) = [MX
@@ -1702,7 +1677,7 @@ da qual obtemos que X ∼ Gama(nα, 1/n).
 
 **Exemplo 2.19**
 
-Seja X1, X2, \cdots , Xn uma amostra aleatória da distribuição Uniforme no intervalo (0, 1). Considere a média geométrica
+Seja $X_1, X_2, \cdots , X_n$ uma amostra aleatória da distribuição Uniforme no intervalo (0, 1). Considere a média geométrica
  
 
 Yn =
@@ -2767,7 +2742,7 @@ onde Sn é a raiz quadrada positiva da variância amostral S2.
  
 
 Exercícios da Seção 2.2
-1.	Seja (X(1), X(2), \cdots , X(n)) o conjunto das estatísticas de ordem de n variáveis aleatórias independentes X1, X2, \cdots , Xn com função de densidade comum
+1.	Seja (X(1), X(2), \cdots , X(n)) o conjunto das estatísticas de ordem de n variáveis aleatórias independentes $X_1, X_2, \cdots , X_n$ com função de densidade comum
  
 f (x) =
  
@@ -2778,15 +2753,15 @@ f (x) =
 a)	Mostre que X(s) e X(r) − X(s) são independentes para quaisquer r > s.
 b)	Encontre a função de densidade de X(r+1) − X(r).
 c)	Seja Z1 = nX(1), Z2 = (n − 1)(X(2) − X(1)), Z3 = (n − 2)(X(3) − X(2)), ..., Zn = ((X(n) − X(n−1))).  Prove que
-(Z1, Z2, \cdots , Zn) e (X1, X2, \cdots , Xn) são identicamente distribuídas.
+(Z1, Z2, \cdots , Zn) e ($X_1, X_2, \cdots , X_n$) são identicamente distribuídas.
 2.	Provar o Teorema 2.1
-3.	Sejam X1, X2, \cdots , Xn variáveis aleatórias com distribuição geométrica de parâmetros p1, p2, \cdots , pn, respectivamente. Prove que
-Nn = min(X1, X2, \cdots , Xn) têm também distribuição geométrica de parâmetro
+3.	Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias com distribuição geométrica de parâmetros p1, p2, \cdots , pn, respectivamente. Prove que
+Nn = min($X_1, X_2, \cdots , X_n$) têm também distribuição geométrica de parâmetro
 n
 p = 1 −	(1 − pi)·
 i=1
 4.	As X1, \cdots , Xn variáveis aleatórias independentes e identicamente distribuídas tem por função de probabilidade BN (1; p) se, e somente se, Nn = min(X1, \cdots , Xn) tem distribuição geométrica de parâmetro 1 − (1 − p)n.
-5.	Sejam X1, X2, \cdots , Xn variáveis aleatórias independentes e igualmente distribuídas com função de densidade comum
+5.	Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes e igualmente distribuídas com função de densidade comum
 
  
 f (x) =
@@ -2795,7 +2770,7 @@ f (x) =
 0,	se  x ≤ \Theta
  
 Mostre que X(1), X(2) − X(1), X(3) − X(2), \cdots , X(n) − X(n−1) são independentes.
-6.	Sejam X1, X2, \cdots , Xn variáveis aleatórias independentes e igualmente distribuídas com função de distribuição acumulada comum
+6.	Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes e igualmente distribuídas com função de distribuição acumulada comum
 
  
 F (t) =
@@ -2810,12 +2785,12 @@ P (X = x) = \Theta(1 − \Theta)x−1,	x = 1, 2, \cdots ;	0 < \Theta < 1· Mostr
 de X(1) e de X(n).
  
 
-9.	Sejam X(1), X(2), \cdots , X(n) as estatísticas de ordem de n variáveis aleatórias independentes e igualmente distribuídas X1, X2, \cdots , Xn
+9.	Sejam X(1), X(2), \cdots , X(n) as estatísticas de ordem de n variáveis aleatórias independentes e igualmente distribuídas $X_1, X_2, \cdots , X_n$
 com função de densidade comum
 f (x) =	1	se  0 < x < 1  ·
 0,	caso contrário
 Prove que Y1 = X(1)/X(2), Y2 = X(2)/X(3), \cdots , Yn−1 = X(n−1)/X(n) e Yn = X(n) são independentes. Encontre a função de densidade conjunta de Y1, Y2, \cdots , Yn.
-10.	Sejam X1.X2, \cdots , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| < ∞, então E|X(r)| < ∞. Definamos Mn = X(n) = max(X1, X2, \cdots , Xn). Mostre que
+10.	Sejam X1.X2, \cdots , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| < ∞, então E|X(r)| < ∞. Definamos Mn = X(n) = max($X_1, X_2, \cdots , X_n$). Mostre que
 ∫ ∞
    	 
 Encontre E(Mn) em cada uma das seguintes situações:
@@ -2831,13 +2806,13 @@ Exercícios da Seção 2.3
 2.	Demonstre o Corolário 2.18.
 
 3.	Seja X1, \cdots , Xn uma amostra aleatória Poisson(\Theta). Encontre Var(S2) e compare-a com Var(X). Observe que E(X) = \Theta = E(S2).
-4.	Seja X1, X2, \cdots , Xn uma amostra aleatória da função de distribuição $F$ e seja $F$ ∗(x) a função de distribuição amostral. Encontre
+4.	Seja $X_1, X_2, \cdots , X_n$ uma amostra aleatória da função de distribuição $F$ e seja $F$ ∗(x) a função de distribuição amostral. Encontre
 Cov[F ∗(x), $F$ ∗(y)] para números reais fixos x, y.
 n	n
 5.	Seja $F$ ∗ a função de distribuição empírica de uma amostra aleatória com função de distribuição teórica $F$ . Prove que
 {	∗	 ϵ   }	 1
 
-6.	Sejam X1, X2, \cdots , Xn n observacões independentes da variável aleatória X. Encontre a distribuição amostral de X, a média amostral, se:
+6.	Sejam $X_1, X_2, \cdots , X_n$ n observacões independentes da variável aleatória X. Encontre a distribuição amostral de X, a média amostral, se:
 a)	X ∼ P (\Theta);
 b)	X ∼ Cauchy(1, 0);
 c)	X ∼ χ2(m).
