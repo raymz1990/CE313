@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CE313 - Estatística Não-Paramétrica - Módulo I</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ModuloI/Aula01/index.html" rel="next">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../custom.css">
+<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - Módulo I">
+<meta property="og:description" content="Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).">
+<meta property="og:image" content="non-parametric.pngs">
+<meta property="og:site_name" content="CE313 - Estatística Não-Paramétrica">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ModuloI/index.html">Módulo I</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CE313 - Estatística Não-Paramétrica</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://raymz1990.github.io/CE313/tree/main/book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../CE313---Estatística-Não-Paramétrica.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../CE313---Estatística-Não-Paramétrica.docx">
+              <i class="bi bi-bi-file-word pe-1"></i>
+            Download Docx
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ModuloI/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Módulo I</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloI/Aula01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloI/Aula02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estatísticas de ordem</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#estimação-de-densidades" id="toc-estimação-de-densidades" class="nav-link active" data-scroll-target="#estimação-de-densidades">Estimação de densidades</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios">Exercícios</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-modulo01" class="quarto-section-identifier">Módulo I</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Última atualização: 03 de agosto de 2018.</p>
+</div>
+</div>
+<p>Sejam <span class="math inline">\(x_{1},  x_{2}, \cdots  x_{n}\)</span>, variáveis aleatórias independentes identicamente distribuídas com distribuição comum <span class="math inline">\(\mathcal{L} (X)\)</span> e seja <span class="math inline">\(P\)</span> a classe de todas as possíveis distribuições de <span class="math inline">\(X\)</span> que consiste de todas as distribuições absolutamente contínuas ou discretas.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. A estatística <span class="math inline">\(T(X)\)</span> é suficiente para a família de distribuições <span class="math inline">\(\mathcal{p}\)</span> se a distribuição condicional de <span class="math inline">\(X|T=t\)</span> é a mesma, seja qual for a função de distribuição <span class="math inline">\(F \in \mathcal{p}\)</span>.</p>
+</blockquote>
+<p><strong>Exemplo</strong>. Sejam <span class="math inline">\(x_{1},  x_{2}, \cdots  x_{n}\)</span> variáveis aleatórias independentes igualmente distribuídas com distribuição absolutamente contínua e seja <span class="math inline">\(T = (X_{(1)}, \cdots, X_{(n)})\)</span> a estatística de ordem. Então: <span class="math display">\[f(x|T = t) = 1n!,\]</span> e vemos que <span class="math inline">\(T\)</span> é uma estatística suficiente para a família das distribuições absolutamente contínuas.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. A família de distribuições <span class="math inline">\(\mathcal{P}\)</span> é completa se somente a função zero for o estimador não viesado de 0, isto é,</p>
+</blockquote>
+<p><span class="math display">\[E_F \Big( h(X) \Big) = 0,\]</span> para todo <span class="math inline">\(F\in\mathcal{P}\)</span> implica que <span class="math inline">\(h(X)=0\)</span>. Isto para todo <span class="math inline">\(x\)</span> exceto para um conjunto nulo em relação a cada <span class="math inline">\(F\in\mathcal{P}\)</span>.</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X\sim Uniforme(0,\theta)\)</span>, onde <span class="math inline">\(\theta\in (0,\infty)\)</span>. Mostraremos que esta família de distribuições é completa. Precisamos mostrar que</p>
+<p><span class="math display">\[E_\theta \Big( g(X) \Big) = \int_0^\theta g(x)\frac{1}{\theta}\mbox{d}x \, = \, 0, \qquad \forall \,\theta&gt;0,\]</span> se, e somente se, <span class="math inline">\(g(x)=0\)</span>, para todo <span class="math inline">\(x\)</span>. Em geral, esse resultado segue a teoria da integração. Se <span class="math inline">\(g\)</span> for contínua, diferenciamos ambos os lados de</p>
+<p><span class="math display">\[\int_0^\theta g(x)\mbox{d}x = 0,\]</span></p>
+<p>para obter <span class="math inline">\(g(\theta)=0\)</span>, para todo <span class="math inline">\(\theta&gt;0\)</span>. Agora, seja <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> uma amostra aleatória da distribuição <span class="math inline">\(Uniforme(0,\theta)\)</span>. Também, seja <span class="math inline">\(X_{(n)}=\max(X_1,X_2,\cdots,X_n)\)</span>. Então, a função de densidade de <span class="math inline">\(X_{(n)}\)</span> é dada por</p>
+<p><span class="math display">\[f_{X_{(n)}}(x|\theta)=n\theta^{-n}x^{n-1}, \qquad 0 &lt; x &lt; \theta,\]</span></p>
+<p>zero caso contrário. Vemos por um argumento semelhante que <span class="math inline">\(X_{(n)}\)</span> é completa, o que é o mesmo do que dizer que $ {f_{X_{(n)}}(x|); , &gt;0 }$ é uma família de densidades completa. Claramente <span class="math inline">\(X_{(n)}\)</span> é suficiente.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Uma estatística <span class="math inline">\(T(X)\)</span> é dita ser completa em relação a uma classe de distribuições <span class="math inline">\(\mathcal{P}\)</span> se a classe de distribuições induzidas de <span class="math inline">\(T\)</span> for completa.</p>
+</blockquote>
+<p>Claro que todos os exemplos já encontrados de estatísticas completas ou famílias completas de distribuições para o caso paramétrico podem ser aplicados nesta situação.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A estatística de ordem <span class="math inline">\((X_{(1)},\cdots,X_{(n)})\)</span> é uma estatística suficiente e completa desde que a amostra <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> seja composta de variáveis aleatórias independentes identicamente distribuídas do tipo discreta ou contínua.</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Diz-se que uma função real <span class="math inline">\(g(F)\)</span> é estimável se tiver um estimador não viciado, isto é, se existe uma estatística <span class="math inline">\(T(X)\)</span> tal que <span class="math display">\[\mbox{E}_F\Big( T(X)\Big)=g(F),\]</span> para todo <span class="math inline">\(F\in\mathcal{P}\)</span>.</p>
+</blockquote>
+<p><strong>Exemplo</strong>. Se <span class="math inline">\(\mathcal{P}\)</span> é a classe de todas as distribuições para as quais o segundo momento existe, <span class="math inline">\(X\)</span> é um estimador não viciado de <span class="math inline">\(\mu(F)\)</span>, a média da população. Similarmente <span class="math display">\[\mu_2(F)=\mbox{Var}_F(X),\]</span> é também estimável e um estimador não viciado é</p>
+<p><span class="math display">\[S^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2\cdot\]</span></p>
+<p>Da mesma forma, <span class="math inline">\(\overline{X}-\overline{Y}\)</span> é um estimador não viciado de <span class="math inline">\(\mbox{E}(X)-\mbox{E}(Y)\)</span>,</p>
+<p><span class="math display">\[\frac{1}{n}\{\mbox{número de } X&gt;c\}\]</span></p>
+<p>é um estimador não viciado de <span class="math inline">\(P_F(X&gt;c)\)</span> e assim por diante.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. O grau <span class="math inline">\(m\)</span>, <span class="math inline">\(m\geq 1\)</span>, de um parâmetro estimável <span class="math inline">\(g(F)\)</span> é o menor tamanho de amostra para o qual o parâmetro é estimável, ou seja, é o menor <span class="math inline">\(n\)</span> para o qual existe um estimador não viciado <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> com <span class="math display">\[\mbox{E}_F\Big( T(X)\Big)=g(F),\]</span> para todo <span class="math inline">\(F\in\mathcal{P}\)</span>.</p>
+</blockquote>
+<p><strong>Exemplo</strong>. O parâmetro <span class="math display">\[g(F)=P_F(X&gt;c),\]</span> onde <span class="math inline">\(c\)</span> é uma constante conhecida, têm grau 1. Também <span class="math inline">\(\mu(F)\)</span> é estimável com grau 1, para isto assumimos que existe ao menos um <span class="math inline">\(F\in\mathcal{P}\)</span> tal que <span class="math inline">\(\mu(F)\neq 0\)</span>. Acontece que <span class="math inline">\(\mu_2(F)\)</span> é estimável com grau 2, desde que <span class="math inline">\(\mu_2(F)\)</span> não seja estimável de forma não viciada por somente uma observação. Ao menos duas observações são necessárias. De maneira similar, <span class="math inline">\(\mu^2(F)\)</span> têm grau 2.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Um estimador não viciado de algum parâmetro baseado no tamanho mínimo de amostra, ou seja, com amostra iagual ao grau <span class="math inline">\(m\)</span> é chamado de kernel.</p>
+</blockquote>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X_1,\cdots,X_n\)</span> uma amostra aleatória com distribuição <span class="math inline">\(F\)</span>. Então <span class="math inline">\(X_i\)</span> é o kernel de <span class="math inline">\(\mu(F)\)</span>; <span class="math inline">\(X_iX_j\)</span>, <span class="math inline">\(i\neq j\)</span>, é o kernel de <span class="math inline">\(\mu^2(F)\)</span> e cada<br>
+<span class="math display">\[T(X_i,X_j)=X_i^2-X_iX_j, \qquad i=1,\cdots,n, \quad i\neq j,\]</span> é kernel de <span class="math inline">\(\mu_2(F)\)</span>.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Existe um kernel simétrico para cada parâmetro estimável.</p>
+</div>
+</div>
+<p><strong>Demonstração</strong>. Seja <span class="math inline">\(T(X_1,\cdots,X_m)\)</span> um kernel para <span class="math inline">\(g(F)\)</span>. Também é <span class="math display">\[T_s(X_1,\cdots,X_m)=\frac{1}{m!}\sum_P T(X_{i_1},X_{i_2}\cdots,X_{i_m})\]</span> um kernel para <span class="math inline">\(g(F)\)</span>, onde a soma <span class="math inline">\(P\)</span> acontece sobre todas as <span class="math inline">\(m!\)</span> permutacoes de <span class="math inline">\(\{1,2,\cdots,m\}\)</span>.</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X_1,\cdots,X_n\)</span> uma amostra aleatória com distribuição <span class="math inline">\(F\)</span>. Um kernel simétrico para <span class="math inline">\(\mu_2(F)\)</span> é <span class="math display">\[T_s(X_i,X_j)=\frac{1}{2}\Big( T(X_i,X_j)+T(X_j,X_i) \Big) \, = \, \frac{1}{2}\big( X_i-X_j\big)^2,  
+    \qquad i=1,\cdots,n, \quad i\neq j\cdot\]</span></p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Seja <span class="math inline">\(g(F)\)</span> um parâmetro estimável de grau <span class="math inline">\(m\)</span> e <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> uma amostra aleatória de <span class="math inline">\(F\)</span> de tamanho <span class="math inline">\(n\)</span>, <span class="math inline">\(n\geq m\)</span>. Correspondendo a qualquer kernel <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> de <span class="math inline">\(g(F)\)</span>, definimos a U-estatística para a amostra como <span class="math display">\[U(X_1,X_2,\cdots,X_n)=\frac{1}{{n \choose m}}\sum_C T_s(X_{i_1},X_{i_2},\cdots,X_{i_n}),\]</span> onde o índice da soma <span class="math inline">\(C\)</span> percorre todas as <span class="math inline">\({n \choose m}\)</span> permutações de <span class="math inline">\(m\)</span> inteiros <span class="math inline">\((i_1,i_2,\cdots,i_m)\)</span> escolhidos de <span class="math inline">\(\{1,2,\cdots,n\}\)</span> e <span class="math inline">\(T_s\)</span> é um kernel simétrico, como definido na demonstração do Teorema anterior.</p>
+</blockquote>
+<p>Claramente, a U-estatística definida é simétrica nos <span class="math inline">\(X\)</span> e <span class="math display">\[\mbox{E}_F\big(U(X)\big)=g(F),\]</span> para todo <span class="math inline">\(F\)</span>.</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(X_1,\cdots,X_n\)</span> uma amostra aleatória com distribuição <span class="math inline">\(F\)</span>. Para estimarmos <span class="math inline">\(\mu(F)\)</span> a U-estatística é dada por<br>
+<span class="math display">\[U(X_1,X_2,\cdots,X_n)=\frac{1}{n}\sum_{i=1}^n X_i\cdot\]</span> Para estimarmos <span class="math inline">\(\mu_2(F)\)</span>, um kernel simétrico é <span class="math display">\[T_s(X_{i_1},X_{i_2}) = \frac{1}{2}\big( X_{i_1}-X_{i_2}\big)^2,\]</span> para <span class="math inline">\(i_1=1,2,\cdots,n\)</span>, <span class="math inline">\(i_1\neq i_2\)</span>. A correspondente U-estatística é <span class="math display">\[
+    U(X) \, = \, \frac{1}{{n \choose 2}}\sum_{i_1&lt; i_2}\frac{1}{2}\big(X_{i_1}-X_{i_2}\big)^2
+    \, = \, \frac{1}{n-1}\sum_{i=1}^n \big( X_i-\overline{X}\big)^2 \, = \, S^2\cdot
+\]</span></p>
+<p>De maneira similar, para estimarmos <span class="math inline">\(\mu_2(F)\)</span>, o kernel simétrico é <span class="math inline">\(T_s(X_{i_1},X_{i_2})=X_{i_1}X_{i_2}\)</span> e a correspondente U-estatística é <span class="math display">\[
+    U(X) \, = \, \frac{1}{{n \choose 2}}\sum_{i&lt; j}X_iX_j \, = \, \frac{1}{n(n-1)}\sum_{i\neq j} X_iX_j\cdot
+\]</span> Para estimarmos <span class="math inline">\(\mu^3(F)\)</span> um kernel simétrico seria <span class="math inline">\(T_s(X_{i_1},X_{i_2},X_{i_3})=X_{i_1}X_{i_2}X_{i_3}\)</span>, sendo que a U-estatística é <span class="math display">\[
+    U(X) \, = \, \frac{1}{{n \choose 3}}\sum_{i&lt; j&lt; k}X_iX_jX_k \, = \, \frac{1}{n(n-1)(n-2)}\sum_{i\neq j\neq k} X_iX_jX_k\cdot
+\]</span></p>
+<p>O seguinte resultado mostra a importância da U-estatística.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(\mathcal{P}\)</span> a classe de todas as distribuições absolutamente contínuas ou discretas. Qualquer função estimável <span class="math inline">\(g(F)\)</span>, <span class="math inline">\(F\in\mathcal{P}\)</span>, tem um estimador único que é não viciado, simétrico nas observações e uniformemente de variância mínima entre todos os estimadores não viciados.</p>
+</div>
+</div>
+<p><strong>Demonstração</strong>. Seja <span class="math inline">\(X_1,\cdots,X_n\)</span> uma amostra aleatória de <span class="math inline">\(F\)</span>, <span class="math inline">\(F\in\mathcal{P}\)</span> e seja <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> um estimador não viciado de <span class="math inline">\(g(F)\)</span>. Considere o conjunto de todas as <span class="math inline">\(n!\)</span> permutações de <span class="math inline">\(\{1,2,\cdots,n\}\)</span> e indexá-los adequadamente. Seja <span class="math inline">\(\{i_1,i_2,\cdots,i_n\}\)</span> o i-ésimo deste conjunto e seja <span class="math display">\[
+    T_i \, = \, T_i(X_1,X_2,\cdots,X_n) \, = \, T(X_{i_1},X_{i_2}\cdots,X_{i_n}), \qquad i=1,2,\cdots,n!\cdot
+\]</span> Seja <span class="math display">\[
+    \overline{T}=\frac{1}{n!}\sum_{i=1}^{n!} T_i\cdot
+\]</span> Claro que <span class="math inline">\(\mbox{E}(T)=g(F)\)</span> e <span class="math display">\[
+\begin{array}{rcl}
+    \mbox{Var}(\overline{T}) &amp; = &amp; \mbox{E}\Big(\frac{1}{n!}\sum_{i=1}^{n!} T_i \Big)^2 \, - \, \big(g(F)\big)^2 \\
+    &amp; \leq &amp; \mbox{E}\Big(\frac{1}{(n!)^2}\sum_{i=1}^{n!} T_i^2\Big) \, - \, \big(g(F)\big)^2 \, = \, \mbox{E}(T^2)
+    \, - \, \big(g(F)\big)^2 \, = \, \mbox{Var}(T)\cdot
+\end{array}
+\]</span> A igualdade se mantém se, e somente se, <span class="math display">\[
+    T_i(X_1,X_2,\cdots,X_n) \, = \, \frac{\alpha}{n!}, \qquad i=1,2,\cdots,n!,
+\]</span> para todos os pontos no espaço amostral, exceto talvez para um conjunto nulo, em que <span class="math inline">\(\alpha\)</span> é uma constante. Segue-se que <span class="math inline">\(T(X)\)</span> é simétrico nos argumentos <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> com probabilidade 1 e <span class="math inline">\(\overline{T}\)</span> é idêntico a <span class="math inline">\(T\)</span>. A exclusividade é deixada como exercício.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> um estimador não viciado para <span class="math inline">\(g(F)\)</span>, <span class="math inline">\(F\in\mathcal{P}\)</span>. A correspondente U-estatística é essencialmente o único estimador não viciado uniformemente de mínima variância.</p>
+</div>
+</div>
+<p><strong>Demonstração</strong> Consequência do teorema anterior.</p>
+<p>De acordo com os teoremas acima precisamos apenas considerar estimadores que sejam simétricos nas observações e tudo o que devemos fazer é torná-las não viciados. Este procedimento leva a um estimador não viciado com a menor variância na classe de todos os estimadores não viciados do parâmetro. Por exemplo, como consequência destes teoremas, <span class="math inline">\(\overline{X}\)</span> e <span class="math inline">\(S^2\)</span> são os únicos estimadores não viciados uniformemente de variância mínima de <span class="math inline">\(\mu(F)\)</span> e <span class="math inline">\(\mu_2(F)\)</span>, respectivamente.</p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(\mathcal{P}\)</span> a classe de todas as distribuições absolutamente contínuas e <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span> uma amostra aleatória de tamanho <span class="math inline">\(n\)</span>. Para estimarmos <span class="math display">\[
+    g(F) \, = \, P_F(X_1&gt;c),
+\]</span> onde <span class="math inline">\(c\)</span> é uma constante fixa, definimos <span class="math display">\[
+    Y_i \, = \, \left\{ \begin{array}{ll} 1, &amp; X_i&gt; c, \\ 0, &amp; X_i\leq c \end{array}\right. \quad i=1,2,\cdots,n\cdot
+\]</span> Considere agora <span class="math display">\[
+    T(Y_1,Y_2,\cdots,Y_n) = \sum_{i=1}^n \alpha_i Y_i,
+\]</span> como um estimador de <span class="math inline">\(g(F)\)</span>. Para encontrar o estimador não viciado de mínima variância de <span class="math inline">\(g\)</span> simetrizamos <span class="math inline">\(T\)</span> nos <span class="math inline">\(Y_1,Y_2,\cdots,Y_n\)</span>. Isso acontece se <span class="math inline">\(\alpha_i=\alpha\)</span>, <span class="math inline">\(i=1,2,\cdots,n\)</span> e <span class="math inline">\(T(Y)=\alpha\sum_{i=1}^n Y_i\)</span>. Para <span class="math inline">\(T\)</span> ser não viciado, temos que <span class="math display">\[
+    \mbox{E}_F(T) \, = \, \alpha\sum_{i=1}^n \mbox{E}_F(Y_i) \, = \, \alpha n g(F),
+\]</span> de maneira que <span class="math inline">\(\alpha=\frac{1}{n}\)</span>. Portanto, <span class="math inline">\(\frac{1}{n}\sum_{i=1}^n Y_i\)</span> é o estimador não viciado de mínima variância; também <span class="math display">\[
+    \mbox{Var}_F(T) \, = \, \frac{g(F)\big(1-g(F)\big)}{n} \, \leq \, \frac{1}{4n}\cdot
+\]</span> Além disso, <span class="math inline">\(Y_i\)</span> têm distribuição <span class="math inline">\(Bernoulli\)</span>, de modo a <span class="math display">\[
+    \frac{\frac{1}{n}\big(T-g(F)\big)}{\big(g(F)(1-g(F))\big)^\frac{1}{2}} \overset{D}{\longrightarrow} Z, \qquad n\to\infty,
+\]</span> onde <span class="math inline">\(Z\sim N(0,1)\)</span>. Este resultado pode ser usado para encontrar limites de confiança em <span class="math inline">\(g(F)\)</span>.</p>
+Seja <span class="math inline">\(\mathcal{P}\)</span> a classe de todas as distribuições absolutamente contínuas na reta real. Sejam <span class="math inline">\(F,G\in\mathcal{P}\)</span> e definamos a função distância <span class="math inline">\(\Delta(F,G)\)</span> como segue: <span class="math display">\[
+    \Delta(F,G) \, = \, \int_{-\infty}^\infty \big( F(x)-G(x)\big)^2 \dfrac{F'(x)+G'(x)}{2}\mbox{d}x \cdot
+\]</span> Esta função satisfaz as seguintes propriedades:
+<ul>
+<li>
+<span class="math inline">\(\Delta(F,G) = 0\)</span> se, e somente se, <span class="math inline">\(F=G\)</span>.
+</li>
+<li>
+<span class="math inline">\(\Delta(F,G) = \Delta(G,F)\)</span>.
+</li>
+<li>
+<span class="math inline">\(\Delta(F,G) &gt; 0\)</span>. Por outro lado, vamos supor que <span class="math inline">\(F(x)\neq G(x)\)</span> para algum <span class="math inline">\(x_1\)</span>, onde <span class="math inline">\(F(x_1)-G(x_1)=d&gt;0\)</span>. Dado que <span class="math inline">\(F\)</span> e <span class="math inline">\(G\)</span> são distribuições absolutamente contínuas, existe um $ x_0 &lt; x_1 $, tal que <span class="math display">\[F(x_0)-G(x_0) \, = \, \frac{d}{2} \qquad \mbox{e} \qquad F(x)-G(x)\geq \frac{d}{2},\]</span> para <span class="math inline">\(x_0\leq x \leq x_1\)</span>. Dado que tanto <span class="math inline">\(F\)</span> quanto <span class="math inline">\(G\)</span> são ambas não decrescentes, pelo menos um dos <span class="math inline">\(F\)</span> e <span class="math inline">\(G\)</span> deve aumentar pelo menos <span class="math inline">\(d/2\)</span> quando <span class="math inline">\(x\)</span> varia de <span class="math inline">\(x_0\)</span> a <span class="math inline">\(x_1\)</span>. Então <span class="math display">\[\Delta(F,G) \, \geq \, \int_{x_0}^{x_1} \big( F(x)-G(x)\big)^2 \dfrac{F'(x)+G'(x)}{2}\mbox{d}x \, \geq \,
+        \Big( \frac{d}{2}\Big)^2 \frac{d/2}{2} \, &gt; \, 0\cdot\]</span>
+</li>
+</ul>
+<p><strong>Exemplo</strong>. Encontremos um estimador não viciado de mínima variância para <span class="math inline">\(\Delta(F,G)\)</span>. Sejam <span class="math inline">\(X_1,X_2,\cdots,X_m\)</span> uma amostra aleatória de <span class="math inline">\(F\)</span> e <span class="math inline">\(Y_1,Y_2,\cdots,Y_n\)</span> uma amostra aleatória de <span class="math inline">\(G\)</span>, independentes. Consideramos que <span class="math inline">\(F,G\in\mathcal{P}\)</span>. Primeiro mostramos que <span class="math display">\[
+    g(F,G) \, = \, P\Big( \big\{ \max(X_1,X_2) &lt; \min(Y_1,Y_2)\big\} \bigcup \big\{\max(Y_1,Y_2) &lt; \min(X_1,X_2)\big\}\Big) \, = \,
+    \frac{1}{3} \, + \, 2\Delta(F,G)\cdot
+\]</span> Temos que <span class="math display">\[
+    g(F,G) \, = \, P\Big( \big\{\max(X_1,X_2) &lt; \min(Y_1,Y_2)\big\}\Big) \, + \, P\Big( \big\{\max(Y_1,Y_2) &lt; \min(X_1,X_2)\big\}\Big)
+\]</span> e <span class="math display">\[
+    P\big( \max(X_1,X_2) \leq x \big) \, = \, F^2(x), \qquad P\big( \min(Y_1,Y_2) \geq y \big) \, = \, [1-G(y)]^2\cdot
+\]</span> Então <span class="math display">\[
+\begin{array}{rcl}
+    g(F,G) &amp; = &amp; \displaystyle \int_{-\infty}^\infty [1-G(y)]^2 2F(y)F'(y)\mbox{d}y \, + \,
+    \int_{-\infty}^\infty [1-F(x)]^2 2G(x)G'(x)\mbox{d}x \\
+    &amp; = &amp; \displaystyle \int_{-\infty}^\infty [1+G^2(y)-2G(y)] 2F(y)F'(y)\mbox{d}y \, + \,
+    \int_{-\infty}^\infty [1+F^2(x)-2F(x)] 2G(x)G'(x)\mbox{d}x \\
+    &amp; = &amp; 2+ \displaystyle \int_{-\infty}^\infty 2\Big[G^2(x)F(x)F'(x)+F^2(x)G(x)G'(x)-2F(x)G(x)\big(F'(x)+G'(x)\big)\Big]\mbox{d}x \\
+    &amp; = &amp; 3-2\displaystyle \int_{-\infty}^\infty \Big(\big(F(x)+G(x)\big)^2-\big(F(x)-G(x)\big)^2 \Big)
+    \Big(\frac{F'(x)+G'(x)}{2}\Big)\mbox{d}x \\
+    &amp; = &amp; 3-8\displaystyle\int_{-\infty}^\infty \Big(\frac{F(x)+G(x)}{2}\Big)^2\Big(\frac{F'(x)+G'(x)}{2}\Big)\mbox{d}x \, + \,
+    2\Delta(F,G) \\
+    &amp; = &amp; 3-\frac{8}{3} \, + \, 2\Delta(F,G) \, = \, g(F,G)\cdot
+\end{array}
+\]</span> Para utilizarmos os teoremas acima, vamos definir <span class="math display">\[
+    \varphi(X_1,X_2,Y_1,Y_2) \, = \, \left\{ \begin{array}{ll} 1, &amp; \mbox{se } \, \max(X_1,X_2) &lt; \min(Y_1,Y_2) \, \mbox{ ou se } \,
+    \max(Y_1,Y_2) &lt; \min(X_1,X_2) \\ 0, &amp; \mbox{caso contrário} \end{array}\right.
+\]</span> Então <span class="math inline">\(\varphi(X_1,X_2,Y_1,Y_2)\)</span> é um estimador não viciado de <span class="math inline">\(g(F,G)\)</span> e de fato é um kernel de <span class="math inline">\(g(F,G)\)</span>. A U-estatística correspondente, portanto, deve ser o estimador não viciado de mínima variância. Nós temos <span class="math display">\[
+    U(X,Y) \, = \, \frac{1}{{m \choose 2}{n \choose 2}} \sum_{i_1&lt; i_2}\sum_{k_1&lt; k_2} \varphi(X_{i_1},X_{i_2},Y_{k_1},Y_{k_2}),
+\]</span> de maneira que <span class="math inline">\(U\)</span> é o estimador não viciado de mínima variância de <span class="math inline">\(g(F,G)\)</span>, assim como o estimador não viciado de mínima variância de <span class="math inline">\(\Delta(F,G)\)</span> é <span class="math display">\[
+    \widehat{\Delta}(F,G) \, = \, \frac{1}{2}U(X,Y) \, - \, \frac{1}{6}\cdot
+\]</span></p>
+<p><strong>Exemplo</strong>. Seja <span class="math inline">\(\mathcal{P}\)</span> a classe de todas as funções de distribuição absolutamente contínuas na reta real e <span class="math inline">\(X_1,X_2,\cdots,X_m\)</span> e <span class="math inline">\(Y_1,Y_2,\cdots,Y_n\)</span> duas amostras aleatórias independentes de <span class="math inline">\(F\)</span> e <span class="math inline">\(G\)</span>, respectivamente, com <span class="math inline">\(F,G\in\mathcal{P}\)</span>. Queremos estimar <span class="math display">\[
+    \rho(F,G) \, = \, P(X &lt; Y)\cdot
+\]</span> Com esse objetivo, vamos definir <span class="math display">\[
+    Z_{ij}=\left\{\begin{array}{ll} 1, &amp; X_i&lt; Y_j \\ 0, &amp; X_i\geq Y_j \end{array}\right.
+\]</span> para cada par <span class="math inline">\(X_i, Y_j\)</span>, <span class="math inline">\(i=1,2,\cdots,m\)</span> e <span class="math inline">\(j=1,2,\cdots,n\)</span>. Então <span class="math inline">\(\displaystyle \sum_{i=1}^m Z_{ij}\)</span> é o número de vezes que <span class="math inline">\(X&lt; Y_j\)</span> e <span class="math inline">\(\displaystyle \sum_{j=1}^n Z_{ij}\)</span> é o número de vezes que <span class="math inline">\(X_i&lt; Y\)</span>. Mann and Whitney (1947) sugeriram utilizar o estimador <span class="math inline">\(U/mn\)</span>, onde <span class="math display">\[
+    U \, = \, \sum_{i=1}^m \sum_{j=1}^n Z_{ij}
+\]</span> e <span class="math display">\[
+    \mbox{E}(U) \, = \, mn \mbox{E}(Z_{ij}) \, = \, mn P(X &lt; Y)\cdot
+\]</span> Então <span class="math display">\[
+    \widehat{\rho}(F,G) \, = \, \frac{U}{mn},
+\]</span> é não viciado para <span class="math inline">\(\rho\)</span>. Além disso, <span class="math inline">\(\widehat{\rho}\)</span> é simétrico em <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, de modo que tem uma variância mínima. Para calcular a variância mínima, temos <span class="math display">\[
+    \mbox{E}\big(U^2\big) \, = \, \sum_i\sum_j\sum_h\sum_k \mbox{E}(Z_{ij}Z_{hk}),
+\]</span> onde <span class="math display">\[
+    Z_{ij}Z_{hk} \, = \, \left\{\begin{array}{ll} 1, &amp; \mbox{se } \, X_i &lt; Y_j \, \mbox{ e } \, X_h &lt; Y_k \\
+    0, &amp; \mbox{caso contrário} \end{array}\right.,
+\]</span> de modo a <span class="math display">\[
+    \mbox{E}(Z_{ij}Z_{hk}) \, = \, P( X_i &lt; Y_j, X_h &lt; Y_k ) \, = \,
+    \left\{ \begin{array}{ll} \displaystyle \int F(x)G'(x)\mbox{d}x, &amp; \mbox{ caso } \, i = h, \, j = k \\
+    \displaystyle \int \big( 1-G(x)\big)^2 F'(x)\mbox{d}x, &amp; \mbox{ caso } \, i = h, \, j \neq k \\
+    \displaystyle \int F^2(x)G'(x)\mbox{d}x, &amp; \mbox{ caso } \, i \neq h, \, j = k \\
+    \displaystyle \Big(\int F(x)G'(x)\mbox{d}x\Big)^2, &amp; \mbox{ caso } \, i \neq h, \, j \neq k \\
+    \end{array}\right.\cdot
+\]</span> Há <span class="math inline">\(mn\)</span> termos com <span class="math inline">\(i=h, j=k\)</span>; <span class="math inline">\(m(m-1)n\)</span> termos com <span class="math inline">\(i\neq h, j=k\)</span>; <span class="math inline">\(mn(n-1)\)</span> termos com <span class="math inline">\(i=h, j\neq k\)</span> e <span class="math inline">\(m(m-1)n(n-1)\)</span> termos com <span class="math inline">\(i\neq h, j\neq k\)</span>. Segue que <span class="math display">\[
+\begin{array}{rcl}
+    \mbox{E}\big(U^2\big) &amp; = &amp; \displaystyle mn \int F(x)G'(x)\mbox{d}x \, + \, mn(n-1)\int \big( 1-G(x)\big)^2 F'(x)\mbox{d}x \\
+    &amp; &amp; \, + \, \displaystyle m(m-1)n\int F^2(x)G'(x)\mbox{d}x \, + \, m(m-1)n(n-1)\Big(\int F(x)G'(x)\mbox{d}x\Big)^2,
+\end{array}
+\]</span> que leva à variância de <span class="math inline">\(U\)</span>. Em particular, se <span class="math inline">\(F = G\)</span>, então <span class="math display">\[
+    \mbox{Var}(U) \, = \, \frac{mn(m+n+1)}{12}\cdot
+\]</span></p>
+<section id="estimação-de-densidades" class="level2">
+<h2 class="anchored" data-anchor-id="estimação-de-densidades">Estimação de densidades</h2>
+<p>De certa forma, problemas de estimação não-paramétrica são extensões de problemas de estimação paramétrica, mas a natureza do primeiro é bem diferente do último. Considere, por exemplo, a situação de observações independentes identicamente distribuídas, digamos <span class="math inline">\(X_1,X_2,\cdots,X_n\)</span>. Em um problema paramétrico, assumimos que a distribuição de <span class="math inline">\(X_i\)</span> é <span class="math inline">\(F(\cdot;\theta)\)</span>, a qual é totalmente especificada até o vetor de parâmetros <span class="math inline">\(\theta\)</span>; então o problema é essencialmente a estimaçã de <span class="math inline">\(\theta\)</span>. Em um problema não-paramétrico, a distribuição é totalmente desconhecida com, talvez, algumas restriçõs em propriedades gerais e, portanto, é denotada por <span class="math inline">\(F\)</span>.</p>
+<p>Aqui consideramos estimadores de <span class="math inline">\(F\)</span> em termos de função de densidade <span class="math inline">\(f\)</span>. A função de densidade tem a vantagem de fornecer uma representação visualmente mais informativa da distribuição subjacente. Por exemplo, o histograma geralmente dá uma ideia aproximada da forma da distribuição. Este último ficou como o único estimador de densidade não paramétrico até 1950. Por essa razão, nossa discussão começará com os histogramas.</p>
+<p>Embora o histograma seja usado extensivamente, não é tão frequente que seja necessária uma definição matemática. Uma maneira de defini-lo é através da função de densidade empírica.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. Seja <span class="math inline">\(f\)</span> a derivada de <span class="math inline">\(F\)</span>; por isso pode-se expressar como <span class="math display">\[
+f(x)=\lim_{h\to 0}\frac{F(x+h)-F(x-h)}{2h}\cdot
+\]</span> Então, dizemos que <span class="math inline">\(\widehat{f}\)</span>, definido por <span class="math display">\[
+\widehat{f}(x)=\frac{\widehat{F}(x+h)-\widehat{F}(x-h)}{2h},
+\]</span> é o histograma, sendo que <span class="math inline">\(\widehat{F}\)</span> é a função de distribuição empírica.</p>
+</blockquote>
+<p>O parâmetro <span class="math inline">\(h\)</span> é chamado de largura de banda. Podemos escrever <span class="math inline">\(\widehat{f}\)</span>, definido acima como, <span class="math display">\[
+    \widehat{f}(x)=\frac{1}{2nh}\sum_{i=1}^n \pmb{1}_{(x-h;x+h)}(X_i)\cdot
+\]</span> Podemos excrever a função de densidade como $f(x)=_{h} ( F(x+h)-F(x-h) ) $, mas não se pode definir daqui o histograma porque, então, esse limite é zero ou infinito e assim em algum momento é preciso parar, em outras palavras, não se pode chegar muito perto de zero.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(f\)</span> a função de densidade da função de distribuição <span class="math inline">\(F\)</span>. Então, com probabilidade 1,<br>
+<span class="math display">\[
+    \widehat{f}(x)\sim Binomial(n,p),
+\]</span> com <span class="math inline">\(p=F(x+h)-F(x-h)\)</span>. Assim, o comportamento assintótico do histograma pode ser derivado da distribuição binomial como <span class="math display">\[
+    \mbox{E}\big(\widehat{f}(x)\big)=\frac{F(x+h)-F(x-h)}{2h}
+\]</span> e <span class="math display">\[
+    \mbox{Var}\big(\widehat{f}(x)\big)=\frac{p(1-p)}{4nh^2}\cdot
+\]</span></p>
+</div>
+</div>
+<p><strong>Demonstração.</strong> Exercício.</p>
+<p>Deste teorema segue que <span class="math inline">\(\widehat{f}(x)\)</span> é um estimador consistente pontual de <span class="math inline">\(f(x)\)</span> quando <span class="math inline">\(h\to 0\)</span> e <span class="math inline">\(nh\to \infty\)</span>. A seguir, o processo de limite é entendido como <span class="math inline">\(h=h_n\)</span>, de maneira que <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to \infty\)</span>. Estas condições podem ser interpretadas como se fosse necessário <span class="math inline">\(h_n\)</span> ir a zero, mas não muito rápido. Isso é exatamente o que temos especulado, exceto que agora temos a taxa exata de convergência, que pode ser escrita como <span class="math inline">\(h_n=o(n)\)</span>.</p>
+<p><strong>Exemplo</strong>. Utilaremos dados simulados da distribuíão <span class="math inline">\(N(0,1)\)</span>, com isso mostramos o histograma destes 50 dados utilizando duas formas diferentes de encontrarmos uma expressão para <span class="math inline">\(h_n\)</span>, a chamada largura de banda.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1340</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">main =</span> <span class="cn">NULL</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="st">"Sturges"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">main =</span> <span class="cn">NULL</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="st">"Scott"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Neste exemplo utilizamos duas formas de escolher a largura de banda <span class="math inline">\(h_n\)</span> dentre três diferentes possibilidades programadas na função <strong>hist</strong>. Por padrão escolhe-se <strong>breaks = “Sturges”</strong>, porposto por Sturges (1929), o qual sugere que <span class="math display">\[
+    h_n=\frac{\max(X_1,\cdots,X_n)-\min(X_1,\cdots,X_n)}{1+3.322\ln(n)}\cdot
+\]</span> A segunda situação indica que o qual significa que se os dados provêm da distribuição Normal temos que <span class="math inline">\(h_n=3.49 s n^{-1/3}\)</span> sendo <span class="math inline">\(s\)</span> o desvio padrão estimado. Esta proposta deve-se à Scott (1979).</p>
+<p>Embora o histograma é um estimador consistente quando <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to \infty\)</span>, verifica-se que se pode fazer melhor. A melhoria também é motivada por uma preocupação prática: o histograma não é uma função suave, uma propriedade que se pode esperar que qualquer função de densidade real tenha.</p>
+<blockquote class="blockquote">
+<p><strong>Definição</strong>. O estimador kernel da função de densidade é dado por <span class="math display">\[
+\widehat{f}(x)=\frac{1}{nh_n}\sum_{i=1}^n K\Big( \frac{x-X_i}{h_n}\Big),
+\]</span> onde <span class="math inline">\(K(\cdot)\)</span> é uma função conhecida como kernel.</p>
+</blockquote>
+<p>É tipicamente assumido que <span class="math inline">\(K\)</span> seja não-negativa, simétrica em torno de zero e satisfaz <span class="math inline">\(\int K(u)\mbox{d}u = 1\)</span>. Claro que o histograma é um caso especial do estimador do kernel se <span class="math inline">\(K\)</span> for escolhido como a função de densidade da distribuição $ Uniforme(-1,1)$. O último não é uma função suave e é por isso que o histograma não é suave; mas escolhendo <span class="math inline">\(K\)</span> como uma função suave, tem-se um estimador de <span class="math inline">\(f\)</span> que seja suave.</p>
+<p>Por exemplo, escolhendo a função de densidade <span class="math inline">\(N(0,1)\)</span>, temos por resultado o conhecido como kernel Gaussiano e assim também utilizando a densidade de densidade <span class="math inline">\(Beta\)</span> simétrica, dada por <span class="math display">\[
+    K(u)=\frac{\Gamma(\nu+3/2)}{\Gamma(1/2)\Gamma(\nu+1)}(1-u^2)^\nu, \qquad -1&lt; u &lt; 1,
+\]</span> e <span class="math inline">\(K(u)=0\)</span> caso contrário. Os casos especiais <span class="math inline">\(\nu=0,1,2,3\)</span> correspondem às funções kernel uniforme, Epanechnikov, biweight e triweight, respectivamente.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>kernels <span class="ot">=</span> <span class="fu">eval</span>(<span class="fu">formals</span>(density.default)<span class="sc">$</span>kernel)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span> (<span class="fu">density</span>(<span class="dv">0</span>, <span class="at">bw =</span> <span class="dv">1</span>), <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">main =</span> <span class="st">"Diferentes kernel em R"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(kernels)) <span class="fu">lines</span>(<span class="fu">density</span>(<span class="dv">0</span>, <span class="at">bw =</span> <span class="dv">1</span>, <span class="at">kernel =</span>  kernels[i]), <span class="at">col =</span> i)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="fl">1.5</span>,.<span class="dv">4</span>, <span class="at">legend =</span> kernels, <span class="at">col =</span> <span class="fu">seq</span>(kernels), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">y.intersp =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>h.f <span class="ot">=</span> <span class="fu">sapply</span>(kernels, <span class="cf">function</span>(k) <span class="fu">density</span>(<span class="at">kernel =</span> k, <span class="at">give.Rkern =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>h.f <span class="ot">=</span> (h.f[<span class="st">"gaussian"</span>] <span class="sc">/</span> h.f)<span class="sc">^</span> .<span class="dv">2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>h.f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    gaussian epanechnikov  rectangular   triangular     biweight       cosine 
+   1.0000000    1.0100567    0.9953989    1.0071923    1.0088217    1.0079575 
+   optcosine 
+   1.0099458 </code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bw <span class="ot">=</span> <span class="fu">bw.SJ</span>(x) <span class="do">## escolha automática</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(x, <span class="at">bw =</span> bw), <span class="at">main =</span> <span class="st">"Larguras de banda equivalentes"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">length</span>(kernels)) <span class="fu">lines</span>(<span class="fu">density</span>(x, <span class="at">bw =</span> bw, <span class="at">adjust =</span> h.f[i], </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                                           <span class="at">kernel =</span> kernels[i]), <span class="at">col =</span> i)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">55</span>, <span class="fl">0.035</span>, <span class="at">legend =</span> kernels, <span class="at">col =</span> <span class="fu">seq</span>(kernels), <span class="at">lty =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Um problema prático importante na estimação de densidades via kernel é como escolher a largura de banda <span class="math inline">\(h_n\)</span>. Note que dadas condições como <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to\infty\)</span>, ainda existem muitas opções para <span class="math inline">\(h_n\)</span>. Então, de certo modo, a ordem de convergência ou divergência não resolve o problema. Uma solução para esse problema é conhecida como compensação de viés-variância. Antes de entrarmos nos detalhes, vamos primeiro apressentar um resultado em relação ao viés assintótico do estimador kernel. Aqui, o viés é definido como <span class="math display">\[
+    \mbox{viés}\big(\widehat{f}(x)\big)=\mbox{E}\big(\widehat{f}(x)\big)-f(x),
+\]</span> para um dado <span class="math inline">\(x\)</span>.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suponhamos que <span class="math inline">\(f\)</span> seja contínua e limitada. Então o viés do estimador kernel de densidade converge a zero quando <span class="math inline">\(h_n\to 0\)</span>, para todo <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+<p><strong>Demonstração.</strong> Observemos que <span class="math display">\[
+\begin{array}
+    \mbox{E}\big(\widehat{f}(x)\big) &amp; = &amp; \frac{1}{n}\sum_{i=1}^n \frac{1}{h_n}\int K\Big( \frac{x-y}{h_n}\Big)f(y)\mbox{d}y \\
+    &amp; = &amp; \int K(u)f(x-h_n u)\mbox{d}u \, = \, f(x)+\int K(u)\big( f(x-h_n u)-f(x)\big)\mbox{d}u\cdot
+\end{array}
+\]</span> Utilizando então o teorema da convergência dominada completa-se a demonstração.&amp;#9609</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema
+</div>
+</div>
+<div class="callout-body-container callout-body">
+Suponhamos que <span class="math inline">\(f\)</span> seja contínua três vezes diferenciável, com terceira derivada limitada na vizinhança de <span class="math inline">\(x\)</span> e <span class="math inline">\(K\)</span> satisfazendo <span class="math display">\[
+    \int K^2(u)\mbox{d}u&lt;\infty \qquad \mbox{e} \qquad \int |u|^3K(u)\mbox{d}u&lt;\infty\cdot
+\]</span>
+<ul>
+<li>
+Se <span class="math inline">\(h_n\to 0\)</span> quando <span class="math inline">\(n\to\infty\)</span>, temos que <span class="math display">\[
+        \mbox{viés}\big(\widehat{f}(x)\big) = \frac{h_n^2}{2}f''(x)\int u^2K(u)\mbox{d}u + o(h_n^2)\cdot
+    \]</span>
+</li>
+<li>
+Se, além disso <span class="math inline">\(nh_n\to\infty\)</span> quando <span class="math inline">\(n\to\infty\)</span>, então temos <span class="math display">\[
+        \mbox{Var}\big(\widehat{f}(x)\big) = \frac{f(x)}{nh_n}\int K^2(u)\mbox{d}u + o\big((nh_n)^{-1}\big)\cdot
+    \]</span>
+</li>
+</ul>
+</div>
+</div>
+<p><strong>Demonstração</strong>. A demonstração é baseada na expansão de Taylor, <span class="math display">\[
+    f(x-h_nu) = f(x)-h_nuf'(x)+\frac{h_n^2u^2}{2}f''(x)-\frac{h_n^3u^3}{6}f'''(\epsilon),
+\]</span> sendo <span class="math inline">\(\epsilon\)</span> fica entre <span class="math inline">\(x-h_nu\)</span> e <span class="math inline">\(x\)</span>. Os detalhes são deixados como um exercício.</p>
+<p>Uma medida de precisão do estimador é o erro quadrático médio (EQM), dado por <span class="math display">\[
+    EQM\big(\widehat{f}(x)\big) = \mbox{E}\big(\widehat{f}(x)-f(x)\big)^2\cdot
+\]</span> é fácil mostrar que o <span class="math inline">\(EQM\)</span> combina o viés e a variância de tal maneira que <span class="math display">\[
+    EQM\big(\widehat{f}(x)\big) = \mbox{viés}\big(\widehat{f}(x)\big)^2 + \mbox{Var}\big(\widehat{f}(x)\big)\cdot
+\]</span> Vemos que, sob as condições <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to \infty\)</span> e se ignorarmos os termos de baixa ordem, temos <span class="math display">\[
+    EQM\big(\widehat{f}(x)\big) \approx \frac{h_n^4}{4}\big(f''(x)\big)^2\tau^4 + \frac{f(x)}{nh_n}\gamma^2,
+\]</span> onde <span class="math inline">\(\tau^2=\int u^2K(u)\mbox{d}u\)</span> e <span class="math inline">\(\gamma^2=\int K^2(u)\mbox{d}u\)</span>. O termo à direita da expressão acima é minimizada quando <span class="math display">\[
+    h_n = \left( \frac{\gamma^2f(x)}{\tau^4\big(f''(x)\big)^2} \right)^{\frac{1}{5}}n^{-\frac{1}{5}}\cdot
+\]</span> Note ainda que a expressão acima não é a solução ideal, isso porque <span class="math inline">\(f\)</span> é desconhecida na prática. No entanto, dá-nos pelo menos alguma ideia sobre a taxa ideal de convergência a zero, sendo esta <span class="math inline">\(h_n=O(n^{-\frac{1}{5}})\)</span>.</p>
+<p>Quando <span class="math inline">\(f\)</span> é desconhecida, uma abordagem natural seria substituí-lo por um estimador e, assim, obter uma largura de banda ideal estimada. Uma complicação é que a largura de banda ideal depende de <span class="math inline">\(x\)</span> mas, idealmente, gostaríamos de usar uma largura de banda que funcionasse para diferentes <span class="math inline">\(x\)</span> dentro de um certo intervalo, se não todos os <span class="math inline">\(x\)</span>. Para obter uma largura de banda ideal que não depende de <span class="math inline">\(x\)</span>, integramos os dois lados da expressão de <span class="math inline">\(EQM\)</span> em relação a <span class="math inline">\(x\)</span>. Isto nos leva a <span class="math display">\[
+    \int EQM\big(\widehat{f}(x)\big)\mbox{d}x \approx \frac{\tau^4h_n^4}{4}\int \big(f''(x)\big)^2 \mbox{d}x +
+    \frac{\gamma^2}{nh_n}\int f(x)\mbox{d}x \, = \, \frac{\tau^4\theta^2h_n^4}{4} + \frac{\gamma^2}{nh_n},
+\]</span> com <span class="math inline">\(\theta^2=\int \big(f''(x)\big)^2 \mbox{d}x\)</span>. Pelo mesmo argumento, o lado direito acima é minimizado quando</p>
+<p><span class="math display">\[
+    h_n = \left( \frac{\gamma^2}{\tau^4\theta^2} \right)^{\frac{1}{5}}n^{-\frac{1}{5}}\cdot
+\]</span> Desta vez, o <span class="math inline">\(h_n\)</span> ideal não depende de <span class="math inline">\(x\)</span>. Além disso, a integral do <span class="math inline">\(EQM\)</span> ou o <span class="math inline">\(IEQM\)</span> mínimo é dado por <span class="math display">\[
+    IEQM \, = \, \int EQM\big(\widehat{f}(x)\big)\mbox{d}x \, = \, \frac{5}{4}\big( \tau\gamma^2 \big)^\frac{4}{5}\theta^{\frac{2}{5}}
+    n^{-\frac{4}{5}}\cdot
+\]</span></p>
+<p>Uma implicação é a seguinte. Note que o <span class="math inline">\(IEQM\)</span> depende do kernel <span class="math inline">\(K\)</span> através de <span class="math inline">\(c_K=\big( \tau\gamma^2 \big)^\frac{4}{5}\)</span>. Mostrou-se que para os kernels comumente usados, tais como aqueles listados, o desempenho dos estimadores de kernel correspondentes é quase o mesmo em termos dos valores de <span class="math inline">\(c_K\)</span>. Voltando ao problema sobre a estimação da largura de banda ideal, vemos que tudo o que precisamos é encontrar um estimador consistente de <span class="math inline">\(\theta^2\)</span>. Se <span class="math inline">\(f\)</span> é a função de densidade da distribuição normal com desvio padrão <span class="math inline">\(\sigma\)</span>, então pode ser mostrado que <span class="math inline">\(\theta^2=3/8\sqrt{\pi}\sigma^5\)</span>. Naturalmente, se alguém souber que <span class="math inline">\(f\)</span> é normal, então a estimação da densidade não-paramétrica não seria necessária, porque um método paramétrico provavelmente seria melhor. Em geral, pode-se expandir <span class="math inline">\(f\)</span> em torno da densidade gaussiana usando a expansão de Edgeworth.</p>
+<p>Utilizando a abordagem acima, Hjort and Jones (1996) obteveram o seguinte estimador ótimo para a largura de banda <span class="math display">\[
+    \widehat{h}_n = \widehat{h}_0\left(1+\frac{35}{48}\widehat{\gamma}_4+\frac{35}{32}\widehat{\gamma}_3^2+
+        \frac{385}{1024}\widehat{\gamma}_4^2\right)^{-\frac{1}{5}},
+\]</span> onde <span class="math inline">\(\widehat{h}_0\)</span> é a estimativa ideal da largura de banda assumindo que <span class="math inline">\(f\)</span> é normal, isto é, com <span class="math inline">\(\theta^2\)</span> substituído por <span class="math inline">\(3/8\sqrt{\pi}\sigma^5\)</span> ou mais explicitamente <span class="math display">\[
+    \widehat{h}_0=1.06\left(\frac{\widehat{\sigma}}{n^{\frac{1}{5}}}\right),
+\]</span> chamamos <span class="math inline">\(\widehat{h}_0\)</span> a largura de banda da linha de base e <span class="math inline">\(\widehat{\sigma}^2\)</span> é a variância amostral dada por <span class="math display">\[
+    \widehat{\sigma}^2=\frac{1}{n-1}\sum_{i=1}^n (X_i-\overline{X})^2\cdot
+\]</span> Além disso, <span class="math inline">\(\widehat{\gamma}_3\)</span> e <span class="math inline">\(\widehat{\gamma}_4\)</span> são os estimadores dos coefcientes de assimetria de amostra e curtose, dado por <span class="math display">\[
+    \widehat{\gamma}_3=\frac{1}{(n-1)\widehat{\sigma}^3}\sum_{i=1}^n (X_i-\overline{X})^3
+\]</span> e <span class="math display">\[
+    \widehat{\gamma}_4=\frac{1}{(n-1)\widehat{\sigma}^4}\sum_{i=1}^n (X_i-\overline{X})^4-3,
+\]</span> respectivamente. Houve outras abordagens para a seleção da largura de banda ótima, incluindo o método de validação cruzada. Ambos procedimentos foram programados na função <strong>density</strong>.</p>
+<p><strong>Exemplo</strong>. Utilaremos os dados simulados da distribuíão <span class="math inline">\(N(0,1)\)</span> no exemplo anterior para com isso mostrarmos o histograma e o estimador Kernel da função de densidade.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1340</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">main =</span> <span class="cn">NULL</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="st">"Sturges"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(x, <span class="at">bw =</span> <span class="st">"nrd0"</span>), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">main =</span> <span class="cn">NULL</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="st">"Scott"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(x, <span class="at">bw =</span> <span class="st">"bcv"</span>), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in bw.bcv(x): mínimo ocorreu em uma das extremidades do intervalo</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercícios" class="level2">
+<h2 class="anchored" data-anchor-id="exercícios">Exercícios</h2>
+<ol type="1">
+<li><p>Seja <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> uma estatística simétrica nas observaçóes. Mostre que <span class="math inline">\(T\)</span> pode ser escrita como função das estatísticas de ordem. Por outro lado, se <span class="math inline">\(T(X_1,\cdots,X_n)\)</span> pode ser escrita como função das estatísticas de ordem, <span class="math inline">\(T\)</span> é simétrica nas observações.</p></li>
+<li><p>Sejam <span class="math inline">\(X_1,X_2,\cdots,X_m\)</span> e <span class="math inline">\(Y_1,Y_2,\cdots,Y_n\)</span> amostras independentes de duas distribuições absolutamente contínuas. Encontre o estimador não viciado de mínima variância de:</p></li>
+</ol>
+<ol type="a">
+<li><span class="math inline">\(\mbox{E}(XY)\)</span></li>
+<li><span class="math inline">\(\mbox{Var}(X+Y)\)</span></li>
+</ol>
+<ol start="3" type="1">
+<li>Seja <span class="math inline">\((X_1,Y_1), (X_2,Y_2), \cdots, (X_n,Y_n)\)</span> uma amostra aleatória com distribuição absolutamente contínua bivariada. Encontre o estimador não viciado de mínima variância de:</li>
+</ol>
+<ol type="a">
+<li><span class="math inline">\(\mbox{E}(XY)\)</span></li>
+<li><span class="math inline">\(\mbox{Var}(X+Y)\)</span></li>
+</ol>
+<ol start="4" type="1">
+<li>Considere <span class="math inline">\((\mathcal{R},\mathcal{B},P_\theta)\)</span> um espaço de probabilidade e <span class="math inline">\(\mathcal{P}=\{P_\theta \, : \theta\in\Theta\}\)</span>. Seja <span class="math inline">\(A\)</span> um elemento da <span class="math inline">\(\sigma\)</span>-álgebra de Borel e considere <span class="math inline">\(d(\theta)=P_\theta(A)\)</span>.</li>
+</ol>
+<ol type="a">
+<li>A função <span class="math inline">\(d\)</span> é estimável? Se sim, qual é o grau?</li>
+<li>Encontre o estimador não viciado de mínima variância de <span class="math inline">\(d\)</span>, baseado em uma amostra de tamanho <span class="math inline">\(n\)</span> e assumindo que <span class="math inline">\(\mathcal{P}\)</span> seja a classe de todas as distribuições contínuas.</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link  aria-label=" apresentação"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Apresentação</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../ModuloI/Aula01/index.html" class="pagination-link" aria-label="<span class='chapter-number'>1</span>&nbsp; <span class='chapter-title'>Estatística Não Paramétrica</span>">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Estatística 2023-2026</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

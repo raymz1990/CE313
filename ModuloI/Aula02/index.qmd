@@ -1,0 +1,2822 @@
+---
+title: "Estatísticas de ordem"
+date: 2024-03-01
+code-fold: true
+---
+
+```{r setup, include=FALSE}
+# Configurações do knitr
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE)
+```
+
+
+Quando estudadas as idéias e técnicas da teoria das probabilidades fundamentais, criamos um modelo matemático de um ensaio aleatório, associando-o com um espaço de amostragem no qual os acontecimentos aleatórios correspondem a um conjunto de uma certa $\sigma$-álgebra. A noção de probabilidade definida nesta $\sigma$-álgebra corresponde à noção de incerteza no resultado em qualquer realização do experimento aleatório.
+
+Vamos começar o estudo de alguns problemas de estatística matemática. Suponha que buscamos informações sobre algumas características numéricas de um conjunto de elementos, chamado de uma população. Por razões de custo, de tempo ou simplesmente para não destruir todos os elementos amostrados podemos não querer ou não poder estudar cada elemento da população. Nosso objetivo é tirar conclusões sobre as características desconhecidas da população com base em informações sobre algumas características de uma amostra adequadamente selecionada.
+
+Formalmente, seja $X$ uma variável aleatória que descreve a população sob investigação e seja $F$ a função de distribuição de $X$. Há duas possibilidades: ou $X$ tem função de distribuição $F(\cdot ; \theta)$ com uma forma funcional conhecida exceto, talvez, para o parâmetro $\theta$, o qual pode ser um vetor ou $X$ tem uma função de distribuição $F$ sobre a qual não sabemos nada, exceto talvez que $F$ seja, digamos, absolutamente contínua. No primeiro caso, seja $\Theta$ o conjunto dos possíveis valores do parâmetro desconhecido $\theta$. Seguidamente, o trabalho de um estatístico é decidir com base em uma amostra selecionada adequadamente que membro ou membros da família $\{F (\cdot ; \theta) : \theta \in \Theta\}$ pode representar a função de distribuição de $X$. Problemas desse tipo são chamados de problemas de inferência estatística paramétrica e o espaço estatístico é dado por $(\mathbb{R}, {F (·; \theta) : \theta \ \Theta}, \beta (\mathbb{R}))$, sendo $\mathbb{R}$ o conjunto dos reais na reta, ${F (\cdot; \theta) : \theta \in  \Theta}$ a família de distribuições de $X$ e $\beta (\mathbb{R})$ a $\sigma$-álgebra dos Borelianos na reta. O caso em que nada se sabe sobre a forma funcional da função de distribuição $F$ de $X$ é claramente muito mais difícil. Problemas de inferência deste tipo de são o domínio de estudo da estatística não paramétrica. Neste livro abordamos os problemas da estatística paramétrica.
+
+## Amostras aleatórias
+
+Considere-se um experimento estatístico que culmina em desfechos $x$, que são os valores assumidos por uma variável aleatória $X$. Seja $F$ a função de distribuição de $X$. Na prática, $F$ não será completamente conhecida, isto é, um ou mais parâmetros associados com $F$ serão desconhecidos. O trabalho de um estatístico é estimar esses parâmetros desconhecidos ou testar a validade de certas afirmações sobre eles. Ele pode, por exemplo, obter $n$ observações independentes de $X$. Isso significa que ele observa $n$ valores $x1, x2, \cdots , x_n$ assumidos da variável aleatória $X$. Cada $x_i$ pode ser considerado como o valor assumido pela variável aleatória $X_i, i = 1, 2, \cdots , n$ onde $X_1, X_2, \cdots, X_n$ são variáveis aleatórias independentes com distribuição comum $F$ . Os valores observados $(x_1, x_2, \cdots, x_n)$ são então valores assumidos por $(X_1, X_2, \cdots, X_n)$. O conjunto $(X_1, X_2, \cdots , X_n)$ é, então, uma amostra de tamanho $n$ da distribuição da população $F$ . O conjunto de $n$ valores $x_1, x_2, \cdots , x_n$ é chamado de uma realização ou estimativa da amostra. Note-se que os possíveis valores do vector aleatório $(X_1, X_2, \cdots , X_n)$ podem ser olhados como pontos em $\mathbb{R}^n$, os quais podem ser chamados de elementos do espaço amostral. Na prática podemos não observar $x_1, x_2, \cdots, x_n$ mas alguma função $g(x_1, x_2, \cdots , x_n)$. Então $g(x_1, x_2, \cdots , x_n)$ serão considerados os valores assumidos pela variável aleatória $g(X)$.
+
+Vamos agora formalizar esses conceitos.
+
+>
+**Definição**.
+Seja $X$ uma variável aleatória com função de distribuição $F$ e $X_1, \cdots, X_n$ variáveis aleatórias independentes com distribuição comum $F$. Chamaremos a coleção $X_1, \cdots, X_n$ de uma amostra aletória de tamanho $n$ de $F$ ou simplesmente como $n$ observações independentes de $X$.
+
+Se $X_1, X_2, \cdots , X_n$ é uma amostra aleatória de $F (\cdot; \theta)$, a função de distribuição conjunta é dada por:
+
+$$F(x_1, \cdots, x_n; \theta) = \prod_{i=1}^{n} F(x_i; \theta)$$
+
+>
+**Definição**.
+Sejam $X_1, X_2, \cdots, X_n$ $n$ observações independentes da variável aleatória $X$ e seja  $g: \mathbb{R}^n \to \mathbb{R}$ uma função real derivável. Então a variável aleatória $g(X_1, X_2, \cdots, X_n)$ é chamada de estatística, desde que não dependa de parâmetros desconhecidos.
+
+Segundo esta definição cada uma das variáveis na amostra isoladamente é uma estatística assim como funções destas que, eventualmente, podem não fornecer informações úteis. Duas das estatísticas mais comumente utilizadas são mostradas no exemplo a seguir.
+
+>
+**Definição**.
+Seja $X_1, X_2, \cdots, X_n$ uma amostra aleatória da função de distribuição $F$. A estatística
+$$\overline{X}_n = \sum_{i=1}^{n} \displaystyle \frac{Xi}{n},$$
+é chamada de média amostral e a estatística 
+$$S_{n}^{2} = \sum_{i=1}^{n} \displaystyle \frac{(X_i - \overline{X}_n)^2}{n-1}$$
+é chama de variância amostral.
+
+Deve-se lembrar que as estatísticas amostrais apresentadas neste exemplo $\overline{X}_n, S_{n}^{2}$ e outras que irão definir-se posteriormente são variáveis aleatórias, com todas as consequências que isso implica, enquanto os parâmetros populacionais $\mu, \sigma^2$ e assim por diante são constantes fixas, que podem ser desconhecidas.
+
+**Exemplo**. Seja $X \sim Bernoulli(p)$, onde $p$ é desconhecido. A função de distribuição de $X$, mostrada na   Figura 2.1, é dada por
+
+$$F(x) = p\delta (x − 1) + (1 − p)\delta(x),	x \in \mathbb{R},$$
+onde a função $\delta(\cdot)$ foi definida em (1.2) como $\delta(x) = \begin{cases} 1, \ x \ \geq \ 0, \\ 0, \ x \ < 0 \end{cases}$, chamada de função delta.
+ 
+Suponha que cinco observações independentes de $X$ sejam 0, 1, 1, 1, 0. Então 0, 1, 1, 1, 0 é uma realização da amostra $X_1, X_2, \cdots , X_5$. A estimativa da média amostral é
+
+$$\overline{x}_5 = \displaystyle \frac{0 + 1 + 1 + 1 + 0}{5} = 0, 6$$
+o qual é o valor assumido pela variável aleatória $\overline{X}_n$. A estimativa da variância amostral é
+$$S_{5}^{2} = \sum_{i=1}{5} \displaystyle \frac{(x_i - \overline{x}_5)}{5 - 1}= \displaystyle \frac{2 \ \times (0,6)^2 \ + \ 3 \ \times (0,4)^2}{4}= 0,3$$
+
+sendo este o valor assumido pela variável aleatória $S_{5}^{2}$.
+
+
+![Figura 2.1: Representação da função de distribuição Bernoulli para três valores do parâmetro $p$ = 0.3, 0.5 e 0.8. Observe que nesta curva a reta no intervalo (0, 1) depende de 1 - $p$, isso porque a função $\delta$ é sempre zero para $x$ - 1 nesse intervalo.](Figura 2.1.png)
+
+**Exemplo**. Seja $X \sim N (\mu, \sigma^2)$, $\mu$ conhecida, $\sigma^2$ desconhecido e $X_1, \cdots , X_n$ uma amostra aleatória dessa distribuição. De acordo com nossa definição, a função $\sum_{i=1}^{n} X_{i} / \sigma^2$ não é uma estatística. Suponha que cinco observações de $X$ -0,864; 0,561; 2.355; 0,582 e -0,774. Então, a estimativa da média amostral é `r mean(c(-0.864, 0.561, 2.355, 0.582, -0.774))` e a estimativa da variância amostral é 1.648.
+
+##	Estatísticas de ordem
+
+Seja ($X_1, X_2, \cdots , X_n$) um vetor aleatório n-dimensional e ($x_1, x_2, \cdots , x_n$) uma $n$-tupla assumida por ($X_1, X_2, \cdots , X_n$). Vamos organizar $x_1, x_2, \cdots , x_n$ em ordem crescente de magnitude, para que
+$$x_{(1)}\le x_{(2)} \le \cdots ≤ x_{(n)},$$
+onde $x_{(1)}$ = min($x_1, x_2, \cdots , x_n$), $x_{(2)}$ é o segundo menor valor em $x_1, \cdots , x_n$ e assim por diante, $x_{(n)}$ = max($x_1, \cdots , x_n$). Se quaisquer dois $x_i$, $x_j$ forem iguais, a ordem não importa.
+ 
+>
+**Definição**.
+A função $X_{(k)}$ de ($X_1, \cdots ,X_n$) que assume o valor $x_{(k)}$ em cada possível sequência ($x_1, x_2, \cdots , x_n$) de valores assumidos por ($X_1,X_2, \cdots , X_n$) é conhecida como a $k$-ésima estatística de ordem ou a estatística de ordem $k$.
+O conjunto ($X_{(1)},X_{(2)}, \cdots , X_{(n)}$) é chamado de estatísticas de ordem para ($X_1, X_2, \cdots , X_n$).
+
+
+**Exemplo**. Consideremos $X_1$, $X_2$, $X_3$ três variáveis aleatórias discretas de maneira que, $X_1$ e $X_3$ sejam tais que assumam somente valores 0, 1 e que $X_2$ assuma valores 1, 2, 3. O vetor aleatório ($X_1$, $X_2$, $X_3$) assume os valores: (0, 1, 0), (0, 2, 0), (0, 3, 0), (0, 1, 1), (0, 2, 1), (0, 3, 1), (1, 1, 0), (1, 2, 0), (1, 3, 0), (1, 1, 1), (1, 2, 1) e (1, 3, 1). Então $X_{(1)}$ assume somente valores 0 ou 1; $X_{(2)}$ assume somente valores 0 ou 1 e $X_{(3)}$ assume somente valores 1, 2 ou 3.
+
+::: {.callout-note appearance="simple"}
+## Teorema
+
+Seja ($X_{(1)}, X_{(2)}, \cdots , X_{(n)}$) um vetor aleatório de dimensão $n$ e seja $X_{(k)}, 1 \le k \le n$, a $k$-ésima estatística de ordem. Então $X_{(k)}$ é também uma variável aleatória.
+:::
+
+**Exercício**. Na apresentação dos resultados a seguir assumiremos que $X_1, X_2, \cdots , X_n$ são variáveis aleatórias independentes e igualmente distribuídas contínuas com função de densidade $f$ . Seja $\{ X_{(1)}, X_{(2)}, \cdots , X_{(n)} \}$ o conjunto das estatística de ordem para $X_1, X_2, \cdots , X_n$. Dado que todas as $X_i$ são contínuas segue que, com probabilidade 1
+$$X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}·$$
+
+### 2.2.1	Propriedades das estatísticas de ordem
+Começaremos o estudo das propriedades encontrando a função de densidade conjunta de (X(1), X(2), \cdots , X(n)).
+
+
+Demonstração : A transformação de (X1, \cdots , Xn) a (X(1), \cdots , X(n)) não é biunívoca. De fato, existem um total de n! possíveis arranjos de x1, \cdots , xn em ordem crescente de magnitude. Assim, existem n! inversas para a transformação.
+Por exemplo, uma das n! permutações pode ser
+x4 < x1 < xn−1 < x3 < \cdots < xn < x2·
+ 
+
+A inversa correspondente é
+x4 = x(1), x1 = x(2), xn−1 = x(3), x3 = x(4) \cdots xn = x(n−1), x2 = x(n)·
+O determinante Jacobiano desta transformação é a matriz n×n identidade com as colunas reorganizadas, isto devido a que cada x(i) é igual a uma, e somente uma, das $X_1, X_2, \cdots , X_n$. Portanto J = ±1 e
+
+n
+f (x(2), x(n), x(4), x(1), \cdots , x(3), x(n−1))|J| =	f (x(i)),
+i=1
+quando x(1) < x(2) < \cdots < x(n). A mesma expressão é válida para cada um dos n! arranjos. Segue então que
+ 
+
+f (x(1), \cdots , x(n))  =
+Todas as n!
+permutações
+ 
+n
+f (x(i))
+i=1
+ 
+=  
+
+ 
+
+ 
+n!
+i=1
+ 
+
+f (x(i)),	caso x(1) < x(2) < \cdots < x(n)  ·
+0,	caso contrário
+ 
+
+**Exemplo 2.4**
+Sejam X1, \cdots , Xn variáveis aleatórias independentes com função de densidade comum
+f (x) =	1,	se	0 < x < 1  ·
+0,	caso contrário
+Então a função de densidade conjunta de X(1), X(2), \cdots , X(n) é
+
+ 
+f (x
+ 
+
+(1)
+ 
+, \cdots , x
+ 
+
+(n)
+ 
+) =	n!,	0 < x(1) < x(2) < \cdots < x(n)
+0,	caso contrário
+ 
+·	(2.5)
+ 
+
+Estamos confiados que como resultado do Teorema 2.2 temos funções de densidade. Vejamos neste exemplo se isso é realmente acontece. Consideremos, para simplificar, o caso n = 3 e verifiquemos se a integral da função de densidade em (2.5) é 1. Então
+ 
+∫∫∫
+ 
+
+
+f (x(1), x(2), x(3)) dx(1) dx(2) dx(3)	=  6
+ 
+∫ 1 [∫ 1
+ 
+(∫ 1
+ 
+dx(3))
+ 
+dx(2)]
+ 
+
+dx(1)
+ 
+0
+1
+=  6
+0
+ 
+x(1)
+[ x(1)
+ 
+x(2)
+(1 − x(2))
+ 
+dx(2)]
+ 
+
+
+dx(1)
+ 
+1	1
+=  6	− x(1)
+ 
+ x2
++	(1)
+2
+ 
+
+dx(1)
+ 
+= 1·
+ 
+0
+Um detalhe interessante é que esta e outras propriedades demonstradas aqui somente são válidas quando as variáveis aleatórias são contínuas. Isso não significa que estatísticas de ordem não possam ser definidas no caso discreto. O que estamos dizendo é que estas propriedades somente podem ser demonstradas no caso contínuo.
+
+**Exemplo 2.5**
+Consideremos a situação em que temos somente três variáveis aleatórias independentes X1, X2 e X3 com
+ 
+
+distribuição geométrica de parâmetro p, isto é,
+P (X = x; p) = (1 − p)px,	x = 0, 1, 2, \cdots
+Encontremos P (X(1) < X(2) < X(3)).
+Nesta situação a probabilidade requerida pode ser escrita como:
+P (X(1) < X(2) < X(3))  =  1 − P (X1 = X2 ̸= X3) − P (X1 = X3 ̸= X2)
+−P (X2 = X3 ̸= X1) − P (X1 = X2 = X3)
+a qual pode ser escrita como
+P (X(1) < X(2) < X(3)) = 1 − 3P (X1 = X2 ̸= X3) − P (X1 = X2 = X3)
+= 1 − 3 [P (X1 = X2) − P (X1 = X2 = X3)] − P (X1 = X2 = X3)
+= 1 − 3P (X1 = X2) + 2P (X1 = X2 = X3)·
+
+ 
+Não é difícil perceber que
+
+
+e que
+ 
+
+P (X1 = X2) =
+ 
+
+(1	p)2
+1 − p2 ,
+(1 − p)3
+ 
+
+do qual obtemos que
+ 
+P (X1 = X2 = X3) =
+ 
+1 − p3 ,
+
+6p3
+ 
+P (X(1) < X(2) < X(3)) = (1 − p)(1 + p + p2)·
+As propriedades das estatísticas de ordem que serão demonstradas valerão somente caso as variáveis sejam contínuas. Isto deve-se a que, caso as variáveis sejam discretas, a probabilidade
+
+P (X(1) = X(2) = \cdots = X(n)) ̸= 0,
+
+como vai ser mostrado no seguinte exemplo. Acontece que o fato da probabilidade das estatística de ordem poderem coincidir, com probabilidade diferente de zero, altera a estrutura da demonstração e não nos permite obtermos estes resultados para o caso discreto.
+
+**Exemplo 2.6**
+Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes assumindo somente 0 e 1 com probabilidade 1/2. Observemos que
+
+n	n
+P (X(1) = X(2) = \cdots = X(n))  =  ∏ P (X(k) = 0) + ∏ P (X(k) = 1)
+ 
+k=1 n
+=	P (Xk
+k=1
+ 
+k=1 n
+= 0) +	P (Xk
+k=1
+ 
+ 1 
+= 1) = 2n−1 ·
+ 
+
+Estudemos agora o comportamento marginal, ou seja, nos interessa agora encontrar a função de distribuição marginal de cada estatística de ordem.
+ 
+
+ 
+Demonstração : Partimos da expressão da função de densidade conjunta das estatísticas de ordem obtida no Teorema
+2.2. Então,
+ 
+
+fr(x(r))  =  n!f (x(r))
+ 
+∫ x(r) ∫ x(r−1)
+ 
+
+\cdots
+ 
+∫ x(2) ∫ +∞ ∫ +∞
+ 
+\cdots
+ 
+∫ +∞ ∏
+ 
+
+f (ti) dtn \cdots dtr+1 dt1 \cdots dtr−1
+ 
+−∞	−∞
+ 
+−∞	x(r)
+ 
+x(r+1)
+ 
+x(n−1) i̸=r
+ 
+=  n!f (x(r))
+ 
+[1 − $F$ (x(r))]n−r	x(r)
+
+ 
+(n − r)!
+ 
+\cdots
+ 
+∫ x(2) r∏−1
+
+ 
+f (ti) dti
+ 
+[1 − $F$ (x(r))]n−r [F (x(r))]r−1
+ 
+=  n!f (x(r))
+ 
+(n − r)!
+ 
+·
+(r − 1)!
+ 
+
+Como utilidade deste teorema podemos mencionar o fato de agora podermos encontrar os momentos das es- tatística de ordem. Faremos isso como consequência do seguinte exemplo.
+
+**Exemplo 2.7**
+Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes U (0, 1). Então
+ 
+fr(x(r)) = 
+
+ 
+n!
+
+ 
+(r − 1)!(n − r)!
+ 
+xr−1(1 − x(r))n−r,  se	0 < x(r) < 1
+(1 ≤ r ≤ n)
+0,	caso contrário
+ 
+
+Observemos que, na situação do exemplo acima,
+X(r) ∼ Beta(r, n − r + 1), logo, valem os resultados da distribuição Beta e, por exemplo,
+E(X(r)) = r/(n + 1)·
+Para uma densidade qualquer e somente quatro variáveis aleatórias a forma da densidade marginal, de uma qualquer estatística de ordem, é mostrada no seguinte exemplo.
+
+**Exemplo 2.8**
+Sejam X1, X2, X3, X4 variáveis aleatórias independentes com densidade comum f.	A função de densidade conjunta das estatísticas de ordem X(1), X(2), X(3), X(4) é
+
+ 
+f (x
+ 
+
+(1)
+ 
+
+, x(2)
+ 
+
+, x(3)
+ 
+
+, x(4)
+ 
+) =	4!f (x(1))f (x(2))f (x(3))f (x(4)),	se	x(1) < x(2) < x(3) < x(4)  ·
+0,	caso contrário
+ 
+
+Vamos calcular a função de densidade marginal de X(2). Temos que, se x(1) < x(2) < x(3) < x(4) f2(x(2))  =  4! ∫ ∫ ∫ ∫ $F$ (t1)f (x(2))f (t3)f (t4) dt1 dt3 dt4
+ 
+
+=  4!f (x(2))
+ 
+∫ x(2) ∫ +∞ [∫ +∞
+ 
+f (t4) dt4]
+ 
+
+f (t3)f (t1) dt3 dt1
+ 
+−∞	x(2)	t3
+ 
+
+=  4!f (x(2))
+ 
+∫ x(2) {∫ +∞
+ 
+[1 − $F$ (t3)]f (t3) dt3}
+ 
+f (t1) dt1
+ 
+−∞	x(2)
+ 
+=  4!f (x(2))
+ 
+x(2) [1	F (x	)]2
+2	f (t1) dt1 = 4!f (x(2))
+ 
+[1	F (x	)]2
+2!	F (x(2))·
+ 
+Evidentemente, a expressão acima coincide com o resultado apresentado no Teorema 2.3.
+
+
+
+ 
+Demonstração :
+ 
+
+
+
+
+frs(x(r), x(s))  =
+ 
+
+
+
+∫ x(r)
+ 
+
+
+\cdots
+ 
+
+
+∫ t2
+ 
+
+
+
+∫ x(s)
+ 
+
+
+\cdots
+ 
+
+
+∫ x(s) ∫ +∞
+ 
+
+
+\cdots
+ 
+
+
+∫ +∞
+ 
+−∞	−∞
+ 
+x(r)
+ 
+ts−2
+ 
+x(s)
+ 
+tn−1
+ 
+n!f (t1) \cdots $F$ (tn) dtn \cdots dts+1 dts−1 \cdots dtr+1 dt1 \cdots dtr−1
+ 
+
+=  n!
+ 
+∫ x(r)
+ 
+
+\cdots
+ 
+∫ t2
+ 
+∫ x(s)
+ 
+
+\cdots
+ 
+∫ x(s) [1 − $F$ (x(s))]n−s
+ 
+
+ 
+−∞	−∞
+ 
+x(r)
+ 
+ts−2
+ 
+(n − s)!
+ 
+×f (t1)f (t2) \cdots $F$ (x(s)) dts−1 \cdots dtr+1 dt1 \cdots dtr−1
+ 
+
+=  n!
+ 
+[1 − $F$ (x(s))]n−s
+(n − s)!	f (x(s))
+ 
+x(r)
+
+−∞
+ 
+\cdots
+ 
+t2
+f (t1) \cdots $F$ (x(r))×
+−∞
+ 
+[F (x(s)) − $F$ (x(r))]s−r−1
+×	(s − r − 1)!	dt1 \cdots dtr−1
+ 
+	n!	
+=	(n − s)!(s − r − 1)![1 − $F$ (x
+ 
+
+(s)
+ 
+)]n−s×
+ 
+
+
+[F (x(r))]r−1
+ 
+
+
+caso x(r) < x(s).
+ 
+×[F (x(s)) − $F$ (x(r))]s−r−1f (x(s))f (x(r))
+ 
+,
+(r − 1)!
+
+ 
+
+De modo semelhante, podemos mostrar que a função de densidade conjunta de X(k1), \cdots , X(km) se 1 ≤ k1 <
+ 
+
+ 
+k2 < \cdots < km ≤ n, 1 ≤ m ≤ n, é dada por
+fk1k2···km (x(k1), x(k2), \cdots , x(km)) =
+ 
+
+
+(k1
+ 
+
+
+— 1)!(k2
+ 
+
+
+— k1
+ 
+
+n!
+×
+— 1)! × \cdots (n − km)!
+ 
+×Fk1−1(x(k ))f (x(k ))[F (x(k )) − $F$ (x(k ))]k2−k1−1f (x(k )) × \cdots ×
+×[F (x(k	)) − $F$ (x(k	))]km−1−km−2−1f (x(k	))[1 − $F$ (x(k ))]n−km $F$ (x(k )),
+caso x(k1) < x(k2) < \cdots < x(km) e zero noutras situações.
+
+**Exemplo 2.9** (Continuação do Exemplo 2.7)
+Sabemos que as variáveis aleatórias $X_1, X_2, \cdots , X_n$ são independentes e tem como função de densidade comum
+f (x) =	1,	se	0 < x < 1  ·
+0,	caso contrário
+Então, a função de densidade conjunta de X(r) e X(s) é dada por
+ 
+
+
+
+frs
+ 
+
+
+
+(x(r)
+ 
+
+
+, x(s)) =
+ 
+ n!
+ 
+
+xr−1(x(r) − x(s))s−r−1(1 − x(s))n−s
+(r − 1)!(s − r − 1)!(n − s)!
+ 
+
+,  se	x
+ 
+
+
+
+(r)
+ 
+
+
+< x(s)
+·
+ 
+
+
+onde 1 ≤ r < s ≤ n.
+ 
+0,	caso contrário
+ 
+Uma situação mais complexa é trabalharmos com funções de estatísticas de ordem. Não temos um resultado simples para o caso de qualquer funções destas estatísticas. Mas, no exemplo a seguir, podemos encontrar um resultado interessante para o comportamento da diferença de estatísticas de ordem.
+
+**Exemplo 2.10**
+Sejam X(1), X(2), X(3) as estatísticas de ordem das variáveis aleatórias independentes e igualmente distribuídas
+X1, X2, X3 com função de densidade comum
+{ βe−xβ,	se	x ≥ 0
+sendo β > 0. Sejam Y1 = X(3) − X(2) e Y2 = X(2). Mostraremos que Y1 e Y2 são independentes. Para isso primeiro observemos que a função de densidade conjunta de X(2) e X(3) é dada por
+
+ 
+f23(x, y) =
+ 
+1!0!0!
+ 
+·
+0,	caso contrário
+ 
+A função de densidade conjunta de (Y1, Y2) é então
+f (y1, y2) = 3!β2(1 − e−y2β )e−y2βe−(y1+y2)β =
+[3!βe−2y2β (1	e−y2β )][βe−y1β ],  se	0 < y  < +	, 0 < y  < +
+=	·
+0,	caso contrário
+Do qual segue que Y1 e Y2 são independentes.
+Duas estatísticas de ordem importantes são o máximo e mínimo. Nesses casos é possível encontrar, de maneira
+ 
+
+analítica, expressões para a função de distribuição.	Vejamos no teorema a seguir as expressões da função de distribuição das estatísticas de ordem X(1) e X(n).
+
+
+Demonstração : Exercício.
+
+Acerca da função de distribuição de qualquer estatística de ordem temos o resultado a seguir.
+
+
+Demonstração : O evento {X(k) ≤ x} ocorre se, e somente se, pelo menos k dos $X_1, X_2, \cdots , X_n$ são menores ou iguais a x, por isso o somatório começa em k.
+
+Nos dois teoremas seguintes relacionamos a distribuição condicional de estatísticas de ordem, condicionadas em outra estatística de ordem, com a distribuição de estatísticas de ordem de uma população cuja distribuição é uma forma truncada da função de distribuição da população original $F$ .
+
+
+Demonstração : A densidade condicional de X(j) dado que X(i) = xi calcula-se dividindo a densidade conjunta de
+X(i) e X(j), dada em (2.7), pela densidade marginal de X(i), esta obtida no Teorema 2.4. Temos então que, quando
+ 
+
+i < j ≤ n e xi ≤ xj < ∞,
+
+ 
+f (xj|X(i)
+ 
+= x ) =	fij(xi, xj) i		fi(xi)
+	(n − i)!	 [ $F$ (xj) − $F$ (xi)]j−i−1
+ 
+
+[ 1 − $F$ (xj)]n−j   $F$ (xj) 
+ 
+(j − i − 1)!(n − j)!	1 − $F$ (xi)
+ 
+1 − $F$ (xi)	1 − $F$ (xi)
+ 
+O resultado segue observando que $F$ (xj ) − $F$ (xi) e  $F$ (xj )  são, respectivamente, as funções de distribuição e de
+1 − $F$ (xi)	1 − $F$ (xi)
+densidade truncando à esquerda em xi a distribuição $F$ .
+
+Na demonstração do teorema anterior utiliza-se o conceito de distribuição truncada, o que é isso? define-se a seguir este conceito e incluem-se exemplos explicativos.
+
+
+Caso a variável aleatória X seja discreta com função de probabilidade P , a distribuição truncada de X é dada
+por
+ 
+
+P (X = x|X ∈ A) =
+ 
+
+P (X = x, X ∈ A) P (X ∈ A)
+ 
+= 
+
+ 
+P (X = x)
+P (X = a),  se x ∈ A
+a∈A
+0,	se x ∈/ A
+ 
+Na situação X do tipo contínua, com função de densidade $F$ , temos que
+ 
+
+
+P (X ≤ x|X ∈ A) =
+ 
+
+P (X ≤ x, X ∈ A) =
+P (X ∈ A)
+ 
+∫(−∞,x]∩A
+ 
+
+f (y) dy
+ 
+
+
+·	(2.8)
+ 
+
+ 
+Concluindo então que, a função de densidade da distribuição truncada é dada por
+ 
+
+
+h(x) =
+ 
+ ∫
+ 
+f (x)
+f (y) dy
+ 
+
+, caso x ∈ A,
+ 
+
+
+·	(2.9)
+ 
+ 0 A
+ 
+caso x ∈/ A
+ 
+Exemplo 2.11
+Suponhamos X uma variável aleatória com distribuição normal padrão e A = (	, 0]. Então, P (X	A) = 1/2, dado que X é simétrica e contínua. Para a densidade truncada temos que
+{ 2f (x),  caso − ∞ < x ≤ 0,
+
+ 
+
+O truncamento é especialmente importante nos casos em que a distribuição $F$ em questão não tem média finita. Se X é uma variável aleatória, truncamos X em algum c > 0, onde c é finito, substituindo X por Xc = X caso
+|X|	c e zero caso |X| > c. Então Xc é X truncada em c e todos os momentos de Xc existem e são finitos. Na verdade, sempre podemos selecionar c suficientemente grande para que
+P (X ̸= Xc) = P (|X| > c),
+
+ 
+seja arbitrariamente pequena.
+A distribuição de Xc é então dada por
+
+P (Xc ≤ x) = P (X ≤ x| |X| ≤ c) = no caso contínuo com função de densidade $F$ e é dada por
+ 
+
+
+
+f (y) dy
+ (−∞,x]∩[−c,+c]	 , P (|X| ≤ c)
+ 
+
+
+P (Xc = x) =
+ 
+
+
+ 
+P (X = x)
+
+ 
+P (X = a)
+a∈[−c,+c]
+ 
+
+,  se x ∈ [−c, +c]
+,
+ 
+0,	se x ∈/ [−c, +c]
+no caso discreto. Observemos que, para algum α > 0,
+E(|Xc|)α  ≤ cα·
+
+**Exemplo 2.12**
+Caso X	Cauchy(0, 1), sabemos que E(X) não existe. Seja c > 0 um número finito, truncando X em c
+definimos
+ 
+
+
+Então
+ 
+Xc =
+ 
+X,  caso	|X|	c,
+·
+0,	caso	|X| > c
+ 
+1 ∫ +c   1	
+
+ 
+2	−1
+ 
+Sendo que a função de densidade truncada é dada por
+ 
+ 1	1
+ 
+1
+, caso x ∈ [−c, +c],
+ 
+h(x) =
+
+Desta expressão obtemos que
+ 
+2 1 + x2 tan−1(c)	·
+ 0,	caso x ∈/ [−c, +c]
+
+	1	 ∫ +c   x	
+ 
+
+
+e também que
+ 
+E(Xc) =
+ 
+2 tan−1(c)
+ 
+−c  1 + x2
+ 
+dx = 0,
+ 
+E(Xc)2 =
+ 
+	1	 ∫ +c
+ 
+x2
+dx =
+ 
+ 
+	c	
+— 1·
+ 
+2 tan−1(c)
+ 
+−c  1 + x2
+ 
+tan−1(c)
+ 
+
+Por último, temos o seguinte resultado estabelecendo novamente relação entre estatísticas de ordem e distri- buições truncadas.
+ 
+
+ 
+Demonstração : A densidade condicional de X(i) dado que X(j) = xj calcula-se dividindo a densidade conjunta de X(i) e X(j), dada em (2.7), pela densidade marginal de X(j), esta obtida no Teorema 2.4. Temos então que, quando i < j ≤ n e xi ≤ xj < ∞,
+	(j − i)!	 [ $F$ (xi) ]i−1	[ $F$ (xj) − $F$ (xi)]j−i−1  $F$ (xi)
+O resultado segue observando que $F$ (xi)/F (xj) e $F$ (xi)/F (xj) são, respectivamente, as funções de distribuição e de densidade truncando à direita em xj a distribuição $F$ .
+
+### 2.2.2	Quantis
+Lembremos que a função de distribuição $F$ é contínua à direita e que o número de descontinuidades é, no máximo, enumerável. Estas são propriedades importantes que farão toda diferença na definição dos quantis amostrais, por isso, demonstraremos as propriedades mencionadas da função de distribuição.
+A prova de que $F$ é contínua à direita advém do seguinte fato
+F (x + hn) − $F$ (x) = P (x < X ≤ x + hn),
+onde {hn} é uma sequência de números reais estritamente positivos tais que limn→∞ hn = 0. Segue, da propriedade de continuidade da função de probabilidade,1 que
+lim [F (x + hn)	F (x)] = 0,
+n→∞
+e, portanto, $F$ é contínua à direita.
+Definamos por D o conjunto dos pontos de descontinuidade de $F$ e seja
+D  = {x ∈ D : P (X = x) ≥ 1 } ,
+onde n é um inteiro positivo. Dado que $F$ (	)	F (	) = 1, o número de elementos em Dn não pode exceder n. Logicamente
+∞
+D =	Dn
+n=1
+e, então, o conjunto D é enumerável. Demonstrando-se assim a segunda propriedade importante mencionada da função de distribuição. Definimos a seguir o conceito de quantil teórico e depois mostramos a forma de cálculo.
+
+ 
+ 
+1A função de distribuição é contínua, devido a que
+P	lim
+n→∞
+ 
+
+An  = lim
+n→∞
+ 
+
+P (An),
+ 
+se o limite limn→∞ An existir.
+ 
+
+ 
+A função $F$ −1(t), 0 < t < 1 foi definida em (1.29) e é chamada de função inversa de $F$ . O seguinte teorema fornece-nos propriedades úteis. Fica claro que as propriedades apresentadas no seguinte teorema nos permitirão o cálculo dos quantis e é por isso que dedicamos atenção a este conceito.
+
+
+Demonstração : Exercício.
+
+**Exemplo 2.13**
+
+Seja X	Exponencial(\Theta). Sabemos que a função de distribuição neste caso é $F$ (x) = 1	e−x/\Theta. Resulta que a expressão de qualquer um dos quantis é possível de ser encontrada de maneira exata via
+
+ 
+
+
+
+
+obtendo-se que
+ 
+F (ξp)  =  p
+1 − e−ξp/\Theta	=  p
+1 − p  =  e−ξp/\Theta,
+
+ξp = −\Theta ln(1 − p)
+ 
+é a expressão teórica do p-ésimo quantil. Devemos mencionar que a expressão dos quantis está bem definida, no sentido de que o resultado é sempre positivo. Isto é importante porque devemos lembrar que a distribuição exponencial está definida somente para valores positivos, então o quantil teórico deve ser positivo, já que é um dos possíveis valores da variável.
+Observemos que caso $F$ seja contínua e estritamente crescente, $F$ −1 é definida como
+F −1(y) = x	quando	y = $F$ (x)·
+Ainda podemos observar que, se x0 é um ponto de descontinuidade de $F$ e supondo que
+F (x−) < y < $F$ (x0) = $F$ (x+)
+0	0
+ 
+
+vemos que, embora não exista x tal que y = $F$ (x), $F$ −1(y) é definido como igual a x0. A situação na qual $F$ não é estritamente crescente, por exemplo, caso da variável aleatória ser discreta, podemos escrever
+
+ 
+F (x) =
+ 
+= y,  caso  a ≤ x ≤ b  ·
+ > y,  caso  x > b
+ 
+Então, qualquer valor a	x	b poderia ser escolhido como x = $F$ −1(y). A convenção é que, neste caso, definimos
+F −1(y) = a. Em particular
+ξ1/2 = $F$ −1(1/2),	(2.10)
+é chamada de mediana de $F$ . Observemos que ξp satisfaz a desigualdade
+F (ξp− ) ≤ p ≤ $F$ (ξp)·
+Exemplo 2.14 (Continuação do Exemplo 2.13)
+Caso p = 1/2, a mediana amostral será ξ1/2 = −\Theta ln(1/2) = 0.6931472\Theta.
+
+## Momentos amostrais
+Nesta seção vamos estudar algumas estatísticas amostrais comumente utilizadas e suas distribuições.
+
+Observemos que nFn(x) é o número de Xk (1 ≤ k ≤ n) menores ou iguais a x. Se X(1), X(2), \cdots , X(n) são as estatísticas de ordem de $X_1, X_2, \cdots , X_n$ então claramente
+
+ 
+Fn(x) = 
+
+ 
+k
+,  se  X
+n
+ 
+
+
+(k)
+ 
+
+≤ x < X
+ 
+
+
+(k+1)
+ 
+
+,	(k = 1, 2, \cdots , n − 1)
+ 
+
+·	(2.11)
+ 
+ 1,	se x ≥ X(n)
+
+ 
+
+
+ 
+com esperança e variância
+ 
+
+
+
+Var[Fb
+ 
+E[Fn(x)] = $F$ (x)	(2.13)
+
+F (x)[1 − $F$ (x)]
+ 
+
+
+Demonstração : Dado que δ(x − Xi), i = 1, 2, \cdots , n são variáveis aleatórias independentes igualmente distribuídas cada uma com função de probabilidade
+P [δ(x − Xi) = 1] = P (x − Xi ≥ 0) = $F$ (x)
+e
+P [δ(x − Xi) = 0] = 1 − $F$ (x),
+sua soma nF ∗(x) é uma variável aleatória com distribuição Binomial(n, p), onde p = $F$ (x). As relações (2.12), (2.13) e (2.14) seguem-se imediatamente.
+
+
+
+ 
+Demonstração :
+ 
+E´ uma consequência da Lei dos Grandes Números .
+ 
+
+
+
+ 
+Corolário 2.12
+
+
+
+onde Z ∼ N (0, 1).
+ 
+
+√n[F (x)	F (x)]
+√F (x)[1 − $F$ (x)] −→ Z	quando n → ∞,
+ 
+
+ 
+Demonstração :
+ 
+E´ consequência do Teorema do Limite Central.
+ 
+
+**Exemplo 2.15**
+
+Vamos apresentar o conceito de função distribuição empírica no caso de termos uma amostra aleatória da distribuição N (0, 1). A lista de comandos na linguagem de programação R está disponível abaixo. O primeiro comando destina-se a fixar o gerador de amostras e, assim, em qualquer momento podemos obter a mesma amostra aleatória.
+Na Figura 2.2 mostramos a forma da distribuição empírica, de três formas diferentes, para uma amostra de tamanho 12. A representação da função de distribuição empírica é realizada permitindo escolher qual utilizar segundo o agrado.
+ 
+
+
+
+
+lwd = 2
+
+
+
+
+
+
+
+
+ 
+
+−1.5	−1.0	−0.5	0.0	0.5
+
+x
+ 
+
+−1.5	−1.0	−0.5	0.0	0.5
+
+x
+ 
+
+−1.5	−1.0	−0.5	0.0	0.5
+
+x
+ 
+
+Figura 2.2: Representação da função de distribuição amostral ou empírica, de três formas diferentes, para uma amostra normal padrão de tamanho 12.
+
+A linhas de comando a seguir permitiram-nos gerar os gráficos na Figura 2.2: construímos :
+set.seed(5739); x=rnorm(12); Fn=ecdf(x) par(mar=c(5,4,3,1), cex=0.9)
+plot(Fn,  main="")
+plot(Fn, verticals = TRUE, do.points = FALSE, main="") plot(Fn , lwd = 2, main=""); mtext("lwd = 2", adj = 1) xx=unique(sort(c(seq(-3, 2, length = 201), knots(Fn12)))) lines(xx, Fn(xx), col = "blue")
+abline(v = knots(Fn), lty = 2, col = "gray70")
+Observemos que a convergência da distribuição empírica, segundo o Teorema 2.10, é para cada valor de x. E´
+possível fazer uma demonstração da convergência em probabilidade simultaneamente para todos os x, ou seja, da convergência uniforme.
+
+Demonstração : Seja ϵ > 0. Escolhemos um inteiro k > 1/ϵ e números
+−∞ = x0 < x1 ≤ x2 ≤ \cdots ≤ xk−1 < xk = ∞,
+tais que $F$ (x−) ≤ j/k ≤ $F$ (xj), para j = 1, \cdots , k − 1. Observe que se xj−1 < xj, então
+ 
+
+
+Pela Lei dos Grandes Números
+ 
+F (x−) − $F$ (xj−1) ≤ ϵ·
+ 
+q.c.
+Fn(xj) −→ $F$ (xj)
+e
+—	q.c.	−
+ 
+
+para j = 1, \cdots , k − 1. Consequentemente,
+ 
+Fbn(xj ) −→ $F$ (xj ),
+ 
+∗	−	q.c.
+∆n = max{|Fbn(xj) − $F$ (xj)|, |Fn (xj ) − $F$ (xj)|, j = 1, \cdots , k − 1} −→ 0·
+ 
+
+Seja x arbitrário e encontremos j tal que xj−1 < x ≤ xj. Então,
+Fbn(x) − $F$ (x) ≤ Fbn(x−) − $F$ (xj−1) ≤ Fbn(x−) − $F$ (x−) + ϵ,
+
+ 
+e
+
+Isto implica que
+ 
+Fbn(x) − $F$ (x) ≥ Fbn(xj−1) − $F$ (x−) ≥ Fbn(xj−1) − $F$ (xj−1) − ϵ·
+ 
+q.c.
+sup |Fn(x)	F (x)|	∆n + ϵ	ϵ·
+x
+Como isso vale para todo ϵ > 0, o teorema segue.
+
+Agora, dado que $F$ ∗(x) tem pontos de salto em Xi, i = 1, 2, \cdots , n é claro que existem todos os momentos de $F$ ∗(x). Vamos considerar alguns valores típicos da função de distribuição $F$ , chamados de estatísticas amostrais. Escrevamos
+a  = 1 ∑ Xk,	(2.15)
+
+para os momentos de ordem k ao redor do 0 (zero). Aqui ak, serão chamados de momentos amostrais de ordem k. Com esta notação
+ 
+
+
+O momento amostral central é definido por
+ 
+n
+a1 =	Xi
+n
+i=1
+ 
+= X·
+ 
+b  = 1 ∑(X − a )k = 1 ∑(X
+ 
+— X) ·	(2.16)
+ 
+Logicamente,
+ 
+k	n	i	1
+i=1
+ 
+n	i
+i=1
+ 
+b = 0	e	b
+ 
+= (n − 1 ) S2·
+ 
+Como mencionado anteriormente, não chamamos b2 a variaˆncia amostral. S2
+ 
+será chamada como a variaˆncia
+ 
+amostral por razões que se tornarão claras posteriormente. Temos que
+b2 = a2 − a2·
+Para a função geradora de momentos de Fn podemos afirmar que
+n
+ 
+MFbn
+ 
+(t) = 1	etXi ·
+n
+ 
+i=1
+
+Definições similares são realizadas para momentos amostrais de distribuições multivariadas. Por exemplo, se (X1, Y2), (X2, Y2), \cdots , (Xn, Yn) é uma amostra de uma distribuição bivariada, podemos escrever
+n	n
+X = 1 ∑ X ,	Y = 1 ∑ Y
+
+para as duas médias amostrais e para os momentos de segunda ordem centrais escrevemos
+
+ 
+
+b20
+ 
+n
+=	(Xi
+n
+i=1
+ 
+
+ 
+— X) ,	b02
+ 
+n
+=	(Yi
+n
+i=1
+ 
+
+ 
+— Y ) ,
+ 
+
+ 
+
+
+
+Mais uma vez, escrevemos
+ 
+
+b11
+
+
+
+n
+ 
+n
+=	(Xi
+n
+i=1
+ 
+
+ 
+—	X)(Yi
+ 
+
+ 
+—	Y )·
+
+n
+ 
+S2 =   1	 ∑(X
+
+ 
+—	X)2,	S2 =   1	 ∑(Y
+
+ 
+ 
+
+ 
+—	Y ) ,	(2.17)
+ 
+para as duas variaˆncias amostrais e para a covariância amostral utilizamos
+n
+ 
+S11
+ 
+=   1		(X
+n − 1 i=1
+ 
+
+ 
+—	X)(Yi
+ 
+
+ 
+—	Y )·	(2.18)
+ 
+Em particular, o coeficiente de correlação amostral é definido por
+b11	S11
+ 
+R =
+20
+ 
+b02
+ 
+=	·
+S1S2
+ 
+Pode ser demonstrado que |R| ≤ 1 e que os valores extremos ±1 ocorrem somente quando todos os pontos amostrais (X1, Y2), (X2, Y2), \cdots , (Xn, Yn) estão alinhados.
+Correspondendo a uma amostra $X_1, X_2, \cdots , X_n$ de observações em $F$ , p-ésimo quantil amostral é definido como o p-ésimo quantil da função de distribuição amostral, ou seja, como $F$ −1.
+Os quatis amostrais são definidos de maneira similar. Então, se 0 < p < 1, o quantil amostral de ordem p,
+
+ 
+r =		[np]	se n é um número par [np] + 1 se n é um número ímpar
+ 
+·	(2.19)
+ 
+Como usual, [x] denota o maior inteiro  x. Observe que, se [n] for par, podemos escolher qualquer valor entre X([np]) e X([np]+1) como o p-ésimo quantil amostral. Então, se p = 1 e n par podemos escolher qualquer valor entre X(n/2) e X(n/2+1), os dois valores do meio, como a mediana amostral. Habitualmente é escolhido o ponto médio. Assim, a mediana amostral é definida como
+ 
+ξb1/2 = 
+ 
+X((n+1)/2)	se n é ímpar
+X(n/2) + X((n/2)+1)	se n é par
+ 
+
+·	(2.20)
+ 
+
+Observe que
+ 
+2
+[n + 1] = (n + 1 )
+ 
+2	2
+se n é ímpar.
+Consideraremos agora os momentos de características amostrais. Nos seguintes desenvolvimentos denotaremos E(Xk) = mk e E[(X µ)k] = µk como os momentos populacionais e os momentos populacionais centrais de k-ésima ordem, respectivamente. Nas situações onde utilizamos mk ou µk assumiremos que estes existem. Também, σ2 representará a variância populacional.
+
+ 
+
+ 
+Demonstração : Para provar (2.23) observemos que
+ 
+(∑n
+ 
+Xi	= ∑
+ 
+X3 + 3 ∑ ∑
+ 
+X2Xk + ∑ ∑ ∑ XiXjXk,
+ 
+i=1
+ 
+i=1
+ 
+i=1 j=1
+j̸=k
+ 
+i=1 j=1 k=1 i̸=j, i̸=k
+j̸=k
+ 
+desta expressão obtemos o resultado em (2.23). Similarmente
+ 
+
+(∑n	)4
+ 
+( n	)  n	n	n
+ 
+
+
+∑ ∑ ∑
+ 
+Xi	=
+ 
+∑ Xi	∑ X3 + 3 ∑ ∑ X2Xj +
+ 
+i  j  k
+ 
+i=1
+ 
+i=1
+
+n
+ 
+ i=1
+ 
+i
+i=1 j=1
+i̸=j
+n	n
+ 
+i=1 j=1 k=1 i̸=j, i̸=k
+j̸=k
+ 
+=  ∑ X4 + 4 ∑ ∑ XiX3 + 3 ∑ ∑ X2X2
+ 
+i
+i=1
+ 
+i=1 j=1
+i̸=j
+ 
+j	i	j
+i=1 j=1
+i̸=j
+ 
+n	n	n	n	n	n	n
+=	+6 ∑ ∑ ∑ X2XjXk + ∑ ∑ ∑ ∑ XiXjXkXl·
+ 
+i=1 j=1 k=1 i̸=j, i̸=k
+j̸=k
+ 
+i=1 j=1 k=1 l=1 i̸=j, i̸=k, i̸=l
+j̸=k, j̸=l
+k̸=l
+ 
+Um detalhe importante é que os momentos centrais podem ser calculados a partir dos momentos, por exemplo,
+µ2	=	E[(X − µ)2] = m2 − µ2,
+µ3	=	E[(X − µ)3] = m3 − 3µm2 + 2µ3
+
+e assim por diante. Sabemos agora como calcular os momentos, até quarta ordem, de X. Vejamos a seguir como calcular os momentos centrais.
+
+ 
+
+ 
+Demonstração : Temos que
+µ (X) = E(X − µ)3 =	E {∑n
+ 
+
+(X − µ)3} =	∑n
+ 
+
+
+E(X
+ 
+
+
+3	µ3
+— µ)  =	·
+ 
+3
+
+No caso do quarto momento central
+ 
+n3	i=1	i
+
+
+
+1
+ 
+n3
+
+
+{∑n
+ 
+i=1	i	n2
+
+
+}
+ 
+
+
+da qual obtemos que
+ 
+
+ 	 
+µ (X) = E(X	µ)4 =	E
+n4
+ 
+
+i=1
+ 
+(Xi − µ)4	,
+ 
+1
+µ4(X) =
+ 
+
+E(Xi − µ)4 +
+ 
+(4) 1 + ∑ ∑
+ 
+
+E{(Xi − µ)2(Xj − µ)2}·
+ 
+n4
+i=1
+ 
+2  n4
+ 
+i=1 j=1
+i̸=j
+ 
+Desenvolvendo adequadamente chegamos ao resultado em (2.26).
+
+ 
+**Exemplo 2.16**
+ 
+
+, Xn uma amostra aleatória da distribuição Gamma(α, β). Sabemos da Seção 1.2 que
+E(X) = αβ,	Var(X) = αβ2
+ 
+
+mk = βk(α + k − 1)(α + k − 2) \cdots α,	k ≥ 1·
+αβ2
+E(X) = αβ,	Var(X) =
+n
+1	1
+µ (X) =	µ  =  (6α3β3 + 3α2β3 + 2αβ3)·
+3	n2  3	n
+
+Até o momento estudamos como calcular os momentos da média amostral. Mais complexo é obter expressões para os momentos da variância amostral S2. O teorema a seguir dedica-se ao objetivo de encontrarmos expressões, até segunda ordem, dos momentos amostrais centrais. Como consequência deste resultado obtemos os momentos da variaˆncia amostral.
+
+ 
+
+ 
+Demonstração : Temos que
+ 
+
+
+n
+E(b2)  =	E	n
+i=1
+ 
+
+
+
+
+X2
+n2
+ 
+n	2
+Xi
+i=1
+ 
+=  m2 −
+ 
+1	 n
+E 
+ 
+X2 + ∑
+ 
+∑ X2Xj
+ 
+
+
+
+
+Agora
+ 
+
+=  m2
+ 
+
+ 1 
+— n2 [nm2
+ 
++ n(n − 1)µ2] = ( n − 1 ) (m
+ 
+
+— µ )·
+ 
+n2b2 =
+ 
+n
+
+i=1
+ 
+2
+
+(Xi − µ)2 − n(X − µ)2	·
+ 
+Escrevendo Yi = Xi − µ, vemos que E(Yi) = 0, Var(Yi) = σ2 e E(Y 4) = µ4. Temos então que
+ 
+
+n2 E(b2)  =	E
+ 
+n
+i=1 n
+ 
+2
+
+Y 2 − nY 2
+
+n	n
+ 
+
+
+
+ n	n	n	
+ 
+=	E ∑ Y 4 + ∑ ∑ Y 2Y 2 − 2 ∑ ∑ Y 2Y 2 + ∑ Y 4
+ 
++ 1 3 ∑ ∑
+ 
+
+Y 2Y 2 + ∑
+ 
+Y 4 ·
+ 
+
+
+Segue então que
+ 
+ 
+n	i	j
+i=1 j=1
+i̸=j
+ 
+i=1
+ 
+i 
+ 
+2	 1 
+n2 E(b2)  =  nµ + n(n − 1)σ2 −	[n(n − 1)σ4 + nµ ] +	[3n(n − 1)σ4 + nµ ]
+ 
+=  (n − 2 + 1 ) µ + (n − 2 + 3 ) (n − 1)µ2 ·	(µ
+ 
+
+= σ2)
+ 
+
+Portanto
+ 
+n	4	n	2	2
+ 
+Var(b2)  =	E(b2) − [ E(b2)]2
+ 
+=  (n − 2 +
+ 
+1 ) µ4
+ 
++ (n − 1) (n − 2 + 3	µ
+2
+—
+ 
+( n − 1 )2
+ 
+ 
+=  (n − 2 +
+ 
+1 ) µ4
+
+ 	 
+ 
+µ2
++ (n − 1)(3 − n)	,
+ 
+como afirmado. As relações (2.29) e (2.30) podem ser provadas de forma semelhante.
+
+
+Este é justamente o motivo pelo qual chamamos S2 e não b2 de variância amostral.
+ 
+
+ 
+**Exemplo 2.17** (Continuação do Exemplo 2.16)
+
+inteir Nesta situação, σ2 = αβ2, µ2 = σ2 e µ4 = m4 − 4m3µ + 6m2µ2 − 3µ4. Obtemos que
+E(S2) = αβ2
+e
+Var)(S2) = µ4 +  3 − n  α2β4·
+n	n(n − 1)
+
+O seguinte resultado fornece uma justificativa para a nossa definição de covariaˆncia amostral.
+
+Demonstração : Do Corolário 2.17 sabemos que E(S2) = σ2 e E(S2) = σ2. Para provar que E(S11) = ρσ1σ2
+1	1	2	2
+observemos que Xi é independente de Xj, (i ̸= j) e de Yj, (i ̸= j). Temos que
+ 
+
+
+
+Agora
+ 
+
+(n − 1) E(S11) = E
+
+
+E{(Xi − X)(Yi − Y )} =
+ 
+n i=1
+ 
+(Xi − X)(Yi − Y )] ·
+ 
+(	∑n	Yj
+
+ 
+
+ 
+∑n	Yj
+
+ 
+
+ 
+∑n	Xj ∑n
+
+ 
+
+ 
+Yj )
+ 
+
+
+
+
+
+
+
+
+e segue que
+ 
+1
+= E(XY ) − n [ E(XY ) + (n − 1) E(X) E(Y )]
+1
+− n [ E(XY ) + (n − 1) E(X) E(Y )]
+1
+− n2 [n E(XY ) + n(n − 1) E(X) E(Y )]
+= n − 1 [ E(XY )	E(X) E(Y )]
+n
+ 
+(n − 1) E(S11) = n (	) [ E(XY ) − E(X) E(Y )],
+n − 1
+ 
+
+ 
+isto é
+ 
+
+E(S11) = E(XY ) − E(X) E(Y ) = Cov(X, Y ) = ρσ1σ2·
+ 
+
+A seguir, voltamos nossa atenção para as distribuições das características da amostra. Existem várias possi- bilidades. Se for necessária a distribuição exata o método de transformação de variáveis pode ser utilizado. As vezes, a técnica da função geradora de momentos pode ser aplicada. Assim, se $X_1, X_2, \cdots , X_n$ é uma amostra aleatória de uma população com distribuição para a qual existe a função geradora de momentos, a função geradora de momentos da média amostral X é dada por
+n
+M (t) =	E(etXi/n) = [MX(t/n)]n ,	(2.32)
+i=1
+onde MX é a função geradora de momentos da distribuição populacional. Se MX (t) tiver alguma forma conhecida seria possível escrever a função de probabilidade ou de densidade de X. Embora este método tem a desvantagem
+óbvia que se aplica apenas à distribuições para as quais existem todos os momentos, veremos sua efetividade na situação importante de amostras da distribuição normal.
+
+**Exemplo 2.18**
+
+Seja $X_1, X_2, \cdots , X_n$ uma amostra aleatória de tamanho n da distribuição Gama(α, 1). Nesta situação podemos encontrar a função de densidade de X. Temos que
+
+ 
+MX (t) = [MX
+ 
+(t/n)]n =	1	,	t
+(1 − t/n)αn	n
+ 
+< 1,
+ 
+
+ 
+da qual obtemos que X ∼ Gama(nα, 1/n).
+
+**Exemplo 2.19**
+
+Seja $X_1, X_2, \cdots , X_n$ uma amostra aleatória da distribuição Uniforme no intervalo (0, 1). Considere a média geométrica
+ 
+
+Yn =
+ 
+n
+
+
+i=1
+ 
+1/n
+Xi	·
+ 
+Sabemos que log(Yn) = (1/n) ∑n	log(Xi) e, desta forma, log(Yn) é a média amostral de log(X1), \cdots , log(Xn).
+A função de densidade comum de log(X1), \cdots , log(Xn) é
+
+ex,  se x < 0
+f (x) =	,
+0,	caso contrário
+
+que é a distribuição exponencial negativa com parâmetro β = 1. Vemos que a função geradora de momentos de
+log(Yn) é dada por
+ 
+
+Mlog(Yn)
+ 
+n
+(t) =	E(et log(Xi)/n) =	,
+(1	t/n)n
+i=1
+ 
+e a função de densidade de log(Yn) é dada por
+ 
+
+
+
+flog(Yn)
+ 
+(y) = 
+ 
+
+nn
+Γ(n)[−y]
+ 
+
+
+n−1
+ 
+
+
+eny
+ 
+
+,  se − ∞ < y < 0  ·
+ 
+	0,	caso contrário
+ 
+
+Segue então que Yn tem por função de densidade
+ 
+
+
+
+fYn
+ 
+(y) = 
+ 
+
+nn
+y
+Γ(n)
+ 
+
+n−1
+ 
+
+[− log(y)]
+ 
+
+n−1
+ 
+
+,  se 0 < y < 1	·
+ 
+
+
+
+Voltemos ao quantil amostral de ordem p,
+ 
+0,	caso contrário
+
+ξbp, o qual sabemos é ou X([np]) ou X([np]+1) dependendo se [np] é
+ 
+um número par ou ímpar, como definido em (2.19). Simplificando, vamos discutir as propriedades de X([np]), onde
+p ∈ (0, 1) e n é grande. Isso, por sua vez, nos informará sobre as propriedades de ξp.
+Primeiro observemos que, se U1, U2, \cdots , Un é uma amostra aleatória da distribuição U (0, 1) então, pelo Teorema 2.3, temos que
+ 
+
+do qual obtemos que
+ 
+U([np]) ∼ Beta([np], n − [np] + 1),
+
+[np]
+ 
+E(U([np]))  =
+ 
+
+ 
+n + 1
+ 
+n−→→∞ p,
+ 
+Cov(U	, U
+ 
+) =  n [np1](n − [np2] + 1)
+ 
+−→ p (1 − p )·
+ 
+Utilizando este resultado e a desigualdade de Chebychev, demonstramos que
+U	−P→ p·	(2.33)
+ 
+Isso gera a questão
+ 
+
+ξbp −→ ξp?
+ 
+qualquer seja a distribuição da amostra aleatória X1, \cdots , Xn.
+Para respondermos a pergunta acima vamos utilizar o Lema de Hoeffding, ou seja, para respondermos se o
+quantil amostral de ordem p converge em probabilidade para o quantil teórico correspondente, utilizaremos o seguinte resultado devido a Hoeffding (1963).
+
+Demonstração : Dado que as variáveis aleatórias são limitadas ao intervalo (0, 1), sabemos que
+ehX ≤ (1 − X) + Xeh,
+isto deve-se a que a função exponencial ehX é convexa e, portanto, seu gráfico é limitado por cima no intervalo 0 ≤ X ≤ 1 pela linha que conecta as ordenadas X = 0 e X = 1. Então
+E(ehX ) ≤ (1 − E(X)) + E(X)eh·	(2.35)
+ 
+Seja Sn = ∑n
+ 
+Xi. Sabemos que
+ 
+
+P (Sn − E(Sn) ≥ nt) = E(1[Sn− E(Sn)−nt≥0]),
+ 
+
+ 
+também sabemos que
+ 
+1[Sn− E(Sn)−nt≥0] ≤ exp (h(Sn − E(Sn) − nt)),
+ 
+qualquer seja h uma constante positiva arbitrária. Então
+P Sn − E(Sn) ≥ nt  ≤ E eh(Sn− E(Sn)−nt)	(2.36)
+e como estamos assumindo que as variáveis são independentes, podemos escrever
+ 
+(  (	))
+ 
+∏	(  (	))
+
+ 
+Escrevendo µi = E(Xi) temos, pela expressão em (2.35) que
+E(eh(Xi−µi)) ≤ e−hµi ((1 − µi) + µieh) = ef(h),	(2.38) onde $F$ (h) = −hµi + ln(1 − µi + µieh). As primeiras duas derivadas são:
+ 
+′		µi	
+ 
+′′	µie−h(1 − µi)
+ 
+f (h) = −µi + e−h(1 − µ ) + µ
+ 
+e	f (h) =
+[µi
+ 
++ e−h(1 − µ )]2 ·
+ 
+	µi	
+Na segunda derivada, escolhendo u = µ + e−h(1 − µ )
+0 < u < 1. Portanto, $F$ ′′(h) ≤ 1 . Pela série de Taylor
+ 
+vemos que este quociente é da forma u(1 − u), sendo
+ 
+
+
+Então, pela expressão em (2.38)
+ 
+f (h) ≤
+ 
+f (0) + $F$ ′(0)h +
+ 
+1 h2 =
+8
+ 
+1 h2·
+8
+ 
+
+Substituindo em (2.36) temos que
+ 
+E(eh(Xi−µi)) ≤ e 1 h2 ·
+ 
+P (Sn
+ 
+—	E(Sn
+ 
+) ≥ nt) ≤ e−nht+ 1 nh2 ,
+ 
+e o mínimo no expoente é atingido quando h = 4t. Então, o mínimo do limite superior da probabilidade é exp(−2nt2).  
+
+Devemos lembrar que esta não é a única maneira de termos uma taxa de convergência para Teorema do Limite Central. Por exemplo, se Y1, Y2, \cdots , Yn forem variáveis aleatórias independentes e identicamente distribuídas, utilizando o Teorema de Berry-Esseen2, temos que
+ 
+( ∑n	∑
+ 
+)	( √ Var(Y1))
+ 
+C E|Y1
+ 
+—	E(Y1)|
+ 
+P
+i=1
+ 
+Xi −
+ 
+
+i=1
+ 
+E(Xi) ≥ nt	≤ Φ	t	n
+ 
++ √n
+ 
+Var3/2(Y )	·
+ 
+
+ 
+2
+
+Demonstração : Berry (1941); Esseen (1942).
+
+Pode-se consultar o livro de Feller (1971) para uma demonstração moderna.
+ 
+**Exemplo 2.20**
+
+Caso a amostra aleatória seja Bernoulli(µ), temos que
+n
+Xk ∼ Binomial(n, µ)·
+i=1
+Então, segundo a desigualdade de Hoeffding
+
+P (X − µ ≥ t) ≤ exp(−2nt2)·
+Uma vantagem da desigualdade no Lema de Hoeffding é que não assume-se conhecimento da variância e, em geral, o limite da probabilidade é mais acurado do que outras desigualdades. Caso as variáveis aleatórias sejam limitadas como a ≤ Xi ≤ b, com a < b, o limite superior da desigualdade (2.34) seria exp − 2nt2/(b − a)2 .
+
+**Exemplo 2.21**
+
+Sejam X1, \cdots , Xn variáveis aleatórias com distribuição U ( 1, 1). Nesta situação E(X) = 0, a =	1 e b = 1. A desigualdade de Hoeffding assume a forma
+P (X ≥ t) ≤ exp ( − nt2/2)·
+
+
+Demonstração : Para ϵ > 0 qualquer, podemos escrever
+P (|ξp − ξp| > ϵ) = P (ξp > ξp + ϵ) + P (ξp < ξp − ϵ)·
+Pelo Teorema 2.9, podemos escrever
+P (ξbp > ξp + ϵ) =  P (p > Fbn(ξp + ϵ))
+ 
+n
+=  P
+i=1
+ 
+1[Xi>ξp+ϵ] > n(1 − p))
+ 
+n
+=  P
+i=1
+ 
+Vi −
+ 
+∑i=1
+ 
+E(Vi) > nδ1),
+ 
+onde Vi = 1[Xi>ξp+ϵ] e δ1 = $F$ (ξp + ϵ) − p. Da mesma forma,
+P (ξbp < ξp − ϵ) =  P (p > Fbn(ξp − ϵ))
+ 
+n
+=  P
+i=1
+ 
+
+Wi −
+ 
+∑i=1
+ 
+E(Wi) > nδ2),
+ 
+
+onde Wi = 1[Xi<ξp−ϵ] e δ2 = p − $F$ (ξp − ϵ) − p. Portanto, utilizando o Lema de Hoeffding (Lema 2.20), temos
+P (ξbp > ξp + ϵ) ≤ exp(−2nδ2)
+P (ξbp < ξp − ϵ) ≤ exp(−2nδ2)·
+Colocando δϵ = min{δ1, δ2}, a prova está completa.
+
+ 
+Demonstramos que
+ 
+lim P (|ξbp − ξp| > ϵ) ≤ lim 2 exp(−2nδ2) = 0,
+ 
+o qual significa que ξp −→ ξp. Em outras palavras, sempre que ξp seja solução única da desigualdade $F$ (ξp ) ≤ p ≤ $F$ (ξp), 0 < p < 1, o quantil amostral converge em probabilidade para o quantil populacional e isto sempre acontece nas distribuições contínuas. Um detalhe importante é que para demonstrarmos a convergência em probabilidade de ξp utilizamos o Lema de Hoeffding e ele depende da existência da esperança.
+O seguinte resultado fornece a distribuição assintótica da r-ésima estatística de ordem amostral de uma po- pulação com uma função de distribuição $F$ , absolutamente contínua, e função de densidade $F$ .
+
+Demonstração : Vamos demonstrar somente para o caso p = 1/2. Observemos que ξ1/2 é mediana única dado que
+f (ξ1/2) > 0. Primeiro, consideremos que n seja ímpar, por exemplo, n = 2m − 1, logo
+P [√n(X(m) − $F$ −1(1/2)) ≤ t] = P (X(m) ≤ t/√n + $F$ −1(1/2))·
+
+Seja Sn o número de X que excedem t/ n + F	(1/2). Então
+ 
+
+
+Percebemos que
+ 
+t
+X(m) ≤ √n + F
+ 
+(1/2)	se, e somente se,	Sn ≤ m − 1 =
+ 
+n − 1 ·
+2
+ 
+Sn ∼ Binomial(n, 1 − $F$ (F −1(1/2) + t/√n))·
+Fazendo pn = 1 − $F$ (F −1(1/2) + t/√n), temos que
+ 
+P [√n(X
+ 
+
+
+(m)
+ 
+—	F −1(1/2)) ≤ t]  =  P (Sn
+ 
+≤ n − 1 )
+ 
+(   Sn − npn		 1 (n − 1) − npn )
+ 
+=  P
+
+Utilizando o Teorema de Berry-Esseen, temos que
+ 
+√npn(1 − pn) ≤ √npn(1 − p )
+·
+n
+ 
+{	(	n − 1 )	(  1 (n − 1) − npn )}
+ 
+lim	P
+n→∞
+ 
+Sn ≤	2
+ 
+— Φ	√np
+ 
+(1 − pn)
+ 
+= 0·
+ 
+
+ 
+Escrevendo
+ 
+
+1 (n − 1) − npn npn(1 − pn)
+
+=
+ 
+
+ √n( 1 − pn) 1/2
+√n( − 1 + $F$ (t/√n + $F$ −1(1/2)))
+ 
+
+ 
+
+=  2t
+ 
+1/2
+F (t/√n + $F$ −1(1/2)) − $F$ (F −1(1/2))
+
+   
+
+ 
+
+−→ 2tf
+ 
+
+(F −1(1/2))·
+ 
+Então
+ 
+(  1 (n − 1) − npn )
+ 
+(	(  −1	))
+ 
+Φ
+npn
+ou
+ 
+(1 − pn)
+ 
+≈ Φ 2tf F
+ 
+(1/2)
+ 
+√n(X
+ 
+
+(m) − F
+ 
+( 1 )) −D→ N (0,
+ 
+
+4f 2
+ 
+1
+(F −1(1/2)
+ 
+)) ·
+ 
+Quando n é par, digamos n = 2m, ambos P (√n X(m)	F −1(1/2)	t) quanto P (√n X(m+1)	F −1(1/2)	t)
+convergem a Φ(2tf (F −1(1/2))).
+
+ 
+Observe que o quantil amostral de ordem p, assintótica
+ 
+ξbp, como consequência do Teorema 2.23, tem por distribuição
+ 
+N (ξ , 	1	p(1 − p)) ,
+onde ξp é o correspondente quantil populacional e $F$ é a função de densidade populacional. Por exemplo, suponha temos uma amostra aleatória da di√stribuição N (µ, σ2) de tamanho n. Seja ξb1/2 a mediana amostral obtida dessa
+b	(	πσ2 )
+
+Também devemos ter em consideração que para demonstrarmos o Teorema 2.23 utilizamos a Teorema de Berry- Esseen, o qual depende da existência dos primeiros dois momentos da variável aleatória. Com isso, caso X
+Cauchy(µ, σ), o Teorema 2.23 não se aplica.
+
+## Gráficos descritivos
+Vejamos alguns conjuntos de dados disponíveis na linguagem de programação R (R Core Team, 2014), especifi- camente na libraria datasets, que nos permitiram mostrar a utilidade dos momentos amostrais para resumir as informações contidas nos dados.
+Para consultar estes conjuntos de dados basta digitar
+library(help = "datasets")
+Alguns dos diversos exemplos disponíveis serão apresentados aqui.
+
+**Exemplo 2.22** (Puromicina)
+
+Os dados sobre a velocidade de uma reação enzimática são obtidos por Treloar (1974) e disponíveis no arquivo de dados Puromycin. O número de contagens por minuto de produto radioativo a partir da reação foi medida como uma função da concentração do substrato em partes por milhão (ppm) e a partir destas contagens a taxa
+ 
+
+inicial (ou velocidade) da reação foi calculada (contagens/min/min). O experimento foi realizado uma vez com a enzima tratada com puromicina e depois com a enzima não tratada.
+A estrutura destes dados tem 23 linhas e 3 colunas, cada coluna contendo as informações das variáveis:
+conc:	um vector numérico de concentrações de substrato (ppm);
+rate:	um vector numérico de taxas de reação instantânea (contagens/min/min); state: um fator com níveis treated (tratada) ou untreated (não tratada).
+Para a leitura e observação dos nomes das variáveis utilizamos os comandos a seguir:
+data(Puromycin) names(Puromycin)
+Uma maneira de obtermos estatísticas descritivas é utilizando as linhas de comando a seguir:
+summary(rate[state==’treated’])
+Min. 1st Qu.	Median	Mean 3rd Qu.	Max.
+47.0	104.5	145.5	141.6	193.2	207.0
+e
+summary(rate[state==’untreated’])
+Min. 1st Qu.	Median	Mean 3rd Qu.	Max.
+51.0	85.0	115.0	110.7	137.5	160.0
+para o caso da variável rate, as concentrações, obtidas as estatísticas descritivas segundo os níveis do fator state, se as concentrações foram ou não tratadas com puromicina.
+No caso das estatísticas descritivas acerca das concentrações de substrato, variável conc, temos:
+summary(conc[state==’treated’])
+Min. 1st Qu.	Median	Mean 3rd Qu.	Max.
+0.020	0.060	0.165	0.345	0.560	1.100
+e
+summary(conc[state==’untreated’])
+Min. 1st Qu.	Median	Mean 3rd Qu.	Max. 0.0200	0.0600	0.1100	0.2764	0.3900	1.1000
+Os valores mínimos é máximos foram registrados sempre com os nomes de Min. e Max., respectivamente. O
+primeiro e terceiro quantis ou quantis de 25% e 75% respectivos são registrados com os nomes 1st Qu. e 3rd Qu. e, finalizando, o resumo de informações de estatísticas de posição temos os valores de medianas (Median) e médios (Mean).
+
+**Exemplo 2.23** (Rock )
+
+Medições em 48 amostras de rochas de um reservatório de petróleo estão disponíveis no arquivo de dados rock. Este conjunto de dados contem 48 linhas e 4 colunas numéricas, descritas a seguir:
+area área do espaço de poros, em pixels de 256 por 256; peri perímetro em pixels;
+shape perímetro/sqrt(area)
+perm permeabilidade em mili-Darcies.
+Doze amostras do núcleo de reservatórios de petróleo foram amostrados por 4 seções transversais. Cada amostra foi medida no núcleo para a permeabilidade e cada seção transversal tem uma área total de poros, perímetro total de poros e forma. A fonte destes dados é a BP Research e a análise das imagens foi de Ronit
+ Katz, Oxford University.
+Na geologia, a permeabilidade é a medida da capacidade de um material (tipicamente uma rocha) para transmitir fluídos. E´ de grande importância na determinação das características de fluxo dos hidrocarbonetos em reservatórios de petróleo e gás e da água nos aquíferos. A unidade de permeabilidade é o Darcy ou, mais habitualmente, o mili- Darcy ou mD.
+ 
+### 2.4.1	Gráfico de Boxplot
+
+Em 1977, John Tukey (Tukey, 1977) publicou uma proposta que posteriormente foi reconhecida como sendo um eficiente método para mostrar cinco número que sumarizam qualquer conjunto de dados. O gráfico proposto é chamado de boxplot (também conhecido como box and whisker plot) e resume as seguintes medidas de posição estatísticas: mediana, quantis inferior e superior e os valores mínimos e máximos. Os quantis inferior e superior entendem-se serem os quantis de 25% e 75%, respectivamente.
+No caso do exemplo 2.22, deixamos a disposição os dados digitando
+attach(Puromycin)
+e com isso podemos mudar o nome dos níveis do fator da forma
+state=factor(state,labels=c(’Tratada’,’N~ao tratada’))
+Então, com os comandos a seguir geramos o gráfico de boxplot, tanto para a variável rate quanto para a variável
+conc, estas segundo os níveis do fator state.
+par(mar=c(5,4,3,1))
+boxplot(rate ~ state, col = grey(c(0.4,1)),
+main=’Taxas de reaç~ao instant^anea’)
+
+para o caso do rate. Observemos que a primeira linha par(mar=c(5,4,3,1)) serve somente para dimensionar a janela gráfica. Para o caso da variável conc utilizamos comandos semelhantes.
+par(mar=c(5,4,3,1))
+boxplot(conc ~ state, col = grey(c(0.4,1)),
+main=’Concentraç~oes de substrato’)
+O resultado deste trabalho pode ser observado na Figura 2.3.
+Interpretemos o gráfico de boxplot. A caixa (box) propriamente contém a metade 50% dos data. O limite superior da caixa indica o percentil 75% dos dados e o limite inferior da caixa indica o percentil 25%. A distancia entre esses dois quantis é conhecida como inter-quantil. A linha na caixa indica o valor de mediana dos dados. Se a linha mediana dentro da caixa não é equidistante dos extremos, diz-se então que os dados são assimétricos. O boxplot da variável rate (esquerda na Figura 2.3) é um exemplo de dados simétricos já a situação da variável conc (direita na Figura 2.3) é um caso clássico de assimetria dos dados. Os extremos do gráfico indicam os valores mínimo e máximo, a menos que valores outliers3 estejam presentes, nesse caso o gráfico de estende ao máximo de
+1.5 vezes da distância inter-quantil. Os pontos fora do gráfico são então outliers ou suspeitos de serem outliers. Mais elegante seria utilizar a biblioteca de funções ggplot2, para isso, digitamos:
+library(ggplot2)
+Para gerar os gráficos de boxplot respectivos, fazemos:
+par(mar=c(5,4,3,1))
+qplot(state, rate, geom=c("boxplot", "jitter"),
+main="Taxas de reaç~ao instant^anea", xlab="", ylab=" ")
+e
+par(mar=c(5,4,3,1))
+qplot(state, conc, geom=c("boxplot", "jitter"), main="Concentraç~oes de substrato", xlab="", ylab=" ")
+
+3Em estatística, outlier, valor aberrante ou valor atípico, é uma observação que apresenta um grande afastamento das demais observações em uma amostra. A existência de outliers implica, tipicamente, em prejuízos a interpretação dos resultados dos testes estatísticos aplicados as amostras.
+ 
+
+
+Taxas de reação instantânea	Concentrações de substrato
+
+Tratada	Não tratada	Tratada	Não tratada
+
+
+
+Figura 2.3: Gráfico de boxplot da variável rate à esquerda e da variável conc à direita, segundo os níveis do fator state, se a enzima foi tratada ou não com puromicida. Gráfico gerado utilizando a função R boxplot,
+
+
+
+
+Taxas de reação instantânea	Concentrações de substrato
+
+200
+
+
+0.9
+
+
+150
+
+0.6
+
+
+
+100
+0.3
+
+
+ 
+50
+
+Tratada	Não tratada
+ 
+
+0.0
+ 
+
+
+
+Tratada	Não tratada
+ 
+
+
+Figura 2.4: Gráfico de boxplot da variável rate à esquerda e da variável conc à direita, segundo os níveis do fator state, se a enzima foi tratada ou não com puromicida. Gráfico gerado utilizando a função R qplot, opção geom=c(”boxplot”, ”jitter”).
+ 
+
+obtendo-se assim os gráficos na Figuras 2.4. Além de melhor qualidade gráfica acrescentamos os pontos observados no boxplot, isso permite termos uma ideia também da dispersão dos dados.
+Vejamos as vantagens do boxplots. Mostra graficamente a posição central dos dados (mediana) e a tendência. Fornece algum indicativo de simetria ou assimetria dos dados. Ao contrário de muitas outras formas de mostrar os dados, o boxplots mostra os outliers. Utilizando o boxplot para cada variável categórica no mesmo gráfico, pode-se facilmente comparar os dados. Esta é a situação no exemplo na Figura 2.3, podemos observar o comportamento das variáveis rate e conc segundo os níveis do fator state.
+Um detalhe do boxplot é que ele tende a enfatizar as caudas da distribuição, que são os pontos ao extremo nos dados. Também fornece detalhes da distribuição dos dados. Mostrar o histograma (Seção 2.4.2) em conjunto com o boxplot ajuda a entender a distribuição dos dados, constituindo estes dos gráficos ferramentas importantes na análise exploratória.
+Logicamente, o comportamento dos dados dentro da caixa (box), como podemos perceber nas figuras 2.3 e 2.4, permanece um mistério. Isso porque caso estejam os dados bem espalhados ou não, o gráfico boxplot continua mostrando uma caixa. Somente perceberemos algum comportamento diferente se o valor da mediana estiver mais próximo de um dos extremos desta caixa. Para tentar diminuir essa limitação foi sugerido uma melhoria, obtendo-se o chamada boxplot entalhado (notched boxplot).
+Com as linhas de comando a seguir se obtém os gráficos na Figura 2.5.
+
+par(mar=c(5,4,3,1))
+boxplot(rate ~ state, col = grey(c(0.4,1)), notch=TRUE, main=’Taxas de reaç~ao instant^anea’)
+
+e
+par(mar=c(5,4,3,1))
+boxplot(conc ~ state, col = grey(c(0.4,1)), notch=TRUE, main=’Concentraç~oes de substrato’)
+
+Observa-se que a única diferença é a inclusão da opção notch=TRUE, permanecendo todas as outras instruções iguais.
+Mais elaborado é o chamado violin plot, mistura de boxplot com estimação de densidade, tema este tratado na Seção 4.3. Este gráfico, introduzido no artigo Hintze & Nelson (1998), sinergicamente combina o gráfico de boxplot e a estimação da densidade, também chamado de histograma suavizado, em uma única tela que revela a estrutura encontrada nos dados.
+Com as linhas de comando a seguir se obtém os gráficos na Figura 2.6.
+
+par(mar=c(5,4,3,1))
+qplot(state, rate, geom = c("violin", "jitter"), notch=TRUE, main="Taxas de reaç~ao instant^anea", xlab="", ylab=" ")
+
+e
+par(mar=c(5,4,3,1))
+qplot(state, conc, geom=c("violin", "jitter"), notch=TRUE, main="Concentraç~oes de substrato", xlab="", ylab=" ")
+
+Este gráfico é similar ao boxplot excepto que mostra também a densidade de probabilidade dos dados. Pode incluir também um marcador para a média dos dados e uma caixa que indica a distância interquartil, como nos gráficos boxplot. O objetivo do gráfico violin plot é o mesmo do que o boxplot original porém, considera de alguma maneira o comportamento dos dados dentro da caixa (box). Assim, percebemos melhor a distribuição dos dados dentro do intervalo interquartil.
+ 
+
+
+Taxas de reação instantânea	Concentrações de substrato
+
+
+
+
+
+
+
+
+
+
+
+
+Tratada	Não tratada	Tratada	Não tratada
+
+
+
+Figura 2.5: Gráfico de boxplot entalhado da variável rate à esquerda e da variável conc à direita, segundo os níveis do fator state, se a enzima foi tratada ou não com puromicida. Gráfico gerado utilizando a função R qplot, opção geom=c(”boxplot”, ”jitter”), notch=TRUE.
+
+
+
+Taxas de reação instantânea	Concentrações de substrato
+
+200
+
+
+0.9
+
+
+150
+
+0.6
+
+
+
+100
+0.3
+
+
+ 
+50
+
+Tratada	Não tratada
+ 
+
+0.0
+ 
+
+
+
+Tratada	Não tratada
+ 
+
+
+Figura 2.6: Gráfico de violin plot da variável rate à esquerda e da variável conc à direita, segundo os níveis do fator state, se a enzima foi tratada ou não com puromicida. Gráfico gerado utilizando a função R qplot, opção geom=c(”vioplot”, ”jitter”), notch=TRUE.
+ 
+### 2.4.2	Histograma
+Um histograma é uma representação gráfica da função de probabilidades ou da função de densidade de um conjunto de dados independentes e foi introduzido pela primeira vez por Karl Pearson4. A representação mais comum do histograma é um gráfico de barras verticais. A palavra histograma é de origem grega, derivada de duas: histos que pode significar testemunha no sentido de aquilo que se vê, como as barras verticais do histograma, e da também palavra grega gramma que significa desenhar, registrar ou escrever.
+Histograma	Histograma com a curva norma
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+−2	−1	0	1	2
+Dados simulados
+ 
+−2	−1	0	1	2
+Dados simulados
+ 
+
+Figura 2.7: Gráfico de histograma para dados simulados.
+
+Para construir um exemplo controlado do gráfico de histograma, simulamos uma amostra de tamanho 150 da distribuição normal padrão, com o comando
+x=rnorm(150)
+e, depois, construímos um gráfico colorido com as linhas de comando
+par(mar=c(5,4,2,1))
+hist(x, breaks=12, col="red", xlab="Dados simulados", ylab=’Frequ^encia’, main="Histograma")
+box()
+Posteriormente, acrescentamos a este gráfico uma linha com a densidade normal
+par(mar=c(5,4,2,1))
+h=hist(x, breaks=10, col="red", xlab="Dados simulados", ylab=’Frequ^encia’, main="Histograma com a curva normal")
+xfit=seq(min(x),max(x),length=40) yfit=dnorm(xfit,mean=mean(x),sd=sd(x)) yfit=yfit*diff(h$mids[1:2])*length(x) lines(xfit, yfit, col="blue", lwd=2) box()
+
+4Pearson, K. (1895).  Contributions to the Mathematical Theory of Evolution.  II. Skew Variation in Homogeneous Material.
+Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences 186: 343-414.
+ 
+
+Desta forma geramos os gráficos na Figura 2.7. A ideia é mostrar que o histograma assemelha-se ao gráfico da densidade normal, a densidade dos dados.
+
+
+Histograma c2(6)	Histograma c2(6)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+2	4	6	8	10	12	14
+14 intervalos
+ 
+2	4	6	8	10	12	14
+26 intervalos
+ 
+
+Figura 2.8: Histogramas da distribuição χ2 com 6 graus de liberdade. Número de intervalos 14 e 26, respectivamente.
+
+O histograma é um gráfico composto por retângulos justapostos em que a base de cada um deles corresponde ao intervalo de classe e a sua altura à respectiva frequência. A construção de histogramas tem caráter preliminar em qualquer estudo e é um importante indicador da distribuição de dados. Pode indicar se uma distribuição aproxima-se de uma densidade normal como pode indicar mistura de densidades, quando os dados apresentam várias modas.
+Os histogramas podem ser um mau método para determinar a forma de uma distribuição porque são fortemente influenciados pelo número de intervalos utilizados. Por exemplo, decidimos gerar 50 amostras da densidade χ2(6), da forma
+set.seed(5678) z=rchisq(50, df=6)
+Os gráficos de histogramas correspondentes com 14 e 26 intervalos são apresentados na Figura 2.8 e foram gerados com as linhas de comando
+ 
+
+par(mar=c(5,4,2,1))
+hist(z, breaks=14, col="blue", main=expression(paste(’Histograma ’, chi^2,’(6)’)), ylab=’Frequ^encia’, xlab=’14 intervalos’)
+box()
+
+e
+
+par(mar=c(5,4,2,1))
+hist(z, breaks=26, col="blue", main=expression(paste(’Histograma ’, chi^2,’(6)’)), ylab=’Frequ^encia’, xlab=’26 intervalos’)
+box()
+
+Na Figura 2.9 podemos observar os gráficos de histograma obtidos das variáveis descritas no Exemplo 2.23. A situação em (a) representa o caso em a distribuição dos dados de assemelha à distribuição normal, já a situação descrita no gráfico em (b) mostra-se uma mistura de densidades, percebemos a existência de duas modas.
+(a) Área do espaço de poros	(b) Perímetro em pixels
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+0	4000	8000	12000
+pixels de 256 x 256
+ 
+0	1000	3000	5000
+ 
+
+Figura 2.9: Histogramas das variáveis no Exemplo 2.23.
+
+Outras situações no mesmo exemplo, mas diferentes variáveis, são descritas nos gráficos na Figura 2.10. Nessa figura apresentamos dois gráficos, chamados de (c) e (d), nesta figura. Correspondem, como podemos observar, à distribuições assimétricas e descrevem os dados coletados nas variáveis shape e perm do arquivo de dados Rock, Exemplo 2.23. Os histogramas foram pensados somente para o caso de variáveis contínuas, porém é uma descrição discreta delas. Logicamente, também podemos utiliza-los em situações de variáveis aleatórias discretas, nada impede isso.
+Estas figuras foram geradas utilizando a configuração padrão do comando hist, isto é, utilizamos uma maneira automática de determinar o número de intervalos, mais adiante dedicamos maior atenção a diferentes formas de calcular este número.
+Como pode ter sido observado, além de não ficar claro como determinar o número de intervalos nem como delimitar os intervalos, também não ficou claro o que queremos realmente observar com o gráfico desta função.
+Vejamos agora uma definição mais clara do histograma, esta definição nos permitirá obter propriedades impor- tantes.
+ 
+
+(c) Perímetro/sqrt(Área)	(d) Permeabilidade
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+0.1	0.2	0.3	0.4	0.5
+ 
+0	200	600	1000	1400
+mili−Darcies
+ 
+
+Figura 2.10: Histogramas das variáveis no Exemplo 2.23.
+
+
+
+Foi provado por Robertson (1967) que, dados os intervalos I1, I2, \cdots , Ik, o histograma $F$ é um estimador de máxima verossimilhança5 dentre os estimadores expressados como funções simples e semicontínuas superiormente, isto se o fecho de cada intervalos contiver duas ou mais observac¸ões. Os gráficos apresentados nas figuras 2.7, 2.9 e 2.10 são histogramas também segundo a proposta de Robertson (1967).
+Pode-se observar que este estimador tem duas limitações importantes: a dependência do comprimento do intervalo e o fato de o histograma não constituir uma função contínua. A primeira destas limitações foi amplamente estudada por Wegman (1975). Ele provou que os pontos extremos de cada intervalo Ik devem ser coincidentes com observações e que, se o número mínimo de observações em cada intervalo aumente, conforme aumenta o tamanho da amostra, o estimador $F$ é consistente6.
+A segunda limitação importante do histograma, isto é, o fato de ele não constituir uma função contínua, incentivou diversos estudos na procura de estimadores contínuos da função de densidade. No Capítulo 3, a Seção
+4.3 dedica-se a mostrar estimadores contínuos da função de densidade.
+
+5Os estimadores de máxima verossimilhanc¸a serão estudados na Seção 4.2
+6Estimadores consistentes serão estudados na Seção 3.1.1
+ 
+
+Cálculo automático do número de intervalos num histograma
+Uma questão importante é determinar de maneira automatizada o número de intervalos disjuntos que serão utili- zados para a construção do gráfico.
+Uma primeira forma de escolher o número de intervalos foi dada por Sturges (1926) e que constitui a forma padrão no R. Conhecida como fórmula de Sturges é dada por
+k = [log2(n) + 1],	(2.41)
+isto significa que o número de intervalos é a parte inteira do logaritmo base 2 do número de observações mais 1.
+Outras expressões comumente utilizadas são a fórmula de Scott (Scott, 1979) h = 3.5s/√3 n, onde s é o desvio padrão e a fórmula de Freedman Diacconi (Freedman & Diaconis, 1981) h = 2IQR(x)/√3 n, onde IRQ é a diferença
+entre o terceiro e o primeiro quantil.
+
+**Exemplo 2.24**
+
+Na libraria de funções R robustbase temos disponíveis dados do teor de cálcio e do pH em amostras de colo coletadas em diferentes comunidades da região de Condroz, na Bélgica.
+Podemos ler estes dados digitando as linhas de comando abaixo, primeiro para escolher a libraria de funções e depois para selecionar os dados.
+library(robustbase) data(condroz)
+Temos registadas duas variáveis: Ca que registra o tero de cálcio na amostra de solo e o pH, o pH corres- pondente. Construímos histogramas da variável Ca segundo a três formas de escolha do número de intervalos e os apresentamos na Figura 2.11.
+Os dados deste exemplo foram publicados em: Hubert, M. and Vandervieren, E. (2006). An Adjusted Boxplot for Skewed Distributions, Technical Report TR-06-11, KULeuven, Section of Statistics, Leuven.
+
+ 
+Sturges
+ 
+Scott
+ 
+Freedman−Diaconis
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+0	1000	2000	3000	4000
+Ca
+ 
+0	1000	2000	3000	4000
+Ca
+ 
+0	1000	2000	3000	4000
+Ca
+ 
+
+Figura 2.11: Diferentes histogramas da variável Ca no Exemplo 2.24.
+
+
+### 2.4.3	Gráficos para verificar normalidade
+Um primeiro gráfico chamado de qq-norm permite a comparação de duas distribuições de probabilidades traçando seus quantis uns contra os outros. Depois exploramos um gráfico mais recente, conhecido como worm plot (gráfico de minhoca), consistindo numa determinada coleção de de qq-norm.
+ 
+
+QQ-norm
+O gráfico quantil-quantil ou qq-plot, proposto por Wilk & Gnanadesikan (1968), é um dispositivo gráfico explo- ratório utilizado para verificar a validade de um pressuposto de distribuição para um conjunto de dados. Em geral, a ideia básica é a de calcular o valor teoricamente esperado para cada ponto de dados com base na distribuição em questão. Se os dados de fato seguirem a distribuição assumida os pontos deste gráfico formarão aproximadamente uma linha reta.
+Percebemos que podemos verificar com este gráfico qualquer densidade contínua, eventualmente pode ser uti- lizado também para funções de probabilidade. O qq-plot vai apresentar-se como uma linha reta se a densidade assumida estiver correta. Vejamos o caso particular de verificarmos se a densidade é normal, nesta situação o gráfico qq-plot será chamado de qq-norm. Primeiro consideraremos a situação da densidade normal padrão.
+Seja z1, z2, \cdots , zn uma amostra aleatória de uma distribuição normal com média µ = 0 e desvio padrão σ = 1.
+As estatísticas de ordem amostrais são
+z(1) ≤ z(2) ≤ \cdots ≤ z(n)·
+Estes valores desempenharão o papel dos quantis da amostra. Agora, quais devemos tomar como os quantis teóricas correspondentes? Se a função de distribuição cumulada da densidade normal padrão fosse denotada por Φ, usando a notação quantil, se ξq é o q-ésimo quantil de uma distribuição normal, então
+Φ(ξq) = q,
+ou seja, a probabilidade de uma amostra normal ser inferior a ξq é, de fato, apenas q.
+Considere o primeiro valor ordenado z(1). O que podemos esperar que o valor Φ(z(1)) seja? Intuitivamente, esperamos que essa seja a probabilidade de assumir um valor no intervalo (0, 1/n). Do mesmo modo, espera-se que Φ(z(2)) seja a probabilidade de assumir um valor no intervalo (1/n, 2/n). Continuando, esperamos que Φ(z(n)) seja a probabilidade de assumir um valor no intervalo (n  1)/n, 1). Assim, o quantil teórico desejamos seja definido pelo inverso da função de distribuição acumulada normal padrão. Em particular, o quantil teórico correspondente ao quantil empírico z(i) deve ser
+ 
+
+
+para i = 1, 2, \cdots , n.
+ 
+ξ  = q	i − 0, 5 ,
+q	n
+ 
+
+ 
+QQ−plot nomal
+ 
+QQ−plot nomal
+ 
+QQ−plot nomal
+ 
+
+ 	 	 
+ 
+−3	−2	−1	0	1	2	3
+Quantis teóricos
+ 
+−3	−2	−1	0	1	2	3
+Quantis teóricos
+ 
+−3	−2	−1	0	1	2	3
+Quantis teóricos
+ 
+
+Figura 2.12: Diferentes qqplot para dados normais.
+
+Na Figura 2.12, a esquerda acima exibimos o qq-norm de uma pequena amostra normal de tamanho 5. Os restantes quadros na Figura 2.12 exibem as plotagens de qq-norm para amostras normais de tamanhos n = 100 e
+ 
+
+n = 1000, respectivamente. Como o tamanho da amostra aumenta, os pontos encontram-se mais perto da linha
+y = x.
+Estes gráficos (Figura 2.12) foram gerados utilizando as linhas de comando:
+set.seed(1278) x=rnorm(5)
+qqnorm(x, xlim=c(-3,3), ylim=c(-3,3), cex=0.6, pch=19, ylab=’Quantis amostrais’, xlab=’Quantis teóricos’, main=’QQ-plot nomal’)
+qqline(x,col="red") text(-1,2,’n=5’)
+para a situação de amostra de tamanho 5. A primeira linha de comando serve para fixar o gerador de números laetórios e, dessa forma, podermos simular sempre a mesma amostra e reproduzir o gráfico idêntico. Nas outras situações somente muda-se o tamanho da amostra que se quer gerar.
+
+QQ−plot nomal	QQ−plot nomal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+−3	−2	−1	0	1	2	3
+Quantis teóricos
+ 
+−3	−2	−1	0	1	2	3
+Quantis teóricos
+ 
+
+Figura 2.13: Diferentes qqplot para dados não normais.
+Assim, os comandos para gerar o segundo e terceiro gráficos são:
+x=rnorm(100)
+qqnorm(x, xlim=c(-3,3), ylim=c(-3,3), cex=0.6, pch=19, ylab=’Quantis amostrais’, xlab=’Quantis teóricos’, main=’QQ-plot nomal’)
+qqline(x,col="red") text(-1,2,’n=100’)
+
+x=rnorm(1000)
+qqnorm(x, xlim=c(-3,3), ylim=c(-3,3), cex=0.6, pch=19, ylab=’Quantis amostrais’, xlab=’Quantis teóricos’, main=’QQ-plot nomal’)
+qqline(x,col="red") text(-1,2,’n=1000’)
+Caso os dados não forem padronizados bastar aplicar a transformação (X − µ)/σ, onde X representa os dados originais e µb e σb representam os estimadores dos parâmetros µ e σ, respectivamente.
+ 
+
+Estes gráficos podem indicar afastamentos da normalidade por isso apresentamos duas situações de dados não simétricos e com cuadas pesadas. Na Figura 2.13, mostramos o que acontece se os dados forem da distribuição t-Student(8) e da distribuição χ2(5), sempre de tamanho n = 1000. Observe, em particular, que os dados a partir da distribuição t-Student seguem a curva normal bem de perto até os últimos pontos em cada extremo. Na outra situação o afastamento da distribuição normal é evidente.
+Foi mencionado que o qq-norm é uma situação particular do qq-plot devido a este último permitir comparar os quantis amostrais com os quantis distribucionais. Com isto queremos dizer que o qq-plot serve para verificar se os dados forem t-Student ou χ2(5), por exemplo. Na Figura 2.14 apresentamos a aparência dos gráficos qq-plot caso queira-se verificar se as amostras seguem distribuição t-Student(8) ou χ2(5), respectivamente.
+
+ 
+QQ plot para t−Student(8)
+
+
+
+
+
+
+
+
+
+−4	−2	0	2	4
+t−Student(8)
+ 
+QQ plot para c2(5)
+
+
+
+
+
+
+
+
+
+
+0	5	10	15	20
+c2(5)
+ 
+
+Figura 2.14: Diferentes qqplot para dados não normais.
+Os gráficos na Figura 2.14 foram gerados pelas linhas de comandos
+qqplot(qt(ppoints(1000), df = 8), x, cex=0.6, pch=19, main = "QQ plot para t-Student(8)", xlab="t-Student(8)")
+qqline(x, distribution = function(p) qt(p, df = 8), prob = c(0.1, 0.6), col = 2)
+no caso t-Student(8) e
+qqplot(qchisq(ppoints(1000), df = 5), x, cex=0.6, pch=19,
+main = expression("QQ plot para" ~~ {chi^2}(5)), xlab=expression({chi^2}(5))) qqline(x, distribution = function(p) qchisq(p, df = 5), prob = c(0.1, 0.6), col = 2)
+para o caso χ2(5).
+
+Worn plot
+O worm-plot é uma série de parcelas de gráficos qq-plot retificados. Constitui uma ferramenta de diagnóstico para visualização de quão bem um modelo estatístico se ajusta aos dados, para encontrar locais em que o ajuste pode ser melhorado e para comparar o ajuste de diferentes modelos.
+Na Figura 2.15 mostramos este gráfico para duas situações: a esquerda os dados são normais e a direita os dados são t-Student com 8 graus de liberdade. Nesta situação aparece bem a qualidade da observação com esta
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+−4	−2	0	2	4
+Unit normal quantile
+ 
+−4	−2	0	2	4
+Unit normal quantile
+ 
+
+Figura 2.15: Diferentes worm-plot para dados normais.
+
+figura. Se os dados forem normais o curva worm-plot ou gráfico de minhoca deve aparentar um verme achatado, os pontos próximos a curva vermelha e com poucas oscilações. Quando aplicamos este gráfico ao caso t-Student percebemos uma oscilação grande no verme e com pontos fugindo da banda de confiança. Isso comprova que os dados não seguem como referência a distribuição normal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+−4	−2	0	2	4
+Unit normal quantile
+ 
+−4	−2	0	2	4
+Unit normal quantile
+ 
+
+Figura 2.16: Diferentes worm-plot para dados não normais.
+As linhas a seguir mostram os comandos necessários para gerar os gráficos na Figura 2.15. Utilizamos a libraria de comandos R gamlss (Rigby & Stasinopoulos, 2005).
+ 
+
+library(gamlss) x=rnorm(1000) wp(gamlss(x~1), cex=0.6) x=rt(1000, df=8) wp(gamlss(x~1), cex=0.6)
+
+Na Figura 2.16, a esquerda temos o caso de dados com distribuição χ2(5) e a direita dados com distribuição Cauchy padrão. Nestas situações fica claro que os dados não são normais. Oa gráficos na figura foram gerados pelas linhas de comando a seguir.
+x=rchisq(1000, df=5) wp(gamlss(x~1), cex=0.6) x=rcauchy(1000) wp(gamlss(x~1), cex=0.6)
+ 
+## Exercícios
+Exercícios da Seção 2.1
+1.	Seja X ∼ Bernoulli( 1 ) e considere todas as possíveis amostras aleatórias de tamanho n = 3. Calcule Xn e S2 cada uma das
+ 
+2	n
+oito amostras. Encontre a função de probabilidade de Xn e S2.
+2.	Um dado é lançado. Seja X o valor da face superior que aparece e X1, X2 duas observações independentes de X. Encontre a função de probabilidade de Xn.
+3.	Seja X1, \cdots , Xn uma amostra aleatória de alguma população. Mostre que
+(n − 1)Sn
+ 
+max |Xi	Xn| <
+1≤i≤n
+
+onde Sn é a raiz quadrada positiva da variância amostral S2.
+ 
+√n	,
+ 
+
+Exercícios da Seção 2.2
+1.	Seja (X(1), X(2), \cdots , X(n)) o conjunto das estatísticas de ordem de n variáveis aleatórias independentes $X_1, X_2, \cdots , X_n$ com função de densidade comum
+ 
+f (x) =
+ 
+βe−xβ,	se  x	0
+·
+0,	caso contrário
+ 
+a)	Mostre que X(s) e X(r) − X(s) são independentes para quaisquer r > s.
+b)	Encontre a função de densidade de X(r+1) − X(r).
+c)	Seja Z1 = nX(1), Z2 = (n − 1)(X(2) − X(1)), Z3 = (n − 2)(X(3) − X(2)), ..., Zn = ((X(n) − X(n−1))).  Prove que
+(Z1, Z2, \cdots , Zn) e ($X_1, X_2, \cdots , X_n$) são identicamente distribuídas.
+2.	Provar o Teorema 2.1
+3.	Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias com distribuição geométrica de parâmetros p1, p2, \cdots , pn, respectivamente. Prove que
+Nn = min($X_1, X_2, \cdots , X_n$) têm também distribuição geométrica de parâmetro
+n
+p = 1 −	(1 − pi)·
+i=1
+4.	As X1, \cdots , Xn variáveis aleatórias independentes e identicamente distribuídas tem por função de probabilidade BN (1; p) se, e somente se, Nn = min(X1, \cdots , Xn) tem distribuição geométrica de parâmetro 1 − (1 − p)n.
+5.	Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes e igualmente distribuídas com função de densidade comum
+
+ 
+f (x) =
+ 
+σ
+0,	se  x ≤ \Theta
+ 
+Mostre que X(1), X(2) − X(1), X(3) − X(2), \cdots , X(n) − X(n−1) são independentes.
+6.	Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes e igualmente distribuídas com função de distribuição acumulada comum
+
+ 
+F (t) =
+ 
+tα,  se  0 < t < 1
+ 1,	se  t ≥ 1
+ 
+para α > 0. Mostre que X(i)/X(n), i = 1, 2, \cdots , n − 1 e X(n) são independentes.
+7.	Sejam X1 e X2 duas variáveis aleatórias discretas independentes com função de probabilidade comum
+P (X = x) = \Theta(1 − \Theta)x−1,	x = 1, 2, \cdots ;	0 < \Theta < 1· Mostre que X(1) e X(2) − X(1) são independentes.
+8.	Sejam X1, \cdots , Xn duas variáveis aleatórias independentes com função de densidade comum $F$ . Encontre a função de densidade
+de X(1) e de X(n).
+ 
+
+9.	Sejam X(1), X(2), \cdots , X(n) as estatísticas de ordem de n variáveis aleatórias independentes e igualmente distribuídas $X_1, X_2, \cdots , X_n$
+com função de densidade comum
+f (x) =	1	se  0 < x < 1  ·
+0,	caso contrário
+Prove que Y1 = X(1)/X(2), Y2 = X(2)/X(3), \cdots , Yn−1 = X(n−1)/X(n) e Yn = X(n) são independentes. Encontre a função de densidade conjunta de Y1, Y2, \cdots , Yn.
+10.	Sejam X1.X2, \cdots , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| < ∞, então E|X(r)| < ∞. Definamos Mn = X(n) = max($X_1, X_2, \cdots , X_n$). Mostre que
+∫ ∞
+   	 
+Encontre E(Mn) em cada uma das seguintes situações:
+a)	Xk tem como função de distribuição comum $F$ (x) = 1 − e−xβ, se x ≥ 0.
+b)	Xk tem como função de distribuição comum $F$ (x) = x, se 0 < x < 1.
+
+11.	Provar que, qualquer seja a amostra aleatória X1.X2, \cdots , Xn sempre cumpre-se que X(1) ≤ X ≤ X(n).
+12.	Demonstrar o Teorema 2.5.
+13.	Demonstrar o Teorema 2.9.
+
+Exercícios da Seção 2.3
+1.	Demonstre o Corolário 2.17.
+2.	Demonstre o Corolário 2.18.
+
+3.	Seja X1, \cdots , Xn uma amostra aleatória Poisson(\Theta). Encontre Var(S2) e compare-a com Var(X). Observe que E(X) = \Theta = E(S2).
+4.	Seja $X_1, X_2, \cdots , X_n$ uma amostra aleatória da função de distribuição $F$ e seja $F$ ∗(x) a função de distribuição amostral. Encontre
+Cov[F ∗(x), $F$ ∗(y)] para números reais fixos x, y.
+n	n
+5.	Seja $F$ ∗ a função de distribuição empírica de uma amostra aleatória com função de distribuição teórica $F$ . Prove que
+{	∗	 ϵ   }	 1
+
+6.	Sejam $X_1, X_2, \cdots , X_n$ n observacões independentes da variável aleatória X. Encontre a distribuição amostral de X, a média amostral, se:
+a)	X ∼ P (\Theta);
+b)	X ∼ Cauchy(1, 0);
+c)	X ∼ χ2(m).
+
+7.	Seja X1, \cdots , Xn uma amostra aleatória Poisson(\Theta). Encontre Var(S2) e compare-a com Var(X). Observe que E(X) = \Theta = E(S2).
+8.	Demonstre o Teorema 2.23. [Dica: para quaisquer reais µ e σ > 0, encontre a função de densidade de (U(r) − µ)/σ e mostre que as variáveis padronizadas de U(r), (U(r) − µ)/σ, são assintoticamente N (0, 1) sob as condições do teorema.]
+9.	Provar que o momentos amostral central b1 é sempre zero.

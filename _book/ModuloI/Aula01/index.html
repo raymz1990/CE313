@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-02-28">
 
-<title>CE313 - Estatística Não-Paramétrica</title>
+<title>CE313 - Estatística Não-Paramétrica - 1&nbsp; Estatística Não Paramétrica</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +21,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./ModuloI/index.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../ModuloI/Aula02/index.html" rel="next">
+<link href="../../ModuloI/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,8 +105,8 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="custom.css">
-<meta property="og:title" content="CE313 - Estatística Não-Paramétrica">
+<link rel="stylesheet" href="../../custom.css">
+<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - 1&nbsp; Estatística Não Paramétrica">
 <meta property="og:description" content="Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).">
 <meta property="og:image" content="non-parametric.pngs">
 <meta property="og:site_name" content="CE313 - Estatística Não-Paramétrica">
@@ -85,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Apresentação</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula01/index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -100,20 +136,20 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">CE313 - Estatística Não-Paramétrica</a> 
+      <a href="../../">CE313 - Estatística Não-Paramétrica</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://raymz1990.github.io/CE313/tree/main/book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./CE313---Estatística-Não-Paramétrica.pdf">
+            <a class="dropdown-item sidebar-tools-main-item" href="../../CE313---Estatística-Não-Paramétrica.pdf">
               <i class="bi bi-bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./CE313---Estatística-Não-Paramétrica.docx">
+            <a class="dropdown-item sidebar-tools-main-item" href="../../CE313---Estatística-Não-Paramétrica.docx">
               <i class="bi bi-bi-file-word pe-1"></i>
             Download Docx
             </a>
@@ -155,13 +191,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ModuloI/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../ModuloI/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Módulo I</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -170,13 +206,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloI/Aula01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloI/Aula01/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloI/Aula02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloI/Aula02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estatísticas de ordem</span></span></a>
   </div>
 </li>
@@ -192,23 +228,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#apresentação" id="toc-apresentação" class="nav-link active" data-scroll-target="#apresentação">Apresentação</a>
-  <ul class="collapse">
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
-  <li><a href="#ementa" id="toc-ementa" class="nav-link" data-scroll-target="#ementa">Ementa</a></li>
-  <li><a href="#referências-bibliográficas-básicas" id="toc-referências-bibliográficas-básicas" class="nav-link" data-scroll-target="#referências-bibliográficas-básicas">Referências bibliográficas básicas</a></li>
-  <li><a href="#referências-bibliográficas-complementares" id="toc-referências-bibliográficas-complementares" class="nav-link" data-scroll-target="#referências-bibliográficas-complementares">Referências bibliográficas complementares</a></li>
-  <li><a href="#conteúdo-programático" id="toc-conteúdo-programático" class="nav-link" data-scroll-target="#conteúdo-programático">Conteúdo Programático</a></li>
-  </ul></li>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">1.1</span> Introdução</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula01/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula01/index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">CE313 - Estatística Não-Paramétrica</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica</span></h1>
 </div>
 
 
@@ -216,6 +245,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 28, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -225,99 +260,65 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="apresentação" class="level1 unnumbered">
-<h1 class="unnumbered">Apresentação</h1>
-<p><strong>CE313 - Estatística não-paramétrica</strong> <br>Departamento de Estatística - UFPR <br>Professor: <a href="https://docs.ufpr.br/~lucambio/">Fernando Lucambio Pérez</a> <br>Primeiro Semestre 2024 (15/Fevereiro/2024 - 29/Junho/2024).</p>
-<hr>
-<section id="objetivos" class="level2">
-<h2 class="anchored" data-anchor-id="objetivos">Objetivos</h2>
-<p>Os métodos de inferência estatística não paramétricos ou de distribuição livre, são procedimentos matemáticos para testes de hipóteses e modelos de regressão que, diferentemente da estatística paramétrica, não fazem suposições sobre a distribuição de probabilidade das variáveis a serem consideradas. Objetivo geral: Espera-se que, ao final da disciplina, o aluno deva saber identificar o uso de testes não-paramétricos e lidar de forma apropriada com problemas práticos.</p>
-<p><strong>Objetivos específicos</strong>: Identificar situações nas quais procedimentos não-paramétricos podem ser aplicados, selecionar testes não-paramétrico adequados para um problema em estudo, construir as hipóteses correspondentes e aplicar os procedimentos escolhidos utilizando funções R para esta finalidade.</p>
-</section>
-<section id="ementa" class="level2">
-<h2 class="anchored" data-anchor-id="ementa">Ementa</h2>
-<p>Estatística paramétrica e não paramétrica. Testes não paramétricos para uma, duas ou mais amostras. Estimação não paramétrica de densidades. Introdução aos modelos não paramétricos de regressão.</p>
-<p><strong>Local</strong>: Laboratório B. <br><strong>Horário</strong>: quarta-feira 19:00h, sexta-feira 20:45h. <br><strong>Nota</strong>: a nota final será a soma das notas obtidas nos quatro trabalhos assíncronos programados.</p>
-</section>
-<section id="referências-bibliográficas-básicas" class="level2">
-<h2 class="anchored" data-anchor-id="referências-bibliográficas-básicas">Referências bibliográficas básicas</h2>
-<ol type="1">
-<li>Conover, W.J. (1999). Practical nonparametric statistics. 3rd. ed.&nbsp;New York: Chichester: John Wiley &amp; Sons (Asia).</li>
-<li>Gibbons, J.D. (1993). Nonparametric Statistics: An Introduction, Newbury Park: Sage Publications.</li>
-<li>Siegel, S. and Castellan, N.H. (2006). Estatística não-paramétrica para ciências do comportamento. RS: Artmed.</li>
-<li>Lucambio, F. (2023). <a href="leg.ufpr.br/~lucambio/Nonparam/Nparam.html">Estatística não paramétrica</a></li>
-</ol>
-</section>
-<section id="referências-bibliográficas-complementares" class="level2">
-<h2 class="anchored" data-anchor-id="referências-bibliográficas-complementares">Referências bibliográficas complementares</h2>
-<ol type="1">
-<li>Hastie, T.; Tibshirani, R. and Friedman, J. (2013). The elements of statistical learning: Data mining, inference, and prediction. Springer New York.</li>
-<li>Hollander, M. and Wolfe, D.A. (1999). Nonparametric statistical methods. 2nd. ed.&nbsp;New York: John Wiley &amp; Sons.</li>
-<li>Kloke, J. and McKean, J.W. (2015). Nonparametric statistical methods using R. Boca Raton: CRC Press.</li>
-<li>Silverman, B.W. (1994). Nonparametric Regression and Generalized Linear Models: A Roughness Penalty Approach, London: Editora Chapman &amp; Hall.</li>
-<li>Wasserman, L. (2006). All of nonparametric statistics: New York: Springer.</li>
-</ol>
-</section>
-<section id="conteúdo-programático" class="level2">
-<h2 class="anchored" data-anchor-id="conteúdo-programático">Conteúdo Programático</h2>
-<p><strong>MÓDULO I</strong>: <a href="leg.ufpr.br/~lucambio/Nonparam/NparamI.html">Estimação não paramétrica</a></p>
+<section id="introdução" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">1.1</span> Introdução</h2>
+<p>Em todos os problemas de inferência estatística considerados, assumimos que a distribuição da variável aleatória amostrada seja conhecida a menos, talvez, para alguns parâmetros. Na prática, entretanto, a forma funcional da distribuição é raramente ou nunca conhecida. Por conseguinte, é desejável conceber alguns procedimentos que estejam livres desta hipótese relativa à distribuição.</p>
+<p>Para entender a ideia de estatística não-paramétrica, primeiro requeremos uma compreensão de conceitos da estatística básica paramétrica. Conceitos elementares introduzem o conceito de teste de significância estatística com base na distribuição amostral de uma estatística particular. Em resumo, se tivermos um conhecimento básico da distribuição subjacente de uma variável, poderemos fazer previsões sobre como, em amostras repetidas de tamanho igual, essa estatística específica se comportará, isto é, como será distribuída.</p>
+<p>Estudamos aqui alguns procedimentos que são comumente referidos como métodos sem distribuição ou não paramétricos. O termo livre de distribuição refere-se ao fato de que nenhuma suposição é feita sobre a distribuição subjacente, exceto que a função de distribuição sendo amostrada seja absolutamente contínua ou puramente discreta. O termo não paramétrico refere-se ao fato de não haver parâmetros envolvidos no sentido tradicional do termo parâmetro utilizado até o momento.</p>
+<p>Grosseiramente falando, um procedimento não-paramétrico é um procedimento estatístico que possui certas propriedades desejáveis que mantêm suposições relativamente leves em relação às populações subjacentes das quais os dados são obtidos.</p>
+<p>Nos dois exemplos seguintes mostramos distribuições conhecidas que são livres de parâmetros.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Definindo os valores para o eixo x1 e x2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">6</span>, <span class="dv">6</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Graus de liberdade para a distribuição t-Student e qui-quadrado</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df_t <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df_chi <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculando os valores de densidade das distribuições</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>densidade_t <span class="ot">&lt;-</span> <span class="fu">dt</span>(x1, <span class="at">df =</span> df_t)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>densidade_chi <span class="ot">&lt;-</span> <span class="fu">dchisq</span>(x2, <span class="at">df =</span> df_chi)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Configurando o layout da plotagem</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotando a distribuição t-Student</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x1, densidade_t, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"blue"</span>, </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribuição t-Student (3)"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotando a distribuição qui-quadrado</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x2, densidade_chi, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"green"</span>, </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Distribuição Qui-Quadrado (3)"</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">ylab =</span> <span class="st">"Densidade"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>O desenvolvimento repetido e contínuo de procedimentos estatísticos não paramétricos nas últimas décadas deve-se às seguintes vantagens de técnicas não paramétricas:</p>
 <ul>
-<li>Aula 01 - <a href="ModuloI/Aula01/index.html">Estatística não paramétrica</a></li>
-<li>Aula 02 - <a href="">Estatísticas de ordem</a></li>
-<li>Aula 03 -</li>
-<li>Aula 04 -</li>
-<li>Aula 05 -</li>
-<li>Aula 06 -</li>
+<li><p>Métodos não-paramétricos exigem poucas suposições sobre as populações subjacentes das quais os dados são obtidos. Em particular, os procedimentos não paramétricos abandonam a suposição tradicional de que as populações subjacentes sejam normais.</p></li>
+<li><p>Os procedimentos não paramétricos permitem que o usuário obtenha p-valores exatos para testes, probabilidades de cobertura exatas para intervalos de confiança, taxas exatas de erros experimentais para procedimentos de comparação múltipla e probabilidades exatas de cobertura para faixas de confiança sem confiar nas suposições de que as populações subjacentes sejam normais.</p></li>
+<li><p>As técnicas não paramétricas são frequentemente, embora nem sempre, mais fáceis de aplicar do que as suas contrapartes teóricas normais.</p></li>
+<li><p>Os procedimentos não paramétricos são geralmente muito fáceis de entender.</p></li>
+<li><p>Embora, à primeira vista, a maioria dos procedimentos não- paramétricos pareça sacrificar muito as informações básicas nas amostras, investigações de eficiência teórica mostraram que esse não é o caso. Normalmente, os procedimentos não-paramétricos são apenas ligeiramente menos eficientes do que os seus concorrentes de teoria normal quando as populações subjacentes são normais e podem ser moderadamente ou muito mais eficientes que os concorrentes quando as populações subjacentes não são normais.</p></li>
 </ul>
-<hr>
-<p><strong>MÓDULO II</strong>: <a href="leg.ufpr.br/~lucambio/Nonparam/NparamII.html">Problemas de amostra única</a></p>
+<p>Mas têm desvantagens:</p>
 <ul>
-<li>Aula 07 -</li>
-<li>Aula 08 -</li>
-<li>Aula 09 -</li>
-<li>Aula 10 -</li>
-<li>Aula 11 -</li>
-<li>Aula 12 -</li>
-<li>Aula 13 -</li>
-<li>Aula 14 -</li>
-</ul>
-<hr>
-<p><strong>MÓDULO III</strong>: <a href="leg.ufpr.br/~lucambio/Nonparam/NparamIII.html">Procedimentos em k amostras</a></p>
-<ul>
-<li>Aula 15 -</li>
-<li>Aula 16 -</li>
-<li>Aula 17 -</li>
-<li>Aula 18 -</li>
-<li>Aula 19 -</li>
-<li>Aula 20 -</li>
-<li>Aula 21 -</li>
-<li>Aula 22 -</li>
-</ul>
-<hr>
-<p><strong>MÓDULO IV</strong>: <a href="leg.ufpr.br/~lucambio/Nonparam/NparamIV.html">Regressão não paramétrica</a></p>
-<ul>
-<li>Aula 23 -</li>
-<li>Aula 24 -</li>
-<li>Aula 25 -</li>
-<li>Aula 26 -</li>
-<li>Aula 27 -</li>
-<li>Aula 28 -</li>
-<li>Aula 29 -</li>
-<li>Aula 30 -</li>
-</ul>
-<hr>
-<p><strong>MÓDULO V</strong>: <a href="leg.ufpr.br/~lucambio/Nonparam/NparamV.html">Redes neurais</a></p>
-<ul>
-<li>Aula 31 -</li>
-<li>Aula 32 -</li>
-<li>Aula 33 -</li>
-<li>Aula 34 -</li>
-<li>Aula 35 -</li>
-<li>Aula 36 -</li>
+<li><p>Métodos não paramétricos são relativamente insensíveis a observações distantes.</p></li>
+<li><p>Os procedimentos não paramétricos são aplicáveis em muitas situações em que os procedimentos teóricos normais não podem ser utilizados. Muitos procedimentos não-paramétricos exigem apenas as classificações das observações em vez da magnitude real das observações, enquanto os procedimentos paramétricos exigem as magnitudes.</p></li>
+<li><p>Nem todos os procedimentos desenvolvidos na estatística paramétrica podem ser aplicados à estatística não-paramétrica.</p></li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -710,10 +711,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../ModuloI/index.html" class="pagination-link  aria-label=" módulo="" i"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Módulo I</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ModuloI/index.html" class="pagination-link" aria-label="Módulo I">
-        <span class="nav-page-text">Módulo I</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../ModuloI/Aula02/index.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Estatísticas de ordem</span>">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estatísticas de ordem</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -725,7 +729,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula01/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

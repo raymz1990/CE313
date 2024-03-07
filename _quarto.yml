@@ -36,10 +36,10 @@ book:
   chapters:
     - index.qmd
 
-    - part: "Modulo I/modulo-01.qmd"
+    - part: "ModuloI/index.qmd"
       chapters:
-      - Modulo I/Aula 01/aula01.qmd
-      - Modulo I/Aula 02/aula02.qmd
+      - ModuloI/Aula01/index.qmd
+      - ModuloI/Aula02/index.qmd
 
   page-footer: 
     left: |

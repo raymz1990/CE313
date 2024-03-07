@@ -41,7 +41,7 @@ Estatística paramétrica e não paramétrica. Testes não paramétricos para um
 
 **MÓDULO I**: [Estimação não paramétrica](leg.ufpr.br/~lucambio/Nonparam/NparamI.html)
 
-* Aula 01 - [Estatística não paramétrica 1]()
+* Aula 01 - [Estatística não paramétrica](ModuloI/Aula01/index.html)
 * Aula 02 - [Estatísticas de ordem]()
 * Aula 03 -
 * Aula 04 -
