@@ -217,6 +217,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica 2</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ModuloI/Aula04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">index.html</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -233,16 +239,19 @@ window.Quarto = {
   <li><a href="#estatísticas-de-ordem" id="toc-estatísticas-de-ordem" class="nav-link" data-scroll-target="#estatísticas-de-ordem"><span class="header-section-number">2.2</span> Estatísticas de ordem</a>
   <ul class="collapse">
   <li><a href="#propriedades-das-estatísticas-de-ordem" id="toc-propriedades-das-estatísticas-de-ordem" class="nav-link" data-scroll-target="#propriedades-das-estatísticas-de-ordem"><span class="header-section-number">2.2.1</span> Propriedades das estatísticas de ordem</a></li>
-  <li><a href="#quantis" id="toc-quantis" class="nav-link" data-scroll-target="#quantis"><span class="header-section-number">2.2.2</span> 2.2.2 Quantis</a></li>
   </ul></li>
-  <li><a href="#momentos-amostrais" id="toc-momentos-amostrais" class="nav-link" data-scroll-target="#momentos-amostrais"><span class="header-section-number">2.3</span> Momentos amostrais</a></li>
-  <li><a href="#gráficos-descritivos" id="toc-gráficos-descritivos" class="nav-link" data-scroll-target="#gráficos-descritivos"><span class="header-section-number">2.4</span> Gráficos descritivos</a>
+  <li><a href="#pg8" id="toc-pg8" class="nav-link" data-scroll-target="#pg8"><span class="header-section-number">2.3</span> pg8</a>
   <ul class="collapse">
-  <li><a href="#gráfico-de-boxplot" id="toc-gráfico-de-boxplot" class="nav-link" data-scroll-target="#gráfico-de-boxplot"><span class="header-section-number">2.4.1</span> 2.4.1 Gráfico de Boxplot</a></li>
-  <li><a href="#histograma" id="toc-histograma" class="nav-link" data-scroll-target="#histograma"><span class="header-section-number">2.4.2</span> 2.4.2 Histograma</a></li>
-  <li><a href="#gráficos-para-verificar-normalidade" id="toc-gráficos-para-verificar-normalidade" class="nav-link" data-scroll-target="#gráficos-para-verificar-normalidade"><span class="header-section-number">2.4.3</span> 2.4.3 Gráficos para verificar normalidade</a></li>
+  <li><a href="#quantis" id="toc-quantis" class="nav-link" data-scroll-target="#quantis"><span class="header-section-number">2.3.1</span> 2.2.2 Quantis</a></li>
   </ul></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">2.5</span> Exercícios</a></li>
+  <li><a href="#momentos-amostrais" id="toc-momentos-amostrais" class="nav-link" data-scroll-target="#momentos-amostrais"><span class="header-section-number">2.4</span> Momentos amostrais</a></li>
+  <li><a href="#gráficos-descritivos" id="toc-gráficos-descritivos" class="nav-link" data-scroll-target="#gráficos-descritivos"><span class="header-section-number">2.5</span> Gráficos descritivos</a>
+  <ul class="collapse">
+  <li><a href="#gráfico-de-boxplot" id="toc-gráfico-de-boxplot" class="nav-link" data-scroll-target="#gráfico-de-boxplot"><span class="header-section-number">2.5.1</span> 2.4.1 Gráfico de Boxplot</a></li>
+  <li><a href="#histograma" id="toc-histograma" class="nav-link" data-scroll-target="#histograma"><span class="header-section-number">2.5.2</span> 2.4.2 Histograma</a></li>
+  <li><a href="#gráficos-para-verificar-normalidade" id="toc-gráficos-para-verificar-normalidade" class="nav-link" data-scroll-target="#gráficos-para-verificar-normalidade"><span class="header-section-number">2.5.3</span> 2.4.3 Gráficos para verificar normalidade</a></li>
+  </ul></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">2.6</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula02/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -309,39 +318,39 @@ window.Quarto = {
 </section>
 <section id="estatísticas-de-ordem" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="estatísticas-de-ordem"><span class="header-section-number">2.2</span> Estatísticas de ordem</h2>
-<p>Seja (<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>) um vetor aleatório n-dimensional e (<span class="math inline">\(x_1, x_2, \cdots , x_n\)</span>) uma <span class="math inline">\(n\)</span>-tupla assumida por (<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>). Vamos organizar <span class="math inline">\(x_1, x_2, \cdots , x_n\)</span> em ordem crescente de magnitude, para que <span class="math display">\[x_{(1)}\le x_{(2)} \le \cdots ≤ x_{(n)},\]</span> onde <span class="math inline">\(x_{(1)}\)</span> = min(<span class="math inline">\(x_1, x_2, \cdots , x_n\)</span>), <span class="math inline">\(x_{(2)}\)</span> é o segundo menor valor em <span class="math inline">\(x_1, \cdots , x_n\)</span> e assim por diante, <span class="math inline">\(x_{(n)}\)</span> = max(<span class="math inline">\(x_1, \cdots , x_n\)</span>). Se quaisquer dois <span class="math inline">\(x_i\)</span>, <span class="math inline">\(x_j\)</span> forem iguais, a ordem não importa.</p>
+<p>Seja <span class="math inline">\((X_1, X_2, \cdots , X_n)\)</span> um vetor aleatório n-dimensional e <span class="math inline">\((x_1, x_2, \cdots , x_n)\)</span> uma <span class="math inline">\(n\)</span>-tupla assumida por <span class="math inline">\((X_1, X_2, \cdots , X_n)\)</span>. Vamos organizar <span class="math inline">\(x_1, x_2, \cdots , x_n\)</span> em ordem crescente de magnitude, para que <span class="math display">\[x_{(1)}\le x_{(2)} \le \cdots ≤ x_{(n)},\]</span> onde <span class="math inline">\(x_{(1)}\)</span> = min<span class="math inline">\((x_1, x_2, \cdots , x_n)\)</span>, <span class="math inline">\(x_{(2)}\)</span> é o segundo menor valor em <span class="math inline">\(x_1, \cdots , x_n\)</span> e assim por diante, <span class="math inline">\(x_{(n)}\)</span> = max<span class="math inline">\((x_1, \cdots , x_n)\)</span>. Se quaisquer dois <span class="math inline">\(x_i\)</span>, <span class="math inline">\(x_j\)</span> forem iguais, a ordem não importa.</p>
 <blockquote class="blockquote">
-<p><strong>Definição</strong>. A função <span class="math inline">\(X_{(k)}\)</span> de (<span class="math inline">\(X_1, \cdots ,X_n\)</span>) que assume o valor <span class="math inline">\(x_{(k)}\)</span> em cada possível sequência (<span class="math inline">\(x_1, x_2, \cdots , x_n\)</span>) de valores assumidos por (<span class="math inline">\(X_1,X_2, \cdots , X_n\)</span>) é conhecida como a <span class="math inline">\(k\)</span>-ésima estatística de ordem ou a estatística de ordem <span class="math inline">\(k\)</span>. O conjunto (<span class="math inline">\(X_{(1)},X_{(2)}, \cdots , X_{(n)}\)</span>) é chamado de estatísticas de ordem para (<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>).</p>
+<p><strong>Definição</strong>. A função <span class="math inline">\(X_{(k)}\)</span> de <span class="math inline">\((X_1, \cdots ,X_n)\)</span> que assume o valor <span class="math inline">\(x_{(k)}\)</span> em cada possível sequência <span class="math inline">\((x_1, x_2, \cdots , x_n)\)</span> de valores assumidos por <span class="math inline">\((X_1,X_2, \cdots , X_n)\)</span> é conhecida como a <span class="math inline">\(k\)</span>-ésima estatística de ordem ou a estatística de ordem <span class="math inline">\(k\)</span>. O conjunto <span class="math inline">\((X_{(1)},X_{(2)}, \cdots , X_{(n)})\)</span> é chamado de estatísticas de ordem para <span class="math inline">\((X_1, X_2, \cdots , X_n)\)</span>.</p>
 </blockquote>
-<p><strong>Exemplo</strong>. Consideremos <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span> três variáveis aleatórias discretas de maneira que, <span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_3\)</span> sejam tais que assumam somente valores 0, 1 e que <span class="math inline">\(X_2\)</span> assuma valores 1, 2, 3. O vetor aleatório (<span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span>) assume os valores: (0, 1, 0), (0, 2, 0), (0, 3, 0), (0, 1, 1), (0, 2, 1), (0, 3, 1), (1, 1, 0), (1, 2, 0), (1, 3, 0), (1, 1, 1), (1, 2, 1) e (1, 3, 1). Então <span class="math inline">\(X_{(1)}\)</span> assume somente valores 0 ou 1; <span class="math inline">\(X_{(2)}\)</span> assume somente valores 0 ou 1 e <span class="math inline">\(X_{(3)}\)</span> assume somente valores 1, 2 ou 3.</p>
+<p><strong>Exemplo</strong>. Consideremos <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3\)</span> três variáveis aleatórias discretas de maneira que, <span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_3\)</span> sejam tais que assumam somente valores 0, 1 e que <span class="math inline">\(X_2\)</span> assuma valores 1, 2, 3. O vetor aleatório <span class="math inline">\((X_1\)</span>, <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X_3)\)</span> assume os valores: (0, 1, 0), (0, 2, 0), (0, 3, 0), (0, 1, 1), (0, 2, 1), (0, 3, 1), (1, 1, 0), (1, 2, 0), (1, 3, 0), (1, 1, 1), (1, 2, 1) e (1, 3, 1). Então <span class="math inline">\(X_{(1)}\)</span> assume somente valores 0 ou 1; <span class="math inline">\(X_{(2)}\)</span> assume somente valores 0 ou 1 e <span class="math inline">\(X_{(3)}\)</span> assume somente valores 1, 2 ou 3.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Teorema
+Teorema 2.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Seja (<span class="math inline">\(X_{(1)}, X_{(2)}, \cdots , X_{(n)}\)</span>) um vetor aleatório de dimensão <span class="math inline">\(n\)</span> e seja <span class="math inline">\(X_{(k)}, 1 \le k \le n\)</span>, a <span class="math inline">\(k\)</span>-ésima estatística de ordem. Então <span class="math inline">\(X_{(k)}\)</span> é também uma variável aleatória.</p>
+<p>Seja <span class="math inline">\((X_{(1)}, X_{(2)}, \cdots , X_{(n)})\)</span> um vetor aleatório de dimensão <span class="math inline">\(n\)</span> e seja <span class="math inline">\(X_{(k)}, 1 \le k \le n\)</span>, a <span class="math inline">\(k\)</span>-ésima estatística de ordem. Então <span class="math inline">\(X_{(k)}\)</span> é também uma variável aleatória.</p>
 </div>
 </div>
 <p><strong>Exercício</strong>. Na apresentação dos resultados a seguir assumiremos que <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> são variáveis aleatórias independentes e igualmente distribuídas contínuas com função de densidade <span class="math inline">\(f\)</span> . Seja <span class="math inline">\(\{ X_{(1)}, X_{(2)}, \cdots , X_{(n)} \}\)</span> o conjunto das estatística de ordem para <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>. Dado que todas as <span class="math inline">\(X_i\)</span> são contínuas segue que, com probabilidade 1 <span class="math display">\[X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}·\]</span></p>
 <section id="propriedades-das-estatísticas-de-ordem" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="propriedades-das-estatísticas-de-ordem"><span class="header-section-number">2.2.1</span> Propriedades das estatísticas de ordem</h3>
-<p>Começaremos o estudo das propriedades encontrando a função de densidade conjunta de (<span class="math inline">\(X_{(1)}, X_{(2)}, \cdots , X_{(n)}\)</span>).</p>
+<p>Começaremos o estudo das propriedades encontrando a função de densidade conjunta de <span class="math inline">\((X_{(1)}, X_{(2)}, \cdots , X_{(n)})\)</span>.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Teorema
+Teorema 2.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Sejam <span class="math inline">\(X_1, \cdots, X_n\)</span> variáveis aleatórias contínuas independentes, igualmente distríbuidas com densidade <span class="math inline">\(f\)</span>. A função de desindade conjunta de (<span class="math inline">\(X_{(1)}, \cdots, X_{(n)}\)</span>) é dada por <span class="math display">\[
+<p>Sejam <span class="math inline">\(X_1, \cdots, X_n\)</span> variáveis aleatórias contínuas independentes, igualmente distríbuidas com densidade <span class="math inline">\(f\)</span>. A função de desindade conjunta de <span class="math inline">\((X_{(1)}, \cdots, X_{(n)})\)</span> é dada por <span class="math display">\[
 f(x_{(1)}, \ldots, x_{(n)}) =
 \begin{cases}
 n! \prod\limits_{i=1}^{n} f(x_{(i)}), &amp; \text{se } x_{(1)} &lt; x_{(2)} &lt; \cdots &lt; x_{(n)} \\
@@ -350,7 +359,7 @@ n! \prod\limits_{i=1}^{n} f(x_{(i)}), &amp; \text{se } x_{(1)} &lt; x_{(2)} &lt;
 \]</span></p>
 </div>
 </div>
-<p><strong>Demonstração</strong>: A transformação de (<span class="math inline">\(X_1, \cdots , X_n\)</span>) a (<span class="math inline">\(X_{(1)}, \cdots , X_{(n)}\)</span>) não é biunívoca. De fato, existem um total de <span class="math inline">\(n!\)</span> possíveis arranjos de <span class="math inline">\(x_1, \cdots , x_n\)</span> em ordem crescente de magnitude. Assim, existem <span class="math inline">\(n!\)</span> inversas para a transformação.</p>
+<p><strong>Demonstração</strong>: A transformação de <span class="math inline">\((X_1, \cdots , X_n)\)</span> a <span class="math inline">\((X_{(1)}, \cdots , X_{(n)})\)</span> não é biunívoca. De fato, existem um total de <span class="math inline">\(n!\)</span> possíveis arranjos de <span class="math inline">\(x_1, \cdots , x_n\)</span> em ordem crescente de magnitude. Assim, existem <span class="math inline">\(n!\)</span> inversas para a transformação.</p>
 <p>Por exemplo, uma das <span class="math inline">\(n!\)</span> permutações pode ser <span class="math display">\[
 x_4 &lt; x_1 &lt; x_{n−1} &lt; x_3 &lt; \cdots &lt; x_n &lt; x_2·
 \]</span></p>
@@ -381,95 +390,157 @@ f(x) =
 \]</span> Então a função de densidade conjunta de <span class="math inline">\(X_{(1)}, X_{(2)}, \cdots , X_{(n)}\)</span> é <span class="math display">\[
 f(x_{(1)}, \ \cdots, \ x_{(n)}) =
 \begin{cases}
-n!, &amp; \text{se } 0 &lt; x_{(1)} &lt; x_{(2)} &lt; \cdots &lt; x_{(n)}) \\
+n!, &amp; \text{se } 0 &lt; x_{(1)} &lt; x_{(2)} &lt; \cdots &lt; x_{(n)} \\
 0, &amp; \text{caso contrário}
 \end{cases}.
 \]</span></p>
-<p>Estamos confiados que como resultado do Teorema temos funções de densidade. Vejamos neste exemplo se isso é realmente acontece. Consideremos, para simplificar, o caso <span class="math inline">\(n\)</span> = 3 e verifiquemos se a integral da função de densidade em é 1. Então</p>
-<p>∫∫∫</p>
-<p>f (x_{(1)}, x_{(2)}, x_{(3)}) dx_{(1)} dx_{(2)} dx_{(3)} = 6</p>
-<p>∫ 1 [∫ 1</p>
-<p>(∫ 1</p>
-<p>dx_{(3)})</p>
-<p>dx_{(2)}]</p>
-<p>dx_{(1)}</p>
-<p>0 1 = 6 0</p>
-<p>x_{(1)} [ x_{(1)}</p>
-<p>x_{(2)} (1 − x_{(2)})</p>
-<p>dx_{(2)}]</p>
-<p>dx_{(1)}</p>
-<p>1 1 = 6 − x_{(1)}</p>
-<p>x2 + _{(1)} 2</p>
-<p>dx_{(1)}</p>
-<p>= 1·</p>
-<p>0 Um detalhe interessante é que esta e outras propriedades demonstradas aqui somente são válidas quando as variáveis aleatórias são contínuas. Isso não significa que estatísticas de ordem não possam ser definidas no caso discreto. O que estamos dizendo é que estas propriedades somente podem ser demonstradas no caso contínuo.</p>
-<p><strong>Exemplo 2.5</strong> Consideremos a situação em que temos somente três variáveis aleatórias independentes X1, X2 e X3 com</p>
-<p>distribuição geométrica de parâmetro p, isto é, P (X = x; p) = (1 − p)px, x = 0, 1, 2, Encontremos P (X_{(1)} &lt; X_{(2)} &lt; X_{(3)}). Nesta situação a probabilidade requerida pode ser escrita como: P (X_{(1)} &lt; X_{(2)} &lt; X_{(3)}) = 1 − P (X1 = X2 ̸= X3) − P (X1 = X3 ̸= X2) −P (X2 = X3 ̸= X1) − P (X1 = X2 = X3) a qual pode ser escrita como P (X_{(1)} &lt; X_{(2)} &lt; X_{(3)}) = 1 − 3P (X1 = X2 ̸= X3) − P (X1 = X2 = X3) = 1 − 3 [P (X1 = X2) − P (X1 = X2 = X3)] − P (X1 = X2 = X3) = 1 − 3P (X1 = X2) + 2P (X1 = X2 = X3)·</p>
-<p>Não é difícil perceber que</p>
-<p>e que</p>
-<p>P (X1 = X2) =</p>
-<p>(1 p)2 1 − p2 , (1 − p)3</p>
-<p>do qual obtemos que</p>
-<p>P (X1 = X2 = X3) =</p>
-<p>1 − p3 ,</p>
-<p>6p3</p>
-<p>P (X_{(1)} &lt; X_{(2)} &lt; X_{(3)}) = (1 − p)(1 + p + p2)· As propriedades das estatísticas de ordem que serão demonstradas valerão somente caso as variáveis sejam contínuas. Isto deve-se a que, caso as variáveis sejam discretas, a probabilidade</p>
-<p>P (X_{(1)} = X_{(2)} = = X_{(n)}) ̸= 0,</p>
+<p>Estamos confiados que como resultado do Teorema 2.2 temos funções de densidade. Vejamos neste exemplo se isso é realmente acontece. Consideremos, para simplificar, o caso <span class="math inline">\(n\)</span> = 3 e verifiquemos se a integral da função de densidade é 1. Então</p>
+<p><span class="math display">\[
+\begin{align*}
+\int \int\limits_\mathbb{R} \int f(x_{(1)},x_{(2)},x_{(3)}) \ dx_{(1)}dx_{(2)}dx_{(3)})
+&amp; = 6 \int_{0}^1 \left[\int_{x_{(1)}}^1 \left(\int_{x_{(2)}}^1 dx_{(3)} \right) dx_{(2)} \right] dx_{(1)} \\
+&amp; = 6 \int_{0}^1 \left[\int_{x_{(1)}}^1 \left(1 - x_{(2)} \right) dx_{(2)} \right] dx_{(1)} \\
+&amp; = 6 \int_{0}^1 \left[\frac{1}{2} - x_{(1}) + \frac{x^2_{(1)}}{2} \right] dx_{(1)} = 1. \\
+\end{align*}
+\]</span></p>
+<p>Um detalhe interessante é que esta e outras propriedades demonstradas aqui somente são válidas quando as variáveis aleatórias são contínuas. Isso não significa que estatísticas de ordem não possam ser definidas no caso discreto. O que estamos dizendo é que estas propriedades somente podem ser demonstradas no caso contínuo.</p>
+<p><strong>Exemplo</strong>. Consideremos a situação em que temos somente três variáveis aleatórias independentes <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span> e <span class="math inline">\(X_3\)</span> com distribuição geométrica de parâmetro <span class="math inline">\(p\)</span>, isto é,</p>
+<p><span class="math display">\[
+P (X = x; p) = (1 − p)p^x, \ \ \ \ \    x = 0, 1, 2, \cdots
+\]</span> Encontremos <span class="math inline">\(P (X_{(1)} &lt; X_{(2)} &lt; X_{(3)})\)</span>. Nesta situação a probabilidade requerida pode ser escrita como: <span class="math display">\[
+\begin{align*}
+P (X_{(1)} &lt; X_{(2)} &lt; X_{(3)})  =  1 − P (X_1 = X_2 \neq X_3) − P (X_1 = X_3 \neq X_2) \\
+−P (X_2 = X_3 \neq X_1) − P (X_1 = X_2 = X_3)
+\end{align*}
+\]</span> a qual pode ser escrita como <span class="math display">\[
+\begin{align*}
+P (X_{(1)} &lt; X_{(2)} &lt; X_{(3)})
+&amp; = 1 − 3P (X_1 = X_2 \neq X_3) − P (X_1 = X_2 = X_3) \\
+&amp; = 1 − 3 [P (X_1 = X_2) − P (X_1 = X_2 = X_3)] − P (X_1 = X_2 = X_3) \\
+&amp; = 1 − 3P (X_1 = X_2) + 2P (X_1 = X_2 = X_3)· \\
+\end{align*}
+\]</span></p>
+<p>Não é difícil perceber que <span class="math display">\[
+P(X_1 = X_2) = \frac{(1-p)^2}{1-p^2},
+\]</span></p>
+<p>e que <span class="math display">\[
+P(X_1 = X_2 = X_3) = \frac{(1-p)^3}{1-p^3},
+\]</span></p>
+<p>do qual obtemos que <span class="math display">\[
+P(X_{(1)} = X_{(2)} = X_{(3)}) = \frac{6p^3}{(1-p)(1+p+p^2)}.
+\]</span> As propriedades das estatísticas de ordem que serão demonstradas valerão somente caso as variáveis sejam contínuas. Isto deve-se a que, caso as variáveis sejam discretas, a probabilidade</p>
+<p><span class="math display">\[
+P (X_{(1)} = X_{(2)} = \cdots = X_{(n)}) \neq 0,
+\]</span></p>
 <p>como vai ser mostrado no seguinte exemplo. Acontece que o fato da probabilidade das estatística de ordem poderem coincidir, com probabilidade diferente de zero, altera a estrutura da demonstração e não nos permite obtermos estes resultados para o caso discreto.</p>
-<p><strong>Exemplo 2.6</strong> Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias independentes assumindo somente 0 e 1 com probabilidade 1/2. Observemos que</p>
-<p>n n P (X_{(1)} = X_{(2)} = = X_{(n)}) = ∏ P (X(k) = 0) + ∏ P (X(k) = 1)</p>
-<p>k=1 n = P (Xk k=1</p>
-<p>k=1 n = 0) + P (Xk k=1</p>
-<p>1 = 1) = 2n−1 ·</p>
+<p><strong>Exemplo</strong>. Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias independentes assumindo somente 0 e 1 com probabilidade 1/2. Observemos que <span class="math display">\[
+\begin{align*}
+P(X_{(1)} = X_{(2)} = \cdots = X_{(n)})
+&amp; = \prod\limits_{k=1}^{n} P(X_{(k)} = 0) + \prod\limits_{k=1}^{n} P(X_{(k)} = 1)  \\
+&amp; = \prod\limits_{k=1}^{n} P(X_{(k)} = 0) + \prod\limits_{k=1}^{n} P(X_{k} = 1) = \frac{1}{2^{n-1}} . \\
+\end{align*}
+\]</span></p>
 <p>Estudemos agora o comportamento marginal, ou seja, nos interessa agora encontrar a função de distribuição marginal de cada estatística de ordem.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema 2.3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sejam <span class="math inline">\(X_1, \cdots, X_n\)</span> variáveis aleatórias contínuas independentes e igualmente distribuídas e <span class="math inline">\((X_{(1)}, \cdots, X_{(n)})\)</span> as estatísticas de ordem. A função de densidade marginal de <span class="math inline">\(X_{(r)}\)</span> é dada por <span class="math display">\[
+f_r(x_{(r)}) = \frac{n!}{(r-1)!(n-r)!}[F(x_{(r)})]^{r-1}[1-F(x_{(r)})]^{n-r}f(x_{(r)}),
+\]</span> onde <span class="math inline">\(F\)</span> é a função de distribuição comum de <span class="math inline">\(X_1, \cdots, X_n\)</span>.</p>
+</div>
+</div>
 <p>Demonstração : Partimos da expressão da função de densidade conjunta das estatísticas de ordem obtida no Teorema 2.2. Então,</p>
-<p>fr(x(r)) = n!f (x(r))</p>
-<p>∫ x(r) ∫ x(r−1)</p>
-<p>∫ x_{(2)} ∫ +∞ ∫ +∞</p>
-<p>∫ +∞ ∏</p>
-<p>f (ti) dtn dtr+1 dt1 dtr−1</p>
-<p>−∞ −∞</p>
-<p>−∞ x(r)</p>
-<p>x(r+1)</p>
-<p>x(n−1) i̸=r</p>
-<p>= n!f (x(r))</p>
-<p>[1 − <span class="math inline">\(F\)</span> (x(r))]n−r x(r)</p>
-<p>(n − r)!</p>
-<p>∫ x_{(2)} r∏−1</p>
-<p>f (ti) dti</p>
-<p>[1 − <span class="math inline">\(F\)</span> (x(r))]n−r [F (x(r))]r−1</p>
-<p>= n!f (x(r))</p>
-<p>(n − r)!</p>
-<p>· (r − 1)!</p>
-<p>Como utilidade deste teorema podemos mencionar o fato de agora podermos encontrar os momentos das es- tatística de ordem. Faremos isso como consequência do seguinte exemplo.</p>
-<p><strong>Exemplo 2.7</strong> Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias independentes U (0, 1). Então</p>
-<p>fr(x(r)) =  </p>
-<p>n!</p>
-<p>(r − 1)!(n − r)!</p>
-<p>xr−1(1 − x(r))n−r, se 0 &lt; x(r) &lt; 1 (1 ≤ r ≤ n) 0, caso contrário</p>
-<p>Observemos que, na situação do exemplo acima, X(r) ∼ Beta(r, n − r + 1), logo, valem os resultados da distribuição Beta e, por exemplo, E(X(r)) = r/(n + 1)· Para uma densidade qualquer e somente quatro variáveis aleatórias a forma da densidade marginal, de uma qualquer estatística de ordem, é mostrada no seguinte exemplo.</p>
-<p><strong>Exemplo 2.8</strong> Sejam X1, X2, X3, X4 variáveis aleatórias independentes com densidade comum f.&nbsp;A função de densidade conjunta das estatísticas de ordem X_{(1)}, X_{(2)}, X_{(3)}, X_{(4)} é</p>
-<p>f (x</p>
-<p>_{(1)}</p>
-<p>, x_{(2)}</p>
-<p>, x_{(3)}</p>
-<p>, x_{(4)}</p>
-<p>) = 4!f (x_{(1)})f (x_{(2)})f (x_{(3)})f (x_{(4)}), se x_{(1)} &lt; x_{(2)} &lt; x_{(3)} &lt; x_{(4)} · 0, caso contrário</p>
-<p>Vamos calcular a função de densidade marginal de X_{(2)}. Temos que, se x_{(1)} &lt; x_{(2)} &lt; x_{(3)} &lt; x_{(4)} f2(x_{(2)}) = 4! ∫ ∫ ∫ ∫ <span class="math inline">\(F\)</span> (t1)f (x_{(2)})f (t3)f (t4) dt1 dt3 dt4</p>
-<p>= 4!f (x_{(2)})</p>
-<p>∫ x_{(2)} ∫ +∞ [∫ +∞</p>
-<p>f (t4) dt4]</p>
-<p>f (t3)f (t1) dt3 dt1</p>
-<p>−∞ x_{(2)} t3</p>
-<p>= 4!f (x_{(2)})</p>
-<p>∫ x_{(2)} {∫ +∞</p>
-<p>[1 − <span class="math inline">\(F\)</span> (t3)]f (t3) dt3}</p>
-<p>f (t1) dt1</p>
-<p>−∞ x_{(2)}</p>
-<p>= 4!f (x_{(2)})</p>
-<p>x_{(2)} [1 F (x )]2 2 f (t1) dt1 = 4!f (x_{(2)})</p>
-<p>[1 F (x )]2 2! F (x_{(2)})·</p>
+<p>$$ <span class="math display">\[\begin{align*}
+f_r(x_{(r)})
+&amp; = n!f(x_{(r)})  
+\int_{-\infty}^{x_{(r)}} \int_{-\infty}^{x_{(r-1)}} \cdots
+\int_{-\infty}^{x_{(2)}} \int_{x_{(r)}}^{+\infty} \int_{x_{(r+1)}}^{+\infty} \cdots
+\int_{x_{(n-1)}}^{+\infty}
+\prod\limits_{i \neq r}^{n} f(t_i) \
+\text{d}t_n \cdots\text{d}t_{r+1} \ \text{d}t_{1} \cdots \text{d}t_{r-1}  \\
+
+&amp; = n!f(x_{(r)})
+\frac{[1-F(x_{(r)})]^{n-r}}{(n-r)!}
+\int_{-\infty}^{x_{(r)}} \cdots
+\int_{x_{(-\infty)}}^{x_{(2)}}
+\prod\limits_{i =1}^{r-1} f(t_i) \ \text{d}t_i \\
+
+&amp; = n!f(x_{(r)})
+\frac{[1-F(x_{(r)})]^{n-r}}{(n-r)!}
+\frac{[F(x_{(r)})]^{r-1}}
+{(r-1)!}.
+
+\end{align*}\]</span>\end{align*} $$</p>
+<p>Como utilidade deste teorema podemos mencionar o fato de agora podermos encontrar os momentos das estatística de ordem. Faremos isso como consequência do seguinte exemplo.</p>
+<strong>Exemplo</strong>. Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias independentes <span class="math inline">\(U\)</span> (0, 1). Então $$ f_r(x_{(r)}) =
+<span class="math display">\[\begin{cases}
+\frac{n!}{(r-1)!(n-r)!} x_{(r)}^{r-1}(1-x_{(r)})^{n-r},
+&amp; \text{se } 0 &lt; x_{(r)} &lt; 1 \\
+
+&amp; \ \ \ \ \ \ \ \ \ \  (1 \leq r \leq n) \\
+0, &amp; \text{caso contrário}
+\end{cases}\]</span>
+<p>. $$</p>
+<p>Observemos que, na situação do exemplo acima,</p>
+<p><span class="math display">\[
+X_{(r)} \sim \beta(r, n − r + 1),
+\]</span></p>
+<p>logo, valem os resultados da distribuição Beta e, por exemplo,</p>
+<p><span class="math display">\[
+E(X_{(r)}) = r/(n + 1)·
+\]</span></p>
+<p>Para uma densidade qualquer e somente quatro variáveis aleatórias a forma da densidade marginal, de uma qualquer estatística de ordem, é mostrada no seguinte exemplo.</p>
+<p><strong>Exemplo</strong>. Sejam <span class="math inline">\(X_1, X_2, X_3 ,X_4\)</span> variáveis aleatórias independentes com densidade comum <span class="math inline">\(f\)</span>. A função de densidade conjunta das estatísticas de ordem <span class="math inline">\(X_{(1)}, X_{(2)}, X_{(3)}, X_{(4)}\)</span> é</p>
+$$ f(x_{(1)}, x_{(2)}, x_{(3)}, x_{(4)}) =
+<span class="math display">\[\begin{cases}
+4!f (x_{(1)})f (x_{(2)})f (x_{(3)})f (x_{(4)}),
+&amp; \text{se }    x_{(1)} &lt; x_{(2)} &lt; x_{(3)} &lt; x_{(4)} \\
+
+0,  
+&amp; \text{caso contrário}
+\end{cases}\]</span>
+<p>. $$</p>
+<p>Vamos calcular a função de densidade marginal de <span class="math inline">\(X_{(2)}\)</span>. Temos que, se <span class="math inline">\(x_{(1)} &lt; x_{(2)} &lt; x_{(3)} &lt; x_{(4)}\)</span></p>
+<p>$$ <span class="math display">\[\begin{align*}
+f2(x_{(2)})
+&amp; =  4! \int \int \int \int f(t_1) f(x_{(2)}) f(t_3) f(t_4)
+\ \text{d}t_1 \ \text{d}t_3 \ \text{d}t_4 \\
+
+&amp; =  4! f(x_{(2)})
+\int_{-\infty}^{x_{(2)}}
+\int_{2}^{+\infty}
+\left[\int_{t_3}^{+\infty} f(t_4) \ \text{d}t_4\right]
+f(t_3) f(t_1) \ \text{d}t_3 \ \text{d}t_1  \\
+
+&amp; =  4! f(x_{(2)})
+\int_{-\infty}^{x_{(2)}}
+\Biggl\{
+\int_{x_{(2)}}^{+\infty}[1 - F(t_3)]f(t_3) \text{d}t_3
+\Biggl\}
+f{(t_1)} \text{d}t_1\\
+
+&amp; =  4! f(x_{(2)})
+\int_{-\infty}^{x_{(2)}}
+\frac{[1-F(x_{(2)})]^2}{2}
+f(t_1) \ \text{d}t_1 =
+4! f(x_{(2)})
+\frac{[1-F(x_{(2)})]^2}{2}
+F(x_{(2)})
+
+·
+\end{align*}\]</span> $$</p>
 <p>Evidentemente, a expressão acima coincide com o resultado apresentado no Teorema 2.3.</p>
+</section>
+</section>
+<section id="pg8" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="pg8"><span class="header-section-number">2.3</span> pg8</h2>
 <p>Demonstração :</p>
 <p>frs(x(r), x(s)) =</p>
 <p>∫ x(r)</p>
@@ -608,9 +679,8 @@ n!, &amp; \text{se } 0 &lt; x_{(1)} &lt; x_{(2)} &lt; \cdots &lt; x_{(n)}) \\
 <p>tan−1(c)</p>
 <p>Por último, temos o seguinte resultado estabelecendo novamente relação entre estatísticas de ordem e distri- buições truncadas.</p>
 <p>Demonstração : A densidade condicional de X_{(i)} dado que X(j) = xj calcula-se dividindo a densidade conjunta de X_{(i)} e X(j), dada em (2.7), pela densidade marginal de X(j), esta obtida no Teorema 2.4. Temos então que, quando i &lt; j ≤ n e xi ≤ xj &lt; ∞, (j − i)! [ <span class="math inline">\(F\)</span> (xi) ]i−1 [ <span class="math inline">\(F\)</span> (xj) − <span class="math inline">\(F\)</span> (xi)]j−i−1 <span class="math inline">\(F\)</span> (xi) O resultado segue observando que <span class="math inline">\(F\)</span> (xi)/F (xj) e <span class="math inline">\(F\)</span> (xi)/F (xj) são, respectivamente, as funções de distribuição e de densidade truncando à direita em xj a distribuição <span class="math inline">\(F\)</span> .</p>
-</section>
-<section id="quantis" class="level3" data-number="2.2.2">
-<h3 data-number="2.2.2" class="anchored" data-anchor-id="quantis"><span class="header-section-number">2.2.2</span> 2.2.2 Quantis</h3>
+<section id="quantis" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="quantis"><span class="header-section-number">2.3.1</span> 2.2.2 Quantis</h3>
 <p>Lembremos que a função de distribuição <span class="math inline">\(F\)</span> é contínua à direita e que o número de descontinuidades é, no máximo, enumerável. Estas são propriedades importantes que farão toda diferença na definição dos quantis amostrais, por isso, demonstraremos as propriedades mencionadas da função de distribuição. A prova de que <span class="math inline">\(F\)</span> é contínua à direita advém do seguinte fato F (x + hn) − <span class="math inline">\(F\)</span> (x) = P (x &lt; X ≤ x + hn), onde {hn} é uma sequência de números reais estritamente positivos tais que limn→∞ hn = 0. Segue, da propriedade de continuidade da função de probabilidade,1 que lim [F (x + hn) F (x)] = 0, n→∞ e, portanto, <span class="math inline">\(F\)</span> é contínua à direita. Definamos por D o conjunto dos pontos de descontinuidade de <span class="math inline">\(F\)</span> e seja D = {x ∈ D : P (X = x) ≥ 1 } , onde n é um inteiro positivo. Dado que <span class="math inline">\(F\)</span> ( ) F ( ) = 1, o número de elementos em Dn não pode exceder n.&nbsp;Logicamente ∞ D = Dn n=1 e, então, o conjunto D é enumerável. Demonstrando-se assim a segunda propriedade importante mencionada da função de distribuição. Definimos a seguir o conceito de quantil teórico e depois mostramos a forma de cálculo.</p>
 <p>1A função de distribuição é contínua, devido a que P lim n→∞</p>
 <p>An = lim n→∞</p>
@@ -630,8 +700,8 @@ n!, &amp; \text{se } 0 &lt; x_{(1)} &lt; x_{(2)} &lt; \cdots &lt; x_{(n)}) \\
 <p>Então, qualquer valor a x b poderia ser escolhido como x = <span class="math inline">\(F\)</span> −1(y). A convenção é que, neste caso, definimos F −1(y) = a. Em particular ξ1/2 = <span class="math inline">\(F\)</span> −1(1/2), (2.10) é chamada de mediana de <span class="math inline">\(F\)</span> . Observemos que ξp satisfaz a desigualdade F (ξp− ) ≤ p ≤ <span class="math inline">\(F\)</span> (ξp)· Exemplo 2.14 (Continuação do Exemplo 2.13) Caso p = 1/2, a mediana amostral será ξ1/2 = −ln(1/2) = 0.6931472.</p>
 </section>
 </section>
-<section id="momentos-amostrais" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="momentos-amostrais"><span class="header-section-number">2.3</span> Momentos amostrais</h2>
+<section id="momentos-amostrais" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="momentos-amostrais"><span class="header-section-number">2.4</span> Momentos amostrais</h2>
 <p>Nesta seção vamos estudar algumas estatísticas amostrais comumente utilizadas e suas distribuições.</p>
 <p>Observemos que nFn(x) é o número de Xk (1 ≤ k ≤ n) menores ou iguais a x. Se X_{(1)}, X_{(2)}, , X_{(n)} são as estatísticas de ordem de <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> então claramente</p>
 <p>Fn(x) =  </p>
@@ -1043,16 +1113,16 @@ Na segunda derivada, escolhendo u = µ + e−h(1 − µ ) 0 &lt; u &lt; 1. Porta
 <p>N (ξ , 1 p(1 − p)) , onde ξp é o correspondente quantil populacional e <span class="math inline">\(F\)</span> é a função de densidade populacional. Por exemplo, suponha temos uma amostra aleatória da di√stribuição N (µ, σ2) de tamanho n.&nbsp;Seja ξb1/2 a mediana amostral obtida dessa b ( πσ2 )</p>
 <p>Também devemos ter em consideração que para demonstrarmos o Teorema 2.23 utilizamos a Teorema de Berry- Esseen, o qual depende da existência dos primeiros dois momentos da variável aleatória. Com isso, caso X Cauchy(µ, σ), o Teorema 2.23 não se aplica.</p>
 </section>
-<section id="gráficos-descritivos" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="gráficos-descritivos"><span class="header-section-number">2.4</span> Gráficos descritivos</h2>
+<section id="gráficos-descritivos" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="gráficos-descritivos"><span class="header-section-number">2.5</span> Gráficos descritivos</h2>
 <p>Vejamos alguns conjuntos de dados disponíveis na linguagem de programação R (R Core Team, 2014), especifi- camente na libraria datasets, que nos permitiram mostrar a utilidade dos momentos amostrais para resumir as informações contidas nos dados. Para consultar estes conjuntos de dados basta digitar library(help = “datasets”) Alguns dos diversos exemplos disponíveis serão apresentados aqui.</p>
 <p><strong>Exemplo 2.22</strong> (Puromicina)</p>
 <p>Os dados sobre a velocidade de uma reação enzimática são obtidos por Treloar (1974) e disponíveis no arquivo de dados Puromycin. O número de contagens por minuto de produto radioativo a partir da reação foi medida como uma função da concentração do substrato em partes por milhão (ppm) e a partir destas contagens a taxa</p>
 <p>inicial (ou velocidade) da reação foi calculada (contagens/min/min). O experimento foi realizado uma vez com a enzima tratada com puromicina e depois com a enzima não tratada. A estrutura destes dados tem 23 linhas e 3 colunas, cada coluna contendo as informações das variáveis: conc: um vector numérico de concentrações de substrato (ppm); rate: um vector numérico de taxas de reação instantânea (contagens/min/min); state: um fator com níveis treated (tratada) ou untreated (não tratada). Para a leitura e observação dos nomes das variáveis utilizamos os comandos a seguir: data(Puromycin) names(Puromycin) Uma maneira de obtermos estatísticas descritivas é utilizando as linhas de comando a seguir: summary(rate[state==’treated’]) Min. 1st Qu. Median Mean 3rd Qu. Max. 47.0 104.5 145.5 141.6 193.2 207.0 e summary(rate[state==’untreated’]) Min. 1st Qu. Median Mean 3rd Qu. Max. 51.0 85.0 115.0 110.7 137.5 160.0 para o caso da variável rate, as concentrações, obtidas as estatísticas descritivas segundo os níveis do fator state, se as concentrações foram ou não tratadas com puromicina. No caso das estatísticas descritivas acerca das concentrações de substrato, variável conc, temos: summary(conc[state==’treated’]) Min. 1st Qu. Median Mean 3rd Qu. Max. 0.020 0.060 0.165 0.345 0.560 1.100 e summary(conc[state==’untreated’]) Min. 1st Qu. Median Mean 3rd Qu. Max. 0.0200 0.0600 0.1100 0.2764 0.3900 1.1000 Os valores mínimos é máximos foram registrados sempre com os nomes de Min. e Max., respectivamente. O primeiro e terceiro quantis ou quantis de 25% e 75% respectivos são registrados com os nomes 1st Qu. e 3rd Qu. e, finalizando, o resumo de informações de estatísticas de posição temos os valores de medianas (Median) e médios (Mean).</p>
 <p><strong>Exemplo 2.23</strong> (Rock )</p>
 <p>Medições em 48 amostras de rochas de um reservatório de petróleo estão disponíveis no arquivo de dados rock. Este conjunto de dados contem 48 linhas e 4 colunas numéricas, descritas a seguir: area área do espaço de poros, em pixels de 256 por 256; peri perímetro em pixels; shape perímetro/sqrt(area) perm permeabilidade em mili-Darcies. Doze amostras do núcleo de reservatórios de petróleo foram amostrados por 4 seções transversais. Cada amostra foi medida no núcleo para a permeabilidade e cada seção transversal tem uma área total de poros, perímetro total de poros e forma. A fonte destes dados é a BP Research e a análise das imagens foi de Ronit Katz, Oxford University. Na geologia, a permeabilidade é a medida da capacidade de um material (tipicamente uma rocha) para transmitir fluídos. E´ de grande importância na determinação das características de fluxo dos hidrocarbonetos em reservatórios de petróleo e gás e da água nos aquíferos. A unidade de permeabilidade é o Darcy ou, mais habitualmente, o mili- Darcy ou mD.</p>
-<section id="gráfico-de-boxplot" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="gráfico-de-boxplot"><span class="header-section-number">2.4.1</span> 2.4.1 Gráfico de Boxplot</h3>
+<section id="gráfico-de-boxplot" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="gráfico-de-boxplot"><span class="header-section-number">2.5.1</span> 2.4.1 Gráfico de Boxplot</h3>
 <p>Em 1977, John Tukey (Tukey, 1977) publicou uma proposta que posteriormente foi reconhecida como sendo um eficiente método para mostrar cinco número que sumarizam qualquer conjunto de dados. O gráfico proposto é chamado de boxplot (também conhecido como box and whisker plot) e resume as seguintes medidas de posição estatísticas: mediana, quantis inferior e superior e os valores mínimos e máximos. Os quantis inferior e superior entendem-se serem os quantis de 25% e 75%, respectivamente. No caso do exemplo 2.22, deixamos a disposição os dados digitando attach(Puromycin) e com isso podemos mudar o nome dos níveis do fator da forma state=factor(state,labels=c(’Tratada’,’N~ao tratada’)) Então, com os comandos a seguir geramos o gráfico de boxplot, tanto para a variável rate quanto para a variável conc, estas segundo os níveis do fator state. par(mar=c(5,4,3,1)) boxplot(rate ~ state, col = grey(c(0.4,1)), main=’Taxas de reaç~ao instant^anea’)</p>
 <p>para o caso do rate. Observemos que a primeira linha par(mar=c(5,4,3,1)) serve somente para dimensionar a janela gráfica. Para o caso da variável conc utilizamos comandos semelhantes. par(mar=c(5,4,3,1)) boxplot(conc ~ state, col = grey(c(0.4,1)), main=’Concentraç~oes de substrato’) O resultado deste trabalho pode ser observado na Figura 2.3. Interpretemos o gráfico de boxplot. A caixa (box) propriamente contém a metade 50% dos data. O limite superior da caixa indica o percentil 75% dos dados e o limite inferior da caixa indica o percentil 25%. A distancia entre esses dois quantis é conhecida como inter-quantil. A linha na caixa indica o valor de mediana dos dados. Se a linha mediana dentro da caixa não é equidistante dos extremos, diz-se então que os dados são assimétricos. O boxplot da variável rate (esquerda na Figura 2.3) é um exemplo de dados simétricos já a situação da variável conc (direita na Figura 2.3) é um caso clássico de assimetria dos dados. Os extremos do gráfico indicam os valores mínimo e máximo, a menos que valores outliers3 estejam presentes, nesse caso o gráfico de estende ao máximo de 1.5 vezes da distância inter-quantil. Os pontos fora do gráfico são então outliers ou suspeitos de serem outliers. Mais elegante seria utilizar a biblioteca de funções ggplot2, para isso, digitamos: library(ggplot2) Para gerar os gráficos de boxplot respectivos, fazemos: par(mar=c(5,4,3,1)) qplot(state, rate, geom=c(“boxplot”, “jitter”), main=“Taxas de reaç~ao instant^anea”, xlab=““, ylab=” “) e par(mar=c(5,4,3,1)) qplot(state, conc, geom=c(”boxplot”, “jitter”), main=“Concentraç~oes de substrato”, xlab=““, ylab=” “)</p>
 <p>3Em estatística, outlier, valor aberrante ou valor atípico, é uma observação que apresenta um grande afastamento das demais observações em uma amostra. A existência de outliers implica, tipicamente, em prejuízos a interpretação dos resultados dos testes estatísticos aplicados as amostras.</p>
@@ -1092,8 +1162,8 @@ Na segunda derivada, escolhendo u = µ + e−h(1 − µ ) 0 &lt; u &lt; 1. Porta
 <p>Tratada Não tratada</p>
 <p>Figura 2.6: Gráfico de violin plot da variável rate à esquerda e da variável conc à direita, segundo os níveis do fator state, se a enzima foi tratada ou não com puromicida. Gráfico gerado utilizando a função R qplot, opção geom=c(”vioplot”, ”jitter”), notch=TRUE.</p>
 </section>
-<section id="histograma" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="histograma"><span class="header-section-number">2.4.2</span> 2.4.2 Histograma</h3>
+<section id="histograma" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="histograma"><span class="header-section-number">2.5.2</span> 2.4.2 Histograma</h3>
 <p>Um histograma é uma representação gráfica da função de probabilidades ou da função de densidade de um conjunto de dados independentes e foi introduzido pela primeira vez por Karl Pearson4. A representação mais comum do histograma é um gráfico de barras verticais. A palavra histograma é de origem grega, derivada de duas: histos que pode significar testemunha no sentido de aquilo que se vê, como as barras verticais do histograma, e da também palavra grega gramma que significa desenhar, registrar ou escrever. Histograma Histograma com a curva norma</p>
 <p>−2 −1 0 1 2 Dados simulados</p>
 <p>−2 −1 0 1 2 Dados simulados</p>
@@ -1133,8 +1203,8 @@ Na segunda derivada, escolhendo u = µ + e−h(1 − µ ) 0 &lt; u &lt; 1. Porta
 <p>0 1000 2000 3000 4000 Ca</p>
 <p>Figura 2.11: Diferentes histogramas da variável Ca no Exemplo 2.24.</p>
 </section>
-<section id="gráficos-para-verificar-normalidade" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="gráficos-para-verificar-normalidade"><span class="header-section-number">2.4.3</span> 2.4.3 Gráficos para verificar normalidade</h3>
+<section id="gráficos-para-verificar-normalidade" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="gráficos-para-verificar-normalidade"><span class="header-section-number">2.5.3</span> 2.4.3 Gráficos para verificar normalidade</h3>
 <p>Um primeiro gráfico chamado de qq-norm permite a comparação de duas distribuições de probabilidades traçando seus quantis uns contra os outros. Depois exploramos um gráfico mais recente, conhecido como worm plot (gráfico de minhoca), consistindo numa determinada coleção de de qq-norm.</p>
 <p>QQ-norm O gráfico quantil-quantil ou qq-plot, proposto por Wilk &amp; Gnanadesikan (1968), é um dispositivo gráfico explo- ratório utilizado para verificar a validade de um pressuposto de distribuição para um conjunto de dados. Em geral, a ideia básica é a de calcular o valor teoricamente esperado para cada ponto de dados com base na distribuição em questão. Se os dados de fato seguirem a distribuição assumida os pontos deste gráfico formarão aproximadamente uma linha reta. Percebemos que podemos verificar com este gráfico qualquer densidade contínua, eventualmente pode ser uti- lizado também para funções de probabilidade. O qq-plot vai apresentar-se como uma linha reta se a densidade assumida estiver correta. Vejamos o caso particular de verificarmos se a densidade é normal, nesta situação o gráfico qq-plot será chamado de qq-norm. Primeiro consideraremos a situação da densidade normal padrão. Seja z1, z2, , zn uma amostra aleatória de uma distribuição normal com média µ = 0 e desvio padrão σ = 1. As estatísticas de ordem amostrais são z_{(1)} ≤ z_{(2)} ≤ ≤ z_{(n)}· Estes valores desempenharão o papel dos quantis da amostra. Agora, quais devemos tomar como os quantis teóricas correspondentes? Se a função de distribuição cumulada da densidade normal padrão fosse denotada por Φ, usando a notação quantil, se ξq é o q-ésimo quantil de uma distribuição normal, então Φ(ξq) = q, ou seja, a probabilidade de uma amostra normal ser inferior a ξq é, de fato, apenas q. Considere o primeiro valor ordenado z_{(1)}. O que podemos esperar que o valor Φ(z_{(1)}) seja? Intuitivamente, esperamos que essa seja a probabilidade de assumir um valor no intervalo (0, 1/n). Do mesmo modo, espera-se que Φ(z_{(2)}) seja a probabilidade de assumir um valor no intervalo (1/n, 2/n). Continuando, esperamos que Φ(z_{(n)}) seja a probabilidade de assumir um valor no intervalo (n 1)/n, 1). Assim, o quantil teórico desejamos seja definido pelo inverso da função de distribuição acumulada normal padrão. Em particular, o quantil teórico correspondente ao quantil empírico z_{(i)} deve ser</p>
 <p>para i = 1, 2, , n.</p>
@@ -1171,8 +1241,8 @@ Na segunda derivada, escolhendo u = µ + e−h(1 − µ ) 0 &lt; u &lt; 1. Porta
 <p>Na Figura 2.16, a esquerda temos o caso de dados com distribuição χ2(5) e a direita dados com distribuição Cauchy padrão. Nestas situações fica claro que os dados não são normais. Oa gráficos na figura foram gerados pelas linhas de comando a seguir. x=rchisq(1000, df=5) wp(gamlss(x~1), cex=0.6) x=rcauchy(1000) wp(gamlss(x~1), cex=0.6)</p>
 </section>
 </section>
-<section id="exercícios" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">2.5</span> Exercícios</h2>
+<section id="exercícios" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">2.6</span> Exercícios</h2>
 <p>Exercícios da Seção 2.1 1. Seja X ∼ Bernoulli( 1 ) e considere todas as possíveis amostras aleatórias de tamanho n = 3. Calcule Xn e S2 cada uma das</p>
 <p>2 n oito amostras. Encontre a função de probabilidade de Xn e S2. 2. Um dado é lançado. Seja X o valor da face superior que aparece e X1, X2 duas observações independentes de X. Encontre a função de probabilidade de Xn. 3. Seja X1, , Xn uma amostra aleatória de alguma população. Mostre que (n − 1)Sn</p>
 <p>max |Xi Xn| &lt; 1≤i≤n</p>
@@ -1184,11 +1254,11 @@ Na segunda derivada, escolhendo u = µ + e−h(1 − µ ) 0 &lt; u &lt; 1. Porta
 <ol type="a">
 <li>Mostre que X(s) e X(r) − X(s) são independentes para quaisquer r &gt; s.</li>
 <li>Encontre a função de densidade de X(r+1) − X(r).</li>
-<li>Seja Z1 = nX_{(1)}, Z2 = (n − 1)(X_{(2)} − X_{(1)}), Z3 = (n − 2)(X_{(3)} − X_{(2)}), …, Zn = ((X_{(n)} − X(n−1))). Prove que (Z1, Z2, , Zn) e (<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>) são identicamente distribuídas.</li>
+<li>Seja Z1 = nX_{(1)}, Z2 = (n − 1)(X_{(2)} − X_{(1)}), Z3 = (n − 2)(X_{(3)} − X_{(2)}), …, Zn = ((X_{(n)} − X(n−1))). Prove que (Z1, Z2, , Zn) e <span class="math inline">\((X_1, X_2, \cdots , X_n)\)</span> são identicamente distribuídas.</li>
 </ol>
 <ol start="2" type="1">
 <li>Provar o Teorema 2.1</li>
-<li>Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias com distribuição geométrica de parâmetros p1, p2, , pn, respectivamente. Prove que Nn = min(<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>) têm também distribuição geométrica de parâmetro n p = 1 − (1 − pi)· i=1</li>
+<li>Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias com distribuição geométrica de parâmetros p1, p2, , pn, respectivamente. Prove que Nn = min<span class="math inline">\((X_1, X_2, \cdots , X_n)\)</span> têm também distribuição geométrica de parâmetro n p = 1 − (1 − pi)· i=1</li>
 <li>As X1, , Xn variáveis aleatórias independentes e identicamente distribuídas tem por função de probabilidade BN (1; p) se, e somente se, Nn = min(X1, , Xn) tem distribuição geométrica de parâmetro 1 − (1 − p)n.</li>
 <li>Sejam <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> variáveis aleatórias independentes e igualmente distribuídas com função de densidade comum</li>
 </ol>
@@ -1200,7 +1270,7 @@ Na segunda derivada, escolhendo u = µ + e−h(1 − µ ) 0 &lt; u &lt; 1. Porta
 <p>para α &gt; 0. Mostre que X_{(i)}/X_{(n)}, i = 1, 2, , n − 1 e X_{(n)} são independentes. 7. Sejam X1 e X2 duas variáveis aleatórias discretas independentes com função de probabilidade comum P (X = x) = (1 − )x−1, x = 1, 2, ; 0 &lt; &lt; 1· Mostre que X_{(1)} e X_{(2)} − X_{(1)} são independentes. 8. Sejam X1, , Xn duas variáveis aleatórias independentes com função de densidade comum <span class="math inline">\(F\)</span> . Encontre a função de densidade de X_{(1)} e de X_{(n)}.</p>
 <ol start="9" type="1">
 <li>Sejam X_{(1)}, X_{(2)}, , X_{(n)} as estatísticas de ordem de n variáveis aleatórias independentes e igualmente distribuídas <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> com função de densidade comum f (x) = 1 se 0 &lt; x &lt; 1 · 0, caso contrário Prove que Y1 = X_{(1)}/X_{(2)}, Y2 = X_{(2)}/X_{(3)}, , Yn−1 = X(n−1)/X_{(n)} e Yn = X_{(n)} são independentes. Encontre a função de densidade conjunta de Y1, Y2, , Yn.</li>
-<li>Sejam X1.X2, , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| &lt; ∞, então E|X(r)| &lt; ∞. Definamos Mn = X_{(n)} = max(<span class="math inline">\(X_1, X_2, \cdots , X_n\)</span>). Mostre que ∫ ∞</li>
+<li>Sejam X1.X2, , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| &lt; ∞, então E|X(r)| &lt; ∞. Definamos Mn = X_{(n)} = max<span class="math inline">\((X_1, X_2, \cdots , X_n)\)</span>. Mostre que ∫ ∞</li>
 </ol>
 <p>Encontre E(Mn) em cada uma das seguintes situações: a) Xk tem como função de distribuição comum <span class="math inline">\(F\)</span> (x) = 1 − e−xβ, se x ≥ 0. b) Xk tem como função de distribuição comum <span class="math inline">\(F\)</span> (x) = x, se 0 &lt; x &lt; 1.</p>
 <ol start="11" type="1">

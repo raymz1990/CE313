@@ -66,22 +66,22 @@ sendo este o valor assumido pela variável aleatória $S_{5}^{2}$.
 
 ##	Estatísticas de ordem
 
-Seja ($X_1, X_2, \cdots , X_n$) um vetor aleatório n-dimensional e ($x_1, x_2, \cdots , x_n$) uma $n$-tupla assumida por ($X_1, X_2, \cdots , X_n$). Vamos organizar $x_1, x_2, \cdots , x_n$ em ordem crescente de magnitude, para que
+Seja $(X_1, X_2, \cdots , X_n)$ um vetor aleatório n-dimensional e $(x_1, x_2, \cdots , x_n)$ uma $n$-tupla assumida por $(X_1, X_2, \cdots , X_n)$. Vamos organizar $x_1, x_2, \cdots , x_n$ em ordem crescente de magnitude, para que
 $$x_{(1)}\le x_{(2)} \le \cdots ≤ x_{(n)},$$
-onde $x_{(1)}$ = min($x_1, x_2, \cdots , x_n$), $x_{(2)}$ é o segundo menor valor em $x_1, \cdots , x_n$ e assim por diante, $x_{(n)}$ = max($x_1, \cdots , x_n$). Se quaisquer dois $x_i$, $x_j$ forem iguais, a ordem não importa.
+onde $x_{(1)}$ = min$(x_1, x_2, \cdots , x_n)$, $x_{(2)}$ é o segundo menor valor em $x_1, \cdots , x_n$ e assim por diante, $x_{(n)}$ = max$(x_1, \cdots , x_n)$. Se quaisquer dois $x_i$, $x_j$ forem iguais, a ordem não importa.
  
 >
 **Definição**.
-A função $X_{(k)}$ de ($X_1, \cdots ,X_n$) que assume o valor $x_{(k)}$ em cada possível sequência ($x_1, x_2, \cdots , x_n$) de valores assumidos por ($X_1,X_2, \cdots , X_n$) é conhecida como a $k$-ésima estatística de ordem ou a estatística de ordem $k$.
-O conjunto ($X_{(1)},X_{(2)}, \cdots , X_{(n)}$) é chamado de estatísticas de ordem para ($X_1, X_2, \cdots , X_n$).
+A função $X_{(k)}$ de $(X_1, \cdots ,X_n)$ que assume o valor $x_{(k)}$ em cada possível sequência $(x_1, x_2, \cdots , x_n)$ de valores assumidos por $(X_1,X_2, \cdots , X_n)$ é conhecida como a $k$-ésima estatística de ordem ou a estatística de ordem $k$.
+O conjunto $(X_{(1)},X_{(2)}, \cdots , X_{(n)})$ é chamado de estatísticas de ordem para $(X_1, X_2, \cdots , X_n)$.
 
 
-**Exemplo**. Consideremos $X_1$, $X_2$, $X_3$ três variáveis aleatórias discretas de maneira que, $X_1$ e $X_3$ sejam tais que assumam somente valores 0, 1 e que $X_2$ assuma valores 1, 2, 3. O vetor aleatório ($X_1$, $X_2$, $X_3$) assume os valores: (0, 1, 0), (0, 2, 0), (0, 3, 0), (0, 1, 1), (0, 2, 1), (0, 3, 1), (1, 1, 0), (1, 2, 0), (1, 3, 0), (1, 1, 1), (1, 2, 1) e (1, 3, 1). Então $X_{(1)}$ assume somente valores 0 ou 1; $X_{(2)}$ assume somente valores 0 ou 1 e $X_{(3)}$ assume somente valores 1, 2 ou 3.
+**Exemplo**. Consideremos $X_1$, $X_2$, $X_3$ três variáveis aleatórias discretas de maneira que, $X_1$ e $X_3$ sejam tais que assumam somente valores 0, 1 e que $X_2$ assuma valores 1, 2, 3. O vetor aleatório $(X_1$, $X_2$, $X_3)$ assume os valores: (0, 1, 0), (0, 2, 0), (0, 3, 0), (0, 1, 1), (0, 2, 1), (0, 3, 1), (1, 1, 0), (1, 2, 0), (1, 3, 0), (1, 1, 1), (1, 2, 1) e (1, 3, 1). Então $X_{(1)}$ assume somente valores 0 ou 1; $X_{(2)}$ assume somente valores 0 ou 1 e $X_{(3)}$ assume somente valores 1, 2 ou 3.
 
 ::: {.callout-note appearance="simple"}
-## Teorema
+## Teorema 2.1
 
-Seja ($X_{(1)}, X_{(2)}, \cdots , X_{(n)}$) um vetor aleatório de dimensão $n$ e seja $X_{(k)}, 1 \le k \le n$, a $k$-ésima estatística de ordem. Então $X_{(k)}$ é também uma variável aleatória.
+Seja $(X_{(1)}, X_{(2)}, \cdots , X_{(n)})$ um vetor aleatório de dimensão $n$ e seja $X_{(k)}, 1 \le k \le n$, a $k$-ésima estatística de ordem. Então $X_{(k)}$ é também uma variável aleatória.
 :::
 
 **Exercício**. Na apresentação dos resultados a seguir assumiremos que $X_1, X_2, \cdots , X_n$ são variáveis aleatórias independentes e igualmente distribuídas contínuas com função de densidade $f$ . Seja $\{ X_{(1)}, X_{(2)}, \cdots , X_{(n)} \}$ o conjunto das estatística de ordem para $X_1, X_2, \cdots , X_n$. Dado que todas as $X_i$ são contínuas segue que, com probabilidade 1
@@ -89,12 +89,12 @@ $$X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}·$$
 
 ### Propriedades das estatísticas de ordem
 
-Começaremos o estudo das propriedades encontrando a função de densidade conjunta de ($X_{(1)}, X_{(2)}, \cdots , X_{(n)}$).
+Começaremos o estudo das propriedades encontrando a função de densidade conjunta de $(X_{(1)}, X_{(2)}, \cdots , X_{(n)})$.
 
 ::: {.callout-note appearance="simple"}
-## Teorema
+## Teorema 2.2
 
-Sejam $X_1, \cdots, X_n$ variáveis aleatórias contínuas independentes, igualmente distríbuidas com densidade $f$. A função de desindade conjunta de ($X_{(1)}, \cdots, X_{(n)}$) é dada por
+Sejam $X_1, \cdots, X_n$ variáveis aleatórias contínuas independentes, igualmente distríbuidas com densidade $f$. A função de desindade conjunta de $(X_{(1)}, \cdots, X_{(n)})$ é dada por
 $$
 f(x_{(1)}, \ldots, x_{(n)}) = 
 \begin{cases} 
@@ -105,7 +105,7 @@ $$
 
 :::
 
-**Demonstração**: A transformação de ($X_1, \cdots , X_n$) a ($X_{(1)}, \cdots , X_{(n)}$) não é biunívoca. De fato, existem um total de $n!$ possíveis arranjos de $x_1, \cdots , x_n$ em ordem crescente de magnitude. Assim, existem $n!$ inversas para a transformação.
+**Demonstração**: A transformação de $(X_1, \cdots , X_n)$ a $(X_{(1)}, \cdots , X_{(n)})$ não é biunívoca. De fato, existem um total de $n!$ possíveis arranjos de $x_1, \cdots , x_n$ em ordem crescente de magnitude. Assim, existem $n!$ inversas para a transformação.
 
 Por exemplo, uma das $n!$ permutações pode ser
 $$
@@ -149,264 +149,203 @@ Então a função de densidade conjunta de $X_{(1)}, X_{(2)}, \cdots , X_{(n)}$ 
 $$
 f(x_{(1)}, \ \cdots, \ x_{(n)}) = 
 \begin{cases} 
-n!, & \text{se } 0 < x_{(1)} < x_{(2)} < \cdots < x_{(n)}) \\
+n!, & \text{se } 0 < x_{(1)} < x_{(2)} < \cdots < x_{(n)} \\
 0, & \text{caso contrário}
 \end{cases}.
 $$
  
-Estamos confiados que como resultado do Teorema temos funções de densidade. Vejamos neste exemplo se isso é realmente acontece. Consideremos, para simplificar, o caso $n$ = 3 e verifiquemos se a integral da função de densidade em é 1. Então
+Estamos confiados que como resultado do Teorema 2.2 temos funções de densidade. Vejamos neste exemplo se isso é realmente acontece. Consideremos, para simplificar, o caso $n$ = 3 e verifiquemos se a integral da função de densidade é 1. Então
 
+$$
+\begin{align*}
+\int \int\limits_\mathbb{R} \int f(x_{(1)},x_{(2)},x_{(3)}) \ dx_{(1)}dx_{(2)}dx_{(3)})
+& = 6 \int_{0}^1 \left[\int_{x_{(1)}}^1 \left(\int_{x_{(2)}}^1 dx_{(3)} \right) dx_{(2)} \right] dx_{(1)} \\
+& = 6 \int_{0}^1 \left[\int_{x_{(1)}}^1 \left(1 - x_{(2)} \right) dx_{(2)} \right] dx_{(1)} \\
+& = 6 \int_{0}^1 \left[\frac{1}{2} - x_{(1}) + \frac{x^2_{(1)}}{2} \right] dx_{(1)} = 1. \\
+\end{align*}
+$$
 
- 
-∫∫∫
- 
-
-
-f (x_{(1)}, x_{(2)}, x_{(3)}) dx_{(1)} dx_{(2)} dx_{(3)}	=  6
- 
-∫ 1 [∫ 1
- 
-(∫ 1
- 
-dx_{(3)})
- 
-dx_{(2)}]
- 
-
-dx_{(1)}
- 
-0
-1
-=  6
-0
- 
-x_{(1)}
-[ x_{(1)}
- 
-x_{(2)}
-(1 − x_{(2)})
- 
-dx_{(2)}]
- 
-
-
-dx_{(1)}
- 
-1	1
-=  6	− x_{(1)}
- 
- x2
-+	_{(1)}
-2
- 
-
-dx_{(1)}
- 
-= 1·
- 
-0
 Um detalhe interessante é que esta e outras propriedades demonstradas aqui somente são válidas quando as variáveis aleatórias são contínuas. Isso não significa que estatísticas de ordem não possam ser definidas no caso discreto. O que estamos dizendo é que estas propriedades somente podem ser demonstradas no caso contínuo.
 
-**Exemplo 2.5**
-Consideremos a situação em que temos somente três variáveis aleatórias independentes X1, X2 e X3 com
- 
+**Exemplo**.
+Consideremos a situação em que temos somente três variáveis aleatórias independentes $X_1$, $X_2$ e $X_3$ com distribuição geométrica de parâmetro $p$, isto é,
 
-distribuição geométrica de parâmetro p, isto é,
-P (X = x; p) = (1 − p)px,	x = 0, 1, 2, \cdots
-Encontremos P (X_{(1)} < X_{(2)} < X_{(3)}).
+$$
+P (X = x; p) = (1 − p)p^x, \ \ \ \ \ 	x = 0, 1, 2, \cdots
+$$
+Encontremos $P (X_{(1)} < X_{(2)} < X_{(3)})$.
 Nesta situação a probabilidade requerida pode ser escrita como:
-P (X_{(1)} < X_{(2)} < X_{(3)})  =  1 − P (X1 = X2 ̸= X3) − P (X1 = X3 ̸= X2)
-−P (X2 = X3 ̸= X1) − P (X1 = X2 = X3)
+$$
+\begin{align*}
+P (X_{(1)} < X_{(2)} < X_{(3)})  =  1 − P (X_1 = X_2 \neq X_3) − P (X_1 = X_3 \neq X_2) \\
+−P (X_2 = X_3 \neq X_1) − P (X_1 = X_2 = X_3)
+\end{align*}
+$$
 a qual pode ser escrita como
-P (X_{(1)} < X_{(2)} < X_{(3)}) = 1 − 3P (X1 = X2 ̸= X3) − P (X1 = X2 = X3)
-= 1 − 3 [P (X1 = X2) − P (X1 = X2 = X3)] − P (X1 = X2 = X3)
-= 1 − 3P (X1 = X2) + 2P (X1 = X2 = X3)·
-
+$$
+\begin{align*} 
+P (X_{(1)} < X_{(2)} < X_{(3)}) 
+& = 1 − 3P (X_1 = X_2 \neq X_3) − P (X_1 = X_2 = X_3) \\
+& = 1 − 3 [P (X_1 = X_2) − P (X_1 = X_2 = X_3)] − P (X_1 = X_2 = X_3) \\
+& = 1 − 3P (X_1 = X_2) + 2P (X_1 = X_2 = X_3)· \\
+\end{align*}
+$$
  
 Não é difícil perceber que
-
+$$
+P(X_1 = X_2) = \frac{(1-p)^2}{1-p^2},
+$$
 
 e que
- 
-
-P (X1 = X2) =
- 
-
-(1	p)2
-1 − p2 ,
-(1 − p)3
- 
+$$
+P(X_1 = X_2 = X_3) = \frac{(1-p)^3}{1-p^3},
+$$
 
 do qual obtemos que
- 
-P (X1 = X2 = X3) =
- 
-1 − p3 ,
-
-6p3
- 
-P (X_{(1)} < X_{(2)} < X_{(3)}) = (1 − p)(1 + p + p2)·
+$$
+P(X_{(1)} = X_{(2)} = X_{(3)}) = \frac{6p^3}{(1-p)(1+p+p^2)}.
+$$
 As propriedades das estatísticas de ordem que serão demonstradas valerão somente caso as variáveis sejam contínuas. Isto deve-se a que, caso as variáveis sejam discretas, a probabilidade
 
-P (X_{(1)} = X_{(2)} = \cdots = X_{(n)}) ̸= 0,
+$$
+P (X_{(1)} = X_{(2)} = \cdots = X_{(n)}) \neq 0,
+$$
 
 como vai ser mostrado no seguinte exemplo. Acontece que o fato da probabilidade das estatística de ordem poderem coincidir, com probabilidade diferente de zero, altera a estrutura da demonstração e não nos permite obtermos estes resultados para o caso discreto.
 
-**Exemplo 2.6**
+**Exemplo**.
 Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes assumindo somente 0 e 1 com probabilidade 1/2. Observemos que
-
-n	n
-P (X_{(1)} = X_{(2)} = \cdots = X_{(n)})  =  ∏ P (X(k) = 0) + ∏ P (X(k) = 1)
- 
-k=1 n
-=	P (Xk
-k=1
- 
-k=1 n
-= 0) +	P (Xk
-k=1
- 
- 1 
-= 1) = 2n−1 ·
- 
+$$
+\begin{align*}
+P(X_{(1)} = X_{(2)} = \cdots = X_{(n)})
+& = \prod\limits_{k=1}^{n} P(X_{(k)} = 0) + \prod\limits_{k=1}^{n} P(X_{(k)} = 1)  \\
+& = \prod\limits_{k=1}^{n} P(X_{(k)} = 0) + \prod\limits_{k=1}^{n} P(X_{k} = 1) = \frac{1}{2^{n-1}} . \\
+\end{align*}
+$$
 
 Estudemos agora o comportamento marginal, ou seja, nos interessa agora encontrar a função de distribuição marginal de cada estatística de ordem.
  
+::: {.callout-note appearance="simple"}
+## Teorema 2.3
 
+Sejam $X_1, \cdots, X_n$ variáveis aleatórias contínuas independentes e igualmente distribuídas e $(X_{(1)}, \cdots, X_{(n)})$ as estatísticas de ordem. A função de densidade marginal de $X_{(r)}$ é dada por
+$$
+f_r(x_{(r)}) = \frac{n!}{(r-1)!(n-r)!}[F(x_{(r)})]^{r-1}[1-F(x_{(r)})]^{n-r}f(x_{(r)}),
+$$
+onde $F$ é a função de distribuição comum de $X_1, \cdots, X_n$.
+:::
  
-Demonstração : Partimos da expressão da função de densidade conjunta das estatísticas de ordem obtida no Teorema
-2.2. Então,
- 
+Demonstração : Partimos da expressão da função de densidade conjunta das estatísticas de ordem obtida no Teorema 2.2. Então,
 
-fr(x(r))  =  n!f (x(r))
- 
-∫ x(r) ∫ x(r−1)
- 
+$$
+\begin{align*}
+f_r(x_{(r)}) 
+& = n!f(x_{(r)})  
+\int_{-\infty}^{x_{(r)}} \int_{-\infty}^{x_{(r-1)}} \cdots
+\int_{-\infty}^{x_{(2)}} \int_{x_{(r)}}^{+\infty} \int_{x_{(r+1)}}^{+\infty} \cdots
+\int_{x_{(n-1)}}^{+\infty}
+\prod\limits_{i \neq r}^{n} f(t_i) \ 
+\text{d}t_n \cdots\text{d}t_{r+1} \ \text{d}t_{1} \cdots \text{d}t_{r-1}  \\
 
-\cdots
- 
-∫ x_{(2)} ∫ +∞ ∫ +∞
- 
-\cdots
- 
-∫ +∞ ∏
- 
+& = n!f(x_{(r)})
+\frac{[1-F(x_{(r)})]^{n-r}}{(n-r)!} 
+\int_{-\infty}^{x_{(r)}} \cdots
+\int_{x_{(-\infty)}}^{x_{(2)}}
+\prod\limits_{i =1}^{r-1} f(t_i) \ \text{d}t_i \\
 
-f (ti) dtn \cdots dtr+1 dt1 \cdots dtr−1
- 
-−∞	−∞
- 
-−∞	x(r)
- 
-x(r+1)
- 
-x(n−1) i̸=r
- 
-=  n!f (x(r))
- 
-[1 − $F$ (x(r))]n−r	x(r)
+& = n!f(x_{(r)})
+\frac{[1-F(x_{(r)})]^{n-r}}{(n-r)!} 
+\frac{[F(x_{(r)})]^{r-1}}
+{(r-1)!}.
 
+\end{align*}
+$$
  
-(n − r)!
- 
-\cdots
- 
-∫ x_{(2)} r∏−1
+Como utilidade deste teorema podemos mencionar o fato de agora podermos encontrar os momentos das estatística de ordem. Faremos isso como consequência do seguinte exemplo.
 
- 
-f (ti) dti
- 
-[1 − $F$ (x(r))]n−r [F (x(r))]r−1
- 
-=  n!f (x(r))
- 
-(n − r)!
- 
-·
-(r − 1)!
- 
+**Exemplo**.
+Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes $U$ (0, 1). Então
+$$
+f_r(x_{(r)}) =
+\begin{cases} 
+\frac{n!}{(r-1)!(n-r)!} x_{(r)}^{r-1}(1-x_{(r)})^{n-r}, 
+& \text{se } 0 < x_{(r)} < 1 \\
 
-Como utilidade deste teorema podemos mencionar o fato de agora podermos encontrar os momentos das es- tatística de ordem. Faremos isso como consequência do seguinte exemplo.
-
-**Exemplo 2.7**
-Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes U (0, 1). Então
- 
-fr(x(r)) = 
-
- 
-n!
-
- 
-(r − 1)!(n − r)!
- 
-xr−1(1 − x(r))n−r,  se	0 < x(r) < 1
-(1 ≤ r ≤ n)
-0,	caso contrário
- 
+& \ \ \ \ \ \ \ \ \ \  (1 \leq r \leq n) \\
+0, & \text{caso contrário}
+\end{cases}.
+$$
 
 Observemos que, na situação do exemplo acima,
-X(r) ∼ Beta(r, n − r + 1), logo, valem os resultados da distribuição Beta e, por exemplo,
-E(X(r)) = r/(n + 1)·
+
+$$
+X_{(r)} \sim \beta(r, n − r + 1),
+$$
+
+logo, valem os resultados da distribuição Beta e, por exemplo,
+
+$$
+E(X_{(r)}) = r/(n + 1)·
+$$
+
 Para uma densidade qualquer e somente quatro variáveis aleatórias a forma da densidade marginal, de uma qualquer estatística de ordem, é mostrada no seguinte exemplo.
 
-**Exemplo 2.8**
-Sejam X1, X2, X3, X4 variáveis aleatórias independentes com densidade comum f.	A função de densidade conjunta das estatísticas de ordem X_{(1)}, X_{(2)}, X_{(3)}, X_{(4)} é
+**Exemplo**.
+Sejam $X_1, X_2, X_3 ,X_4$ variáveis aleatórias independentes com densidade comum $f$.	A função de densidade conjunta das estatísticas de ordem $X_{(1)}, X_{(2)}, X_{(3)}, X_{(4)}$ é
 
- 
-f (x
- 
+$$ 
+f(x_{(1)}, x_{(2)}, x_{(3)}, x_{(4)}) =
+\begin{cases}
+4!f (x_{(1)})f (x_{(2)})f (x_{(3)})f (x_{(4)}),	
+& \text{se }	x_{(1)} < x_{(2)} < x_{(3)} < x_{(4)} \\
 
-_{(1)}
- 
-
-, x_{(2)}
- 
-
-, x_{(3)}
- 
-
-, x_{(4)}
- 
-) =	4!f (x_{(1)})f (x_{(2)})f (x_{(3)})f (x_{(4)}),	se	x_{(1)} < x_{(2)} < x_{(3)} < x_{(4)}  ·
-0,	caso contrário
+0,	
+& \text{caso contrário}
+\end{cases}.
+$$
  
 
-Vamos calcular a função de densidade marginal de X_{(2)}. Temos que, se x_{(1)} < x_{(2)} < x_{(3)} < x_{(4)} f2(x_{(2)})  =  4! ∫ ∫ ∫ ∫ $F$ (t1)f (x_{(2)})f (t3)f (t4) dt1 dt3 dt4
- 
+Vamos calcular a função de densidade marginal de $X_{(2)}$. Temos que, se $x_{(1)} < x_{(2)} < x_{(3)} < x_{(4)}$
 
-=  4!f (x_{(2)})
- 
-∫ x_{(2)} ∫ +∞ [∫ +∞
- 
-f (t4) dt4]
- 
+$$
+\begin{align*}
+f2(x_{(2)})
+& =  4! \int \int \int \int f(t_1) f(x_{(2)}) f(t_3) f(t_4)
+\ \text{d}t_1 \ \text{d}t_3 \ \text{d}t_4 \\
 
-f (t3)f (t1) dt3 dt1
- 
-−∞	x_{(2)}	t3
- 
+& =  4! f(x_{(2)}) 
+\int_{-\infty}^{x_{(2)}}
+\int_{2}^{+\infty}
+\left[\int_{t_3}^{+\infty} f(t_4) \ \text{d}t_4\right]
+f(t_3) f(t_1) \ \text{d}t_3 \ \text{d}t_1  \\
 
-=  4!f (x_{(2)})
- 
-∫ x_{(2)} {∫ +∞
- 
-[1 − $F$ (t3)]f (t3) dt3}
- 
-f (t1) dt1
- 
-−∞	x_{(2)}
- 
-=  4!f (x_{(2)})
- 
-x_{(2)} [1	F (x	)]2
-2	f (t1) dt1 = 4!f (x_{(2)})
- 
-[1	F (x	)]2
-2!	F (x_{(2)})·
+& =  4! f(x_{(2)}) 
+\int_{-\infty}^{x_{(2)}}
+\Biggl\{
+\int_{x_{(2)}}^{+\infty}[1 - F(t_3)]f(t_3) \text{d}t_3
+\Biggl\}
+f{(t_1)} \text{d}t_1\\
+
+& =  4! f(x_{(2)}) 
+\int_{-\infty}^{x_{(2)}}
+\frac{[1-F(x_{(2)})]^2}{2}
+f(t_1) \ \text{d}t_1 =
+4! f(x_{(2)}) 
+\frac{[1-F(x_{(2)})]^2}{2}
+F(x_{(2)})
+
+·
+\end{align*}
+$$
  
 Evidentemente, a expressão acima coincide com o resultado apresentado no Teorema 2.3.
 
 
+
+
+
+
+## pg8
 
  
 Demonstração :
@@ -2759,10 +2698,10 @@ f (x) =
 a)	Mostre que X(s) e X(r) − X(s) são independentes para quaisquer r > s.
 b)	Encontre a função de densidade de X(r+1) − X(r).
 c)	Seja Z1 = nX_{(1)}, Z2 = (n − 1)(X_{(2)} − X_{(1)}), Z3 = (n − 2)(X_{(3)} − X_{(2)}), ..., Zn = ((X_{(n)} − X(n−1))).  Prove que
-(Z1, Z2, \cdots , Zn) e ($X_1, X_2, \cdots , X_n$) são identicamente distribuídas.
+(Z1, Z2, \cdots , Zn) e $(X_1, X_2, \cdots , X_n)$ são identicamente distribuídas.
 2.	Provar o Teorema 2.1
 3.	Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias com distribuição geométrica de parâmetros p1, p2, \cdots , pn, respectivamente. Prove que
-Nn = min($X_1, X_2, \cdots , X_n$) têm também distribuição geométrica de parâmetro
+Nn = min$(X_1, X_2, \cdots , X_n)$ têm também distribuição geométrica de parâmetro
 n
 p = 1 −	(1 − pi)·
 i=1
@@ -2796,7 +2735,7 @@ com função de densidade comum
 f (x) =	1	se  0 < x < 1  ·
 0,	caso contrário
 Prove que Y1 = X_{(1)}/X_{(2)}, Y2 = X_{(2)}/X_{(3)}, \cdots , Yn−1 = X(n−1)/X_{(n)} e Yn = X_{(n)} são independentes. Encontre a função de densidade conjunta de Y1, Y2, \cdots , Yn.
-10.	Sejam X1.X2, \cdots , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| < ∞, então E|X(r)| < ∞. Definamos Mn = X_{(n)} = max($X_1, X_2, \cdots , X_n$). Mostre que
+10.	Sejam X1.X2, \cdots , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| < ∞, então E|X(r)| < ∞. Definamos Mn = X_{(n)} = max$(X_1, X_2, \cdots , X_n)$. Mostre que
 ∫ ∞
    	 
 Encontre E(Mn) em cada uma das seguintes situações:
