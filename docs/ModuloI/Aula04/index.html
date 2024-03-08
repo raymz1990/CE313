@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-03-24">
+<meta name="dcterms.date" content="2024-03-08">
 
-<title>CE313 - Estatística Não-Paramétrica -</title>
+<title>CE313 - Estatística Não-Paramétrica - 4&nbsp; Função de Distribuição Empírica</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,15 +103,44 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../custom.css">
-<meta property="og:title" content="CE313 - Estatística Não-Paramétrica -">
+<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - 4&nbsp; Função de Distribuição Empírica">
 <meta property="og:description" content="Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).">
 <meta property="og:image" content="non-parametric.pngs">
 <meta property="og:site_name" content="CE313 - Estatística Não-Paramétrica">
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -86,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula04/index.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">index.html</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula04/index.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -190,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../ModuloI/Aula04/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">index.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></span></a>
   </div>
 </li>
       </ul>
@@ -200,12 +263,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link active" data-scroll-target="#exercícios"><span class="header-section-number">4.1</span> Exercícios</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula04/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula04/index.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">index.html</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula04/index.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></a></li></ol></nav>
 <div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></h1>
 </div>
 
 
@@ -216,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 24, 2024</p>
+      <p class="date">March 8, 2024</p>
     </div>
   </div>
   
@@ -228,8 +300,156 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Começamos com o problema de estimar uma função de distribuição acumulada. Seja</p>
+<p><span class="math display">\[X_1,\cdots, X_n\sim F\]</span> onde <span class="math inline">\(F(x) = P(X\leq x)\)</span> é uma função de distribuição na reta real. Estimamos <span class="math inline">\(F\)</span> com a função de distribuição empírica.</p>
+<p>A função de distribuição empírica <span class="math inline">\(\widehat{F}_n\)</span> é a função de distribuição que coloca peso <span class="math inline">\(1/n\)</span> em cada ponto de dados <span class="math inline">\(X_i\)</span>. Formalmente,</p>
+<p><span class="math display">\[
+\widehat{F}_n(x) = \dfrac{1}{n}\sum_{i=1}^n \pmb{I}(X_i\leq x),
+\]</span></p>
+<p>para <span class="math inline">\(x\in\mathbb{R}\)</span>, sendo que</p>
+<p><span class="math display">\[
+    \pmb{I}(x)=\left\{
+        \begin{array}{lc} 1, &amp; \mbox{se } X_i\leq x \\
+        0, &amp; \mbox{se } X_i &gt; x\end{array}\right.\cdot
+\]</span></p>
+<p><strong>Exemplo 1: Dados do nervo.</strong></p>
+<p>Cox and Lewis (1966) relataram 799 tempos de espera entre pulsos sucessivos ao longo de uma fibra nervosa. A figura abaixo mostra os dados e a função de distribuição empírica <span class="math inline">\(\widehat{F}_n\)</span>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nervo <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"http://leg.ufpr.br/~lucambio/CE313/20241S/nerve.dat"</span>, <span class="at">header =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nervo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    V1
+1 0.21
+2 0.03
+3 0.05
+4 0.11
+5 0.59
+6 0.06</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">length</span>(nervo<span class="sc">$</span>V1)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 799</code></pre>
+</div>
+</div>
+<p>O seguinte exemplo mostra como obtermos a função de distribuição acumulada estimada ou empírica no <strong>R</strong>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Fn <span class="ot">=</span> <span class="fu">ecdf</span>(nervo<span class="sc">$</span>V1)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Fn, <span class="at">verticals =</span> <span class="cn">TRUE</span>, <span class="at">do.points =</span> <span class="cn">FALSE</span>, <span class="at">lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Função de distribuição acumulada"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rug</span>(nervo<span class="sc">$</span>V1)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>FIGURA 1:</strong> Dados de uma fibra nervosa. Cada linha vertical representa um ponto de dados. A linha sólida é a função de distribuição empírica.</p>
+<p>O teorema a seguir fornece algumas propriedades de <span class="math inline">\(\widehat{F}_n\)</span></p>
+<p>::: {.callout-note appearance=“simple”} ## Teorema 4.1</p>
+<p>Seja <span class="math inline">\((_1,\cdots,X_n\)</span> uma amostra aleatória da distribuição <span class="math inline">\(F\)</span> e seja <span class="math inline">\(\widehat{F}_n\)</span> a função de distribuição empírica. Então</p>
+<ol type="1">
+<li><p>Para qualquer valor fixo <span class="math inline">\(x\in\mathbb{R}\)</span>, <span class="math display">\[
+\mbox{E}\Big(\widehat{F}_n(x) \Big)=F(x) \qquad \mbox{e} \qquad
+\mbox{Var}\Big(\widehat{F}_n(x) \Big)=\dfrac{F(x)(1-F(x))}{n}\cdot
+\]</span> Isto significa que <span class="math inline">\(\widehat{F}_n(x)\)</span> é consistente para <span class="math inline">\(F(x)\)</span>.</p></li>
+<li><p><strong>Teorema de Glivenco-Cantelli</strong> <span class="math display">\[
+\sup_x |\widehat{F}_n(x)-F(x) | \to 0, \quad \mbox{quase
+certamente}\cdot
+\]</span></p></li>
+<li><p><strong>Teorema desigualdade de Dvoretzky-Kiefer-Wolfowitz</strong></p></li>
+</ol>
+<p><span class="math display">\[
+P\left ( \sup_x |\widehat{F}_n(x)-F(x) |&amp;gt;\epsilon\right) \leq
+2\mbox{e}^{-2n\epsilon^2}\quad \mbox{para algum  } \epsilon&amp;gt;0\cdot
+\]</span></p>
+<p><strong>Demonstração.</strong></p>
+<p>A partir da desigualdade de Dvoretzky-Kiefer-Wolfowitz (DKW), podemos construir um conjunto de confiança. Seja <span class="math inline">\(\epsilon^2_n = \log(2/\alpha)/(2n)\)</span>, <span class="math inline">\(L(x) = \max\{\widehat{F}_n(x) - \epsilon_n,0\}\)</span> e <span class="math inline">\(U(x) = \min\{\widehat{F}_n(x) + \epsilon_n, 1\}\)</span>. Segue do item 3, no teorema acima, que para qualquer <span class="math inline">\(F\)</span>,</p>
+<p><span class="math display">\[
+P\Big( L(x)\leq F(x)\leq U(x) \quad \forall x\in\mathbb{R}\Big) \geq
+1-\alpha\cdot
+\]</span></p>
+<p>Assim, <span class="math inline">\(\big(L(x), U(x)\big)\)</span> é uma faixa de confiança não paramétrica com coeficiente de confiaça <span class="math inline">\(1-\alpha\)</span>. Existem faixas de confiança mais restritas, mas usamos a faixa DKW porque é simples. &lt;br&lt;</p>
+<p><strong>Exemplo 2: Intervalo de confiança.</strong></p>
+<p>Queremos obter uma banda de confiança para <span class="math inline">\(\widehat{F}_n\)</span> com nível de confiança <span class="math inline">\(\alpha=0.05\)</span>. Para isto utilizaremos a desigualdade DKW, no Teorema 1.</p>
+<p>Observemos que <span class="math display">\[
+\epsilon = \sqrt{\frac{1}{2n}\log\big( \frac{2}{0.05}\big)} = 0.048\cdot
+\]</span></p>
+<p>Encontremos os limites do intervalo de confiança.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>epsilon <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>n)<span class="sc">*</span><span class="fu">log</span>(<span class="dv">2</span><span class="sc">/</span><span class="fl">0.05</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>epsilon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.04804618</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="fu">environment</span>(Fn))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "f"      "method" "na.rm"  "nobs"   "x"      "y"      "yleft"  "yright"</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">get</span>(<span class="st">"y"</span>,<span class="fu">environment</span>(Fn))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">get</span>(<span class="st">"x"</span>,<span class="fu">environment</span>(Fn))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>L <span class="ot">=</span> <span class="fu">ifelse</span>(y<span class="sc">-</span>epsilon<span class="sc">&lt;</span><span class="dv">0</span>,<span class="dv">0</span>,y<span class="sc">-</span>epsilon)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>U <span class="ot">=</span> <span class="fu">ifelse</span>(y<span class="sc">+</span>epsilon<span class="sc">&gt;</span><span class="dv">1</span>,<span class="dv">1</span>,y<span class="sc">+</span>epsilon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Mostrando o gráfico resultante, ou seja, a função de distribuição empírica e a banda de confiança.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Fn, <span class="at">verticals =</span> <span class="cn">TRUE</span>, <span class="at">do.points =</span> <span class="cn">FALSE</span>, <span class="at">lwd =</span> <span class="dv">2</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Função de distribuição acumulada"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">knots</span>(Fn),L,<span class="at">type=</span><span class="st">"b"</span>,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">cex=</span><span class="fl">0.3</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">knots</span>(Fn),U,<span class="at">type=</span><span class="st">"b"</span>,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">cex=</span><span class="fl">0.3</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rug</span>(nervo<span class="sc">$</span>V1)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>FIGURA 2:</strong> Dados de uma fibra nervosa. Cada linha vertical representa um ponto de dados. A linha sólida é a função de distribuição empírica. As linhas acima e abaixo da linha média representam uma faixa de confiança de 95%.</p>
+<section id="exercícios" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">4.1</span> Exercícios</h2>
+<ol type="1">
+<li><p>Gere 100 observações a partir de uma distribuição <span class="math inline">\(N(0,1)\)</span>. Calcule uma faixa de confiança de 95% para a função de distribuição empírica <span class="math inline">\(\widehat{F}_n\)</span>. Repita isso 1000 vezes e veja com que frequência a faixa de confiança contém a verdadeira função de distribuição. Repita usando dados de uma distribuição Cauchy.</p></li>
+<li><p>Seja <span class="math inline">\(X_1,\cdots, X_n\)</span> uma amostra aleatória da distribuição <span class="math inline">\(F\)</span> e seja <span class="math inline">\(\widehat{F}_n\)</span> a função de distribuição empírica. Para um <span class="math inline">\(x\)</span> fixo, encontre a distribuição limite de <span class="math inline">\(\sqrt{\widehat{F}_n(x)}\)</span>.</p></li>
+<li><p>Sejam <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> dois pontos distintos. Encontre <span class="math inline">\(\mbox{Cov}\Big(\widehat{F}_n(x),\widehat{F}_n(y)\Big)\)</span>.</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -636,7 +856,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula04/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula04/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

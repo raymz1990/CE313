@@ -44,7 +44,7 @@ Estatística paramétrica e não paramétrica. Testes não paramétricos para um
 * Aula 01 - [Estatística não paramétrica 1](ModuloI/Aula01/index.html)
 * Aula 02 - [Estatísticas de ordem](ModuloI/Aula02/index.html)
 * Aula 03 - [Estatística não paramétrica 2](ModuloI/Aula03/index.html)
-* Aula 04 -
+* Aula 04 - [Função de Distribuição Empírica](ModuloI/Aula04/index.html)
 * Aula 05 -
 * Aula 06 - 
 

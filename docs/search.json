@@ -54,7 +54,7 @@
     "href": "index.html#conteúdo-programático",
     "title": "CE313 - Estatística Não-Paramétrica",
     "section": "Conteúdo Programático",
-    "text": "Conteúdo Programático\nMÓDULO I: Estimação não paramétrica\n\nAula 01 - Estatística não paramétrica 1\nAula 02 - Estatísticas de ordem\nAula 03 - Estatística não paramétrica 2\nAula 04 -\nAula 05 -\nAula 06 -\n\n\nMÓDULO II: Problemas de amostra única\n\nAula 07 -\nAula 08 -\nAula 09 -\nAula 10 -\nAula 11 -\nAula 12 -\nAula 13 -\nAula 14 -\n\n\nMÓDULO III: Procedimentos em k amostras\n\nAula 15 -\nAula 16 -\nAula 17 -\nAula 18 -\nAula 19 -\nAula 20 -\nAula 21 -\nAula 22 -\n\n\nMÓDULO IV: Regressão não paramétrica\n\nAula 23 -\nAula 24 -\nAula 25 -\nAula 26 -\nAula 27 -\nAula 28 -\nAula 29 -\nAula 30 -\n\n\nMÓDULO V: Redes neurais\n\nAula 31 -\nAula 32 -\nAula 33 -\nAula 34 -\nAula 35 -\nAula 36 -",
+    "text": "Conteúdo Programático\nMÓDULO I: Estimação não paramétrica\n\nAula 01 - Estatística não paramétrica 1\nAula 02 - Estatísticas de ordem\nAula 03 - Estatística não paramétrica 2\nAula 04 - Função de Distribuição Empírica\nAula 05 -\nAula 06 -\n\n\nMÓDULO II: Problemas de amostra única\n\nAula 07 -\nAula 08 -\nAula 09 -\nAula 10 -\nAula 11 -\nAula 12 -\nAula 13 -\nAula 14 -\n\n\nMÓDULO III: Procedimentos em k amostras\n\nAula 15 -\nAula 16 -\nAula 17 -\nAula 18 -\nAula 19 -\nAula 20 -\nAula 21 -\nAula 22 -\n\n\nMÓDULO IV: Regressão não paramétrica\n\nAula 23 -\nAula 24 -\nAula 25 -\nAula 26 -\nAula 27 -\nAula 28 -\nAula 29 -\nAula 30 -\n\n\nMÓDULO V: Redes neurais\n\nAula 31 -\nAula 32 -\nAula 33 -\nAula 34 -\nAula 35 -\nAula 36 -",
     "crumbs": [
       "Apresentação"
     ]
@@ -186,6 +186,28 @@
     "crumbs": [
       "Módulo I",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Estatísticas de Ordem</span>"
+    ]
+  },
+  {
+    "objectID": "ModuloI/Aula04/index.html",
+    "href": "ModuloI/Aula04/index.html",
+    "title": "4  Função de Distribuição Empírica",
+    "section": "",
+    "text": "4.1 Exercícios",
+    "crumbs": [
+      "Módulo I",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Função de Distribuição Empírica</span>"
+    ]
+  },
+  {
+    "objectID": "ModuloI/Aula04/index.html#exercícios",
+    "href": "ModuloI/Aula04/index.html#exercícios",
+    "title": "4  Função de Distribuição Empírica",
+    "section": "",
+    "text": "Gere 100 observações a partir de uma distribuição \\(N(0,1)\\). Calcule uma faixa de confiança de 95% para a função de distribuição empírica \\(\\widehat{F}_n\\). Repita isso 1000 vezes e veja com que frequência a faixa de confiança contém a verdadeira função de distribuição. Repita usando dados de uma distribuição Cauchy.\nSeja \\(X_1,\\cdots, X_n\\) uma amostra aleatória da distribuição \\(F\\) e seja \\(\\widehat{F}_n\\) a função de distribuição empírica. Para um \\(x\\) fixo, encontre a distribuição limite de \\(\\sqrt{\\widehat{F}_n(x)}\\).\nSejam \\(x\\) e \\(y\\) dois pontos distintos. Encontre \\(\\mbox{Cov}\\Big(\\widehat{F}_n(x),\\widehat{F}_n(y)\\Big)\\).",
+    "crumbs": [
+      "Módulo I",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Função de Distribuição Empírica</span>"
     ]
   }
 ]
