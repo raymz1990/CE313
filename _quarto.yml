@@ -41,6 +41,8 @@ book:
       chapters:
       - ModuloI/Aula01/index.qmd
       - ModuloI/Aula02/index.qmd
+      - ModuloI/Aula03/index.qmd
+      - ModuloI/Aula04/index.qmd
 
   page-footer: 
     left: |

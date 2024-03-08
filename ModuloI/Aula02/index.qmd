@@ -1,5 +1,5 @@
 ---
-title: "Estatísticas de ordem"
+title: "Estatísticas de Ordem"
 date: 2024-03-01
 code-fold: true
 ---
@@ -87,114 +87,120 @@ Seja ($X_{(1)}, X_{(2)}, \cdots , X_{(n)}$) um vetor aleatório de dimensão $n$
 **Exercício**. Na apresentação dos resultados a seguir assumiremos que $X_1, X_2, \cdots , X_n$ são variáveis aleatórias independentes e igualmente distribuídas contínuas com função de densidade $f$ . Seja $\{ X_{(1)}, X_{(2)}, \cdots , X_{(n)} \}$ o conjunto das estatística de ordem para $X_1, X_2, \cdots , X_n$. Dado que todas as $X_i$ são contínuas segue que, com probabilidade 1
 $$X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}·$$
 
-### 2.2.1	Propriedades das estatísticas de ordem
-Começaremos o estudo das propriedades encontrando a função de densidade conjunta de (X(1), X(2), \cdots , X(n)).
+### Propriedades das estatísticas de ordem
 
+Começaremos o estudo das propriedades encontrando a função de densidade conjunta de ($X_{(1)}, X_{(2)}, \cdots , X_{(n)}$).
 
-Demonstração : A transformação de (X1, \cdots , Xn) a (X(1), \cdots , X(n)) não é biunívoca. De fato, existem um total de n! possíveis arranjos de x1, \cdots , xn em ordem crescente de magnitude. Assim, existem n! inversas para a transformação.
-Por exemplo, uma das n! permutações pode ser
-x4 < x1 < xn−1 < x3 < \cdots < xn < x2·
- 
+::: {.callout-note appearance="simple"}
+## Teorema
+
+Sejam $X_1, \cdots, X_n$ variáveis aleatórias contínuas independentes, igualmente distríbuidas com densidade $f$. A função de desindade conjunta de ($X_{(1)}, \cdots, X_{(n)}$) é dada por
+$$
+f(x_{(1)}, \ldots, x_{(n)}) = 
+\begin{cases} 
+n! \prod\limits_{i=1}^{n} f(x_{(i)}), & \text{se } x_{(1)} < x_{(2)} < \cdots < x_{(n)} \\
+0, & \text{caso contrário}
+\end{cases}.
+$$
+
+:::
+
+**Demonstração**: A transformação de ($X_1, \cdots , X_n$) a ($X_{(1)}, \cdots , X_{(n)}$) não é biunívoca. De fato, existem um total de $n!$ possíveis arranjos de $x_1, \cdots , x_n$ em ordem crescente de magnitude. Assim, existem $n!$ inversas para a transformação.
+
+Por exemplo, uma das $n!$ permutações pode ser
+$$
+x_4 < x_1 < x_{n−1} < x_3 < \cdots < x_n < x_2·
+$$ 
 
 A inversa correspondente é
-x4 = x(1), x1 = x(2), xn−1 = x(3), x3 = x(4) \cdots xn = x(n−1), x2 = x(n)·
-O determinante Jacobiano desta transformação é a matriz n×n identidade com as colunas reorganizadas, isto devido a que cada x(i) é igual a uma, e somente uma, das $X_1, X_2, \cdots , X_n$. Portanto J = ±1 e
+$$
+x_4 = x_{(1)}, x_1 = x_{(2)}, \ x_{n−1} = x_{(3)}, \ x_3 = x_{(4)} \cdots x_n = x_{(n−1)}, \ x_2 = x_{(n)}·
+$$
+O determinante Jacobiano desta transformação é a matriz $n \times n$ identidade com as colunas reorganizadas, isto devido a que cada $x_{(i)}$ é igual a uma, e somente uma, das $x_1, x_2, \cdots , x_n$. Portanto $J = \pm 1$ e
 
-n
-f (x(2), x(n), x(4), x(1), \cdots , x(3), x(n−1))|J| =	f (x(i)),
-i=1
-quando x(1) < x(2) < \cdots < x(n). A mesma expressão é válida para cada um dos n! arranjos. Segue então que
- 
+$$
+f (x_{(2)}, \ x_{(n)}, \ x_{(4)}, \ x_{(1)}, \ \cdots , \ x_{(3)}, \ x_{(n−1)}) \ \mid J \mid =
+\prod\limits_{i=1}^{n} \ f(x_{(i)}),
+$$
 
-f (x(1), \cdots , x(n))  =
-Todas as n!
-permutações
+quando $x_{(1)} < x_{(2)} < \cdots < x_{(n)}$. A mesma expressão é válida para cada um dos $n!$ arranjos. Segue então que
  
-n
-f (x(i))
-i=1
- 
-=  
-
- 
+$$
+\begin{align*}
+f(x_{(1)}, \ldots, x_{(n)}) &= \sum \prod\limits_{i=1}^{n} f(x_{(i)}) \\
+&\ \ \ \ \ \ \text{Todas as } n! \text{ permutações} \\
+& = \begin{cases} 
+n! \prod\limits_{i=1}^{n} f(x_{(i)}), & \text{se } x_{(1)} < x_{(2)} < \cdots < x_{(n)} \\
+0, & \text{caso contrário}
+\end{cases}.
+\end{align*}
+$$
 
+**Exemplo**.
+Sejam $X_1, \cdots , X_n$ variáveis aleatórias independentes com função de densidade comum
+$$
+f(x) = 
+\begin{cases} 
+1, & \text{se } 0 < x < 1 \\
+0, & \text{caso contrário}
+\end{cases}.
+$$
+Então a função de densidade conjunta de $X_{(1)}, X_{(2)}, \cdots , X_{(n)}$ é
+$$
+f(x_{(1)}, \ \cdots, \ x_{(n)}) = 
+\begin{cases} 
+n!, & \text{se } 0 < x_{(1)} < x_{(2)} < \cdots < x_{(n)}) \\
+0, & \text{caso contrário}
+\end{cases}.
+$$
  
-n!
-i=1
- 
+Estamos confiados que como resultado do Teorema temos funções de densidade. Vejamos neste exemplo se isso é realmente acontece. Consideremos, para simplificar, o caso $n$ = 3 e verifiquemos se a integral da função de densidade em é 1. Então
 
-f (x(i)),	caso x(1) < x(2) < \cdots < x(n)  ·
-0,	caso contrário
- 
 
-**Exemplo 2.4**
-Sejam X1, \cdots , Xn variáveis aleatórias independentes com função de densidade comum
-f (x) =	1,	se	0 < x < 1  ·
-0,	caso contrário
-Então a função de densidade conjunta de X(1), X(2), \cdots , X(n) é
-
- 
-f (x
- 
-
-(1)
- 
-, \cdots , x
- 
-
-(n)
- 
-) =	n!,	0 < x(1) < x(2) < \cdots < x(n)
-0,	caso contrário
- 
-·	(2.5)
- 
-
-Estamos confiados que como resultado do Teorema 2.2 temos funções de densidade. Vejamos neste exemplo se isso é realmente acontece. Consideremos, para simplificar, o caso n = 3 e verifiquemos se a integral da função de densidade em (2.5) é 1. Então
  
 ∫∫∫
  
 
 
-f (x(1), x(2), x(3)) dx(1) dx(2) dx(3)	=  6
+f (x_{(1)}, x_{(2)}, x_{(3)}) dx_{(1)} dx_{(2)} dx_{(3)}	=  6
  
 ∫ 1 [∫ 1
  
 (∫ 1
  
-dx(3))
+dx_{(3)})
  
-dx(2)]
+dx_{(2)}]
  
 
-dx(1)
+dx_{(1)}
  
 0
 1
 =  6
 0
  
-x(1)
-[ x(1)
+x_{(1)}
+[ x_{(1)}
  
-x(2)
-(1 − x(2))
+x_{(2)}
+(1 − x_{(2)})
  
-dx(2)]
+dx_{(2)}]
  
 
 
-dx(1)
+dx_{(1)}
  
 1	1
-=  6	− x(1)
+=  6	− x_{(1)}
  
  x2
-+	(1)
++	_{(1)}
 2
  
 
-dx(1)
+dx_{(1)}
  
 = 1·
  
@@ -207,12 +213,12 @@ Consideremos a situação em que temos somente três variáveis aleatórias inde
 
 distribuição geométrica de parâmetro p, isto é,
 P (X = x; p) = (1 − p)px,	x = 0, 1, 2, \cdots
-Encontremos P (X(1) < X(2) < X(3)).
+Encontremos P (X_{(1)} < X_{(2)} < X_{(3)}).
 Nesta situação a probabilidade requerida pode ser escrita como:
-P (X(1) < X(2) < X(3))  =  1 − P (X1 = X2 ̸= X3) − P (X1 = X3 ̸= X2)
+P (X_{(1)} < X_{(2)} < X_{(3)})  =  1 − P (X1 = X2 ̸= X3) − P (X1 = X3 ̸= X2)
 −P (X2 = X3 ̸= X1) − P (X1 = X2 = X3)
 a qual pode ser escrita como
-P (X(1) < X(2) < X(3)) = 1 − 3P (X1 = X2 ̸= X3) − P (X1 = X2 = X3)
+P (X_{(1)} < X_{(2)} < X_{(3)}) = 1 − 3P (X1 = X2 ̸= X3) − P (X1 = X2 = X3)
 = 1 − 3 [P (X1 = X2) − P (X1 = X2 = X3)] − P (X1 = X2 = X3)
 = 1 − 3P (X1 = X2) + 2P (X1 = X2 = X3)·
 
@@ -239,10 +245,10 @@ P (X1 = X2 = X3) =
 
 6p3
  
-P (X(1) < X(2) < X(3)) = (1 − p)(1 + p + p2)·
+P (X_{(1)} < X_{(2)} < X_{(3)}) = (1 − p)(1 + p + p2)·
 As propriedades das estatísticas de ordem que serão demonstradas valerão somente caso as variáveis sejam contínuas. Isto deve-se a que, caso as variáveis sejam discretas, a probabilidade
 
-P (X(1) = X(2) = \cdots = X(n)) ̸= 0,
+P (X_{(1)} = X_{(2)} = \cdots = X_{(n)}) ̸= 0,
 
 como vai ser mostrado no seguinte exemplo. Acontece que o fato da probabilidade das estatística de ordem poderem coincidir, com probabilidade diferente de zero, altera a estrutura da demonstração e não nos permite obtermos estes resultados para o caso discreto.
 
@@ -250,7 +256,7 @@ como vai ser mostrado no seguinte exemplo. Acontece que o fato da probabilidade 
 Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes assumindo somente 0 e 1 com probabilidade 1/2. Observemos que
 
 n	n
-P (X(1) = X(2) = \cdots = X(n))  =  ∏ P (X(k) = 0) + ∏ P (X(k) = 1)
+P (X_{(1)} = X_{(2)} = \cdots = X_{(n)})  =  ∏ P (X(k) = 0) + ∏ P (X(k) = 1)
  
 k=1 n
 =	P (Xk
@@ -279,7 +285,7 @@ fr(x(r))  =  n!f (x(r))
 
 \cdots
  
-∫ x(2) ∫ +∞ ∫ +∞
+∫ x_{(2)} ∫ +∞ ∫ +∞
  
 \cdots
  
@@ -305,7 +311,7 @@ x(n−1) i̸=r
  
 \cdots
  
-∫ x(2) r∏−1
+∫ x_{(2)} r∏−1
 
  
 f (ti) dti
@@ -344,59 +350,59 @@ E(X(r)) = r/(n + 1)·
 Para uma densidade qualquer e somente quatro variáveis aleatórias a forma da densidade marginal, de uma qualquer estatística de ordem, é mostrada no seguinte exemplo.
 
 **Exemplo 2.8**
-Sejam X1, X2, X3, X4 variáveis aleatórias independentes com densidade comum f.	A função de densidade conjunta das estatísticas de ordem X(1), X(2), X(3), X(4) é
+Sejam X1, X2, X3, X4 variáveis aleatórias independentes com densidade comum f.	A função de densidade conjunta das estatísticas de ordem X_{(1)}, X_{(2)}, X_{(3)}, X_{(4)} é
 
  
 f (x
  
 
-(1)
+_{(1)}
  
 
-, x(2)
+, x_{(2)}
  
 
-, x(3)
+, x_{(3)}
  
 
-, x(4)
+, x_{(4)}
  
-) =	4!f (x(1))f (x(2))f (x(3))f (x(4)),	se	x(1) < x(2) < x(3) < x(4)  ·
+) =	4!f (x_{(1)})f (x_{(2)})f (x_{(3)})f (x_{(4)}),	se	x_{(1)} < x_{(2)} < x_{(3)} < x_{(4)}  ·
 0,	caso contrário
  
 
-Vamos calcular a função de densidade marginal de X(2). Temos que, se x(1) < x(2) < x(3) < x(4) f2(x(2))  =  4! ∫ ∫ ∫ ∫ $F$ (t1)f (x(2))f (t3)f (t4) dt1 dt3 dt4
+Vamos calcular a função de densidade marginal de X_{(2)}. Temos que, se x_{(1)} < x_{(2)} < x_{(3)} < x_{(4)} f2(x_{(2)})  =  4! ∫ ∫ ∫ ∫ $F$ (t1)f (x_{(2)})f (t3)f (t4) dt1 dt3 dt4
  
 
-=  4!f (x(2))
+=  4!f (x_{(2)})
  
-∫ x(2) ∫ +∞ [∫ +∞
+∫ x_{(2)} ∫ +∞ [∫ +∞
  
 f (t4) dt4]
  
 
 f (t3)f (t1) dt3 dt1
  
-−∞	x(2)	t3
+−∞	x_{(2)}	t3
  
 
-=  4!f (x(2))
+=  4!f (x_{(2)})
  
-∫ x(2) {∫ +∞
+∫ x_{(2)} {∫ +∞
  
 [1 − $F$ (t3)]f (t3) dt3}
  
 f (t1) dt1
  
-−∞	x(2)
+−∞	x_{(2)}
  
-=  4!f (x(2))
+=  4!f (x_{(2)})
  
-x(2) [1	F (x	)]2
-2	f (t1) dt1 = 4!f (x(2))
+x_{(2)} [1	F (x	)]2
+2	f (t1) dt1 = 4!f (x_{(2)})
  
 [1	F (x	)]2
-2!	F (x(2))·
+2!	F (x_{(2)})·
  
 Evidentemente, a expressão acima coincide com o resultado apresentado no Teorema 2.3.
 
@@ -604,10 +610,10 @@ onde 1 ≤ r < s ≤ n.
 Uma situação mais complexa é trabalharmos com funções de estatísticas de ordem. Não temos um resultado simples para o caso de qualquer funções destas estatísticas. Mas, no exemplo a seguir, podemos encontrar um resultado interessante para o comportamento da diferença de estatísticas de ordem.
 
 **Exemplo 2.10**
-Sejam X(1), X(2), X(3) as estatísticas de ordem das variáveis aleatórias independentes e igualmente distribuídas
+Sejam X_{(1)}, X_{(2)}, X_{(3)} as estatísticas de ordem das variáveis aleatórias independentes e igualmente distribuídas
 X1, X2, X3 com função de densidade comum
 { βe−xβ,	se	x ≥ 0
-sendo β > 0. Sejam Y1 = X(3) − X(2) e Y2 = X(2). Mostraremos que Y1 e Y2 são independentes. Para isso primeiro observemos que a função de densidade conjunta de X(2) e X(3) é dada por
+sendo β > 0. Sejam Y1 = X_{(3)} − X_{(2)} e Y2 = X_{(2)}. Mostraremos que Y1 e Y2 são independentes. Para isso primeiro observemos que a função de densidade conjunta de X_{(2)} e X_{(3)} é dada por
 
  
 f23(x, y) =
@@ -626,7 +632,7 @@ Do qual segue que Y1 e Y2 são independentes.
 Duas estatísticas de ordem importantes são o máximo e mínimo. Nesses casos é possível encontrar, de maneira
  
 
-analítica, expressões para a função de distribuição.	Vejamos no teorema a seguir as expressões da função de distribuição das estatísticas de ordem X(1) e X(n).
+analítica, expressões para a função de distribuição.	Vejamos no teorema a seguir as expressões da função de distribuição das estatísticas de ordem X_{(1)} e X_{(n)}.
 
 
 Demonstração : Exercício.
@@ -639,14 +645,14 @@ Demonstração : O evento {X(k) ≤ x} ocorre se, e somente se, pelo menos k dos
 Nos dois teoremas seguintes relacionamos a distribuição condicional de estatísticas de ordem, condicionadas em outra estatística de ordem, com a distribuição de estatísticas de ordem de uma população cuja distribuição é uma forma truncada da função de distribuição da população original $F$ .
 
 
-Demonstração : A densidade condicional de X(j) dado que X(i) = xi calcula-se dividindo a densidade conjunta de
-X(i) e X(j), dada em (2.7), pela densidade marginal de X(i), esta obtida no Teorema 2.4. Temos então que, quando
+Demonstração : A densidade condicional de X(j) dado que X_{(i)} = xi calcula-se dividindo a densidade conjunta de
+X_{(i)} e X(j), dada em (2.7), pela densidade marginal de X_{(i)}, esta obtida no Teorema 2.4. Temos então que, quando
  
 
 i < j ≤ n e xi ≤ xj < ∞,
 
  
-f (xj|X(i)
+f (xj|X_{(i)}
  
 = x ) =	fij(xi, xj) i		fi(xi)
 	(n − i)!	 [ $F$ (xj) − $F$ (xi)]j−i−1
@@ -837,7 +843,7 @@ Por último, temos o seguinte resultado estabelecendo novamente relação entre 
  
 
  
-Demonstração : A densidade condicional de X(i) dado que X(j) = xj calcula-se dividindo a densidade conjunta de X(i) e X(j), dada em (2.7), pela densidade marginal de X(j), esta obtida no Teorema 2.4. Temos então que, quando i < j ≤ n e xi ≤ xj < ∞,
+Demonstração : A densidade condicional de X_{(i)} dado que X(j) = xj calcula-se dividindo a densidade conjunta de X_{(i)} e X(j), dada em (2.7), pela densidade marginal de X(j), esta obtida no Teorema 2.4. Temos então que, quando i < j ≤ n e xi ≤ xj < ∞,
 	(j − i)!	 [ $F$ (xi) ]i−1	[ $F$ (xj) − $F$ (xi)]j−i−1  $F$ (xi)
 O resultado segue observando que $F$ (xi)/F (xj) e $F$ (xi)/F (xj) são, respectivamente, as funções de distribuição e de densidade truncando à direita em xj a distribuição $F$ .
 
@@ -923,7 +929,7 @@ Caso p = 1/2, a mediana amostral será ξ1/2 = −\Theta ln(1/2) = 0.6931472\The
 ## Momentos amostrais
 Nesta seção vamos estudar algumas estatísticas amostrais comumente utilizadas e suas distribuições.
 
-Observemos que nFn(x) é o número de Xk (1 ≤ k ≤ n) menores ou iguais a x. Se X(1), X(2), \cdots , X(n) são as estatísticas de ordem de $X_1, X_2, \cdots , X_n$ então claramente
+Observemos que nFn(x) é o número de Xk (1 ≤ k ≤ n) menores ou iguais a x. Se X_{(1)}, X_{(2)}, \cdots , X_{(n)} são as estatísticas de ordem de $X_1, X_2, \cdots , X_n$ então claramente
 
  
 Fn(x) = 
@@ -950,7 +956,7 @@ n
 
 ·	(2.11)
  
- 1,	se x ≥ X(n)
+ 1,	se x ≥ X_{(n)}
 
  
 
@@ -1401,7 +1407,7 @@ i=1
 
 E(Xi − µ)4 +
  
-(4) 1 + ∑ ∑
+_{(4)} 1 + ∑ ∑
  
 
 E{(Xi − µ)2(Xj − µ)2}·
@@ -1719,7 +1725,7 @@ flog(Yn)
  
 
 nn
-Γ(n)[−y]
+Γ_{(n)}[−y]
  
 
 
@@ -1747,7 +1753,7 @@ fYn
 
 nn
 y
-Γ(n)
+Γ_{(n)}
  
 
 n−1
@@ -2479,7 +2485,7 @@ A segunda limitação importante do histograma, isto é, o fato de ele não cons
 Cálculo automático do número de intervalos num histograma
 Uma questão importante é determinar de maneira automatizada o número de intervalos disjuntos que serão utili- zados para a construção do gráfico.
 Uma primeira forma de escolher o número de intervalos foi dada por Sturges (1926) e que constitui a forma padrão no R. Conhecida como fórmula de Sturges é dada por
-k = [log2(n) + 1],	(2.41)
+k = [log2_{(n)} + 1],	(2.41)
 isto significa que o número de intervalos é a parte inteira do logaritmo base 2 do número de observações mais 1.
 Outras expressões comumente utilizadas são a fórmula de Scott (Scott, 1979) h = 3.5s/√3 n, onde s é o desvio padrão e a fórmula de Freedman Diacconi (Freedman & Diaconis, 1981) h = 2IQR(x)/√3 n, onde IRQ é a diferença
 entre o terceiro e o primeiro quantil.
@@ -2534,11 +2540,11 @@ O gráfico quantil-quantil ou qq-plot, proposto por Wilk & Gnanadesikan (1968), 
 Percebemos que podemos verificar com este gráfico qualquer densidade contínua, eventualmente pode ser uti- lizado também para funções de probabilidade. O qq-plot vai apresentar-se como uma linha reta se a densidade assumida estiver correta. Vejamos o caso particular de verificarmos se a densidade é normal, nesta situação o gráfico qq-plot será chamado de qq-norm. Primeiro consideraremos a situação da densidade normal padrão.
 Seja z1, z2, \cdots , zn uma amostra aleatória de uma distribuição normal com média µ = 0 e desvio padrão σ = 1.
 As estatísticas de ordem amostrais são
-z(1) ≤ z(2) ≤ \cdots ≤ z(n)·
+z_{(1)} ≤ z_{(2)} ≤ \cdots ≤ z_{(n)}·
 Estes valores desempenharão o papel dos quantis da amostra. Agora, quais devemos tomar como os quantis teóricas correspondentes? Se a função de distribuição cumulada da densidade normal padrão fosse denotada por Φ, usando a notação quantil, se ξq é o q-ésimo quantil de uma distribuição normal, então
 Φ(ξq) = q,
 ou seja, a probabilidade de uma amostra normal ser inferior a ξq é, de fato, apenas q.
-Considere o primeiro valor ordenado z(1). O que podemos esperar que o valor Φ(z(1)) seja? Intuitivamente, esperamos que essa seja a probabilidade de assumir um valor no intervalo (0, 1/n). Do mesmo modo, espera-se que Φ(z(2)) seja a probabilidade de assumir um valor no intervalo (1/n, 2/n). Continuando, esperamos que Φ(z(n)) seja a probabilidade de assumir um valor no intervalo (n  1)/n, 1). Assim, o quantil teórico desejamos seja definido pelo inverso da função de distribuição acumulada normal padrão. Em particular, o quantil teórico correspondente ao quantil empírico z(i) deve ser
+Considere o primeiro valor ordenado z_{(1)}. O que podemos esperar que o valor Φ(z_{(1)}) seja? Intuitivamente, esperamos que essa seja a probabilidade de assumir um valor no intervalo (0, 1/n). Do mesmo modo, espera-se que Φ(z_{(2)}) seja a probabilidade de assumir um valor no intervalo (1/n, 2/n). Continuando, esperamos que Φ(z_{(n)}) seja a probabilidade de assumir um valor no intervalo (n  1)/n, 1). Assim, o quantil teórico desejamos seja definido pelo inverso da função de distribuição acumulada normal padrão. Em particular, o quantil teórico correspondente ao quantil empírico z_{(i)} deve ser
  
 
 
@@ -2742,7 +2748,7 @@ onde Sn é a raiz quadrada positiva da variância amostral S2.
  
 
 Exercícios da Seção 2.2
-1.	Seja (X(1), X(2), \cdots , X(n)) o conjunto das estatísticas de ordem de n variáveis aleatórias independentes $X_1, X_2, \cdots , X_n$ com função de densidade comum
+1.	Seja (X_{(1)}, X_{(2)}, \cdots , X_{(n)}) o conjunto das estatísticas de ordem de n variáveis aleatórias independentes $X_1, X_2, \cdots , X_n$ com função de densidade comum
  
 f (x) =
  
@@ -2752,7 +2758,7 @@ f (x) =
  
 a)	Mostre que X(s) e X(r) − X(s) são independentes para quaisquer r > s.
 b)	Encontre a função de densidade de X(r+1) − X(r).
-c)	Seja Z1 = nX(1), Z2 = (n − 1)(X(2) − X(1)), Z3 = (n − 2)(X(3) − X(2)), ..., Zn = ((X(n) − X(n−1))).  Prove que
+c)	Seja Z1 = nX_{(1)}, Z2 = (n − 1)(X_{(2)} − X_{(1)}), Z3 = (n − 2)(X_{(3)} − X_{(2)}), ..., Zn = ((X_{(n)} − X(n−1))).  Prove que
 (Z1, Z2, \cdots , Zn) e ($X_1, X_2, \cdots , X_n$) são identicamente distribuídas.
 2.	Provar o Teorema 2.1
 3.	Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias com distribuição geométrica de parâmetros p1, p2, \cdots , pn, respectivamente. Prove que
@@ -2769,7 +2775,7 @@ f (x) =
 σ
 0,	se  x ≤ \Theta
  
-Mostre que X(1), X(2) − X(1), X(3) − X(2), \cdots , X(n) − X(n−1) são independentes.
+Mostre que X_{(1)}, X_{(2)} − X_{(1)}, X_{(3)} − X_{(2)}, \cdots , X_{(n)} − X(n−1) são independentes.
 6.	Sejam $X_1, X_2, \cdots , X_n$ variáveis aleatórias independentes e igualmente distribuídas com função de distribuição acumulada comum
 
  
@@ -2778,26 +2784,26 @@ F (t) =
 tα,  se  0 < t < 1
  1,	se  t ≥ 1
  
-para α > 0. Mostre que X(i)/X(n), i = 1, 2, \cdots , n − 1 e X(n) são independentes.
+para α > 0. Mostre que X_{(i)}/X_{(n)}, i = 1, 2, \cdots , n − 1 e X_{(n)} são independentes.
 7.	Sejam X1 e X2 duas variáveis aleatórias discretas independentes com função de probabilidade comum
-P (X = x) = \Theta(1 − \Theta)x−1,	x = 1, 2, \cdots ;	0 < \Theta < 1· Mostre que X(1) e X(2) − X(1) são independentes.
+P (X = x) = \Theta(1 − \Theta)x−1,	x = 1, 2, \cdots ;	0 < \Theta < 1· Mostre que X_{(1)} e X_{(2)} − X_{(1)} são independentes.
 8.	Sejam X1, \cdots , Xn duas variáveis aleatórias independentes com função de densidade comum $F$ . Encontre a função de densidade
-de X(1) e de X(n).
+de X_{(1)} e de X_{(n)}.
  
 
-9.	Sejam X(1), X(2), \cdots , X(n) as estatísticas de ordem de n variáveis aleatórias independentes e igualmente distribuídas $X_1, X_2, \cdots , X_n$
+9.	Sejam X_{(1)}, X_{(2)}, \cdots , X_{(n)} as estatísticas de ordem de n variáveis aleatórias independentes e igualmente distribuídas $X_1, X_2, \cdots , X_n$
 com função de densidade comum
 f (x) =	1	se  0 < x < 1  ·
 0,	caso contrário
-Prove que Y1 = X(1)/X(2), Y2 = X(2)/X(3), \cdots , Yn−1 = X(n−1)/X(n) e Yn = X(n) são independentes. Encontre a função de densidade conjunta de Y1, Y2, \cdots , Yn.
-10.	Sejam X1.X2, \cdots , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| < ∞, então E|X(r)| < ∞. Definamos Mn = X(n) = max($X_1, X_2, \cdots , X_n$). Mostre que
+Prove que Y1 = X_{(1)}/X_{(2)}, Y2 = X_{(2)}/X_{(3)}, \cdots , Yn−1 = X(n−1)/X_{(n)} e Yn = X_{(n)} são independentes. Encontre a função de densidade conjunta de Y1, Y2, \cdots , Yn.
+10.	Sejam X1.X2, \cdots , Xn variáveis aleatórias independentes identicamente distribuídas não negativas contínuas. Prove que se E|X| < ∞, então E|X(r)| < ∞. Definamos Mn = X_{(n)} = max($X_1, X_2, \cdots , X_n$). Mostre que
 ∫ ∞
    	 
 Encontre E(Mn) em cada uma das seguintes situações:
 a)	Xk tem como função de distribuição comum $F$ (x) = 1 − e−xβ, se x ≥ 0.
 b)	Xk tem como função de distribuição comum $F$ (x) = x, se 0 < x < 1.
 
-11.	Provar que, qualquer seja a amostra aleatória X1.X2, \cdots , Xn sempre cumpre-se que X(1) ≤ X ≤ X(n).
+11.	Provar que, qualquer seja a amostra aleatória X1.X2, \cdots , Xn sempre cumpre-se que X_{(1)} ≤ X ≤ X_{(n)}.
 12.	Demonstrar o Teorema 2.5.
 13.	Demonstrar o Teorema 2.9.
 
