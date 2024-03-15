@@ -43,6 +43,7 @@ book:
       - ModuloI/Aula02/index.qmd
       - ModuloI/Aula03/index.qmd
       - ModuloI/Aula04/index.qmd
+      - ModuloI/Aula05/index.qmd
 
   page-footer: 
     left: |

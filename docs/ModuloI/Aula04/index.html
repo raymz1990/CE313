@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../ModuloI/Aula05/index.html" rel="next">
 <link href="../../ModuloI/Aula03/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -256,6 +257,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ModuloI/Aula05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estimação de Densidades</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -268,7 +275,12 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link active" data-scroll-target="#exercícios"><span class="header-section-number">4.1</span> Exercícios</a></li>
+  <li><a href="#dados-do-nervo" id="toc-dados-do-nervo" class="nav-link active" data-scroll-target="#dados-do-nervo"><span class="header-section-number">4.1</span> Dados do nervo</a>
+  <ul class="collapse">
+  <li><a href="#demonstração" id="toc-demonstração" class="nav-link" data-scroll-target="#demonstração"><span class="header-section-number">4.1.1</span> Demonstração</a></li>
+  </ul></li>
+  <li><a href="#intervalo-de-confiança" id="toc-intervalo-de-confiança" class="nav-link" data-scroll-target="#intervalo-de-confiança"><span class="header-section-number">4.2</span> Intervalo de confiança</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">4.3</span> Exercícios</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula04/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -312,13 +324,15 @@ window.Quarto = {
         \begin{array}{lc} 1, &amp; \mbox{se } X_i\leq x \\
         0, &amp; \mbox{se } X_i &gt; x\end{array}\right.\cdot
 \]</span></p>
-<p><strong>Exemplo 1: Dados do nervo.</strong></p>
+<section id="dados-do-nervo" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="dados-do-nervo"><span class="header-section-number">4.1</span> Dados do nervo</h2>
 <p>Cox and Lewis (1966) relataram 799 tempos de espera entre pulsos sucessivos ao longo de uma fibra nervosa. A figura abaixo mostra os dados e a função de distribuição empírica <span class="math inline">\(\widehat{F}_n\)</span>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nervo <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"http://leg.ufpr.br/~lucambio/CE313/20241S/nerve.dat"</span>, <span class="at">header =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nervo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nervo <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"http://leg.ufpr.br/~lucambio/CE313/20241S/nerve.dat"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">header =</span> <span class="cn">FALSE</span>) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nervo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>    V1
@@ -361,8 +375,17 @@ window.Quarto = {
 </div>
 <p><strong>FIGURA 1:</strong> Dados de uma fibra nervosa. Cada linha vertical representa um ponto de dados. A linha sólida é a função de distribuição empírica.</p>
 <p>O teorema a seguir fornece algumas propriedades de <span class="math inline">\(\widehat{F}_n\)</span></p>
-<p>::: {.callout-note appearance=“simple”} ## Teorema 4.1</p>
-<p>Seja <span class="math inline">\((_1,\cdots,X_n\)</span> uma amostra aleatória da distribuição <span class="math inline">\(F\)</span> e seja <span class="math inline">\(\widehat{F}_n\)</span> a função de distribuição empírica. Então</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Teorema 4.1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\((_1,\cdots,X_n)\)</span> uma amostra aleatória da distribuição <span class="math inline">\(F\)</span> e seja <span class="math inline">\(\widehat{F}_n\)</span> a função de distribuição empírica. Então</p>
 <ol type="1">
 <li><p>Para qualquer valor fixo <span class="math inline">\(x\in\mathbb{R}\)</span>, <span class="math display">\[
 \mbox{E}\Big(\widehat{F}_n(x) \Big)=F(x) \qquad \mbox{e} \qquad
@@ -375,17 +398,23 @@ certamente}\cdot
 <li><p><strong>Teorema desigualdade de Dvoretzky-Kiefer-Wolfowitz</strong></p></li>
 </ol>
 <p><span class="math display">\[
-P\left ( \sup_x |\widehat{F}_n(x)-F(x) |&amp;gt;\epsilon\right) \leq
-2\mbox{e}^{-2n\epsilon^2}\quad \mbox{para algum  } \epsilon&amp;gt;0\cdot
+P \left( \sup_x | \widehat{F}_n (x) - F(x) | &gt; \epsilon \right)
+\leq 2\mbox{e}^{-2n\epsilon} \quad \mbox{para algum } \epsilon &gt; 0
 \]</span></p>
-<p><strong>Demonstração.</strong></p>
+</div>
+</div>
+<section id="demonstração" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="demonstração"><span class="header-section-number">4.1.1</span> Demonstração</h3>
 <p>A partir da desigualdade de Dvoretzky-Kiefer-Wolfowitz (DKW), podemos construir um conjunto de confiança. Seja <span class="math inline">\(\epsilon^2_n = \log(2/\alpha)/(2n)\)</span>, <span class="math inline">\(L(x) = \max\{\widehat{F}_n(x) - \epsilon_n,0\}\)</span> e <span class="math inline">\(U(x) = \min\{\widehat{F}_n(x) + \epsilon_n, 1\}\)</span>. Segue do item 3, no teorema acima, que para qualquer <span class="math inline">\(F\)</span>,</p>
 <p><span class="math display">\[
 P\Big( L(x)\leq F(x)\leq U(x) \quad \forall x\in\mathbb{R}\Big) \geq
 1-\alpha\cdot
 \]</span></p>
 <p>Assim, <span class="math inline">\(\big(L(x), U(x)\big)\)</span> é uma faixa de confiança não paramétrica com coeficiente de confiaça <span class="math inline">\(1-\alpha\)</span>. Existem faixas de confiança mais restritas, mas usamos a faixa DKW porque é simples. &lt;br&lt;</p>
-<p><strong>Exemplo 2: Intervalo de confiança.</strong></p>
+</section>
+</section>
+<section id="intervalo-de-confiança" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="intervalo-de-confiança"><span class="header-section-number">4.2</span> Intervalo de confiança</h2>
 <p>Queremos obter uma banda de confiança para <span class="math inline">\(\widehat{F}_n\)</span> com nível de confiança <span class="math inline">\(\alpha=0.05\)</span>. Para isto utilizaremos a desigualdade DKW, no Teorema 1.</p>
 <p>Observemos que <span class="math display">\[
 \epsilon = \sqrt{\frac{1}{2n}\log\big( \frac{2}{0.05}\big)} = 0.048\cdot
@@ -440,8 +469,9 @@ P\Big( L(x)\leq F(x)\leq U(x) \quad \forall x\in\mathbb{R}\Big) \geq
 </div>
 </div>
 <p><strong>FIGURA 2:</strong> Dados de uma fibra nervosa. Cada linha vertical representa um ponto de dados. A linha sólida é a função de distribuição empírica. As linhas acima e abaixo da linha média representam uma faixa de confiança de 95%.</p>
-<section id="exercícios" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">4.1</span> Exercícios</h2>
+</section>
+<section id="exercícios" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">4.3</span> Exercícios</h2>
 <ol type="1">
 <li><p>Gere 100 observações a partir de uma distribuição <span class="math inline">\(N(0,1)\)</span>. Calcule uma faixa de confiança de 95% para a função de distribuição empírica <span class="math inline">\(\widehat{F}_n\)</span>. Repita isso 1000 vezes e veja com que frequência a faixa de confiança contém a verdadeira função de distribuição. Repita usando dados de uma distribuição Cauchy.</p></li>
 <li><p>Seja <span class="math inline">\(X_1,\cdots, X_n\)</span> uma amostra aleatória da distribuição <span class="math inline">\(F\)</span> e seja <span class="math inline">\(\widehat{F}_n\)</span> a função de distribuição empírica. Para um <span class="math inline">\(x\)</span> fixo, encontre a distribuição limite de <span class="math inline">\(\sqrt{\widehat{F}_n(x)}\)</span>.</p></li>
@@ -846,6 +876,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../ModuloI/Aula05/index.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Estimação de Densidades</span>">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estimação de Densidades</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

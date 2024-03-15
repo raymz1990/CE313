@@ -53,13 +53,11 @@ A estatística de ordem $(X_{(1)},\cdots,X_{(n)})$ é uma estatística suficient
 :::
 
 >
-**Definição**. Diz-se que uma função real $g(F)$ é estimável se tiver um estimador não viciado, isto é, se 
-existe uma estatística $T(X)$ tal que
+**Definição**. Diz-se que uma função real $g(F)$ é estimável se tiver um estimador não viciado, isto é, se existe uma estatística $T(X)$ tal que
 $$\mbox{E}_F\Big( T(X)\Big)=g(F),$$
 para todo $F\in\mathcal{P}$.
 
-**Exemplo**. Se $\mathcal{P}$ é a classe de todas as distribuições para as quais o segundo momento existe, $X$ é um
-estimador não viciado de $\mu(F)$, a média da população. Similarmente
+**Exemplo**. Se $\mathcal{P}$ é a classe de todas as distribuições para as quais o segundo momento existe, $X$ é um estimador não viciado de $\mu(F)$, a média da população. Similarmente
 $$\mu_2(F)=\mbox{Var}_F(X),$$
 é também estimável e um estimador não viciado é
 
@@ -182,11 +180,7 @@ Seja $T(X_1,\cdots,X_n)$ um estimador não viciado para $g(F)$, $F\in\mathcal{P}
 
 **Demonstração** Consequência do teorema anterior.
 
-De acordo com os teoremas acima precisamos apenas considerar estimadores que sejam simétricos nas observações e tudo 
-o que devemos fazer é torná-las não viciados. Este procedimento leva a um estimador não viciado com a menor 
-variância na classe de todos os estimadores não viciados do parâmetro. Por exemplo, como consequência destes 
-teoremas, $\overline{X}$ e $S^2$ são os únicos estimadores não viciados uniformemente de variância 
-mínima de $\mu(F)$ e $\mu_2(F)$, respectivamente.
+De acordo com os teoremas acima precisamos apenas considerar estimadores que sejam simétricos nas observações e tudo o que devemos fazer é torná-las não viciados. Este procedimento leva a um estimador não viciado com a menor variância na classe de todos os estimadores não viciados do parâmetro. Por exemplo, como consequência destes teoremas, $\overline{X}$ e $S^2$ são os únicos estimadores não viciados uniformemente de variância mínima de $\mu(F)$ e $\mu_2(F)$, respectivamente.
 
 **Exemplo**. Seja $\mathcal{P}$ a classe de todas as distribuições absolutamente contínuas e $X_1,X_2,\cdots,X_n$ uma amostra aleatória de tamanho $n$. Para estimarmos 
 $$
@@ -322,7 +316,7 @@ $$
 	& & \, + \, \displaystyle m(m-1)n\int F^2(x)G'(x)\mbox{d}x \, + \, m(m-1)n(n-1)\Big(\int F(x)G'(x)\mbox{d}x\Big)^2,
 \end{array}
 $$
-que leva &agrave; variância de $U$. Em particular, se $F = G$, então
+que leva à variância de $U$. Em particular, se $F = G$, então
 $$
 	\mbox{Var}(U) \, = \, \frac{mn(m+n+1)}{12}\cdot
 $$
@@ -396,7 +390,7 @@ Neste exemplo utilizamos duas formas de escolher a largura de banda $h_n$ dentre
 $$
 	h_n=\frac{\max(X_1,\cdots,X_n)-\min(X_1,\cdots,X_n)}{1+3.322\ln(n)}\cdot
 $$
-A segunda situação indica que  o qual significa que se os dados provêm da distribuição Normal temos que $h_n=3.49 s n^{-1/3}$ sendo $s$ o desvio padrão estimado. Esta proposta deve-se &agrave; Scott (1979).
+A segunda situação indica que  o qual significa que se os dados provêm da distribuição Normal temos que $h_n=3.49 s n^{-1/3}$ sendo $s$ o desvio padrão estimado. Esta proposta deve-se à Scott (1979).
 
 Embora o histograma é um estimador consistente quando $h_n\to 0$ e $nh_n\to \infty$, verifica-se que se pode fazer melhor. A melhoria também é motivada por uma preocupação prática: o histograma não é uma função suave, uma propriedade que se pode esperar que qualquer função de densidade real tenha.
 
@@ -416,7 +410,7 @@ também utilizando a densidade de densidade $Beta$ simétrica, dada por
 $$
 	K(u)=\frac{\Gamma(\nu+3/2)}{\Gamma(1/2)\Gamma(\nu+1)}(1-u^2)^\nu, \qquad -1< u < 1,
 $$
-e $K(u)=0$ caso contrário. Os casos especiais $\nu=0,1,2,3$ correspondem &agrave;s funções kernel uniforme, Epanechnikov, biweight e triweight, respectivamente. 
+e $K(u)=0$ caso contrário. Os casos especiais $\nu=0,1,2,3$ correspondem às funções kernel uniforme, Epanechnikov, biweight e triweight, respectivamente. 
 
 ```{r}
 kernels = eval(formals(density.default)$kernel)
@@ -498,7 +492,7 @@ Vemos que, sob as condições $h_n\to 0$ e $nh_n\to \infty$ e se ignorarmos os t
 $$
 	EQM\big(\widehat{f}(x)\big) \approx \frac{h_n^4}{4}\big(f''(x)\big)^2\tau^4 + \frac{f(x)}{nh_n}\gamma^2,
 $$
-onde $\tau^2=\int u^2K(u)\mbox{d}u$ e $\gamma^2=\int K^2(u)\mbox{d}u$. O termo &agrave; direita da expressão acima é 
+onde $\tau^2=\int u^2K(u)\mbox{d}u$ e $\gamma^2=\int K^2(u)\mbox{d}u$. O termo à direita da expressão acima é 
 minimizada quando
 $$
 	h_n = \left( \frac{\gamma^2f(x)}{\tau^4\big(f''(x)\big)^2} \right)^{\frac{1}{5}}n^{-\frac{1}{5}}\cdot
@@ -552,7 +546,7 @@ respectivamente. Houve outras abordagens para a seleção da largura de banda ó
 
 
 
-**Exemplo**. Utilaremos os dados simulados da distribuíão $N(0,1)$ no exemplo anterior para com isso mostrarmos o histograma e o estimador Kernel da função de densidade.
+**Exemplo**. Utilizaremos os dados simulados da distribuíção $N(0,1)$ no exemplo anterior para com isso mostrarmos o histograma e o estimador Kernel da função de densidade.
 
 ```{r}
 set.seed(1340)

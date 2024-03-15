@@ -25,13 +25,14 @@ $$
         0, & \mbox{se } X_i > x\end{array}\right.\cdot
 $$
 
-**Exemplo 1: Dados do nervo.**
+## Dados do nervo
 
 Cox and Lewis (1966) relataram 799 tempos de espera entre pulsos sucessivos ao longo de uma fibra nervosa. A figura abaixo mostra os
 dados e a função de distribuição empírica $\widehat{F}_n$.
 
 ```{r}
-nervo = read.csv("http://leg.ufpr.br/~lucambio/CE313/20241S/nerve.dat", header = FALSE) 
+nervo = read.csv("http://leg.ufpr.br/~lucambio/CE313/20241S/nerve.dat",
+                 header = FALSE) 
 head(nervo)
 ```
 
@@ -61,7 +62,7 @@ O teorema a seguir fornece algumas propriedades de $\widehat{F}_n$
 ::: {.callout-note appearance="simple"}
 ## Teorema 4.1
 
-Seja $(_1,\cdots,X_n$ uma amostra aleatória da distribuição $F$ e seja $\widehat{F}_n$ a função de distribuição empírica. Então
+Seja $(_1,\cdots,X_n)$ uma amostra aleatória da distribuição $F$ e seja $\widehat{F}_n$ a função de distribuição empírica. Então
 
 1. Para qualquer valor fixo $x\in\mathbb{R}$, 
 $$
@@ -78,11 +79,12 @@ $$
 3. **Teorema desigualdade de Dvoretzky-Kiefer-Wolfowitz**
 
 $$
-P\left ( \sup_x |\widehat{F}_n(x)-F(x) |&gt;\epsilon\right) \leq
-2\mbox{e}^{-2n\epsilon^2}\quad \mbox{para algum  } \epsilon&gt;0\cdot
+P \left( \sup_x | \widehat{F}_n (x) - F(x) | > \epsilon \right)
+\leq 2\mbox{e}^{-2n\epsilon} \quad \mbox{para algum } \epsilon > 0
 $$
+:::
 
-**Demonstração.**
+### Demonstração
 
 A partir da desigualdade de Dvoretzky-Kiefer-Wolfowitz (DKW), podemos construir um conjunto de confiança. Seja $\epsilon^2_n = \log(2/\alpha)/(2n)$, $L(x) = \max\{\widehat{F}_n(x) - \epsilon_n,0\}$ e $U(x) = \min\{\widehat{F}_n(x) + \epsilon_n, 1\}$. Segue do item 3, no teorema acima, que para qualquer $F$, 
 
@@ -97,7 +99,7 @@ mais restritas, mas usamos a faixa DKW porque é simples.
 &lt;br&lt;
 
 
-**Exemplo 2: Intervalo de confiança.**
+## Intervalo de confiança
 
 Queremos obter uma banda de confiança para $\widehat{F}_n$ com nível de confiança $\alpha=0.05$. Para isto utilizaremos a desigualdade DKW, no Teorema 1.
 
