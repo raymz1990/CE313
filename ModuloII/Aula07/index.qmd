@@ -1,0 +1,50 @@
+---
+title: "Teste de Bondade de Ajuste"
+date: 2024-03-20
+code-fold: true
+---
+
+Um problema importante na estatística diz respeito à obtenção de informações sobre a forma da população da qual uma amostra é retirada. A forma dessa distribuição pode ser o foco da investigação. Alternativamente, algumas inferências sobre um aspecto particular da população podem ser de interesse. Neste último caso, na estatística clássica, as informações sobre a forma geralmente devem ser postuladas ou incorporadas na hipótese nula para realizar um tipo de inferência paramétrico exato.
+
+Aqui vamos considerar dois tipos de testes de bondade de ajuste. O primeiro tipo é projetado para hipóteses nulas relativas a uma distribuição discreta e compara as frequências observadas com as frequências esperadas sob a hipótese nula. O segundo tipo de teste de bondade de ajuste é projetado para hipóteses nulas relativas a uma distribuição contínua e compara as frequências relativas acumuladas observadas com aquelas esperadas sob as hipóteses nulas.
+
+## Teste qui-quadrado
+
+Uma única amostra aleatória de tamanho $n$ é extraída de uma população com função de distribuição desconhecida $F$. Desejamos testar a hipótese nula:
+
+$$
+\begin{align*}
+H_0 &: F(x) = F_0(x), & \text{para todo } x,
+\end{align*}
+$$
+
+onde $F_0(x)$ é completamente especificada, contra a alternativa geral.
+
+$$
+\begin{align*}
+H_0 &: F(x) \neq F_0(x), & \text{para algum } x,
+\end{align*}
+$$
+
+Quando a distribuição da população é completamente especificada pela hipótese nula, pode-se calcular as probabilidades de que uma observação aleatória seja classificada em cada uma das categorias escolhidas ou fixas.
+
+Essas probabilidades multiplicadas por $n$ fornecem as frequências para cada categoria que seriam esperadas se a hipótese nula fosse verdadeira. Excetuando-se a variação amostral, deve haver uma concordância próxima entre essas frequências esperadas e observadas se os dados da amostra forem compatíveis com a distribuição $F_0$ especificada.
+
+As frequências observadas e esperadas correspondentes podem ser comparadas visualmente usando um histograma, um polígono de frequência ou um gráfico de barras. O teste qui-quadrado de bondade de ajuste fornece uma base probabilística para efetuar a comparação e decidir se a falta de concordância é muito grande para ter acurado por acaso.
+
+A situação mais típica é quando a hipótese nula é composta, isto é, declaramos a forma da distribuição, mas não todos os parâmetros. Por exemplo, quando testamos se uma amostra é retirada de alguma população normal, $\mu$ e $\sigma$ não seriam dados.
+
+No entanto, para calcular as frequências esperadas em $H_0$, $\mu$ e $\sigma$ devem ser conhecidas. Se as frequências esperadas são estimadas a partir dos dados como $n\widehat{\theta}_{i}^{0}$, a variável aleatória para o teste de ajuste assume a forma:
+
+$$
+Q = \sum\limits_{i=1}^{k} \frac{(F_i - n \widehat{\theta}_{i}^{0})^2}
+{n\widehat{\theta}_{i}^{0}}
+$$
+
+No teste de bondade de ajuste normal, por exemplo, as estimativas dos parâmetros $\mu$ e $\sigma$ seriam calculadas a partir dos dados agrupados e usadas com quantis da distribuição normal para encontrar $n\widehat{\theta}_{i}^{0}$ e os graus de liberdade para $k$ categorias iria para $k$ − 3.
+
+Quando os dados originais são desagrupados e os estimadores de máxima verossimilhança são baseados na função de verossimilhança de todas as observações, a teoria é diferente. Chernoff and Lehmann (1954) mostraram que a distribuição limite de $Q$ não é qui-quadrado neste caso e que $P(Q > χ_{\alpha}^{2}) > \alpha$.
+
+O teste é então não conservador. Na prática, a estatística é frequentemente tratada como uma variável qui-quadrado de qualquer maneira.
+
+## Teste Kolmogorov-Smirnov

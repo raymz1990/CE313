@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../ModuloII/index.html" rel="next">
 <link href="../../ModuloI/Aula04/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -264,6 +265,23 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../ModuloII/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Módulo I</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ModuloII/Aula07/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">index.html</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -276,12 +294,14 @@ window.Quarto = {
   <ul>
   <li><a href="#função-de-densidade-empírica." id="toc-função-de-densidade-empírica." class="nav-link active" data-scroll-target="#função-de-densidade-empírica."><span class="header-section-number">5.1</span> Função de densidade empírica.</a></li>
   <li><a href="#histograma-informalmente" id="toc-histograma-informalmente" class="nav-link" data-scroll-target="#histograma-informalmente"><span class="header-section-number">5.2</span> Histograma, informalmente</a></li>
-  <li><a href="#histograma." id="toc-histograma." class="nav-link" data-scroll-target="#histograma."><span class="header-section-number">5.3</span> Histograma.</a></li>
-  <li><a href="#cálculo-automático-do-número-de-intervalos-num-histograma" id="toc-cálculo-automático-do-número-de-intervalos-num-histograma" class="nav-link" data-scroll-target="#cálculo-automático-do-número-de-intervalos-num-histograma"><span class="header-section-number">5.4</span> Cálculo automático do número de intervalos num histograma</a></li>
-  <li><a href="#histograma-definição-moderna." id="toc-histograma-definição-moderna." class="nav-link" data-scroll-target="#histograma-definição-moderna."><span class="header-section-number">5.5</span> Histograma, definição moderna.</a></li>
-  <li><a href="#estimador-kernel." id="toc-estimador-kernel." class="nav-link" data-scroll-target="#estimador-kernel."><span class="header-section-number">5.6</span> Estimador kernel.</a></li>
-  <li><a href="#escolha-automática-da-largura-de-banda" id="toc-escolha-automática-da-largura-de-banda" class="nav-link" data-scroll-target="#escolha-automática-da-largura-de-banda"><span class="header-section-number">5.7</span> Escolha automática da largura de banda</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">5.8</span> </a></li>
+  <li><a href="#histograma" id="toc-histograma" class="nav-link" data-scroll-target="#histograma"><span class="header-section-number">5.3</span> Histograma</a>
+  <ul class="collapse">
+  <li><a href="#cálculo-automático-do-número-de-intervalos-num-histograma" id="toc-cálculo-automático-do-número-de-intervalos-num-histograma" class="nav-link" data-scroll-target="#cálculo-automático-do-número-de-intervalos-num-histograma"><span class="header-section-number">5.3.1</span> Cálculo automático do número de intervalos num histograma</a></li>
+  </ul></li>
+  <li><a href="#histograma-definição-moderna." id="toc-histograma-definição-moderna." class="nav-link" data-scroll-target="#histograma-definição-moderna."><span class="header-section-number">5.4</span> Histograma, definição moderna.</a></li>
+  <li><a href="#estimador-kernel." id="toc-estimador-kernel." class="nav-link" data-scroll-target="#estimador-kernel."><span class="header-section-number">5.5</span> Estimador kernel.</a></li>
+  <li><a href="#escolha-automática-da-largura-de-banda" id="toc-escolha-automática-da-largura-de-banda" class="nav-link" data-scroll-target="#escolha-automática-da-largura-de-banda"><span class="header-section-number">5.6</span> Escolha automática da largura de banda</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">5.7</span> </a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula05/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -320,49 +340,52 @@ window.Quarto = {
 <section id="função-de-densidade-empírica." class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="função-de-densidade-empírica."><span class="header-section-number">5.1</span> Função de densidade empírica.</h2>
 <blockquote class="blockquote">
-<p><strong>Definição</strong> Seja <span class="math inline">\(f\)</span> a derivada de <span class="math inline">\(F\)</span>, por isso, pode-se escrever como <span class="math display">\[
+<p><strong>Definição</strong>. Seja <span class="math inline">\(f\)</span> a derivada de <span class="math inline">\(F\)</span>, por isso, pode-se escrever como <span class="math display">\[
 f(x) = \lim_{h\to 0} \dfrac{F(x+h)-F(x-h)}{2h}\cdot
 \]</span> Dizemos então que <span class="math inline">\(\widehat{f}\)</span>, defnido por <span class="math display">\[
 \widehat{f}_n(x)=\dfrac{\widehat{F}_n(x+h)-\widehat{F}_n(x-h)}{2h},
 \]</span> é o histograma, sendo que <span class="math inline">\(\widehat{F}\)</span>_n é a função de distribuição empírica.</p>
 </blockquote>
 <p>Um histograma é uma representação gráﬁca da função de probabilidades ou da função de densidade de um conjunto de dados independentes e foi introduzido pela primeira vez por Karl Pearson no artigo Pearson, K. (1895). Contributions to the Mathematical Theory of Evolution. II. Skew Variation in Homogeneous Material. Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences 186: 343-414.</p>
-<p>A representação mais comum do histograma é um gráﬁco de barras verticais. A palavra histograma é de origem grega, derivada de duas: histos que pode signiﬁcar testemunha no sentido de aquilo que se vê, como as barras verticais do histograma e da também palavra grega gramma que signiﬁca desenhar, registrar ou escrever. Para construir um exemplo controlado do gráﬁco de histograma, simulamos uma amostra de tamanho 150 da distribuição normal padrão, com o comando <strong>rnorm</strong> e depois construímosum gráfico colorido, abaixo a esquerda. Posteriormente, acrescentamos a este gráﬁco uma linha com a densidade normal, abaixo a direita.</p>
+<p>A representação mais comum do histograma é um gráﬁco de barras verticais. A palavra histograma é de origem grega, derivada de duas: histos que pode signiﬁcar testemunha no sentido de aquilo que se vê, como as barras verticais do histograma e da também palavra grega gramma que signiﬁca desenhar, registrar ou escrever.</p>
+<p>Para construir um exemplo controlado do gráﬁco de histograma, simulamos uma amostra de tamanho 150 da distribuição normal padrão, com o comando <strong>rnorm</strong> e depois construímosum gráfico colorido, abaixo a esquerda. Posteriormente, acrescentamos a este gráﬁco uma linha com a densidade normal, abaixo a direita.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| Gráﬁco de histograma para dados</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">8476</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>exemplo <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">150</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>), <span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(exemplo, <span class="at">breaks=</span><span class="dv">12</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">xlab=</span><span class="st">"Dados simulados"</span>, <span class="at">ylab=</span><span class="st">"Frequencia"</span>, <span class="at">main=</span><span class="st">"Histograma"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>h<span class="ot">=</span><span class="fu">hist</span>(exemplo, <span class="at">breaks=</span><span class="dv">10</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">xlab=</span><span class="st">"Dados simulados"</span>, <span class="at">ylab=</span><span class="st">"Frequencia"</span>, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">main=</span><span class="st">"Histograma com a curva normal"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>xfit<span class="ot">=</span><span class="fu">seq</span>(<span class="fu">min</span>(exemplo),<span class="fu">max</span>(exemplo),<span class="at">length=</span><span class="dv">40</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>yfit<span class="ot">=</span><span class="fu">dnorm</span>(xfit,<span class="at">mean=</span><span class="fu">mean</span>(exemplo),<span class="at">sd=</span><span class="fu">sd</span>(exemplo))</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>yfit<span class="ot">=</span>yfit<span class="sc">*</span><span class="fu">diff</span>(h<span class="sc">$</span>mids[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])<span class="sc">*</span><span class="fu">length</span>(exemplo)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(xfit, yfit, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">8476</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>exemplo <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">150</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">1</span>), <span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(exemplo, <span class="at">breaks=</span><span class="dv">12</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">xlab=</span><span class="st">"Dados simulados"</span>, <span class="at">ylab=</span><span class="st">"Frequencia"</span>, <span class="at">main=</span><span class="st">"Histograma"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>h<span class="ot">=</span><span class="fu">hist</span>(exemplo, <span class="at">breaks=</span><span class="dv">10</span>, <span class="at">col=</span><span class="st">"red"</span>, <span class="at">xlab=</span><span class="st">"Dados simulados"</span>, <span class="at">ylab=</span><span class="st">"Frequencia"</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">main=</span><span class="st">"Histograma com a curva normal"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>xfit<span class="ot">=</span><span class="fu">seq</span>(<span class="fu">min</span>(exemplo),<span class="fu">max</span>(exemplo),<span class="at">length=</span><span class="dv">40</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>yfit<span class="ot">=</span><span class="fu">dnorm</span>(xfit,<span class="at">mean=</span><span class="fu">mean</span>(exemplo),<span class="at">sd=</span><span class="fu">sd</span>(exemplo))</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>yfit<span class="ot">=</span>yfit<span class="sc">*</span><span class="fu">diff</span>(h<span class="sc">$</span>mids[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])<span class="sc">*</span><span class="fu">length</span>(exemplo)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(xfit, yfit, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Gráﬁco de histograma para dados simulados.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><strong>Figura 1:</strong> Gráﬁco de histograma para dados simulados.</p>
 <p>A ideia é mostrar que o histograma assemelha-se ao gráﬁco da densidade normal, a densidade dos dados.</p>
 </section>
 <section id="histograma-informalmente" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="histograma-informalmente"><span class="header-section-number">5.2</span> Histograma, informalmente</h2>
 <blockquote class="blockquote">
-<p><strong>Definição</strong>: Matematicamente o histograma é uma função <span class="math inline">\(m_i\)</span> que conta o número de observações que pertencem a vários intervalos disjuntos, entanto que o gráﬁco do histograma ou simplesmente histograma é uma mera representação desta função. Assim, se <span class="math inline">\(n\)</span> representa o total de observações e <span class="math inline">\(k\)</span> o número de intervalos disjuntos, o histograma satisfaz que <span class="math display">\[
+<p><strong>Definição</strong>. Matematicamente o histograma é uma função <span class="math inline">\(m_i\)</span> que conta o número de observações que pertencem a vários intervalos disjuntos, entanto que o gráﬁco do histograma ou simplesmente histograma é uma mera representação desta função. Assim, se <span class="math inline">\(n\)</span> representa o total de observações e <span class="math inline">\(k\)</span> o número de intervalos disjuntos, o histograma satisfaz que <span class="math display">\[
 n=\sum_{i=1}^k m_i\cdot
 \]</span></p>
 </blockquote>
@@ -384,30 +407,33 @@ n=\sum_{i=1}^k m_i\cdot
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: Histogramas da distribuição chi² com 6 graus de liberdade. Número de intervalos 14 e 26, respectivamente.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><strong>Figura 2: </strong>Histogramas da distribuição <span class="math inline">\(\chi^2\)</span> com 6 graus de liberdade. Número de intervalos 14 e 26, respectivamente.</p>
 <p>Vejamos agora uma deﬁnição mais clara do histograma.</p>
 </section>
-<section id="histograma." class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="histograma."><span class="header-section-number">5.3</span> Histograma.</h2>
+<section id="histograma" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="histograma"><span class="header-section-number">5.3</span> Histograma</h2>
 <blockquote class="blockquote">
 <p><strong>Definição</strong>: Sejam <span class="math inline">\(I_1,\cdots,I_k\)</span> intervalos disjuntos do suporte da função de probabilidade ou de densidade da variável aleatória <span class="math inline">\(X\)</span>. O histograma é deﬁnido por <span class="math display">\[
 \widehat{f}_n(x) = \dfrac{m_i}{n|I_i|}, \quad \forall x\in I_i, \;
 i=1,\cdots,n,
 \]</span> onde <span class="math inline">\(|I_i|\)</span> representa o comprimento do intervalo <span class="math inline">\(i\)</span>, <span class="math inline">\(m_i\)</span> e <span class="math inline">\(n\)</span> como na Deﬁnição 1.</p>
 </blockquote>
-<p>Foi provado por Robertson (1967) que, dados os intervalos <span class="math inline">\(I_1,I_2,\cdots,I_k\)</span>, o histograma <span class="math inline">\(\widehat{f}_n\)</span> é um estimador de máxima verossimilhança dentre os estimadores expressados como funções simples e semi-contı́nuas superiormente, isto se o fecho de cada intervalos contiver duas ou mais observações. Os gráﬁcos apresentados nas ﬁguras acima são histogramas também segundo a proposta de Robertson (1967).</p>
+<p>Foi provado por Robertson (1967) que, dados os intervalos <span class="math inline">\(I_1,I_2,\cdots,I_k\)</span>, o histograma <span class="math inline">\(\widehat{f}_n\)</span> é um estimador de máxima verossimilhança dentre os estimadores expressados como funções simples e semi-contínuas superiormente, isto se o fecho de cada intervalos contiver duas ou mais observações. Os gráﬁcos apresentados nas ﬁguras acima são histogramas também segundo a proposta de Robertson (1967).</p>
 <p>Pode-se observar que este estimador tem duas limitações importantes: a dependência do comprimento do intervalo e o fato de o histograma não constituir uma função contı́nua. A primeira destas limitações foi amplamente estudada por Wegman (1975). Ele provou que os pontos extremos de cada intervalo <span class="math inline">\(I_k\)</span> devem ser coincidentes com observações e que, se o número mínimo de observações em cada intervalo aumenta, conforme aumenta o tamanho da amostra, o estimador <span class="math inline">\(\widehat{f}_n\)</span> é consistente.</p>
-<p>A segunda limitação importante do histograma, isto é, o fato de ele não constituir uma função contı́nua, incentivou diversos estudos na procura de estimadores contı́nuos da função de densidade</p>
-</section>
-<section id="cálculo-automático-do-número-de-intervalos-num-histograma" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="cálculo-automático-do-número-de-intervalos-num-histograma"><span class="header-section-number">5.4</span> Cálculo automático do número de intervalos num histograma</h2>
+<p>A segunda limitação importante do histograma, isto é, o fato de ele não constituir uma função contı́nua, incentivou diversos estudos na procura de estimadores contı́nuos da função de densidad.</p>
+<section id="cálculo-automático-do-número-de-intervalos-num-histograma" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="cálculo-automático-do-número-de-intervalos-num-histograma"><span class="header-section-number">5.3.1</span> Cálculo automático do número de intervalos num histograma</h3>
 <p>Uma questão importante é determinar de maneira automatizada o número de intervalos disjuntos que serão utilizados para a construção do gráﬁco. Uma primeira forma de escolher o número de intervalos foi dada por Sturges (1926) e que constitui a forma padrão no <strong>R</strong>. Conhecida como fórmula de Sturges é dada por</p>
 <p><span class="math display">\[
 k= [\log_2(n) + 1],
@@ -416,8 +442,9 @@ k= [\log_2(n) + 1],
 <p>Outras expressões comumente utilizadas são a fórmula de Scott (Scott, 1979) <span class="math inline">\(h = 3.5s/\sqrt{n}\)</span>, onde <span class="math inline">\(s\)</span> é o desvio padrão amostral e a fórmula de Freedman-Diacconi (Freedman and Diaconis, 1981) <span class="math inline">\(h = 2\mbox{IQR}(x)/ n\)</span>, onde <span class="math inline">\(\mbox{IRQ}\)</span> é a diferença entre o terceiro e o primeiro quantil.</p>
 <p>Uma outra forma de definir o histograma é utilizando o estimador empírico da função de distribuição.</p>
 </section>
-<section id="histograma-definição-moderna." class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="histograma-definição-moderna."><span class="header-section-number">5.5</span> Histograma, definição moderna.</h2>
+</section>
+<section id="histograma-definição-moderna." class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="histograma-definição-moderna."><span class="header-section-number">5.4</span> Histograma, definição moderna.</h2>
 <blockquote class="blockquote">
 <p><strong>Definição</strong>: Na definição de função de densidade empírica, o parâmetro <span class="math inline">\(h\)</span> é chamado de largura de banda. Podemos escrever o histograma <span class="math inline">\(\widehat{f}_n\)</span>, como, <span class="math display">\[
 \widehat{f}_n(x)=\dfrac{1}{2nh}\sum_{i=1}^n
@@ -475,8 +502,8 @@ h_n=\dfrac{X_{(n)}-X_{(1)}}{1+3.322 \ln(n)}\cdot
 \]</span></p>
 <p>A segunda situação indica que se os dados provêm da distribuição Normal temos que <span class="math inline">\(h_n=3.49sn^{−1/3}\)</span> sendo <span class="math inline">\(s\)</span> o desvio padrão estimado. Esta proposta deve-se à Scott (1979). Embora o histograma é um estimador consistente quando <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to\infty\)</span>, verifica-se que se pode fazer melhor. A melhoria também é motivada por uma preocupação prática: o histograma não é uma função suave, uma propriedade que se pode esperar que qualquer função de densidade real tenha.</p>
 </section>
-<section id="estimador-kernel." class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="estimador-kernel."><span class="header-section-number">5.6</span> Estimador kernel.</h2>
+<section id="estimador-kernel." class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="estimador-kernel."><span class="header-section-number">5.5</span> Estimador kernel.</h2>
 <blockquote class="blockquote">
 <p><strong>Definição</strong>: O estimador kernel da função de densidade é dado por <span class="math display">\[
 \widehat{f}_n(x)=\dfrac{1}{nh_n}\sum_{i=1}^n
@@ -511,8 +538,8 @@ K(u)=\dfrac{\Gamma(\nu+3/2)}{\Gamma(1/2)\Gamma(\nu+1)}(1-u^2)^\nu, \quad
 </div>
 </div>
 </section>
-<section id="escolha-automática-da-largura-de-banda" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="escolha-automática-da-largura-de-banda"><span class="header-section-number">5.7</span> Escolha automática da largura de banda</h2>
+<section id="escolha-automática-da-largura-de-banda" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="escolha-automática-da-largura-de-banda"><span class="header-section-number">5.6</span> Escolha automática da largura de banda</h2>
 <p>Um problema prático importante na estimação de densidades via kernel é como escolher a largura de banda <span class="math inline">\(h_n\)</span> de forma automática. Note que, dadas condições como <span class="math inline">\(h_n\to 0\)</span> e <span class="math inline">\(nh_n\to\infty\)</span>, ainda existem muitas opções para <span class="math inline">\(h_n\)</span>. Então, de certo modo, a ordem de convergência ou divergência não resolve o problema. Uma solução para esse problema é conhecida como compensação de viés-variância. Antes de entrarmos nos detalhes, vamos primeiro apressentar um resultado em relação ao viés assintótico do estimador kernel. Aqui, o viés é definido como</p>
 <p><span class="math display">\[
 \mbox{viés}\big( \widehat{f}_n(x)\big)=\mbox{E}\big(
@@ -629,8 +656,8 @@ h_n=\left( \dfrac{\gamma^2}{\tau^4\theta^2}\right)^{1/5}n^{-1/5}\cdot
 (x_i-\overline{x})^4-3\cdot
 \]</span> Os procedimentos de estimação de densidade mostrados até o momento foram implementados na função <strong>density</strong>.</p>
 </div></section>
-<section id="section" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="section"><span class="header-section-number">5.8</span> </h2>
+<section id="section" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="section"><span class="header-section-number">5.7</span> </h2>
 <p>Exemplo 2: Estimador kernel de densidade em dados simulados.</p>
 <p>Utilizaremos os dados simulados da distribuíão <span class="math inline">\(N(0,1)\)</span> no exemplo anterior. Mostraremos o histograma e o estimador kernel da função de densidade.</p>
 <div class="cell">
@@ -1056,6 +1083,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../ModuloII/index.html" class="pagination-link" aria-label="Módulo I">
+        <span class="nav-page-text">Módulo I</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

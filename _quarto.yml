@@ -45,6 +45,11 @@ book:
       - ModuloI/Aula04/index.qmd
       - ModuloI/Aula05/index.qmd
 
+    - part: "ModuloII/index.qmd"
+      chapters:
+      - ModuloII/Aula07/index.qmd
+      - ModuloII/Aula09/index.qmd
+
   page-footer: 
     left: |
       Estatística 2023-2026

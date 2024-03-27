@@ -72,8 +72,8 @@ O histograma é um gráﬁco composto por retângulos justapostos em que a base 
 Os histogramas podem ser um mau método para determinar a forma de uma distribuição porque são fortemente inﬂuenciados pelo número de intervalos utilizados. Por exemplo, decidimos gerar 50 amostras da densidade $\chi^2(6)$ e mostramos os gráﬁcos de histogramas correspondentes com 14 e 26 intervalos na Figura 2.
 
 ```{r}
-#| label: fig-1
-#| fig-cap: "Histogramas da distribuição $\chi^2$ com 6 graus de liberdade. Número de intervalos 14 e 26, respectivamente."
+#| label: fig-2
+#| fig-cap: "Histogramas da distribuição chi² com 6 graus de liberdade. Número de intervalos 14 e 26, respectivamente."
 
 set.seed(5678)
 z=rchisq(50, df=6)

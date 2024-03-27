@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-03-08">
+<meta name="dcterms.date" content="2024-03-27">
 
-<title>CE313 - Estatística Não-Paramétrica - 4&nbsp; Função de Distribuição Empírica</title>
+<title>CE313 - Estatística Não-Paramétrica - 7&nbsp; Problemas de Posição</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../ModuloI/Aula05/index.html" rel="next">
-<link href="../../ModuloI/Aula03/index.html" rel="prev">
+<link href="../../ModuloII/Aula07/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -135,7 +134,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../custom.css">
-<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - 4&nbsp; Função de Distribuição Empírica">
+<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - 7&nbsp; Problemas de Posição">
 <meta property="og:description" content="Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).">
 <meta property="og:image" content="non-parametric.pngs">
 <meta property="og:site_name" content="CE313 - Estatística Não-Paramétrica">
@@ -150,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula04/index.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula09/index.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -253,7 +252,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ModuloI/Aula04/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../ModuloI/Aula04/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></span></a>
   </div>
 </li>
@@ -277,7 +276,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../ModuloII/Aula07/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">index.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ModuloII/Aula09/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></span></a>
   </div>
 </li>
       </ul>
@@ -292,21 +297,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#dados-do-nervo" id="toc-dados-do-nervo" class="nav-link active" data-scroll-target="#dados-do-nervo"><span class="header-section-number">4.1</span> Dados do nervo</a>
-  <ul class="collapse">
-  <li><a href="#demonstração" id="toc-demonstração" class="nav-link" data-scroll-target="#demonstração"><span class="header-section-number">4.1.1</span> Demonstração</a></li>
-  </ul></li>
-  <li><a href="#intervalo-de-confiança" id="toc-intervalo-de-confiança" class="nav-link" data-scroll-target="#intervalo-de-confiança"><span class="header-section-number">4.2</span> Intervalo de confiança</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">4.3</span> Exercícios</a></li>
+  <li><a href="#teste-do-sinal" id="toc-teste-do-sinal" class="nav-link active" data-scroll-target="#teste-do-sinal"><span class="header-section-number">7.1</span> Teste do Sinal</a></li>
+  <li><a href="#teste-de-wilcoxon" id="toc-teste-de-wilcoxon" class="nav-link" data-scroll-target="#teste-de-wilcoxon"><span class="header-section-number">7.2</span> teste de Wilcoxon</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula04/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloII/Aula09/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula04/index.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula09/index.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></h1>
 </div>
 
 
@@ -317,7 +318,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 8, 2024</p>
+      <p class="date">March 27, 2024</p>
     </div>
   </div>
   
@@ -329,171 +330,296 @@ window.Quarto = {
 </header>
 
 
-<p>Começamos com o problema de estimar uma função de distribuição acumulada. Seja</p>
-<p><span class="math display">\[X_1,\cdots, X_n\sim F\]</span> onde <span class="math inline">\(F(x) = P(X\leq x)\)</span> é uma função de distribuição na reta real. Estimamos <span class="math inline">\(F\)</span> com a função de distribuição empírica.</p>
-<p>A função de distribuição empírica <span class="math inline">\(\widehat{F}_n\)</span> é a função de distribuição que coloca peso <span class="math inline">\(1/n\)</span> em cada ponto de dados <span class="math inline">\(X_i\)</span>. Formalmente,</p>
-<p><span class="math display">\[
-\widehat{F}_n(x) = \dfrac{1}{n}\sum_{i=1}^n \pmb{I}(X_i\leq x),
+<p>Seja <span class="math inline">\(X_1, X_2, \cdots, X_n\)</span> uma amostra aleatória de tamanho <span class="math inline">\(n\)</span> de alguma distribuição desconhecida <span class="math inline">\(F\)</span>. Seja <span class="math inline">\(p\)</span> um número rela positivo satisfazendo <span class="math inline">\(0 &lt; p &lt; 1\)</span> e <span class="math inline">\(k_p(F)\)</span> denotando o quantil de ordem <span class="math inline">\(p\)</span> da distribuição <span class="math inline">\(F\)</span>, ou seja,, <span class="math inline">\(k_p(F)\)</span> é tal que <span class="math display">\[
+P \Big(X \leq k_p(F) \Big) = p,
 \]</span></p>
-<p>para <span class="math inline">\(x\in\mathbb{R}\)</span>, sendo que</p>
-<p><span class="math display">\[
-    \pmb{I}(x)=\left\{
-        \begin{array}{lc} 1, &amp; \mbox{se } X_i\leq x \\
-        0, &amp; \mbox{se } X_i &gt; x\end{array}\right.\cdot
+<p>isto devido a que no seguinte estudo vamos considerar <span class="math inline">\(F\)</span> absolutamente contínua.</p>
+<p>O <strong>problema de posição</strong> consiste em verficar se <span class="math inline">\(H_0 : k_p(F) = k_0\)</span>, sendo <span class="math inline">\(k_0\)</span> um valor dado, contra alguma das alternativas <span class="math inline">\(k_p(F) &gt; k_0, k_p(F) &lt; k_0\)</span> ou <span class="math inline">\(k_p(F) \neq k_0\)</span>. O problema de posição e simetria consiste em verificar se <span class="math inline">\(H_0 : k_{0.5}(F) = k_0\)</span> e <span class="math inline">\(F\)</span> é simétrica contra <span class="math inline">\(H_0 : k_{0.5}(F) \neq k_0\)</span> ou <span class="math inline">\(F\)</span> não é simétrica.</p>
+<section id="teste-do-sinal" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="teste-do-sinal"><span class="header-section-number">7.1</span> Teste do Sinal</h2>
+<p>Seja <span class="math inline">\(X_1, X_2, \cdots, X_n\)</span> uma amostra aleatória com função de densidade comum <span class="math inline">\(f\)</span>. O problema aqui é verificarmos <span class="math display">\[
+H_0 : κ_p(f) = κ_0 \ \ \ \ \ H_1 : κ_p(f) &gt; κ_0,
+\]</span> onde <span class="math inline">\(κ_p(f)\)</span> é o quantil de ordem <span class="math inline">\(p\)</span> para <span class="math inline">\(f, 0 &lt; p &lt; 1\)</span>. Vejamos como construir a estatística de teste.</p>
+<p>Seja <span class="math inline">\(i(X_1, X_2, \cdots, X_n)\)</span> o número de elementos positivos em <span class="math display">\[
+X_1 − κ_0, X_2 − κ_0, \cdots, X_n − κ_0·
 \]</span></p>
-<section id="dados-do-nervo" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="dados-do-nervo"><span class="header-section-number">4.1</span> Dados do nervo</h2>
-<p>Cox and Lewis (1966) relataram 799 tempos de espera entre pulsos sucessivos ao longo de uma fibra nervosa. A figura abaixo mostra os dados e a função de distribuição empírica <span class="math inline">\(\widehat{F}_n\)</span>.</p>
+<p>Observemos que <span class="math inline">\(P(X_i = κ_0) = 0\)</span>, desde que <span class="math inline">\(X_i\)</span> seja uma variável aleatória do tipo contínua.</p>
+<p>Pode ser demonstrado que o teste uniformemente mais poderoso para verificar <span class="math inline">\(H_0\)</span> versus <span class="math inline">\(H_1\)</span> é dado por:</p>
+<p><span class="math display">\[
+\varphi (x_1, x_2, \cdots, x_n) =
+\begin{cases}
+1,      &amp; i(x_1, x_2, \cdots, x_n) &gt; c, \\
+\gamma, &amp; i(x_1, x_2, \cdots, x_n) = c, \\
+0,      &amp; i(x_1, x_2, \cdots, x_n) &lt; c.
+\end{cases}
+\]</span> onde <span class="math inline">\(c\)</span> e <span class="math inline">\(\gamma\)</span> são escolhidos de forma que <span class="math display">\[
+\sum_{k=c}^{n} \binom{n}{i} \ q^i \ p^{n-i} \ +
+\gamma \binom{n}{c} \ q^c \ p^{n-c} = \alpha,
+\]</span></p>
+<p>com <span class="math inline">\(q = 1 − p\)</span>. Isto é devido a que, sob <span class="math inline">\(H_0\)</span> verdadeira, <span class="math inline">\(κ_p(f) = κ_0\)</span>, de maneira que <span class="math inline">\(P(X \leq κ_0) = p\)</span> e <span class="math inline">\(P(X \geq κ_0) = q\)</span> e <span class="math inline">\(i(X) \sim Binomial(n, q)\)</span>.</p>
+<p>A mesma estatística de teste pode ser utilizada em qualquer outra situação, ou seja, utiliza-se também caso <span class="math inline">\(H_0 : κ_p(f) \neq κ_0\)</span> versus <span class="math inline">\(H_1 : κ_p(f) \geq κ_0, H_0 : κ_p(f) \geq κ_0\)</span> versus <span class="math inline">\(H_1 : κ_p(f) \leq κ_0\)</span> e <span class="math inline">\(H_0 : κ_p(f) = κ_0\)</span> contra <span class="math inline">\(H_1 : κ_p(f) 6 \neq κ_0\)</span>.</p>
+<p>As expressões do <span class="math inline">\(p-\)</span>valor para este teste podem ser obtidas de maneira geral quando <span class="math inline">\(p = 0.5\)</span>. Por exemplo, se a alternativa é de cauda superior <span class="math inline">\(H_1 : κ_p(f) \geq κ_0\)</span>, o <span class="math inline">\(p-\)</span>valor para o teste de sinal é dado pela probabilidade binomial na cauda superior</p>
+<p><span class="math display">\[
+\sum_{i=i(X)}^{n} \ \binom{n}{i} \ 0.5^n,
+\]</span></p>
+<p>sendo <span class="math inline">\(i(x) = i(x_1, x_2, \cdots , x_n)\)</span> o valor observado da estatística de teste. Poderíamos gerar tabelas e aplicar o teste de sinal exato para qualquer tamanho de amostra. Sabemos que a aproX_imação normal à binomial é especialmente boa quando <span class="math inline">\(p = 0.5\)</span>.</p>
+<p>Portanto, para valores moderados de <span class="math inline">\(n\)</span> digamos, pelo menos 12, a aproX_imação normal pode ser usada para determinar as regiões de rejeição.</p>
+<p>Como esta é uma aproX_imação contínua a uma distribuição discreta, uma correção de continuidade de 0.5 pode ser incorporada aos cálculos. Por exemplo, para a alternativa, <span class="math inline">\(H_1 : κ_0.5(f) \geq κ_0\)</span>, <span class="math inline">\(H_0\)</span> é rejeitada para <span class="math inline">\(i(x_1, x_2, \cdots , x_n) \geq κ_\alpha\)</span>, sendo <span class="math inline">\(κ_\alpha\)</span> satisfazendo</p>
+<p><span class="math display">\[
+k_\alpha = 0.5n \ + \ 0.5 \ + \ 0.5 \sqrt{nZ_\alpha}.
+\]</span></p>
+<p>Similarmente, o p-valor aproX_imado é <span class="math display">\[
+1 - \phi \Bigg(\frac{k_o - 0.5 - 0.5}{\sqrt{0.25n}} \Bigg)
+·
+\]</span></p>
+<p>O teste do sinal para as diferentes hipóteses está programado no pacote <strong>DescTools</strong>, função <strong>SignTest</strong>.</p>
+<p><strong>Exemplo</strong>:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nervo <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"http://leg.ufpr.br/~lucambio/CE313/20241S/nerve.dat"</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">header =</span> <span class="cn">FALSE</span>) </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nervo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">203</span>,<span class="dv">168</span>,<span class="dv">187</span>,<span class="dv">235</span>,<span class="dv">197</span>,<span class="dv">163</span>,<span class="dv">214</span>,<span class="dv">233</span>,<span class="dv">179</span>,<span class="dv">185</span>,<span class="dv">197</span>,<span class="dv">216</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">SignTest</span>(x, <span class="at">mu =</span> <span class="dv">195</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>    V1
-1 0.21
-2 0.03
-3 0.05
-4 0.11
-5 0.59
-6 0.06</code></pre>
+<pre><code>
+    One-sample Sign-Test
+
+data:  x
+S = 7, number of differences = 12, p-value = 0.3872
+alternative hypothesis: true median is greater than 195
+98.1 percent confidence interval:
+ 179 Inf
+sample estimates:
+median of the differences 
+                      197 </code></pre>
 </div>
 </div>
+<p>O teste do sinal de amostra única, descrito aqui, pode ser modificado para se aplicar à amostragem de uma população bivariada.</p>
+</section>
+<section id="teste-de-wilcoxon" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="teste-de-wilcoxon"><span class="header-section-number">7.2</span> teste de Wilcoxon</h2>
+<p>O teste de sinal perde informação, pois ignora a magnitude da diferença entre as observações e o quantil hipotético. O teste de postos sinalizados de Wilcoxon fornece um teste alternativo de posição e simetria que também leva em conta a magnitude dessas diferenças.</p>
+<p>Seja <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> uma amostra aleatória com função de distribuição <span class="math inline">\(F\)</span> absolutamente contínua que é simétrica a respeito da mediana <span class="math inline">\(m\)</span>. O problema é testar</p>
+<p><span class="math display">\[H_0 : m = m_0\]</span></p>
+<p>contra as alternativas usuais unilaterais ou bilaterais.</p>
+<p>Sem perda de generalidade, assumimos que <span class="math inline">\(m_0 = 0\)</span>. Então <span class="math inline">\(F(−x) = 1 − F(x) \  \text{para todo } x \in \mathbb{R}\)</span>.</p>
+<p>Por exemplo, para testar</p>
+<p><span class="math display">\[
+H_0 : F(0) = \frac{1}{2} \ \ \ \ \
+\text{ou} \ \ \ \ \
+m = 0,
+\]</span></p>
+<p>primeiro organizamos <span class="math inline">\(\mid X_1 \mid , \mid X_2\mid , \cdots , \mid X_n\mid\)</span> em ordem crescente de magnitude e atribuímos postos <span class="math inline">\(1, 2, \cdots, n\)</span> mantendo-se a par dos sinais originais de <span class="math inline">\(X_i\)</span>.</p>
+<p>Por exemplo, se <span class="math inline">\(n = 4\)</span> e <span class="math inline">\(\mid X_2\mid \ &lt; \ \mid X_4\mid \ &lt; \ \mid X_1 \mid  \ &lt; \ \mid X_3 \mid\)</span> oposto de <span class="math inline">\(\mid X_1 \mid\)</span> é 3, de <span class="math inline">\(\mid X_2\mid\)</span> é 1, de <span class="math inline">\(\mid X_3\mid\)</span> é 4 e de <span class="math inline">\(\mid X_4 \mid\)</span> é 2.</p>
+<p>Definimos <span class="math display">\[
+\begin{cases}
+T^+ &amp; = &amp; \text{soma dos postos dos } X \text{ positivos}, \\
+T^- &amp; = &amp; \text{soma dos postos dos } X \text{ negativos}.
+\end{cases}
+\]</span></p>
+<p>Então, considerando <span class="math inline">\(H_0\)</span> verdadeira, esperamos que <span class="math inline">\(T^+\)</span> e <span class="math inline">\(T^−\)</span> sejam o mesmo.</p>
+<p>Observe que</p>
+<p><span class="math display">\[
+T^+ + T^- = \sum_{i=1}^{n}i = \frac{n(n + 1)}{2},
+\]</span></p>
+<p>de maneira que <span class="math inline">\(T^+\)</span> e <span class="math inline">\(T^−\)</span> são linearmente relacionados e oferecem critérios equivalentes. Definimos agora</p>
+<p><span class="math display">\[
+Z_i =
+\begin{cases}
+1, &amp; \text{caso } &amp; X_i &gt; 0 \\
+0, &amp; \text{caso } &amp; X_i &lt; 0
+\end{cases},
+\ \ \ \ \ i = 1, 2, \cdots, n,
+\]</span></p>
+<p>e escrevemos <span class="math inline">\(r(\mid X_i\mid ) = r_i\)</span>, para o posto de <span class="math inline">\(\mid X_i \mid\)</span>.</p>
+<p>Então <span class="math inline">\(T^+ = \displaystyle \sum_{i=1}^n r_i Z_i\)</span> e <span class="math inline">\(T^- = \displaystyle \sum_{i=1}^n r_i (1 - Z_i)\)</span> . Também,</p>
+<p><span class="math display">\[
+T^+ - T^- = - \sum_{i=1}^n r_i + 2\sum_{i=1}^n r_i Z_i = 2 \sum_{i=1}^n r_i Z_i - \frac{n(n+1)}{2}.
+\]</span></p>
+<p>As estatísticas <span class="math inline">\(T^+\)</span> e <span class="math inline">\(T^-\)</span> são conhecidas como estatísticas de Wilcoxon. Um grande valor de <span class="math inline">\(T\)</span> ou, equivalentemente, um pequeno valor de <span class="math inline">\(T\)</span> significa que a maioria dos grandes desvios de 0 são positivos e, portanto, rejeitamos <span class="math inline">\(H_0\)</span> em favor da alternativa, <span class="math inline">\(H_1 : m &gt; 0\)</span>.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(H_0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(H_1\)</span></th>
+<th style="text-align: center;">Rejeitamos <span class="math inline">\(H_0\)</span> se</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(m = 0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(m &gt; 0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T^+ &gt; c_1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(m = 0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(m &lt; 0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T^+ &lt; c_2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(m = 0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(m \neq  0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(T &lt; c_3 \text{ ou } T &gt; c_4\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Vamos encontrar agora a distribuição de <span class="math inline">\(T^+\)</span>.</p>
+<p>Seja <span class="math display">\[
+Z_{(i)} =
+\begin{cases}
+1, &amp; \text{se o } \mid X_i \mid \text{ que tem posto } i \text{ é } &gt; 0, \\
+0, &amp; \text{caso contrário }.
+\end{cases}
+\]</span> É claro que <span class="math inline">\(T^+ = \displaystyle \sum_{i=1}^n iZ_(i)\)</span>. As variáveis aleatórias</p>
+<p><span class="math display">\[
+Z_(1), Z_(2), \cdots, Z(_n),
+\]</span></p>
+<p>tem por distribuição Bernoulli, são não correlacionadas mas não necessariamente igualmente distribuídas.</p>
+<p>Temos</p>
+<p><span class="math display">\[
+\begin{array}{rcl}
+    \mbox{E}\Big(Z_{(i)} \Big)
+    &amp; = &amp; P\Big( Z_{(i)} = 1 \Big) = P\Big( \big[ r \big(\mid X_i \mid \big) = i, X_{j} &gt; 0 \big] \text{ para algum } j \Big), \\
+    &amp; = &amp; P \Big(i-\text{ésima estatística de ordem em } \\
+    &amp; &amp; \mid X_1 \mid, \mid X_2 \mid,  \cdots, \mid X_n \mid \text{ corresponde a um } X_j \text{ positivo}  \Big).
+\end{array}
+\]</span></p>
+<p>Então,</p>
+<p><span class="math display">\[
+E \Big(Z_{(i)} \Big) = \int_0^\infty n \binom{n-1}{i-1}
+[F_{\mid X \mid}(u)]^{i-1}
+[1 - F_{\mid X \mid}(u)]^{n-1}
+f(u)du
+\]</span></p>
+<p>a qual pode ser escrita como</p>
+<p><span class="math display">\[
+E \Big(Z_{(i)} \Big) =
+n \binom{n-1}{i-1}
+\int_0^\infty
+[F(u)-F(-u)]^{i-1}
+[1-F(u)+F(-u)]^{n-i}
+f(u)du,
+\]</span></p>
+<p>onde <span class="math inline">\(f\)</span> é a função de densidade de <span class="math inline">\(X\)</span>.</p>
+<p>Além disso <span class="math display">\[
+Var \Big(Z_{(i)} \Big) = E \Big( Z_{(i)} \big( 1 - E \big( Z_{(i)} \big) \big) \Big)
+\]</span></p>
+<p>e</p>
+<p><span class="math display">\[
+Cov \ Z_{(i)}, Z_{(j)} = 0, \ \ \ \ \ i \neq j·
+\]</span></p>
+<p>Sob <span class="math inline">\(H_0\)</span>, <span class="math inline">\(X\)</span> é simétrica a respeito de 0, de modo que <span class="math inline">\(F(0) = \frac {1}{2}\)</span> e <span class="math inline">\(F(−u) = 1 − F(u)\)</span>, para todo <span class="math inline">\(u &gt; 0\)</span>.</p>
+<p>Então</p>
+<p><span class="math display">\[
+E Z_{(i)} =
+n \binom {n − 1}{i − 1}
+\int_0^\infty
+\big( 2F(u) − 1 \big)^{i−1}
+\big( 2 − 2F(u) \big)^{n−i}
+f(u)du·
+\]</span></p>
+<p>Escolhendo <span class="math inline">\(\nu = 2F(u) − 1\)</span>, temos que</p>
+<p><span class="math display">\[
+\begin{array}{rcl}
+    \mbox{E}\Big(Z_{(i)} \Big)
+    &amp; = &amp; \frac{n}{2}
+    \binom {n − 1}{i − 1}
+    \int_0^1
+    \nu^{i-1}
+    (1 - \nu)^{n-1}d\nu
+    \\
+    &amp; = &amp;
+    \frac{n}{2}
+    \binom {n − 1}{i − 1}
+    B(i, n - 1 + 1) = \frac{1}{2}.
+\end{array}
+\]</span> Os momentos de <span class="math inline">\(T^+\)</span>, em geral, são dados por</p>
+<p><span class="math display">\[
+E(T^+) = \sum_{i=1}^n
+i^2
+E \Big(Z_{(i)} \big(1 - E \big(Z_{(i)} \big) \big) \Big).
+\]</span> e</p>
+<p><span class="math display">\[
+Var (T^+) = \sum_{i=1}^n i^2 E \Big( Z_{(i)} \big( 1 - E \big( Z_{(i)} \big) \big) \Big).
+\]</span></p>
+<p>De maneira que, considerando <span class="math inline">\(H_0\)</span> verdadeira, temos</p>
+<p><span class="math display">\[
+E_{H_0} (T^+) = \frac{1}{2}
+\sum_{i=1}^n i = \frac{n(n + 1)}{4}
+\]</span></p>
+<p>e</p>
+<p><span class="math display">\[
+var_{H_0} (T^+) = \frac{1}{4}
+\sum_{i=1}^n i^2 = \frac{n(n + 1)(2n+1)}{24}
+\]</span></p>
+<p>Observe que <span class="math inline">\(T^+ = 0\)</span> se todas as diferenças tiverem sinais negativos e <span class="math inline">\(T^+ = \frac{n(n + 1)}{2}\)</span> se todas as diferenças tiverem sinais positivos. Aqui, uma diferença significa uma diferença entre as observações e o valor postulado da mediana.</p>
+<p>A estatística <span class="math inline">\(T^+\)</span> é completamente determinada pelas funções indicadoras <span class="math inline">\(Z_{(i)}\)</span>, assim o espaço amostral pode ser considerado como um conjunto de <span class="math inline">\((z_1, z_2, \cdots, z_n)\)</span>, onde cada <span class="math inline">\(z_i\)</span> é 0 ou 1, de cardinalidade <span class="math inline">\(2^n\)</span>.</p>
+<p>Sob <span class="math inline">\(H_0, m = m_0\)</span> e cada arranjo é igualmente provável. Portanto</p>
+<p><span class="math display">\[
+P_{H_0} (T^+ = t) =
+\frac
+{\begin{cases}
+\text{no. de maneiras de atribuir sinais + ou - aos} \\
+\text{inteiros 1,2,..., n para que a soma seja t}
+\end{cases}}
+{2^n}
+·
+\]</span></p>
+<p>Observemos que toda atribuição tem uma atribuição conjugada com sinais de mais e menos trocados, de modo que, este conjugado <span class="math inline">\(T^+\)</span> é dado por</p>
+<p><span class="math display">\[
+\sum_{i=1}^n i \big( 1 − Z_{(i)} \big) =
+\frac{n(n + 1)}{2} −
+\sum_{i=1}^n iZ_{(i)}.
+\]</span></p>
+<p>Assim, sob <span class="math inline">\(H_0\)</span>, a distribuição de <span class="math inline">\(T^+\)</span> é simétrica em relação à média <span class="math inline">\(\frac{n(n + 1)}{4}\)</span>.</p>
+<p><strong>Exemplo</strong>:</p>
+<p>Para os dados -0.465, 0.120, -0.238, -0.869, -1.016, 0.417, 0.056, 0.561 queremos verificar se <span class="math inline">\(H_0 : m = 1.0\)</span> versus <span class="math inline">\(H_1 : m &gt; 1.0\)</span>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">=</span> <span class="fu">length</span>(nervo<span class="sc">$</span>V1)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.465</span>,<span class="fl">0.120</span>,<span class="sc">-</span><span class="fl">0.238</span>,<span class="sc">-</span><span class="fl">0.869</span>,<span class="sc">-</span><span class="fl">1.016</span>,<span class="fl">0.417</span>,<span class="fl">0.056</span>,<span class="fl">0.561</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dados <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">" "</span>,<span class="dv">8</span>)), <span class="at">dados =</span> x)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>( <span class="at">x=</span>x, <span class="at">y=</span>dados, <span class="at">data=</span>dados , <span class="at">geom=</span><span class="fu">c</span>(<span class="st">"boxplot"</span>,<span class="st">"jitter"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 799</code></pre>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `qplot()` was deprecated in ggplot2 3.4.0.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
-<p>O seguinte exemplo mostra como obtermos a função de distribuição acumulada estimada ou empírica no <strong>R</strong>.</p>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Fn <span class="ot">=</span> <span class="fu">ecdf</span>(nervo<span class="sc">$</span>V1)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Fn, <span class="at">verticals =</span> <span class="cn">TRUE</span>, <span class="at">do.points =</span> <span class="cn">FALSE</span>, <span class="at">lwd =</span> <span class="dv">2</span>, </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Função de distribuição acumulada"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rug</span>(nervo<span class="sc">$</span>V1)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">col =</span> <span class="st">"green"</span>, <span class="at">border =</span> <span class="st">"red"</span>,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.5</span>,<span class="fl">1.5</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.8</span>), <span class="at">breaks =</span> <span class="dv">5</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">freq =</span> F, <span class="at">ylab=</span><span class="st">"dados"</span>, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(x)); <span class="fu">box</span>(); <span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-</div>
-<p><strong>FIGURA 1:</strong> Dados de uma fibra nervosa. Cada linha vertical representa um ponto de dados. A linha sólida é a função de distribuição empírica.</p>
-<p>O teorema a seguir fornece algumas propriedades de <span class="math inline">\(\widehat{F}_n\)</span></p>
-<div class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Teorema 4.1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Seja <span class="math inline">\((_1,\cdots,X_n)\)</span> uma amostra aleatória da distribuição <span class="math inline">\(F\)</span> e seja <span class="math inline">\(\widehat{F}_n\)</span> a função de distribuição empírica. Então</p>
-<ol type="1">
-<li><p>Para qualquer valor fixo <span class="math inline">\(x\in\mathbb{R}\)</span>, <span class="math display">\[
-\mbox{E}\Big(\widehat{F}_n(x) \Big)=F(x) \qquad \mbox{e} \qquad
-\mbox{Var}\Big(\widehat{F}_n(x) \Big)=\dfrac{F(x)(1-F(x))}{n}\cdot
-\]</span> Isto significa que <span class="math inline">\(\widehat{F}_n(x)\)</span> é consistente para <span class="math inline">\(F(x)\)</span>.</p></li>
-<li><p><strong>Teorema de Glivenco-Cantelli</strong> <span class="math display">\[
-\sup_x |\widehat{F}_n(x)-F(x) | \to 0, \quad \mbox{quase
-certamente}\cdot
-\]</span></p></li>
-<li><p><strong>Teorema desigualdade de Dvoretzky-Kiefer-Wolfowitz</strong></p></li>
-</ol>
-<p><span class="math display">\[
-P \left( \sup_x | \widehat{F}_n (x) - F(x) | &gt; \epsilon \right)
-\leq 2\mbox{e}^{-2n\epsilon} \quad \mbox{para algum } \epsilon &gt; 0
-\]</span></p>
-</div>
-</div>
-<section id="demonstração" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="demonstração"><span class="header-section-number">4.1.1</span> Demonstração</h3>
-<p>A partir da desigualdade de Dvoretzky-Kiefer-Wolfowitz (DKW), podemos construir um conjunto de confiança. Seja <span class="math inline">\(\epsilon^2_n = \log(2/\alpha)/(2n)\)</span>, <span class="math inline">\(L(x) = \max\{\widehat{F}_n(x) - \epsilon_n,0\}\)</span> e <span class="math inline">\(U(x) = \min\{\widehat{F}_n(x) + \epsilon_n, 1\}\)</span>. Segue do item 3, no teorema acima, que para qualquer <span class="math inline">\(F\)</span>,</p>
-<p><span class="math display">\[
-P\Big( L(x)\leq F(x)\leq U(x) \quad \forall x\in\mathbb{R}\Big) \geq
-1-\alpha\cdot
-\]</span></p>
-<p>Assim, <span class="math inline">\(\big(L(x), U(x)\big)\)</span> é uma faixa de confiança não paramétrica com coeficiente de confiaça <span class="math inline">\(1-\alpha\)</span>. Existem faixas de confiança mais restritas, mas usamos a faixa DKW porque é simples. &lt;br&lt;</p>
-</section>
-</section>
-<section id="intervalo-de-confiança" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="intervalo-de-confiança"><span class="header-section-number">4.2</span> Intervalo de confiança</h2>
-<p>Queremos obter uma banda de confiança para <span class="math inline">\(\widehat{F}_n\)</span> com nível de confiança <span class="math inline">\(\alpha=0.05\)</span>. Para isto utilizaremos a desigualdade DKW, no Teorema 1.</p>
-<p>Observemos que <span class="math display">\[
-\epsilon = \sqrt{\frac{1}{2n}\log\big( \frac{2}{0.05}\big)} = 0.048\cdot
-\]</span></p>
-<p>Encontremos os limites do intervalo de confiança.</p>
-<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>epsilon <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>n)<span class="sc">*</span><span class="fu">log</span>(<span class="dv">2</span><span class="sc">/</span><span class="fl">0.05</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>epsilon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(x, <span class="at">mu =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.04804618</code></pre>
+<pre><code>
+    Wilcoxon signed rank exact test
+
+data:  x
+V = 35, p-value = 0.007813
+alternative hypothesis: true location is greater than -1</code></pre>
 </div>
 </div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>(<span class="fu">environment</span>(Fn))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "f"      "method" "na.rm"  "nobs"   "x"      "y"      "yleft"  "yright"</code></pre>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">get</span>(<span class="st">"y"</span>,<span class="fu">environment</span>(Fn))</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">get</span>(<span class="st">"x"</span>,<span class="fu">environment</span>(Fn))</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>L <span class="ot">=</span> <span class="fu">ifelse</span>(y<span class="sc">-</span>epsilon<span class="sc">&lt;</span><span class="dv">0</span>,<span class="dv">0</span>,y<span class="sc">-</span>epsilon)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>U <span class="ot">=</span> <span class="fu">ifelse</span>(y<span class="sc">+</span>epsilon<span class="sc">&gt;</span><span class="dv">1</span>,<span class="dv">1</span>,y<span class="sc">+</span>epsilon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>Mostrando o gráfico resultante, ou seja, a função de distribuição empírica e a banda de confiança.</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Fn, <span class="at">verticals =</span> <span class="cn">TRUE</span>, <span class="at">do.points =</span> <span class="cn">FALSE</span>, <span class="at">lwd =</span> <span class="dv">2</span>, </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Função de distribuição acumulada"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">knots</span>(Fn),L,<span class="at">type=</span><span class="st">"b"</span>,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">cex=</span><span class="fl">0.3</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">knots</span>(Fn),U,<span class="at">type=</span><span class="st">"b"</span>,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">cex=</span><span class="fl">0.3</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rug</span>(nervo<span class="sc">$</span>V1)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><strong>FIGURA 2:</strong> Dados de uma fibra nervosa. Cada linha vertical representa um ponto de dados. A linha sólida é a função de distribuição empírica. As linhas acima e abaixo da linha média representam uma faixa de confiança de 95%.</p>
-</section>
-<section id="exercícios" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">4.3</span> Exercícios</h2>
-<ol type="1">
-<li><p>Gere 100 observações a partir de uma distribuição <span class="math inline">\(N(0,1)\)</span>. Calcule uma faixa de confiança de 95% para a função de distribuição empírica <span class="math inline">\(\widehat{F}_n\)</span>. Repita isso 1000 vezes e veja com que frequência a faixa de confiança contém a verdadeira função de distribuição. Repita usando dados de uma distribuição Cauchy.</p></li>
-<li><p>Seja <span class="math inline">\(X_1,\cdots, X_n\)</span> uma amostra aleatória da distribuição <span class="math inline">\(F\)</span> e seja <span class="math inline">\(\widehat{F}_n\)</span> a função de distribuição empírica. Para um <span class="math inline">\(x\)</span> fixo, encontre a distribuição limite de <span class="math inline">\(\sqrt{\widehat{F}_n(x)}\)</span>.</p></li>
-<li><p>Sejam <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> dois pontos distintos. Encontre <span class="math inline">\(\mbox{Cov}\Big(\widehat{F}_n(x),\widehat{F}_n(y)\Big)\)</span>.</p></li>
-</ol>
 
 
 </section>
@@ -888,14 +1014,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../ModuloI/Aula03/index.html" class="pagination-link  aria-label=" &lt;span="" não="" paramétrica="" 2&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica 2</span></span>
+      <a href="../../ModuloII/Aula07/index.html" class="pagination-link  aria-label=" &lt;span="" de="" bondade="" ajuste&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../ModuloI/Aula05/index.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Estimação de Densidades</span>">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estimação de Densidades</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -906,7 +1029,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula04/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloII/Aula09/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-03-06">
+<meta name="dcterms.date" content="2024-03-20">
 
-<title>CE313 - Estatística Não-Paramétrica - 3&nbsp; Estatística Não Paramétrica 2</title>
+<title>CE313 - Estatística Não-Paramétrica - 6&nbsp; Teste de Bondade de Ajuste</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../ModuloI/Aula04/index.html" rel="next">
-<link href="../../ModuloI/Aula02/index.html" rel="prev">
+<link href="../../ModuloII/Aula09/index.html" rel="next">
+<link href="../../ModuloII/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,9 +70,38 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../custom.css">
-<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - 3&nbsp; Estatística Não Paramétrica 2">
+<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - 6&nbsp; Teste de Bondade de Ajuste">
 <meta property="og:description" content="Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).">
 <meta property="og:image" content="non-parametric.pngs">
 <meta property="og:site_name" content="CE313 - Estatística Não-Paramétrica">
@@ -87,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula03/index.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica 2</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula07/index.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -184,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ModuloI/Aula03/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../ModuloI/Aula03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica 2</span></span></a>
   </div>
 </li>
@@ -213,8 +242,14 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../ModuloII/Aula07/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">index.html</span></span></a>
+  <a href="../../ModuloII/Aula07/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../ModuloII/Aula09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></span></a>
   </div>
 </li>
       </ul>
@@ -225,14 +260,21 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#teste-qui-quadrado" id="toc-teste-qui-quadrado" class="nav-link active" data-scroll-target="#teste-qui-quadrado"><span class="header-section-number">6.1</span> Teste qui-quadrado</a></li>
+  <li><a href="#teste-kolmogorov-smirnov" id="toc-teste-kolmogorov-smirnov" class="nav-link" data-scroll-target="#teste-kolmogorov-smirnov"><span class="header-section-number">6.2</span> Teste Kolmogorov-Smirnov</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloII/Aula07/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloI/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloI/Aula03/index.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica 2</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula07/index.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica 2</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></h1>
 </div>
 
 
@@ -243,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 6, 2024</p>
+      <p class="date">March 20, 2024</p>
     </div>
   </div>
   
@@ -255,8 +297,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Um problema importante na estatística diz respeito à obtenção de informações sobre a forma da população da qual uma amostra é retirada. A forma dessa distribuição pode ser o foco da investigação. Alternativamente, algumas inferências sobre um aspecto particular da população podem ser de interesse. Neste último caso, na estatística clássica, as informações sobre a forma geralmente devem ser postuladas ou incorporadas na hipótese nula para realizar um tipo de inferência paramétrico exato.</p>
+<p>Aqui vamos considerar dois tipos de testes de bondade de ajuste. O primeiro tipo é projetado para hipóteses nulas relativas a uma distribuição discreta e compara as frequências observadas com as frequências esperadas sob a hipótese nula. O segundo tipo de teste de bondade de ajuste é projetado para hipóteses nulas relativas a uma distribuição contínua e compara as frequências relativas acumuladas observadas com aquelas esperadas sob as hipóteses nulas.</p>
+<section id="teste-qui-quadrado" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="teste-qui-quadrado"><span class="header-section-number">6.1</span> Teste qui-quadrado</h2>
+<p>Uma única amostra aleatória de tamanho <span class="math inline">\(n\)</span> é extraída de uma população com função de distribuição desconhecida <span class="math inline">\(F\)</span>. Desejamos testar a hipótese nula:</p>
+<p><span class="math display">\[
+\begin{align*}
+H_0 &amp;: F(x) = F_0(x), &amp; \text{para todo } x,
+\end{align*}
+\]</span></p>
+<p>onde <span class="math inline">\(F_0(x)\)</span> é completamente especificada, contra a alternativa geral.</p>
+<p><span class="math display">\[
+\begin{align*}
+H_0 &amp;: F(x) \neq F_0(x), &amp; \text{para algum } x,
+\end{align*}
+\]</span></p>
+<p>Quando a distribuição da população é completamente especificada pela hipótese nula, pode-se calcular as probabilidades de que uma observação aleatória seja classificada em cada uma das categorias escolhidas ou fixas.</p>
+<p>Essas probabilidades multiplicadas por <span class="math inline">\(n\)</span> fornecem as frequências para cada categoria que seriam esperadas se a hipótese nula fosse verdadeira. Excetuando-se a variação amostral, deve haver uma concordância próxima entre essas frequências esperadas e observadas se os dados da amostra forem compatíveis com a distribuição <span class="math inline">\(F_0\)</span> especificada.</p>
+<p>As frequências observadas e esperadas correspondentes podem ser comparadas visualmente usando um histograma, um polígono de frequência ou um gráfico de barras. O teste qui-quadrado de bondade de ajuste fornece uma base probabilística para efetuar a comparação e decidir se a falta de concordância é muito grande para ter acurado por acaso.</p>
+<p>A situação mais típica é quando a hipótese nula é composta, isto é, declaramos a forma da distribuição, mas não todos os parâmetros. Por exemplo, quando testamos se uma amostra é retirada de alguma população normal, <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma\)</span> não seriam dados.</p>
+<p>No entanto, para calcular as frequências esperadas em <span class="math inline">\(H_0\)</span>, <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma\)</span> devem ser conhecidas. Se as frequências esperadas são estimadas a partir dos dados como <span class="math inline">\(n\widehat{\theta}_{i}^{0}\)</span>, a variável aleatória para o teste de ajuste assume a forma:</p>
+<p><span class="math display">\[
+Q = \sum\limits_{i=1}^{k} \frac{(F_i - n \widehat{\theta}_{i}^{0})^2}
+{n\widehat{\theta}_{i}^{0}}
+\]</span></p>
+<p>No teste de bondade de ajuste normal, por exemplo, as estimativas dos parâmetros <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma\)</span> seriam calculadas a partir dos dados agrupados e usadas com quantis da distribuição normal para encontrar <span class="math inline">\(n\widehat{\theta}_{i}^{0}\)</span> e os graus de liberdade para <span class="math inline">\(k\)</span> categorias iria para <span class="math inline">\(k\)</span> − 3.</p>
+<p>Quando os dados originais são desagrupados e os estimadores de máxima verossimilhança são baseados na função de verossimilhança de todas as observações, a teoria é diferente. Chernoff and Lehmann (1954) mostraram que a distribuição limite de <span class="math inline">\(Q\)</span> não é qui-quadrado neste caso e que <span class="math inline">\(P(Q &gt; χ_{\alpha}^{2}) &gt; \alpha\)</span>.</p>
+<p>O teste é então não conservador. Na prática, a estatística é frequentemente tratada como uma variável qui-quadrado de qualquer maneira.</p>
+</section>
+<section id="teste-kolmogorov-smirnov" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="teste-kolmogorov-smirnov"><span class="header-section-number">6.2</span> Teste Kolmogorov-Smirnov</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -648,13 +722,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../ModuloI/Aula02/index.html" class="pagination-link  aria-label=" &lt;span="" de="" ordem&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estatísticas de Ordem</span></span>
+      <a href="../../ModuloII/index.html" class="pagination-link  aria-label=" módulo="" i"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Módulo I</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../ModuloI/Aula04/index.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Função de Distribuição Empírica</span>">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../ModuloII/Aula09/index.html" class="pagination-link" aria-label="<span class='chapter-number'>7</span>&nbsp; <span class='chapter-title'>Problemas de Posição</span>">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -666,7 +740,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloI/Aula03/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloII/Aula07/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

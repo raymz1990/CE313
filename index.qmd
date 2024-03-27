@@ -50,9 +50,9 @@ Estatística paramétrica e não paramétrica. Testes não paramétricos para um
 
 ---
 
-**MÓDULO II**: [Problemas de amostra única](leg.ufpr.br/~lucambio/Nonparam/NparamII.html)
+**MÓDULO II**: [Problemas de amostra única](ModuloI/index.html)
 
-* Aula 07 -
+* Aula 07 - [Teste de Bondade de Ajuste](ModuloII/Aula07/index.html)
 * Aula 08 -
 * Aula 09 -
 * Aula 10 -
