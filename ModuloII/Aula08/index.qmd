@@ -1,0 +1,93 @@
+---
+title: "Lista de Exercicios 01"
+date: 2024-03-22
+code-fold: true
+---
+
+Considere o seguinte conjunto de dados:
+
+```{r}
+beans = read.csv("http://leg.ufpr.br/~lucambio/CE313/20241S/Beans_Dataset.csv")
+names(beans)
+```
+
+```{r}
+dim(beans)
+```
+
+```{r}
+head(beans[,1:6])
+```
+
+
+Sete tipos diferentes de feijão seco foram utilizados nesta pesquisa, levando em consideração características como forma, formato, tipo e estrutura da  situação do mercado. Um sistema de visão computacional foi desenvolvido para distinguir sete diferentes variedades registradas de feijão seco com características semelhantes, a fim de obter uma classificação uniforme de sementes.
+
+Para o modelo de classificação, foram obtidas imagens de 13.611 grãos de 7 feijões cadastrados diferentes com câmera de alta resolução. As imagens de feijão obtidas por sistema de visão computacional foram submetidas às etapas de segmentação e extração de características, totalizando 16 características; 12 dimensões e 4 formatos foram obtidos a partir dos grãos.
+
+Fonte: Dry Bean Dataset. (2020). UCI Machine Learning Repository. <a href="https://doi.org/10.24432/C50S4B" class="uri">https://doi.org/10.24432/C50S4B</a>.
+
+Informações:
+
+
+>
+**Area: (A)** A área de uma zona de bean e o número de pixels dentro de seus limites pixels
+>
+**Perimeter: (P)** A circunferência do feijão é definida como o comprimento de sua borda.
+>
+**MajorAxisLength: (L)** A distância entre as extremidades da linha mais longa que pode ser traçada a partir de um feijão
+>
+**MinorAxisLength: (l)** A linha mais longa que pode ser traçada a partir do feijão perpendicular ao eixo principal.
+>
+**AspectRation: (K)** Define a relação entre L e l. 
+>
+**Eccentricity: (Ec)** Excentricidade da elipse tendo os mesmos momentos da região.
+>
+**ConvexArea: (C)** Número de pixels no menor polígono convexo que pode conter a área de uma semente de feijão.
+>
+**EquivDiameter: (Ed)** O diâmetro de um círculo com a mesma área que a área de uma semente de feijão.
+>
+**Extent: (Ex)** A proporção entre os pixels na caixa delimitadora e a área do bean.
+>
+**Solidity: (S)** Também conhecida como convexidade. A proporção entre os pixels na casca convexa e aqueles encontrados nos feijões.
+>
+**Roundness: (R)** Calculado com a seguinte fórmula: (4piA)/(P^2)
+>
+**Compactness: (CO)** Mede a redondeza de um objeto: Ed/L 
+>
+**ShapeFactor1: (SF1)**
+>
+**ShapeFactor2: (SF2)**
+>
+**ShapeFactor3: (SF3)**
+>
+**ShapeFactor4: (SF4)**
+>
+**Class:** SEKER, BARBUNYA, BOMBAY, CALI, DERMASON, HOROZ e SIRA
+
+
+Queremos verificar se a distribuição da variável **Perimeter** é normal, de maneira global e considerando as sub-amostras de **Perimeter** segundo as diferentes categorias em **Class**.
+
+Percebemos que a quantidade de observações é consideravelmente grande, do qual inferimos que as funções implementando os diversos testes de bondade de ajuste estudados não devem funcionar adequadamente. Por esse motivo, propomos as seguintes alternativas de trabalho:
+
+1. Selecionar uma quantidade grande $B$ de sub-amostras com reposição, digamos $B=10000$, de tamanho 100 cada uma e verificar a bondade de ajuste à normalide de cada sub-amostra. Contar o número se amostras não conformes com a distribuição normal, ou seja, nas quais o teste rejeita a normalidade da sub-amostra e avaliar, com essas informações, a bondade de ajuste da amostra original. Isto justifica-se teoricamente porque, dado um conjunto de variáveis aleatórias independentes $X_1,\cdots,X_n$, com distribuição normal, então, qualquer sub-coleção $X_{i_1},\cdots,X_{i_k}$, $k<n$ também é formada por variáveis aleatórias independentes com distribuição normal.
+
+2. Utilizar testes de bondade de ajuste desenvolvidos para amostras grandes, por exemplo, veja o artigo: [The performance of univariate goodness-of-fit tests for normality based on the empirical characteristic function in large samples](http://leg.ufpr.br/~lucambio/CE050/20211S/normality%20test%20large%20samples.pdf), escrito por J. M. VAN ZYL (2016). Department of Mathematical Statistics and Actuarial Science, University of the Free State, Bloemfontein, South Africa. O teste proposto neste artigo, resumidamente, requer os seguintes passos:
+
+a) Padronizar os dados. Isto pode ser feito utilizando a função base `R` **scale**. Os dados originais $x_1,\cdots,x_n$, padronizados são obtidos
+definidos como $z_i=(x_i-\overline{x}_n)/\sqrt{s_n^2}$, sendo $\overline{x}_n$ e $s^2_n$ a média e variância amostrais.
+
+b) Avaliar a função característica empírica nos dados padronizados, ou seja, avaliar a função $\widehat{\phi}_S(t)=\frac{1}{n}\sum_{i=1}^n
+\mbox{e}^{itz_i}$. Isto pode ser feito, por exemplo, com o auxílio da função R **ecf**, no pacote **empichar**.
+
+c) Avaliar a estatística de teste 
+$$
+\nu_n(1)=\log\left(|\widehat{\phi}_S(1)/\mbox{e}^{-1/2}|\right),
+$$
+onde $\sqrt{n} \, \nu_n(1) \underset{n\to\infty}{\longrightarrow} N(0,0.0431)$, assintoticamente. O valor absoluto, na expressão acima, denota o módulo
+de um número complexo se o argumento for complexo.
+
+d) Rejeita-se a normalidade se 
+$$
+\Bigg| \nu_n(1) \big/ \sqrt{0.0451/n} \Bigg| = \big| 4.8158\sqrt{n} \nu_n(1) \big| > z_{1-\alpha/2},
+$$
+sendo $z_{1-\alpha/2}$ o percentil da distribuição normal padrão com $\alpha$ nível de significância

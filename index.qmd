@@ -53,8 +53,8 @@ Estatística paramétrica e não paramétrica. Testes não paramétricos para um
 **MÓDULO II**: [Problemas de amostra única](ModuloI/index.html)
 
 * Aula 07 - [Teste de Bondade de Ajuste](ModuloII/Aula07/index.html)
-* Aula 08 -
-* Aula 09 -
+* Aula 08 - [Lista de Exercícios 01](ModuloII/Aula08/index.html)
+* Aula 09 - [Problema de Posição](ModuloII/Aula09/index.html)
 * Aula 10 -
 * Aula 11 -
 * Aula 12 -

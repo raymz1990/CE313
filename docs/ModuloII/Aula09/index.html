@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2024-03-27">
 
-<title>CE313 - Estatística Não-Paramétrica - 7&nbsp; Problemas de Posição</title>
+<title>CE313 - Estatística Não-Paramétrica - 8&nbsp; Problemas de Posição</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../ModuloII/Aula07/index.html" rel="prev">
+<link href="../../ModuloII/Aula08/index.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -134,7 +134,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../custom.css">
-<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - 7&nbsp; Problemas de Posição">
+<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - 8&nbsp; Problemas de Posição">
 <meta property="og:description" content="Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).">
 <meta property="og:image" content="non-parametric.pngs">
 <meta property="og:site_name" content="CE313 - Estatística Não-Paramétrica">
@@ -149,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula09/index.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula09/index.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -281,8 +281,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../ModuloII/Aula08/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../ModuloII/Aula09/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></span></a>
   </div>
 </li>
       </ul>
@@ -297,17 +303,17 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#teste-do-sinal" id="toc-teste-do-sinal" class="nav-link active" data-scroll-target="#teste-do-sinal"><span class="header-section-number">7.1</span> Teste do Sinal</a></li>
-  <li><a href="#teste-de-wilcoxon" id="toc-teste-de-wilcoxon" class="nav-link" data-scroll-target="#teste-de-wilcoxon"><span class="header-section-number">7.2</span> teste de Wilcoxon</a></li>
+  <li><a href="#teste-do-sinal" id="toc-teste-do-sinal" class="nav-link active" data-scroll-target="#teste-do-sinal"><span class="header-section-number">8.1</span> Teste do Sinal</a></li>
+  <li><a href="#teste-de-wilcoxon" id="toc-teste-de-wilcoxon" class="nav-link" data-scroll-target="#teste-de-wilcoxon"><span class="header-section-number">8.2</span> teste de Wilcoxon</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloII/Aula09/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula09/index.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula09/index.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></h1>
 </div>
 
 
@@ -335,8 +341,8 @@ P \Big(X \leq k_p(F) \Big) = p,
 \]</span></p>
 <p>isto devido a que no seguinte estudo vamos considerar <span class="math inline">\(F\)</span> absolutamente contínua.</p>
 <p>O <strong>problema de posição</strong> consiste em verficar se <span class="math inline">\(H_0 : k_p(F) = k_0\)</span>, sendo <span class="math inline">\(k_0\)</span> um valor dado, contra alguma das alternativas <span class="math inline">\(k_p(F) &gt; k_0, k_p(F) &lt; k_0\)</span> ou <span class="math inline">\(k_p(F) \neq k_0\)</span>. O problema de posição e simetria consiste em verificar se <span class="math inline">\(H_0 : k_{0.5}(F) = k_0\)</span> e <span class="math inline">\(F\)</span> é simétrica contra <span class="math inline">\(H_0 : k_{0.5}(F) \neq k_0\)</span> ou <span class="math inline">\(F\)</span> não é simétrica.</p>
-<section id="teste-do-sinal" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="teste-do-sinal"><span class="header-section-number">7.1</span> Teste do Sinal</h2>
+<section id="teste-do-sinal" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="teste-do-sinal"><span class="header-section-number">8.1</span> Teste do Sinal</h2>
 <p>Seja <span class="math inline">\(X_1, X_2, \cdots, X_n\)</span> uma amostra aleatória com função de densidade comum <span class="math inline">\(f\)</span>. O problema aqui é verificarmos <span class="math display">\[
 H_0 : κ_p(f) = κ_0 \ \ \ \ \ H_1 : κ_p(f) &gt; κ_0,
 \]</span> onde <span class="math inline">\(κ_p(f)\)</span> é o quantil de ordem <span class="math inline">\(p\)</span> para <span class="math inline">\(f, 0 &lt; p &lt; 1\)</span>. Vejamos como construir a estatística de teste.</p>
@@ -352,7 +358,9 @@ X_1 − κ_0, X_2 − κ_0, \cdots, X_n − κ_0·
 \gamma, &amp; i(x_1, x_2, \cdots, x_n) = c, \\
 0,      &amp; i(x_1, x_2, \cdots, x_n) &lt; c.
 \end{cases}
-\]</span> onde <span class="math inline">\(c\)</span> e <span class="math inline">\(\gamma\)</span> são escolhidos de forma que <span class="math display">\[
+\]</span></p>
+<p>onde <span class="math inline">\(c\)</span> e <span class="math inline">\(\gamma\)</span> são escolhidos de forma que</p>
+<p><span class="math display">\[
 \sum_{k=c}^{n} \binom{n}{i} \ q^i \ p^{n-i} \ +
 \gamma \binom{n}{c} \ q^c \ p^{n-c} = \alpha,
 \]</span></p>
@@ -362,9 +370,9 @@ X_1 − κ_0, X_2 − κ_0, \cdots, X_n − κ_0·
 <p><span class="math display">\[
 \sum_{i=i(X)}^{n} \ \binom{n}{i} \ 0.5^n,
 \]</span></p>
-<p>sendo <span class="math inline">\(i(x) = i(x_1, x_2, \cdots , x_n)\)</span> o valor observado da estatística de teste. Poderíamos gerar tabelas e aplicar o teste de sinal exato para qualquer tamanho de amostra. Sabemos que a aproX_imação normal à binomial é especialmente boa quando <span class="math inline">\(p = 0.5\)</span>.</p>
-<p>Portanto, para valores moderados de <span class="math inline">\(n\)</span> digamos, pelo menos 12, a aproX_imação normal pode ser usada para determinar as regiões de rejeição.</p>
-<p>Como esta é uma aproX_imação contínua a uma distribuição discreta, uma correção de continuidade de 0.5 pode ser incorporada aos cálculos. Por exemplo, para a alternativa, <span class="math inline">\(H_1 : κ_0.5(f) \geq κ_0\)</span>, <span class="math inline">\(H_0\)</span> é rejeitada para <span class="math inline">\(i(x_1, x_2, \cdots , x_n) \geq κ_\alpha\)</span>, sendo <span class="math inline">\(κ_\alpha\)</span> satisfazendo</p>
+<p>sendo <span class="math inline">\(i(x) = i(x_1, x_2, \cdots , x_n)\)</span> o valor observado da estatística de teste. Poderíamos gerar tabelas e aplicar o teste de sinal exato para qualquer tamanho de amostra. Sabemos que a aproximação normal à binomial é especialmente boa quando <span class="math inline">\(p = 0.5\)</span>.</p>
+<p>Portanto, para valores moderados de <span class="math inline">\(n\)</span> digamos, pelo menos 12, a aproximação normal pode ser usada para determinar as regiões de rejeição.</p>
+<p>Como esta é uma aproximação contínua a uma distribuição discreta, uma correção de continuidade de 0.5 pode ser incorporada aos cálculos. Por exemplo, para a alternativa, <span class="math inline">\(H_1 : κ_{0.5}(f) \geq κ_0\)</span>, <span class="math inline">\(H_0\)</span> é rejeitada para <span class="math inline">\(i(x_1, x_2, \cdots , x_n) \geq κ_\alpha\)</span>, sendo <span class="math inline">\(κ_\alpha\)</span> satisfazendo</p>
 <p><span class="math display">\[
 k_\alpha = 0.5n \ + \ 0.5 \ + \ 0.5 \sqrt{nZ_\alpha}.
 \]</span></p>
@@ -397,8 +405,8 @@ median of the differences
 </div>
 <p>O teste do sinal de amostra única, descrito aqui, pode ser modificado para se aplicar à amostragem de uma população bivariada.</p>
 </section>
-<section id="teste-de-wilcoxon" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="teste-de-wilcoxon"><span class="header-section-number">7.2</span> teste de Wilcoxon</h2>
+<section id="teste-de-wilcoxon" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="teste-de-wilcoxon"><span class="header-section-number">8.2</span> teste de Wilcoxon</h2>
 <p>O teste de sinal perde informação, pois ignora a magnitude da diferença entre as observações e o quantil hipotético. O teste de postos sinalizados de Wilcoxon fornece um teste alternativo de posição e simetria que também leva em conta a magnitude dessas diferenças.</p>
 <p>Seja <span class="math inline">\(X_1, X_2, \cdots , X_n\)</span> uma amostra aleatória com função de distribuição <span class="math inline">\(F\)</span> absolutamente contínua que é simétrica a respeito da mediana <span class="math inline">\(m\)</span>. O problema é testar</p>
 <p><span class="math display">\[H_0 : m = m_0\]</span></p>
@@ -1014,8 +1022,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../ModuloII/Aula07/index.html" class="pagination-link  aria-label=" &lt;span="" de="" bondade="" ajuste&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></span>
+      <a href="../../ModuloII/Aula08/index.html" class="pagination-link  aria-label=" &lt;span="" de="" exercicios="" 01&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

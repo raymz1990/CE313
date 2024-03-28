@@ -48,6 +48,7 @@ book:
     - part: "ModuloII/index.qmd"
       chapters:
       - ModuloII/Aula07/index.qmd
+      - ModuloII/Aula08/index.qmd
       - ModuloII/Aula09/index.qmd
 
   page-footer: 

@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-03-22">
 
-<title>CE313 - Estatística Não-Paramétrica</title>
+<title>CE313 - Estatística Não-Paramétrica - 7&nbsp; Lista de Exercicios 01</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +21,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./ModuloI/index.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../ModuloII/Aula09/index.html" rel="next">
+<link href="../../ModuloII/Aula07/index.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -68,9 +104,38 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="custom.css">
-<meta property="og:title" content="CE313 - Estatística Não-Paramétrica">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../custom.css">
+<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - 7&nbsp; Lista de Exercicios 01">
 <meta property="og:description" content="Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).">
 <meta property="og:image" content="non-parametric.pngs">
 <meta property="og:site_name" content="CE313 - Estatística Não-Paramétrica">
@@ -85,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Apresentação</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula08/index.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -100,20 +165,20 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">CE313 - Estatística Não-Paramétrica</a> 
+      <a href="../../">CE313 - Estatística Não-Paramétrica</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://raymz1990.github.io/CE313/tree/main/book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./CE313---Estatística-Não-Paramétrica.pdf">
+            <a class="dropdown-item sidebar-tools-main-item" href="../../CE313---Estatística-Não-Paramétrica.pdf">
               <i class="bi bi-bi-file-pdf pe-1"></i>
             Download PDF
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./CE313---Estatística-Não-Paramétrica.docx">
+            <a class="dropdown-item sidebar-tools-main-item" href="../../CE313---Estatística-Não-Paramétrica.docx">
               <i class="bi bi-bi-file-word pe-1"></i>
             Download Docx
             </a>
@@ -155,13 +220,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Apresentação</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ModuloI/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../ModuloI/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Módulo I</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -170,31 +235,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloI/Aula01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloI/Aula01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloI/Aula02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloI/Aula02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estatísticas de Ordem</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloI/Aula03/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloI/Aula03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica 2</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloI/Aula04/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloI/Aula04/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloI/Aula05/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloI/Aula05/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estimação de Densidades</span></span></a>
   </div>
 </li>
@@ -202,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ModuloII/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../ModuloII/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Módulo I</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -211,19 +276,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloII/Aula07/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloII/Aula07/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloII/Aula08/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloII/Aula08/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ModuloII/Aula09/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../ModuloII/Aula09/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></span></a>
   </div>
 </li>
@@ -235,27 +300,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#apresentação" id="toc-apresentação" class="nav-link active" data-scroll-target="#apresentação">Apresentação</a>
-  <ul class="collapse">
-  <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos</a></li>
-  <li><a href="#ementa" id="toc-ementa" class="nav-link" data-scroll-target="#ementa">Ementa</a></li>
-  <li><a href="#referências-bibliográficas-básicas" id="toc-referências-bibliográficas-básicas" class="nav-link" data-scroll-target="#referências-bibliográficas-básicas">Referências bibliográficas básicas</a></li>
-  <li><a href="#referências-bibliográficas-complementares" id="toc-referências-bibliográficas-complementares" class="nav-link" data-scroll-target="#referências-bibliográficas-complementares">Referências bibliográficas complementares</a></li>
-  <li><a href="#conteúdo-programático" id="toc-conteúdo-programático" class="nav-link" data-scroll-target="#conteúdo-programático">Conteúdo Programático</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../ModuloII/index.html">Módulo I</a></li><li class="breadcrumb-item"><a href="../../ModuloII/Aula08/index.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">CE313 - Estatística Não-Paramétrica</h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></h1>
 </div>
 
 
@@ -263,6 +315,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 22, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -272,100 +330,87 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="apresentação" class="level1 unnumbered">
-<h1 class="unnumbered">Apresentação</h1>
-<p><strong>CE313 - Estatística não-paramétrica</strong> <br>Departamento de Estatística - UFPR <br>Professor: <a href="https://docs.ufpr.br/~lucambio/">Fernando Lucambio Pérez</a> <br>Primeiro Semestre 2024 (15/Fevereiro/2024 - 29/Junho/2024).</p>
-<hr>
-<section id="objetivos" class="level2">
-<h2 class="anchored" data-anchor-id="objetivos">Objetivos</h2>
-<p>Os métodos de inferência estatística não paramétricos ou de distribuição livre, são procedimentos matemáticos para testes de hipóteses e modelos de regressão que, diferentemente da estatística paramétrica, não fazem suposições sobre a distribuição de probabilidade das variáveis a serem consideradas. Objetivo geral: Espera-se que, ao final da disciplina, o aluno deva saber identificar o uso de testes não-paramétricos e lidar de forma apropriada com problemas práticos.</p>
-<p><strong>Objetivos específicos</strong>: Identificar situações nas quais procedimentos não-paramétricos podem ser aplicados, selecionar testes não-paramétrico adequados para um problema em estudo, construir as hipóteses correspondentes e aplicar os procedimentos escolhidos utilizando funções R para esta finalidade.</p>
-</section>
-<section id="ementa" class="level2">
-<h2 class="anchored" data-anchor-id="ementa">Ementa</h2>
-<p>Estatística paramétrica e não paramétrica. Testes não paramétricos para uma, duas ou mais amostras. Estimação não paramétrica de densidades. Introdução aos modelos não paramétricos de regressão.</p>
-<p><strong>Local</strong>: Laboratório B. <br><strong>Horário</strong>: quarta-feira 19:00h, sexta-feira 20:45h. <br><strong>Nota</strong>: a nota final será a soma das notas obtidas nos quatro trabalhos assíncronos programados.</p>
-</section>
-<section id="referências-bibliográficas-básicas" class="level2">
-<h2 class="anchored" data-anchor-id="referências-bibliográficas-básicas">Referências bibliográficas básicas</h2>
+<p>Considere o seguinte conjunto de dados:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>beans <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"http://leg.ufpr.br/~lucambio/CE313/20241S/Beans_Dataset.csv"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(beans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Area"            "Perimeter"       "MajorAxisLength" "MinorAxisLength"
+ [5] "AspectRation"    "Eccentricity"    "ConvexArea"      "EquivDiameter"  
+ [9] "Extent"          "Solidity"        "roundness"       "Compactness"    
+[13] "ShapeFactor1"    "ShapeFactor2"    "ShapeFactor3"    "ShapeFactor4"   
+[17] "Class"          </code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(beans)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13611    17</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(beans[,<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Area Perimeter MajorAxisLength MinorAxisLength AspectRation Eccentricity
+1 28395   610.291        208.1781        173.8887     1.197191    0.5498122
+2 28734   638.018        200.5248        182.7344     1.097356    0.4117853
+3 29380   624.110        212.8261        175.9311     1.209713    0.5627273
+4 30008   645.884        210.5580        182.5165     1.153638    0.4986160
+5 30140   620.134        201.8479        190.2793     1.060798    0.3336797
+6 30279   634.927        212.5606        181.5102     1.171067    0.5204007</code></pre>
+</div>
+</div>
+<p>Sete tipos diferentes de feijão seco foram utilizados nesta pesquisa, levando em consideração características como forma, formato, tipo e estrutura da situação do mercado. Um sistema de visão computacional foi desenvolvido para distinguir sete diferentes variedades registradas de feijão seco com características semelhantes, a fim de obter uma classificação uniforme de sementes.</p>
+<p>Para o modelo de classificação, foram obtidas imagens de 13.611 grãos de 7 feijões cadastrados diferentes com câmera de alta resolução. As imagens de feijão obtidas por sistema de visão computacional foram submetidas às etapas de segmentação e extração de características, totalizando 16 características; 12 dimensões e 4 formatos foram obtidos a partir dos grãos.</p>
+<p>Fonte: Dry Bean Dataset. (2020). UCI Machine Learning Repository. <a href="https://doi.org/10.24432/C50S4B" class="uri">https://doi.org/10.24432/C50S4B</a>.</p>
+<p>Informações:</p>
+<blockquote class="blockquote">
+<p><strong>Area: (A)</strong> A área de uma zona de bean e o número de pixels dentro de seus limites pixels</p>
+<p><strong>Perimeter: (P)</strong> A circunferência do feijão é definida como o comprimento de sua borda.</p>
+<p><strong>MajorAxisLength: (L)</strong> A distância entre as extremidades da linha mais longa que pode ser traçada a partir de um feijão</p>
+<p><strong>MinorAxisLength: (l)</strong> A linha mais longa que pode ser traçada a partir do feijão perpendicular ao eixo principal.</p>
+<p><strong>AspectRation: (K)</strong> Define a relação entre L e l.</p>
+<p><strong>Eccentricity: (Ec)</strong> Excentricidade da elipse tendo os mesmos momentos da região.</p>
+<p><strong>ConvexArea: (C)</strong> Número de pixels no menor polígono convexo que pode conter a área de uma semente de feijão.</p>
+<p><strong>EquivDiameter: (Ed)</strong> O diâmetro de um círculo com a mesma área que a área de uma semente de feijão.</p>
+<p><strong>Extent: (Ex)</strong> A proporção entre os pixels na caixa delimitadora e a área do bean.</p>
+<p><strong>Solidity: (S)</strong> Também conhecida como convexidade. A proporção entre os pixels na casca convexa e aqueles encontrados nos feijões.</p>
+<p><strong>Roundness: (R)</strong> Calculado com a seguinte fórmula: (4piA)/(P^2)</p>
+<p><strong>Compactness: (CO)</strong> Mede a redondeza de um objeto: Ed/L</p>
+<p><strong>ShapeFactor1: (SF1)</strong></p>
+<p><strong>ShapeFactor2: (SF2)</strong></p>
+<p><strong>ShapeFactor3: (SF3)</strong></p>
+<p><strong>ShapeFactor4: (SF4)</strong></p>
+<p><strong>Class:</strong> SEKER, BARBUNYA, BOMBAY, CALI, DERMASON, HOROZ e SIRA</p>
+</blockquote>
+<p>Queremos verificar se a distribuição da variável <strong>Perimeter</strong> é normal, de maneira global e considerando as sub-amostras de <strong>Perimeter</strong> segundo as diferentes categorias em <strong>Class</strong>.</p>
+<p>Percebemos que a quantidade de observações é consideravelmente grande, do qual inferimos que as funções implementando os diversos testes de bondade de ajuste estudados não devem funcionar adequadamente. Por esse motivo, propomos as seguintes alternativas de trabalho:</p>
 <ol type="1">
-<li>Conover, W.J. (1999). Practical nonparametric statistics. 3rd. ed.&nbsp;New York: Chichester: John Wiley &amp; Sons (Asia).</li>
-<li>Gibbons, J.D. (1993). Nonparametric Statistics: An Introduction, Newbury Park: Sage Publications.</li>
-<li>Siegel, S. and Castellan, N.H. (2006). Estatística não-paramétrica para ciências do comportamento. RS: Artmed.</li>
-<li>Lucambio, F. (2023). <a href="leg.ufpr.br/~lucambio/Nonparam/Nparam.html">Estatística não paramétrica</a></li>
+<li><p>Selecionar uma quantidade grande <span class="math inline">\(B\)</span> de sub-amostras com reposição, digamos <span class="math inline">\(B=10000\)</span>, de tamanho 100 cada uma e verificar a bondade de ajuste à normalide de cada sub-amostra. Contar o número se amostras não conformes com a distribuição normal, ou seja, nas quais o teste rejeita a normalidade da sub-amostra e avaliar, com essas informações, a bondade de ajuste da amostra original. Isto justifica-se teoricamente porque, dado um conjunto de variáveis aleatórias independentes <span class="math inline">\(X_1,\cdots,X_n\)</span>, com distribuição normal, então, qualquer sub-coleção <span class="math inline">\(X_{i_1},\cdots,X_{i_k}\)</span>, <span class="math inline">\(k&lt;n\)</span> também é formada por variáveis aleatórias independentes com distribuição normal.</p></li>
+<li><p>Utilizar testes de bondade de ajuste desenvolvidos para amostras grandes, por exemplo, veja o artigo: <a href="http://leg.ufpr.br/~lucambio/CE050/20211S/normality%20test%20large%20samples.pdf">The performance of univariate goodness-of-fit tests for normality based on the empirical characteristic function in large samples</a>, escrito por J. M. VAN ZYL (2016). Department of Mathematical Statistics and Actuarial Science, University of the Free State, Bloemfontein, South Africa. O teste proposto neste artigo, resumidamente, requer os seguintes passos:</p></li>
 </ol>
-</section>
-<section id="referências-bibliográficas-complementares" class="level2">
-<h2 class="anchored" data-anchor-id="referências-bibliográficas-complementares">Referências bibliográficas complementares</h2>
-<ol type="1">
-<li>Hastie, T.; Tibshirani, R. and Friedman, J. (2013). The elements of statistical learning: Data mining, inference, and prediction. Springer New York.</li>
-<li>Hollander, M. and Wolfe, D.A. (1999). Nonparametric statistical methods. 2nd. ed.&nbsp;New York: John Wiley &amp; Sons.</li>
-<li>Kloke, J. and McKean, J.W. (2015). Nonparametric statistical methods using R. Boca Raton: CRC Press.</li>
-<li>Silverman, B.W. (1994). Nonparametric Regression and Generalized Linear Models: A Roughness Penalty Approach, London: Editora Chapman &amp; Hall.</li>
-<li>Wasserman, L. (2006). All of nonparametric statistics: New York: Springer.</li>
+<ol type="a">
+<li><p>Padronizar os dados. Isto pode ser feito utilizando a função base <code>R</code> <strong>scale</strong>. Os dados originais <span class="math inline">\(x_1,\cdots,x_n\)</span>, padronizados são obtidos definidos como <span class="math inline">\(z_i=(x_i-\overline{x}_n)/\sqrt{s_n^2}\)</span>, sendo <span class="math inline">\(\overline{x}_n\)</span> e <span class="math inline">\(s^2_n\)</span> a média e variância amostrais.</p></li>
+<li><p>Avaliar a função característica empírica nos dados padronizados, ou seja, avaliar a função <span class="math inline">\(\widehat{\phi}_S(t)=\frac{1}{n}\sum_{i=1}^n
+\mbox{e}^{itz_i}\)</span>. Isto pode ser feito, por exemplo, com o auxílio da função R <strong>ecf</strong>, no pacote <strong>empichar</strong>.</p></li>
+<li><p>Avaliar a estatística de teste <span class="math display">\[
+\nu_n(1)=\log\left(|\widehat{\phi}_S(1)/\mbox{e}^{-1/2}|\right),
+\]</span> onde <span class="math inline">\(\sqrt{n} \, \nu_n(1) \underset{n\to\infty}{\longrightarrow} N(0,0.0431)\)</span>, assintoticamente. O valor absoluto, na expressão acima, denota o módulo de um número complexo se o argumento for complexo.</p></li>
+<li><p>Rejeita-se a normalidade se <span class="math display">\[
+\Bigg| \nu_n(1) \big/ \sqrt{0.0451/n} \Bigg| = \big| 4.8158\sqrt{n} \nu_n(1) \big| &gt; z_{1-\alpha/2},
+\]</span> sendo <span class="math inline">\(z_{1-\alpha/2}\)</span> o percentil da distribuição normal padrão com <span class="math inline">\(\alpha\)</span> nível de significância</p></li>
 </ol>
-</section>
-<section id="conteúdo-programático" class="level2">
-<h2 class="anchored" data-anchor-id="conteúdo-programático">Conteúdo Programático</h2>
-<p><strong>MÓDULO I</strong>: <a href="ModuloI/index.html">Estimação não paramétrica</a></p>
-<ul>
-<li>Aula 01 - <a href="ModuloI/Aula01/index.html">Estatística não paramétrica 1</a></li>
-<li>Aula 02 - <a href="ModuloI/Aula02/index.html">Estatísticas de ordem</a></li>
-<li>Aula 03 - <a href="ModuloI/Aula03/index.html">Estatística não paramétrica 2</a></li>
-<li>Aula 04 - <a href="ModuloI/Aula04/index.html">Função de Distribuição Empírica</a></li>
-<li>Aula 05 -</li>
-<li>Aula 06 -</li>
-</ul>
-<hr>
-<p><strong>MÓDULO II</strong>: <a href="ModuloI/index.html">Problemas de amostra única</a></p>
-<ul>
-<li>Aula 07 - <a href="ModuloII/Aula07/index.html">Teste de Bondade de Ajuste</a></li>
-<li>Aula 08 - <a href="ModuloII/Aula08/index.html">Lista de Exercícios 01</a></li>
-<li>Aula 09 - <a href="ModuloII/Aula09/index.html">Problema de Posição</a></li>
-<li>Aula 10 -</li>
-<li>Aula 11 -</li>
-<li>Aula 12 -</li>
-<li>Aula 13 -</li>
-<li>Aula 14 -</li>
-</ul>
-<hr>
-<p><strong>MÓDULO III</strong>: <a href="leg.ufpr.br/~lucambio/Nonparam/NparamIII.html">Procedimentos em k amostras</a></p>
-<ul>
-<li>Aula 15 -</li>
-<li>Aula 16 -</li>
-<li>Aula 17 -</li>
-<li>Aula 18 -</li>
-<li>Aula 19 -</li>
-<li>Aula 20 -</li>
-<li>Aula 21 -</li>
-<li>Aula 22 -</li>
-</ul>
-<hr>
-<p><strong>MÓDULO IV</strong>: <a href="leg.ufpr.br/~lucambio/Nonparam/NparamIV.html">Regressão não paramétrica</a></p>
-<ul>
-<li>Aula 23 -</li>
-<li>Aula 24 -</li>
-<li>Aula 25 -</li>
-<li>Aula 26 -</li>
-<li>Aula 27 -</li>
-<li>Aula 28 -</li>
-<li>Aula 29 -</li>
-<li>Aula 30 -</li>
-</ul>
-<hr>
-<p><strong>MÓDULO V</strong>: <a href="leg.ufpr.br/~lucambio/Nonparam/NparamV.html">Redes neurais</a></p>
-<ul>
-<li>Aula 31 -</li>
-<li>Aula 32 -</li>
-<li>Aula 33 -</li>
-<li>Aula 34 -</li>
-<li>Aula 35 -</li>
-<li>Aula 36 -</li>
-</ul>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -757,10 +802,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../../ModuloII/Aula07/index.html" class="pagination-link  aria-label=" &lt;span="" de="" bondade="" ajuste&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ModuloI/index.html" class="pagination-link" aria-label="Módulo I">
-        <span class="nav-page-text">Módulo I</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../ModuloII/Aula09/index.html" class="pagination-link" aria-label="<span class='chapter-number'>8</span>&nbsp; <span class='chapter-title'>Lista de Exercicios 01</span>">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -772,7 +820,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/ModuloII/Aula08/index.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

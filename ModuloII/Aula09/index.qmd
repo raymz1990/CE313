@@ -38,7 +38,9 @@ $$
 0,      & i(x_1, x_2, \cdots, x_n) < c.
 \end{cases}
 $$
+
 onde $c$ e $\gamma$ são escolhidos de forma que
+
 $$
 \sum_{k=c}^{n} \binom{n}{i} \ q^i \ p^{n-i} \ +
 \gamma \binom{n}{c} \ q^c \ p^{n-c} = \alpha,
@@ -54,11 +56,11 @@ $$
 \sum_{i=i(X)}^{n} \ \binom{n}{i} \ 0.5^n,
 $$
 
-sendo $i(x) = i(x_1, x_2, \cdots , x_n)$ o valor observado da estatística de teste. Poderíamos gerar tabelas e aplicar o teste de sinal exato para qualquer tamanho de amostra. Sabemos que a aproX_imação normal à binomial é especialmente boa quando $p = 0.5$.
+sendo $i(x) = i(x_1, x_2, \cdots , x_n)$ o valor observado da estatística de teste. Poderíamos gerar tabelas e aplicar o teste de sinal exato para qualquer tamanho de amostra. Sabemos que a aproximação normal à binomial é especialmente boa quando $p = 0.5$.
 
-Portanto, para valores moderados de $n$ digamos, pelo menos 12, a aproX_imação normal pode ser usada para determinar as regiões de rejeição.
+Portanto, para valores moderados de $n$ digamos, pelo menos 12, a aproximação normal pode ser usada para determinar as regiões de rejeição.
 
-Como esta é uma aproX_imação contínua a uma distribuição discreta, uma correção de continuidade de 0.5 pode ser incorporada aos cálculos. Por exemplo, para a alternativa, $H_1 : κ_0.5(f) \geq κ_0$, $H_0$ é rejeitada para $i(x_1, x_2, \cdots , x_n) \geq κ_\alpha$, sendo $κ_\alpha$ satisfazendo
+Como esta é uma aproximação contínua a uma distribuição discreta, uma correção de continuidade de 0.5 pode ser incorporada aos cálculos. Por exemplo, para a alternativa, $H_1 : κ_{0.5}(f) \geq κ_0$, $H_0$ é rejeitada para $i(x_1, x_2, \cdots , x_n) \geq κ_\alpha$, sendo $κ_\alpha$ satisfazendo
 
 $$
 k_\alpha = 0.5n \ + \ 0.5 \ + \ 0.5 \sqrt{nZ_\alpha}.
