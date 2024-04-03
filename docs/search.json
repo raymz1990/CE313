@@ -426,5 +426,82 @@
       "Módulo I",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lista de Exercicios 01</span>"
     ]
+  },
+  {
+    "objectID": "Exames/Trabalho01.html",
+    "href": "Exames/Trabalho01.html",
+    "title": "Trabalho 01",
+    "section": "",
+    "text": "Exercício 1.\nSeja \\(X \\sim Bernoulli \\ \\text{(1\\2)}\\) e considere todas as possíveis amostras aleatórias de tamanho \\(n = 3\\). Calcule \\(\\overline{X}_n\\) e \\(S_n^2\\) para cada uma das oito amostras. Encontre a função de probabilidade de \\(\\overline{X}_n\\) e \\(S_n^2\\).",
+    "crumbs": [
+      "Exames",
+      "Trabalho 01"
+    ]
+  },
+  {
+    "objectID": "Exames/Trabalho01.html#exercício-1.",
+    "href": "Exames/Trabalho01.html#exercício-1.",
+    "title": "Trabalho 01",
+    "section": "",
+    "text": "Amostras aleatórias possíveis de tamanho \\(n = 3\\):\n\n\n(0, 0, 0)\n(0, 0, 1)\n(0, 1, 0)\n(0, 1, 1)\n(1, 0, 0)\n(1, 0, 1)\n(1, 1, 0)\n(1, 1, 1)\n\n\nCálculo de \\(\\overline{X}_n\\) e \\(S_n^2\\) para cada amostra:\n\n\n(0, 0, 0)\n\n\\(\\overline{X}_n = \\frac{(0 + 0 + 0)}{3} = 0\\)\n\\(S_n^2 = \\frac{(0-0)^2 + (0-0)^2 + (0-0)^2}{3} = 0\\)\n\n(0, 0, 1)\n\n\\(\\overline{X}_n = \\frac{(0 + 0 + 1)}{3} = \\frac{1}{3}\\)\n\\(S_n^2 = \\frac{\\big(0-\\frac{1}{3}\\big)^2 + \\big(0-\\frac{1}{3}\\big)^2 + \\big(1-\\frac{1}{3}\\big)^2}{3} = \\frac{1}{3}\\)\n\n(0, 1, 0)\n\n\\(\\overline{X}_n = \\frac{(0 + 1 + 0)}{3} = \\frac{1}{3}\\)\n\\(S_n^2 = \\frac{\\big(0-\\frac{1}{3}\\big)^2 + \\big(1-\\frac{1}{3}\\big)^2 + \\big(0-\\frac{1}{3}\\big)^2}{3} = \\frac{1}{3}\\)\n\n(0, 1, 1)\n\n\\(\\overline{X}_n = \\frac{(0 + 1 + 1)}{3} = \\frac{2}{3}\\)\n\\(S_n^2 = \\frac{\\big(0-\\frac{2}{3}\\big)^2 + \\big(1-\\frac{2}{3}\\big)^2 + \\big(1-\\frac{2}{3}\\big)^2}{3} = \\frac{1}{3}\\)\n\n(1, 0, 0)\n\n\\(\\overline{X}_n = \\frac{(1 + 0 + 0)}{3} = \\frac{1}{3}\\)\n\\(S_n^2 = \\frac{\\big(1-\\frac{1}{3}\\big)^2 + \\big(0-\\frac{1}{3}\\big)^2 + \\big(0-\\frac{1}{3}\\big)^2}{3} = \\frac{1}{3}\\)\n\n(1, 0, 1)\n\n\\(\\overline{X}_n = \\frac{(1 + 0 + 1)}{3} = \\frac{2}{3}\\)\n\\(S_n^2 = \\frac{\\big(1-\\frac{2}{3}\\big)^2 + \\big(0-\\frac{2}{3}\\big)^2 + \\big(1-\\frac{2}{3}\\big)^2}{3} = \\frac{1}{3}\\)\n\n(1, 1, 0)\n\n\\(\\overline{X}_n = \\frac{(1 + 1 + 0)}{3} = \\frac{2}{3}\\)\n\\(S_n^2 = \\frac{\\big(1-\\frac{2}{3}\\big)^2 + \\big(1-\\frac{2}{3}\\big)^2 + \\big(0-\\frac{2}{3}\\big)^2}{3} = \\frac{1}{3}\\)\n\n(1, 1, 1)\n\n\\(\\overline{X}_n = \\frac{(1 + 1 + 1)}{3} = 1\\)\n\\(S_n^2 = \\frac{(1-1)^2 + (1-1)^2 + (1-1)^2}{3} = 0\\)\n\n\n\nCálculo de da função de Probilidade \\((\\mathcal{P})\\) das amostras:\n\n\nPara \\(\\overline{X}_n\\):\n\n\n\\(\\mathcal{P} \\Big(\\overline{X}_n = 0\\Big) = \\frac{1}{8}\\)\n\\(\\mathcal{P} \\Big(\\overline{X}_n = \\frac{1}{3}\\Big) = \\frac{1}{8}\\)\n\\(\\mathcal{P} \\Big(\\overline{X}_n = \\frac{2}{3}\\Big) = \\frac{3}{8}\\)\n\\(\\mathcal{P} \\Big(\\overline{X}_n = 1\\Big) = \\frac{1}{8}\\)\n\n\nPara \\(S_n^2\\):\n\n\n\\(\\mathcal{P} \\Big(S_n^2 = \\frac{1}{3}\\Big) = 1\\)",
+    "crumbs": [
+      "Exames",
+      "Trabalho 01"
+    ]
+  },
+  {
+    "objectID": "Exames/Trabalho01.html#exercício-2.",
+    "href": "Exames/Trabalho01.html#exercício-2.",
+    "title": "Trabalho 01",
+    "section": "Exercício 2.",
+    "text": "Exercício 2.\nUm dado é lançado. Seja \\(X\\) o valor da face superior que aparece e \\(X_1, X_2\\) duas observações independentes de \\(X\\). Encontre a função de probabilidade de \\(\\overline{X}_n\\).\nDado:\n\n\\(X\\): Valor da face superior do dado lançado.\n\\(X_1\\) e \\(X_2\\): Duas observações independentes de \\(X\\).\n\nSabemos que:\n\nO dado tem 6 faces numeradas de 1 a 6, cada uma com probabilidade igual de \\(\\frac{1}{6}\\) de aparecer.\nVamos calcular \\(\\overline{X}_n\\), que é a média das observações.\n\n\\(\\overline{X}_n = \\frac{X_1 + X_2}{2}\\)\nComo \\(X_1\\) e \\(X_2\\) são independentes e têm a mesma distribuição de probabilidade que \\(X\\), a média \\(\\overline{X}_n\\) terá a mesma distribuição que \\(X\\).\nPortanto, a função de probabilidade de \\(\\overline{X}_n\\) é a mesma que a função de probabilidade de \\(X\\).\nA função de probabilidade de \\(X\\) é:\n\\[\n\\mathcal{P}(X = x) =\n\\begin{cases}\n\\frac{1}{6} & \\text{se } x = 1, 2, 3, 4, 5, 6 \\\\\n0 & \\text{caso contrário}\n\\end{cases}\n\\]\nPortanto, a função de probabilidade de \\(\\overline{X}_n\\) é:\n\\[\n\\mathcal{P}(\\overline{X}_n = x) =\n\\begin{cases}\n\\frac{1}{6} & \\text{se } x = 1, 2, 3, 4, 5, 6 \\\\\n0 & \\text{caso contrário}\n\\end{cases}\n\\]\nIsso significa que a média das duas observações do dado tem a mesma distribuição de probabilidade que o valor de uma única observação do dado.",
+    "crumbs": [
+      "Exames",
+      "Trabalho 01"
+    ]
+  },
+  {
+    "objectID": "Exames/Trabalho01.html#exercício-3.",
+    "href": "Exames/Trabalho01.html#exercício-3.",
+    "title": "Trabalho 01",
+    "section": "Exercício 3.",
+    "text": "Exercício 3.\nProvar que, qualquer seja a amostra aleatória \\(X_1.X_2, \\cdots , X_n\\) sempre cumpre-se que \\(X_{(1)} \\leq X \\leq X_{(n)}\\).\n\nBase da indução: Para \\(n = 1\\), a amostra consiste apenas em um elemento, então \\(X_{(1)} = X = X_{(n)}\\). A desigualdade é normalmente verdadeira.\nHipótese de indução: Suponha que a desigualdade seja verdadeira para uma amostra aleatória de tamanho \\(n\\), isto é, \\(X_{(1)} \\leq X \\leq X_{(n)}\\).\nPasso da indução: Vamos considerar uma amostra aleatória de tamanho \\((n+1)\\). Seja \\(X_{(1)}^{(n)}\\) o menor valor na amostra e \\(X_{(n+1)}^{(n)}\\) o maior valor na amostra.\n\nExistem duas possibilidades:\n\nO novo elemento é menor ou igual ao menor valor atual na amostra, ou seja, \\(X_{(1)}^{(n+1)} = X_{(1)}^{(n)}\\).\nO novo elemento é maior ou igual ao maior valor atual na amostra, ou seja, \\(X_{(n+1)}^{(n+1)} = X_{(n+1)}^{(n)}\\).\n\nEm ambos os casos, a desigualdade \\(X_{(1)} \\leq X \\leq X_{(n)}\\) continua válida. Se o novo elemento for menor ou igual ao menor valor atual, então \\(X \\geq X_{(1)}^{(n+1)} = X_{(1)}^{(n)}\\); se for maior ou igual ao maior valor atual, então \\(X \\leq X_{(n+1)}^{(n+1)} = X_{(n+1)}^{(n)}\\).\nPortanto, por indução, podemos concluir que para qualquer amostra aleatória \\(X_1, X_2, \\cdots, X_n\\), sempre cumpre-se que \\(X_{(1)} \\leq X \\leq X_{(n)}\\).",
+    "crumbs": [
+      "Exames",
+      "Trabalho 01"
+    ]
+  },
+  {
+    "objectID": "Exames/Trabalho01.html#exercício-4.",
+    "href": "Exames/Trabalho01.html#exercício-4.",
+    "title": "Trabalho 01",
+    "section": "Exercício 4.",
+    "text": "Exercício 4.\nSeja \\(X_1, \\cdots , X_n\\) uma amostra aleatória \\(Poisson(\\theta)\\). Encontre \\(Var(S_n^2)\\) e compare-a com Var(\\(\\overline{X}_n\\)).\nPara uma amostra aleatória de uma distribuição Poisson com parâmetro \\(\\theta\\), a média e a variância da distribuição Poisson são ambas iguais a \\(\\theta\\). Portanto, para cada observação \\(X_i\\), temos \\(E[X_i] = \\theta\\) e \\(Var(X_i) = \\theta\\).\nA média amostral \\(\\overline{X}_n\\) é dada por:\n\\(\\overline{X}_n = \\frac{1}{n}\\sum_{i=1}^{n} X_i\\)\nE a variância amostral \\(S_n^2\\) é dada por:\n\\(S_n^2 = \\frac{1}{n-1}\\sum_{i=1}^{n} (X_i - \\overline{X}_n)^2\\)\nComo os \\(X_i\\) são independentes e cada um tem média \\(\\theta\\) e variância \\(\\theta\\), temos que:\n\\(E\\Big[\\overline{X}_n\\Big] = \\frac{1}{n} \\times n \\times \\theta = \\theta\\)\n\\(Var(\\overline{X}_n) = \\frac{1}{n^2} \\times n \\times \\theta = \\frac{\\theta}{n}\\)\nPara encontrar \\(Var(S_n^2)\\), primeiro precisamos encontrar \\(E[S_n^2]\\), que é a média da variância amostral \\(S_n^2\\). Isso requer o cálculo dos momentos de segunda ordem da distribuição Poisson.\nPara uma variável aleatória Poisson com parâmetro \\(\\theta\\), temos que:\n\\(E[X_i^2] = Var(X_i) + (E[X_i])^2 = \\theta + \\theta^2\\)\nAgora podemos calcular \\(E[S_n^2]\\):\n\\(E[S_n^2] = \\frac{1}{n-1}\\sum_{i=1}^{n} E[(X_i - \\overline{X}_n)^2]\\)\n\\(= \\frac{1}{n-1}\\sum_{i=1}^{n} (E[X_i^2] - 2E[X_i]\\overline{X}_n + \\overline{X}_n^2)\\)\n\\(= \\frac{1}{n-1}\\sum_{i=1}^{n} (\\theta + \\theta^2 - 2\\theta\\overline{X}_n + \\overline{X}_n^2)\\)\n\\(= \\frac{1}{n-1}\\sum_{i=1}^{n} (\\theta + \\theta^2 - 2\\theta\\overline{X}_n + \\frac{\\theta^2}{n^2})\\)\n\\(= \\frac{1}{n-1}\\sum_{i=1}^{n} \\theta + \\frac{\\theta^2}{n} - 2\\theta\\overline{X}_n + \\frac{\\theta^2}{n^2}\\)\n\\(= \\frac{n \\times \\theta + n \\times \\frac{\\theta^2}{n} - 2n \\times \\theta\\overline{X}_n + \\theta^2}{n-1}\\)\n\\(= \\frac{n \\times \\theta + \\theta^2 - 2n \\times \\theta^2 + \\theta^2}{n-1}\\)\n\\(= \\frac{n \\times \\theta - n \\times \\theta^2}{n-1}\\)\n\\(= \\frac{n \\times (\\theta - \\theta^2)}{n-1}\\)\nPortanto,\n\\(Var(S_n^2) = E[S_n^2] - (E[S_n^2])^2\\)\n\\(= \\frac{n \\times (\\theta - \\theta^2)}{n-1} - \\left(\\frac{n \\times (\\theta - \\theta^2)}{n-1}\\right)^2\\)\nComparando \\(Var(S_n^2)\\) com \\(Var(\\overline{X}_n)\\), podemos ver que a variância de \\(S_n^2\\) é geralmente maior do que a variância de \\(\\overline{X}_n\\). Isso ocorre porque a variância de \\(S_n^2\\) depende do tamanho da amostra \\(n\\), enquanto a variância de \\(\\overline{X}_n\\) diminui à medida que o tamanho da amostra aumenta.",
+    "crumbs": [
+      "Exames",
+      "Trabalho 01"
+    ]
+  },
+  {
+    "objectID": "Exames/Trabalho01.html#exercício-5.",
+    "href": "Exames/Trabalho01.html#exercício-5.",
+    "title": "Trabalho 01",
+    "section": "Exercício 5.",
+    "text": "Exercício 5.\nSejam \\(X_1, X_2, \\cdots , X_m\\) e \\(Y_1, Y_2, \\cdots , Y_n\\) amostras independentes de duas distribuições absolutamente contínuas. Encontre o estimador não viciado de mínima variância de:\n(a)\\(E(XY)\\)\nO estimador de momentos para \\(E(XY)\\) é simplesmente o produto dos estimadores de momentos de \\(X\\) e \\(Y\\), já que eles são independentes:\n\\(\\hat{E}(XY) = \\hat{E}(X) \\times \\hat{E}(Y)\\)\nOnde: - \\(\\hat{E}(X)\\) é o estimador não viciado de mínima variância para a média de \\(X\\). - \\(\\hat{E}(Y)\\) é o estimador não viciado de mínima variância para a média de \\(Y\\).\n(b)\\(Var(X + Y)\\)\nPara encontrar o estimador não viciado de mínima variância para \\(Var(X + Y)\\), vamos primeiro lembrar que, se \\(X\\) e \\(Y\\) são independentes, então:\n\\(Var(X + Y) = Var(X) + Var(Y)\\)\nEntão, precisamos encontrar os estimadores não viciados de mínima variância para \\(Var(X)\\) e \\(Var(Y)\\).\nO estimador não viciado de mínima variância para a variância é a média dos quadrados das observações menos o quadrado da média. Assim:\n\\(\\hat{Var}(X) = \\frac{1}{m-1} \\sum_{i=1}^{m} (X_i - \\overline{X})^2\\) \\(\\hat{Var}(Y) = \\frac{1}{n-1} \\sum_{i=1}^{n} (Y_i - \\overline{Y})^2\\)\nOnde: - \\(\\overline{X}\\) é a média da amostra de \\(X\\). - \\(\\overline{Y}\\) é a média da amostra de \\(Y\\).\nPortanto, o estimador não viciado de mínima variância para \\(Var(X + Y)\\) é:\n\\(\\hat{Var}(X + Y) = \\hat{Var}(X) + \\hat{Var}(Y)\\)",
+    "crumbs": [
+      "Exames",
+      "Trabalho 01"
+    ]
+  },
+  {
+    "objectID": "Exames/Trabalho01.html#exercício-6.",
+    "href": "Exames/Trabalho01.html#exercício-6.",
+    "title": "Trabalho 01",
+    "section": "Exercício 6.",
+    "text": "Exercício 6.\nSeja \\(f\\) a função de densidade da função de distribuição \\(F\\) e \\[\n\\hat{f}(x) = \\frac{1}{2nh} \\sum_{i=1}^n 1_{x-h,x+h)} (X_i),\n\\] um estimador da função de densidade, sendo \\(h\\) um número real conhecido como largura de banda. Então, com probabilidade 1, \\[\n2nh \\hat{f}b(x) \\sim Binomial(n, p),\n\\] sendo \\(p = F(x+h)−F(x−h)\\). Encontrar:\n(a)\\(E\\big(\\hat{f}(x)\\big)\\)\nComo \\(\\hat{f}(x)\\) é uma média de variáveis indicadoras, sua esperança pode ser encontrada usando a linearidade da esperança:\n\\[E(\\hat{f}(x)) = \\frac{1}{2nh} \\sum_{i=1}^n E(1_{x-h,x+h}(X_i))\\]\nA função indicadora \\(1_{x-h,x+h}(X_i)\\) é 1 se \\(X_i\\) cai no intervalo ((x-h, x+h)), e 0 caso contrário. Portanto:\n\\[E(1_{x-h,x+h}(X_i)) = P(X_i \\in (x-h, x+h))\\]\nIsso é igual à probabilidade de \\(X_i\\) cair no intervalo ((x-h, x+h)), que podemos expressar como a diferença entre as probabilidades acumuladas \\(F(x+h)\\) e \\(F(x-h)\\).\nEntão, \\(p = F(x+h) - F(x-h)\\).\nPortanto,\n\\[E(\\hat{f}(x)) = \\frac{1}{2nh} \\sum_{i=1}^n p = \\frac{n \\times p}{2nh} = \\frac{p}{2h}\\]\n(b)\\(Var \\big(\\hat{f}(x) \\big)\\)\nPara encontrar a variância de \\(\\hat{f}(x)\\), usamos a propriedade de variância de uma soma de variáveis independentes:\n\\[Var(\\hat{f}(x)) = \\frac{1}{(2nh)^2} \\sum_{i=1}^n Var(1_{x-h,x+h}(X_i))\\]\nComo as variáveis indicadoras são binárias (tomando valores 0 ou 1), suas variâncias são:\n\\[Var(1_{x-h,x+h}(X_i)) = p(1-p)\\]\nJá que \\(1_{x-h,x+h}(X_i)\\) é uma variável indicadora e \\(p\\) é a probabilidade de sucesso.\nPortanto,\n\\[Var(\\hat{f}(x)) = \\frac{n \\times p(1-p)}{(2nh)^2} = \\frac{p(1-p)}{(2nh)}\\]",
+    "crumbs": [
+      "Exames",
+      "Trabalho 01"
+    ]
   }
 ]

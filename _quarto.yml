@@ -51,6 +51,10 @@ book:
       - ModuloII/Aula08/index.qmd
       - ModuloII/Aula09/index.qmd
 
+    - part: "Exames"
+      chapters:
+      - Exames/Trabalho01.qmd
+
   page-footer: 
     left: |
       Estatística 2023-2026

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CE313 - Estatística Não-Paramétrica - Trabalho 01</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ModuloII/Aula09/index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../custom.css">
+<meta property="og:title" content="CE313 - Estatística Não-Paramétrica - Trabalho 01">
+<meta property="og:description" content="Material da disciplina CE313 - ESTATISTICA NÃO PARAMÉTRICA do curso de Estatística da Universidade Federal do Paraná (UFPR).">
+<meta property="og:image" content="non-parametric.pngs">
+<meta property="og:site_name" content="CE313 - Estatística Não-Paramétrica">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Exames/Trabalho01.html">Exames</a></li><li class="breadcrumb-item"><a href="../Exames/Trabalho01.html">Trabalho 01</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CE313 - Estatística Não-Paramétrica</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://raymz1990.github.io/CE313/tree/main/book/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../CE313---Estatística-Não-Paramétrica.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="../CE313---Estatística-Não-Paramétrica.docx">
+              <i class="bi bi-bi-file-word pe-1"></i>
+            Download Docx
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Apresentação</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ModuloI/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Módulo I</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloI/Aula01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloI/Aula02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Estatísticas de Ordem</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloI/Aula03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estatística Não Paramétrica 2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloI/Aula04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Função de Distribuição Empírica</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloI/Aula05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estimação de Densidades</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../ModuloII/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Módulo I</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloII/Aula07/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teste de Bondade de Ajuste</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloII/Aula08/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lista de Exercicios 01</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ModuloII/Aula09/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Exames</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Exames/Trabalho01.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Trabalho 01</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#exercício-1." id="toc-exercício-1." class="nav-link active" data-scroll-target="#exercício-1.">Exercício 1.</a></li>
+  <li><a href="#exercício-2." id="toc-exercício-2." class="nav-link" data-scroll-target="#exercício-2.">Exercício 2.</a></li>
+  <li><a href="#exercício-3." id="toc-exercício-3." class="nav-link" data-scroll-target="#exercício-3.">Exercício 3.</a></li>
+  <li><a href="#exercício-4." id="toc-exercício-4." class="nav-link" data-scroll-target="#exercício-4.">Exercício 4.</a></li>
+  <li><a href="#exercício-5." id="toc-exercício-5." class="nav-link" data-scroll-target="#exercício-5.">Exercício 5.</a></li>
+  <li><a href="#exercício-6." id="toc-exercício-6." class="nav-link" data-scroll-target="#exercício-6.">Exercício 6.</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/Exames/Trabalho01.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Exames/Trabalho01.html">Exames</a></li><li class="breadcrumb-item"><a href="../Exames/Trabalho01.html">Trabalho 01</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Trabalho 01</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>CE13 - Estatística Não Paramétrica</strong> <br>Departamento de Estatística - UFPR <br>Professor: Fernando Lucambio <br>Aluno: GRR 20233881 - Raymundo Eduardo Pilz <br>3 de abril de 2024.</p>
+<section id="exercício-1." class="level2">
+<h2 class="anchored" data-anchor-id="exercício-1.">Exercício 1.</h2>
+<p><strong>Seja <span class="math inline">\(X \sim Bernoulli \ \text{(1\2)}\)</span> e considere todas as possíveis amostras aleatórias de tamanho <span class="math inline">\(n = 3\)</span>. Calcule <span class="math inline">\(\overline{X}_n\)</span> e <span class="math inline">\(S_n^2\)</span> para cada uma das oito amostras. Encontre a função de probabilidade de <span class="math inline">\(\overline{X}_n\)</span> e <span class="math inline">\(S_n^2\)</span></strong>.</p>
+<ul>
+<li>Amostras aleatórias possíveis de tamanho <span class="math inline">\(n = 3\)</span>:</li>
+</ul>
+<ol type="1">
+<li>(0, 0, 0)</li>
+<li>(0, 0, 1)</li>
+<li>(0, 1, 0)</li>
+<li>(0, 1, 1)</li>
+<li>(1, 0, 0)</li>
+<li>(1, 0, 1)</li>
+<li>(1, 1, 0)</li>
+<li>(1, 1, 1)</li>
+</ol>
+<ul>
+<li>Cálculo de <span class="math inline">\(\overline{X}_n\)</span> e <span class="math inline">\(S_n^2\)</span> para cada amostra:</li>
+</ul>
+<ol type="1">
+<li>(0, 0, 0)
+<ul>
+<li><span class="math inline">\(\overline{X}_n = \frac{(0 + 0 + 0)}{3} = 0\)</span></li>
+<li><span class="math inline">\(S_n^2 = \frac{(0-0)^2 + (0-0)^2 + (0-0)^2}{3} = 0\)</span></li>
+</ul></li>
+<li>(0, 0, 1)
+<ul>
+<li><span class="math inline">\(\overline{X}_n = \frac{(0 + 0 + 1)}{3} = \frac{1}{3}\)</span></li>
+<li><span class="math inline">\(S_n^2 = \frac{\big(0-\frac{1}{3}\big)^2 + \big(0-\frac{1}{3}\big)^2 + \big(1-\frac{1}{3}\big)^2}{3} = \frac{1}{3}\)</span></li>
+</ul></li>
+<li>(0, 1, 0)
+<ul>
+<li><span class="math inline">\(\overline{X}_n = \frac{(0 + 1 + 0)}{3} = \frac{1}{3}\)</span></li>
+<li><span class="math inline">\(S_n^2 = \frac{\big(0-\frac{1}{3}\big)^2 + \big(1-\frac{1}{3}\big)^2 + \big(0-\frac{1}{3}\big)^2}{3} = \frac{1}{3}\)</span></li>
+</ul></li>
+<li>(0, 1, 1)
+<ul>
+<li><span class="math inline">\(\overline{X}_n = \frac{(0 + 1 + 1)}{3} = \frac{2}{3}\)</span></li>
+<li><span class="math inline">\(S_n^2 = \frac{\big(0-\frac{2}{3}\big)^2 + \big(1-\frac{2}{3}\big)^2 + \big(1-\frac{2}{3}\big)^2}{3} = \frac{1}{3}\)</span></li>
+</ul></li>
+<li>(1, 0, 0)
+<ul>
+<li><span class="math inline">\(\overline{X}_n = \frac{(1 + 0 + 0)}{3} = \frac{1}{3}\)</span></li>
+<li><span class="math inline">\(S_n^2 = \frac{\big(1-\frac{1}{3}\big)^2 + \big(0-\frac{1}{3}\big)^2 + \big(0-\frac{1}{3}\big)^2}{3} = \frac{1}{3}\)</span></li>
+</ul></li>
+<li>(1, 0, 1)
+<ul>
+<li><span class="math inline">\(\overline{X}_n = \frac{(1 + 0 + 1)}{3} = \frac{2}{3}\)</span></li>
+<li><span class="math inline">\(S_n^2 = \frac{\big(1-\frac{2}{3}\big)^2 + \big(0-\frac{2}{3}\big)^2 + \big(1-\frac{2}{3}\big)^2}{3} = \frac{1}{3}\)</span></li>
+</ul></li>
+<li>(1, 1, 0)
+<ul>
+<li><span class="math inline">\(\overline{X}_n = \frac{(1 + 1 + 0)}{3} = \frac{2}{3}\)</span></li>
+<li><span class="math inline">\(S_n^2 = \frac{\big(1-\frac{2}{3}\big)^2 + \big(1-\frac{2}{3}\big)^2 + \big(0-\frac{2}{3}\big)^2}{3} = \frac{1}{3}\)</span></li>
+</ul></li>
+<li>(1, 1, 1)
+<ul>
+<li><span class="math inline">\(\overline{X}_n = \frac{(1 + 1 + 1)}{3} = 1\)</span></li>
+<li><span class="math inline">\(S_n^2 = \frac{(1-1)^2 + (1-1)^2 + (1-1)^2}{3} = 0\)</span></li>
+</ul></li>
+</ol>
+<ul>
+<li>Cálculo de da função de Probilidade <span class="math inline">\((\mathcal{P})\)</span> das amostras:</li>
+</ul>
+<ol type="a">
+<li>Para <span class="math inline">\(\overline{X}_n\)</span>:</li>
+</ol>
+<ol type="1">
+<li><p><span class="math inline">\(\mathcal{P} \Big(\overline{X}_n = 0\Big) = \frac{1}{8}\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{P} \Big(\overline{X}_n = \frac{1}{3}\Big) = \frac{1}{8}\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{P} \Big(\overline{X}_n = \frac{2}{3}\Big) = \frac{3}{8}\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{P} \Big(\overline{X}_n = 1\Big) = \frac{1}{8}\)</span></p></li>
+</ol>
+<ol start="2" type="a">
+<li>Para <span class="math inline">\(S_n^2\)</span>:</li>
+</ol>
+<ol type="1">
+<li><span class="math inline">\(\mathcal{P} \Big(S_n^2 = \frac{1}{3}\Big) = 1\)</span></li>
+</ol>
+<hr>
+</section>
+<section id="exercício-2." class="level2">
+<h2 class="anchored" data-anchor-id="exercício-2.">Exercício 2.</h2>
+<p><strong>Um dado é lançado. Seja <span class="math inline">\(X\)</span> o valor da face superior que aparece e <span class="math inline">\(X_1, X_2\)</span> duas observações independentes de <span class="math inline">\(X\)</span>. Encontre a função de probabilidade de <span class="math inline">\(\overline{X}_n\)</span></strong>.</p>
+<p>Dado:</p>
+<ul>
+<li><span class="math inline">\(X\)</span>: Valor da face superior do dado lançado.</li>
+<li><span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_2\)</span>: Duas observações independentes de <span class="math inline">\(X\)</span>.</li>
+</ul>
+<p>Sabemos que:</p>
+<ul>
+<li>O dado tem 6 faces numeradas de 1 a 6, cada uma com probabilidade igual de <span class="math inline">\(\frac{1}{6}\)</span> de aparecer.</li>
+<li>Vamos calcular <span class="math inline">\(\overline{X}_n\)</span>, que é a média das observações.</li>
+</ul>
+<p><span class="math inline">\(\overline{X}_n = \frac{X_1 + X_2}{2}\)</span></p>
+<p>Como <span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_2\)</span> são independentes e têm a mesma distribuição de probabilidade que <span class="math inline">\(X\)</span>, a média <span class="math inline">\(\overline{X}_n\)</span> terá a mesma distribuição que <span class="math inline">\(X\)</span>.</p>
+<p>Portanto, a função de probabilidade de <span class="math inline">\(\overline{X}_n\)</span> é a mesma que a função de probabilidade de <span class="math inline">\(X\)</span>.</p>
+<p>A função de probabilidade de <span class="math inline">\(X\)</span> é:</p>
+<p><span class="math display">\[
+\mathcal{P}(X = x) =
+\begin{cases}
+\frac{1}{6} &amp; \text{se } x = 1, 2, 3, 4, 5, 6 \\
+0 &amp; \text{caso contrário}
+\end{cases}
+\]</span></p>
+<p>Portanto, a função de probabilidade de <span class="math inline">\(\overline{X}_n\)</span> é:</p>
+<p><span class="math display">\[
+\mathcal{P}(\overline{X}_n = x) =
+\begin{cases}
+\frac{1}{6} &amp; \text{se } x = 1, 2, 3, 4, 5, 6 \\
+0 &amp; \text{caso contrário}
+\end{cases}
+\]</span></p>
+<p>Isso significa que a média das duas observações do dado tem a mesma distribuição de probabilidade que o valor de uma única observação do dado.</p>
+<hr>
+</section>
+<section id="exercício-3." class="level2">
+<h2 class="anchored" data-anchor-id="exercício-3.">Exercício 3.</h2>
+<p><strong>Provar que, qualquer seja a amostra aleatória <span class="math inline">\(X_1.X_2, \cdots , X_n\)</span> sempre cumpre-se que <span class="math inline">\(X_{(1)} \leq X \leq X_{(n)}\)</span></strong>.</p>
+<ul>
+<li><p><strong>Base da indução:</strong> Para <span class="math inline">\(n = 1\)</span>, a amostra consiste apenas em um elemento, então <span class="math inline">\(X_{(1)} = X = X_{(n)}\)</span>. A desigualdade é normalmente verdadeira.</p></li>
+<li><p><strong>Hipótese de indução:</strong> Suponha que a desigualdade seja verdadeira para uma amostra aleatória de tamanho <span class="math inline">\(n\)</span>, isto é, <span class="math inline">\(X_{(1)} \leq X \leq X_{(n)}\)</span>.</p></li>
+<li><p><strong>Passo da indução:</strong> Vamos considerar uma amostra aleatória de tamanho <span class="math inline">\((n+1)\)</span>. Seja <span class="math inline">\(X_{(1)}^{(n)}\)</span> o menor valor na amostra e <span class="math inline">\(X_{(n+1)}^{(n)}\)</span> o maior valor na amostra.</p></li>
+</ul>
+<p>Existem duas possibilidades:</p>
+<ol type="1">
+<li>O novo elemento é menor ou igual ao menor valor atual na amostra, ou seja, <span class="math inline">\(X_{(1)}^{(n+1)} = X_{(1)}^{(n)}\)</span>.</li>
+<li>O novo elemento é maior ou igual ao maior valor atual na amostra, ou seja, <span class="math inline">\(X_{(n+1)}^{(n+1)} = X_{(n+1)}^{(n)}\)</span>.</li>
+</ol>
+<p>Em ambos os casos, a desigualdade <span class="math inline">\(X_{(1)} \leq X \leq X_{(n)}\)</span> continua válida. Se o novo elemento for menor ou igual ao menor valor atual, então <span class="math inline">\(X \geq X_{(1)}^{(n+1)} = X_{(1)}^{(n)}\)</span>; se for maior ou igual ao maior valor atual, então <span class="math inline">\(X \leq X_{(n+1)}^{(n+1)} = X_{(n+1)}^{(n)}\)</span>.</p>
+<p>Portanto, por indução, podemos concluir que para qualquer amostra aleatória <span class="math inline">\(X_1, X_2, \cdots, X_n\)</span>, sempre cumpre-se que <span class="math inline">\(X_{(1)} \leq X \leq X_{(n)}\)</span>.</p>
+<hr>
+</section>
+<section id="exercício-4." class="level2">
+<h2 class="anchored" data-anchor-id="exercício-4.">Exercício 4.</h2>
+<p><strong>Seja <span class="math inline">\(X_1, \cdots , X_n\)</span> uma amostra aleatória <span class="math inline">\(Poisson(\theta)\)</span>. Encontre <span class="math inline">\(Var(S_n^2)\)</span> e compare-a com Var(<span class="math inline">\(\overline{X}_n\)</span>)</strong>.</p>
+<p>Para uma amostra aleatória de uma distribuição Poisson com parâmetro <span class="math inline">\(\theta\)</span>, a média e a variância da distribuição Poisson são ambas iguais a <span class="math inline">\(\theta\)</span>. Portanto, para cada observação <span class="math inline">\(X_i\)</span>, temos <span class="math inline">\(E[X_i] = \theta\)</span> e <span class="math inline">\(Var(X_i) = \theta\)</span>.</p>
+<p>A média amostral <span class="math inline">\(\overline{X}_n\)</span> é dada por:</p>
+<p><span class="math inline">\(\overline{X}_n = \frac{1}{n}\sum_{i=1}^{n} X_i\)</span></p>
+<p>E a variância amostral <span class="math inline">\(S_n^2\)</span> é dada por:</p>
+<p><span class="math inline">\(S_n^2 = \frac{1}{n-1}\sum_{i=1}^{n} (X_i - \overline{X}_n)^2\)</span></p>
+<p>Como os <span class="math inline">\(X_i\)</span> são independentes e cada um tem média <span class="math inline">\(\theta\)</span> e variância <span class="math inline">\(\theta\)</span>, temos que:</p>
+<p><span class="math inline">\(E\Big[\overline{X}_n\Big] = \frac{1}{n} \times n \times \theta = \theta\)</span></p>
+<p><span class="math inline">\(Var(\overline{X}_n) = \frac{1}{n^2} \times n \times \theta = \frac{\theta}{n}\)</span></p>
+<p>Para encontrar <span class="math inline">\(Var(S_n^2)\)</span>, primeiro precisamos encontrar <span class="math inline">\(E[S_n^2]\)</span>, que é a média da variância amostral <span class="math inline">\(S_n^2\)</span>. Isso requer o cálculo dos momentos de segunda ordem da distribuição Poisson.</p>
+<p>Para uma variável aleatória Poisson com parâmetro <span class="math inline">\(\theta\)</span>, temos que:</p>
+<p><span class="math inline">\(E[X_i^2] = Var(X_i) + (E[X_i])^2 = \theta + \theta^2\)</span></p>
+<p>Agora podemos calcular <span class="math inline">\(E[S_n^2]\)</span>:</p>
+<p><span class="math inline">\(E[S_n^2] = \frac{1}{n-1}\sum_{i=1}^{n} E[(X_i - \overline{X}_n)^2]\)</span></p>
+<p><span class="math inline">\(= \frac{1}{n-1}\sum_{i=1}^{n} (E[X_i^2] - 2E[X_i]\overline{X}_n + \overline{X}_n^2)\)</span></p>
+<p><span class="math inline">\(= \frac{1}{n-1}\sum_{i=1}^{n} (\theta + \theta^2 - 2\theta\overline{X}_n + \overline{X}_n^2)\)</span></p>
+<p><span class="math inline">\(= \frac{1}{n-1}\sum_{i=1}^{n} (\theta + \theta^2 - 2\theta\overline{X}_n + \frac{\theta^2}{n^2})\)</span></p>
+<p><span class="math inline">\(= \frac{1}{n-1}\sum_{i=1}^{n} \theta + \frac{\theta^2}{n} - 2\theta\overline{X}_n + \frac{\theta^2}{n^2}\)</span></p>
+<p><span class="math inline">\(= \frac{n \times \theta + n \times \frac{\theta^2}{n} - 2n \times \theta\overline{X}_n + \theta^2}{n-1}\)</span></p>
+<p><span class="math inline">\(= \frac{n \times \theta + \theta^2 - 2n \times \theta^2 + \theta^2}{n-1}\)</span></p>
+<p><span class="math inline">\(= \frac{n \times \theta - n \times \theta^2}{n-1}\)</span></p>
+<p><span class="math inline">\(= \frac{n \times (\theta - \theta^2)}{n-1}\)</span></p>
+<p>Portanto,</p>
+<p><span class="math inline">\(Var(S_n^2) = E[S_n^2] - (E[S_n^2])^2\)</span></p>
+<p><span class="math inline">\(= \frac{n \times (\theta - \theta^2)}{n-1} - \left(\frac{n \times (\theta - \theta^2)}{n-1}\right)^2\)</span></p>
+<p>Comparando <span class="math inline">\(Var(S_n^2)\)</span> com <span class="math inline">\(Var(\overline{X}_n)\)</span>, podemos ver que a variância de <span class="math inline">\(S_n^2\)</span> é geralmente maior do que a variância de <span class="math inline">\(\overline{X}_n\)</span>. Isso ocorre porque a variância de <span class="math inline">\(S_n^2\)</span> depende do tamanho da amostra <span class="math inline">\(n\)</span>, enquanto a variância de <span class="math inline">\(\overline{X}_n\)</span> diminui à medida que o tamanho da amostra aumenta.</p>
+<hr>
+</section>
+<section id="exercício-5." class="level2">
+<h2 class="anchored" data-anchor-id="exercício-5.">Exercício 5.</h2>
+<p><strong>Sejam <span class="math inline">\(X_1, X_2, \cdots , X_m\)</span> e <span class="math inline">\(Y_1, Y_2, \cdots , Y_n\)</span> amostras independentes de duas distribuições absolutamente contínuas. Encontre o estimador não viciado de mínima variância de</strong>:</p>
+<p><strong>(a)<span class="math inline">\(E(XY)\)</span></strong></p>
+<p>O estimador de momentos para <span class="math inline">\(E(XY)\)</span> é simplesmente o produto dos estimadores de momentos de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, já que eles são independentes:</p>
+<p><span class="math inline">\(\hat{E}(XY) = \hat{E}(X) \times \hat{E}(Y)\)</span></p>
+<p>Onde: - <span class="math inline">\(\hat{E}(X)\)</span> é o estimador não viciado de mínima variância para a média de <span class="math inline">\(X\)</span>. - <span class="math inline">\(\hat{E}(Y)\)</span> é o estimador não viciado de mínima variância para a média de <span class="math inline">\(Y\)</span>.</p>
+<p><strong>(b)<span class="math inline">\(Var(X + Y)\)</span></strong></p>
+<p>Para encontrar o estimador não viciado de mínima variância para <span class="math inline">\(Var(X + Y)\)</span>, vamos primeiro lembrar que, se <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> são independentes, então:</p>
+<p><span class="math inline">\(Var(X + Y) = Var(X) + Var(Y)\)</span></p>
+<p>Então, precisamos encontrar os estimadores não viciados de mínima variância para <span class="math inline">\(Var(X)\)</span> e <span class="math inline">\(Var(Y)\)</span>.</p>
+<p>O estimador não viciado de mínima variância para a variância é a média dos quadrados das observações menos o quadrado da média. Assim:</p>
+<p><span class="math inline">\(\hat{Var}(X) = \frac{1}{m-1} \sum_{i=1}^{m} (X_i - \overline{X})^2\)</span> <span class="math inline">\(\hat{Var}(Y) = \frac{1}{n-1} \sum_{i=1}^{n} (Y_i - \overline{Y})^2\)</span></p>
+<p>Onde: - <span class="math inline">\(\overline{X}\)</span> é a média da amostra de <span class="math inline">\(X\)</span>. - <span class="math inline">\(\overline{Y}\)</span> é a média da amostra de <span class="math inline">\(Y\)</span>.</p>
+<p>Portanto, o estimador não viciado de mínima variância para <span class="math inline">\(Var(X + Y)\)</span> é:</p>
+<p><span class="math inline">\(\hat{Var}(X + Y) = \hat{Var}(X) + \hat{Var}(Y)\)</span></p>
+<hr>
+</section>
+<section id="exercício-6." class="level2">
+<h2 class="anchored" data-anchor-id="exercício-6.">Exercício 6.</h2>
+<p><strong>Seja <span class="math inline">\(f\)</span> a função de densidade da função de distribuição <span class="math inline">\(F\)</span> e</strong> <span class="math display">\[
+\hat{f}(x) = \frac{1}{2nh} \sum_{i=1}^n 1_{x-h,x+h)} (X_i),
+\]</span> <strong>um estimador da função de densidade, sendo <span class="math inline">\(h\)</span> um número real conhecido como largura de banda. Então, com probabilidade 1,</strong> <span class="math display">\[
+2nh \hat{f}b(x) \sim Binomial(n, p),
+\]</span> <strong>sendo <span class="math inline">\(p = F(x+h)−F(x−h)\)</span>. Encontrar</strong>:</p>
+<p><strong>(a)<span class="math inline">\(E\big(\hat{f}(x)\big)\)</span></strong></p>
+<p>Como <span class="math inline">\(\hat{f}(x)\)</span> é uma média de variáveis indicadoras, sua esperança pode ser encontrada usando a linearidade da esperança:</p>
+<p><span class="math display">\[E(\hat{f}(x)) = \frac{1}{2nh} \sum_{i=1}^n E(1_{x-h,x+h}(X_i))\]</span></p>
+<p>A função indicadora <span class="math inline">\(1_{x-h,x+h}(X_i)\)</span> é 1 se <span class="math inline">\(X_i\)</span> cai no intervalo ((x-h, x+h)), e 0 caso contrário. Portanto:</p>
+<p><span class="math display">\[E(1_{x-h,x+h}(X_i)) = P(X_i \in (x-h, x+h))\]</span></p>
+<p>Isso é igual à probabilidade de <span class="math inline">\(X_i\)</span> cair no intervalo ((x-h, x+h)), que podemos expressar como a diferença entre as probabilidades acumuladas <span class="math inline">\(F(x+h)\)</span> e <span class="math inline">\(F(x-h)\)</span>.</p>
+<p>Então, <span class="math inline">\(p = F(x+h) - F(x-h)\)</span>.</p>
+<p>Portanto,</p>
+<p><span class="math display">\[E(\hat{f}(x)) = \frac{1}{2nh} \sum_{i=1}^n p = \frac{n \times p}{2nh} = \frac{p}{2h}\]</span></p>
+<p><strong>(b)<span class="math inline">\(Var \big(\hat{f}(x) \big)\)</span></strong></p>
+<p>Para encontrar a variância de <span class="math inline">\(\hat{f}(x)\)</span>, usamos a propriedade de variância de uma soma de variáveis independentes:</p>
+<p><span class="math display">\[Var(\hat{f}(x)) = \frac{1}{(2nh)^2} \sum_{i=1}^n Var(1_{x-h,x+h}(X_i))\]</span></p>
+<p>Como as variáveis indicadoras são binárias (tomando valores 0 ou 1), suas variâncias são:</p>
+<p><span class="math display">\[Var(1_{x-h,x+h}(X_i)) = p(1-p)\]</span></p>
+<p>Já que <span class="math inline">\(1_{x-h,x+h}(X_i)\)</span> é uma variável indicadora e <span class="math inline">\(p\)</span> é a probabilidade de sucesso.</p>
+<p>Portanto,</p>
+<p><span class="math display">\[Var(\hat{f}(x)) = \frac{n \times p(1-p)}{(2nh)^2} = \frac{p(1-p)}{(2nh)}\]</span></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../ModuloII/Aula09/index.html" class="pagination-link  aria-label=" &lt;span="" de="" posição&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Problemas de Posição</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Estatística 2023-2026</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://raymz1990.github.io/CE313/edit/main/book/Exames/Trabalho01.qmd" class="toc-action"><i class="bi bi-git"></i>Edit this page</a></li><li><a href="https://raymz1990.github.io/CE313/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
